@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarah Forrest - Interactive Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #ffffff;
+            color: #030203;
+            overflow-x: hidden;
+        }
+
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        header {
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(79, 172, 254, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(90deg, #4facfe 0%, #7dd3fc 100%);
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #030203;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #4facfe;
+            transition: all 0.3s;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover::before {
+            width: 100%;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 5%;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 10vw, 7rem);
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 2rem;
+            letter-spacing: -3px;
+            opacity: 0;
+            animation: slideUp 1s forwards;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, #4facfe 0%, #5eb3d6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            line-height: 1.65;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            animation: slideUp 1s forwards 0.3s;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: slideUp 1s forwards 0.6s;
+        }
+
+        .btn-primary {
+            padding: 1.2rem 3rem;
+            background: #030203;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(79, 172, 254, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-primary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(79, 172, 254, 0.3);
+        }
+
+        .btn-secondary {
+            padding: 1.2rem 3rem;
+            background: transparent;
+            color: #4facfe;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            border: 2px solid #4facfe;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: #4facfe;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(79, 172, 254, 0.3);
+        }
+
+        section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 4rem;
+            letter-spacing: -2px;
+        }
+
+        .about-section h2 {
+            text-align: left;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: white;
+            border: 1px solid rgba(79, 172, 254, 0.15);
+            border-radius: 20px;
+            padding: 3rem;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.03) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(79, 172, 254, 0.15);
+            border-color: rgba(79, 172, 254, 0.3);
+        }
+
+        .project-number {
+            font-size: 0.9rem;
+            color: #4facfe;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .project-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .project-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            padding: 0.4rem 1rem;
+            background: rgba(79, 172, 254, 0.08);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #5eb3d6;
+        }
+
+        .project-link {
+            color: #4facfe;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s;
+        }
+
+        .project-link:hover {
+            gap: 1rem;
+        }
+
+        .about-section {
+            text-align: left;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 5% 4rem;
+            position: relative;
+        }
+
+        .about-content {
+            display: flex;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+
+        .about-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .about-image {
+            flex-shrink: 0;
+            width: 450px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(79, 172, 254, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .about-image img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(79, 172, 254, 0.3);
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            text-align: left;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.05) 0%, rgba(126, 211, 252, 0.03) 100%);
+            border-radius: 30px;
+            padding: 4rem;
+            text-align: center;
+            border: 1px solid rgba(79, 172, 254, 0.1);
+        }
+
+        .contact-section h2 {
+            margin-bottom: 2rem;
+        }
+
+        .email-link {
+            font-size: 1.5rem;
+            color: #030203;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .email-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #4facfe 0%, #7dd3fc 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .email-link:hover::after {
+            transform: scaleX(1);
+        }
+
+        .social-grid {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            padding: 1rem 2rem;
+            background: white;
+            color: #030203;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(79, 172, 254, 0.1);
+            border: 1px solid rgba(79, 172, 254, 0.15);
+        }
+
+        .social-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(79, 172, 254, 0.2);
+            border-color: rgba(79, 172, 254, 0.3);
+        }
+
+        .partnerships-section {
+            padding: 4rem 5%;
+            text-align: center;
+            background: rgba(79, 172, 254, 0.02);
+            border-top: 1px solid rgba(79, 172, 254, 0.1);
+        }
+
+        .partnerships-section h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 3rem;
+            color: #030203;
+            letter-spacing: 0.5px;
+        }
+
+        .partnerships-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .partnerships-logos a {
+            text-decoration: none;
+            display: inline-block;
+            opacity: 0.75;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .partnerships-logos a:hover {
+            opacity: 1;
+            transform: translateY(-5px);
+        }
+
+        .partnerships-logos img {
+            height: 70px;
+            width: auto;
+            max-width: 250px;
+            object-fit: contain;
+        }
+
+        footer {
+            padding: 3rem 5%;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid rgba(79, 172, 254, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .about-image {
+                width: 100%;
+                max-width: 350px;
+                margin: 0 auto;
+            }
+
+            .partnerships-logos {
+                gap: 2rem;
+            }
+
+            .partnerships-logos img {
+                height: 55px;
+            }
+
+            nav {
+                gap: 1rem;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particles-canvas"></canvas>
+
+    <header>
+        <div class="logo">Sarah Forrest</div>
+        <nav>
+            <a href="#about">About Me</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>It's a generative<br>world out there</h1>
+            <p>Building bridges between people and technology.</p>
+            <div class="cta-group">
+                <a href="#projects" class="btn-primary">View Projects</a>
+                <a href="#contact" class="btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>I'm a graduate student in Computer Science specializing in Machine Learning, Generative AI, RLHF, and data quality. My work explores three major questions: How do computational systems drive large-scale change? How does automation and AI reshape labor and workflows? What technical skills are necessary to design, evaluate, and interact with these systems responsibly?</p>
+                <p><strong>Let's tell ethical technical stories together.</strong> I partner with brands to translate complex AI concepts into compelling narratives that educate, inspire, and drive meaningful conversations about technology's role in society.</p>
+            </div>
+            <div class="about-image">
+                <img src="profile-image.jpg" alt="Sarah Forrest">
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card" onclick="window.open('https://sarahfor.github.io/its-a-generative-world/', '_blank')">
+                <div class="project-number">PROJECT 01</div>
+                <h3>6 Ways to Actually Use AI</h3>
+                <p>Educational guide teaching practical AI implementation across different skill levels. Features interactive modals, workflow visualizations, and curated tool recommendations.</p>
+                <div class="project-tags">
+                    <span class="tag">Interactive Guide</span>
+                    <span class="tag">AI Tools</span>
+                    <span class="tag">Education</span>
+                    <span class="tag">Workflow Automation</span>
+                </div>
+                <a href="https://sarahfor.github.io/its-a-generative-world/" class="project-link" target="_blank">
+                    View Project →
+                </a>
+            </div>
+
+            <div class="project-card" onclick="window.open('https://sarahfor.github.io/whiteboard-to-prototype/', '_blank')">
+                <div class="project-number">PROJECT 02</div>
+                <h3>Whiteboard to Prototype</h3>
+                <p>AI-powered tool that transforms hand-drawn sketches into functional web prototypes using Claude AI. Features live demo showcases with interactive examples and open-source code for creating your own prototypes from sketches.</p>
+                <div class="project-tags">
+                    <span class="tag">AI Vision</span>
+                    <span class="tag">Prototyping</span>
+                    <span class="tag">Claude AI</span>
+                    <span class="tag">Interactive</span>
+                </div>
+                <a href="https://sarahfor.github.io/whiteboard-to-prototype/" class="project-link" target="_blank">
+                    View Project →
+                </a>
+            </div>
+
+            <div class="project-card" onclick="window.open('https://sarahfor.github.io/hellogenxai/', '_blank')">
+                <div class="project-number">PROJECT 03</div>
+                <h3>Tech Interview Simulator</h3>
+                <p>Interactive interview preparation platform for Amazon's Agentic AI Teacher role. Features real-time scoring, 20+ coding exercises, and AI-powered feedback using the STAR method.</p>
+                <div class="project-tags">
+                    <span class="tag">Interactive</span>
+                    <span class="tag">Education</span>
+                    <span class="tag">AI Feedback</span>
+                    <span class="tag">Python</span>
+                </div>
+                <a href="https://sarahfor.github.io/hellogenxai/" class="project-link" target="_blank">
+                    View Project →
+                </a>
+            </div>
+
+            <div class="project-card" onclick="window.open('https://github.com/sarahfor', '_blank')">
+                <div class="project-number">PROJECT 04</div>
+                <h3>Explore Github Projects</h3>
+                <p>Browse my complete collection of open-source projects, experiments, and code repositories. From AI tools to web applications, explore all my work on GitHub.</p>
+                <div class="project-tags">
+                    <span class="tag">Open Source</span>
+                    <span class="tag">Code Repository</span>
+                    <span class="tag">Portfolio</span>
+                </div>
+                <a href="https://github.com/sarahfor" class="project-link" target="_blank">
+                    Visit GitHub →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-section">
+            <h2>Let's Connect</h2>
+            <p style="color: #666; margin-bottom: 1rem;">Partnership inquiries:</p>
+            <a href="mailto:hellogenxai@gmail.com" class="email-link">hellogenxai@gmail.com</a>
+            <div class="social-grid">
+                <a href="https://www.linkedin.com/in/sarforre" class="social-btn" target="_blank">LinkedIn</a>
+                <a href="https://www.instagram.com/sarforre/?hl=en" class="social-btn" target="_blank">Instagram</a>
+                <a href="https://sarforre.substack.com/" class="social-btn" target="_blank">Substack</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="partnerships-section">
+        <h3>previous partnerships:</h3>
+        <div class="partnerships-logos">
+            <a href="https://miro.com" target="_blank" rel="noopener noreferrer">
+                <img src="miro-logo.png" alt="Miro">
+            </a>
+            <a href="https://www.google.org" target="_blank" rel="noopener noreferrer">
+                <img src="google-logo.webp" alt="Google.org">
+            </a>
+            <a href="https://labs.google" target="_blank" rel="noopener noreferrer">
+                <img src="google-labs-logo.jpg" alt="Google Labs">
+            </a>
+            <a href="https://www.subaru.com" target="_blank" rel="noopener noreferrer">
+                <img src="subaru-logo.png" alt="Subaru">
+            </a>
+            <a href="https://about.meta.com" target="_blank" rel="noopener noreferrer">
+                <img src="meta-logo.png" alt="Meta">
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Sarah Forrest. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Particle animation with blue/teal colors
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        const particleCount = 80;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.speedY = Math.random() * 1 - 0.5;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+
+            draw() {
+                ctx.fillStyle = 'rgba(79, 172, 254, 0.4)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+
+                for (let j = i; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 120) {
+                        ctx.strokeStyle = `rgba(79, 172, 254, ${0.15 - distance / 1200})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        init();
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
