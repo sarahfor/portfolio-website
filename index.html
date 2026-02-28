@@ -186,13 +186,13 @@
         }
 
         .social-links img {
-            height: 52px;
+            height: 64px;
             width: auto;
             filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
         }
 
         .social-links img[alt="Substack"] {
-            height: 44px;
+            height: 56px;
         }
 
         .image-grid-section {
@@ -554,8 +554,10 @@
             }
 
             .about-text .tagline {
-                font-size: 1.05rem;
+                font-size: 0.95rem;
+                font-family: Georgia, 'Times New Roman', Times, serif;
                 margin-bottom: 1.6rem;
+                white-space: nowrap;
             }
 
             .about-text p {
@@ -589,8 +591,8 @@
             }
 
             .social-links a {
-                width: 56px;
-                height: 56px;
+                width: 64px;
+                height: 64px;
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
@@ -604,8 +606,8 @@
             }
 
             .social-links img {
-                width: 28px;
-                height: 28px;
+                width: 34px;
+                height: 34px;
                 max-width: 100%;
                 max-height: 100%;
                 object-fit: contain;
@@ -613,8 +615,8 @@
             }
 
             .social-links img[alt="Substack"] {
-                width: 34px;
-                height: 22px;
+                width: 40px;
+                height: 26px;
             }
 
             .contact-section {
@@ -692,19 +694,19 @@
             }
 
             .social-links a {
-                width: 52px;
-                height: 52px;
+                width: 60px;
+                height: 60px;
                 border-radius: 14px;
             }
 
             .social-links img {
-                width: 26px;
-                height: 26px;
+                width: 30px;
+                height: 30px;
             }
 
             .social-links img[alt="Substack"] {
-                width: 30px;
-                height: 20px;
+                width: 36px;
+                height: 24px;
             }
 
             .partnerships-logos {
@@ -781,13 +783,13 @@
                     <img src="image%20assets/DSC07357.jpg" alt="Gallery image 3" loading="lazy" decoding="async">
                 </div>
                 <div class="image-tile">
-                    <video src="image%20assets/4ee4e1cdea934a86b603bc6b36a88dbe.mov" autoplay muted loop playsinline preload="metadata" aria-label="Gallery video 2"></video>
+                    <video data-src="image%20assets/4ee4e1cdea934a86b603bc6b36a88dbe.mov" autoplay muted loop playsinline preload="none" aria-label="Gallery video 2"></video>
                 </div>
                 <div class="image-tile">
                     <img src="image%20assets/DSC07368.jpg" alt="Gallery image 4" loading="lazy" decoding="async">
                 </div>
                 <div class="image-tile">
-                    <video src="image%20assets/0048E7AF-ADD8-4598-8964-DDBE4C370763.MP4" autoplay muted loop playsinline preload="metadata" aria-label="Gallery video 1"></video>
+                    <video data-src="image%20assets/0048E7AF-ADD8-4598-8964-DDBE4C370763.MP4" autoplay muted loop playsinline preload="none" aria-label="Gallery video 1"></video>
                 </div>
                 <div class="image-tile">
                     <img src="image%20assets/IMG_0659.jpg" alt="Gallery image 5" loading="lazy" decoding="async">
@@ -868,6 +870,40 @@
     <footer>
         <p>&copy; 2026 Sarah Forrest. All rights reserved.</p>
     </footer>
+
+    <script>
+        const lazyVideos = document.querySelectorAll('.image-grid video[data-src]');
+        const isMobile = window.matchMedia('(max-width: 640px)');
+
+        const loadVideo = (video) => {
+            if (video.dataset.src) {
+                video.src = video.dataset.src;
+                video.removeAttribute('data-src');
+                video.load();
+            }
+        };
+
+        if (!lazyVideos.length) {
+            // nothing to do
+        } else if (!isMobile.matches) {
+            lazyVideos.forEach(loadVideo);
+        } else if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver(
+                (entries, obs) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            loadVideo(entry.target);
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                },
+                { rootMargin: '200px 0px', threshold: 0.1 }
+            );
+            lazyVideos.forEach((video) => observer.observe(video));
+        } else {
+            lazyVideos.forEach(loadVideo);
+        }
+    </script>
 
 </body>
 </html>
