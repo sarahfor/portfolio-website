@@ -195,6 +195,75 @@
             height: 44px;
         }
 
+        .image-grid-section {
+            padding: 3.5rem 5%;
+            max-width: 1250px;
+            margin: 0 auto;
+            background: #ffffff;
+        }
+
+        .image-grid-section h2 {
+            font-size: clamp(1.9rem, 5vw, 2.6rem);
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 2.2rem;
+            color: #1a1a1a;
+            letter-spacing: -1px;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.4rem;
+        }
+
+        .image-grid-ticker {
+            overflow: visible;
+        }
+
+        .image-tile {
+            position: relative;
+            border-radius: 22px;
+            overflow: hidden;
+            background: #f3f5f7;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .image-tile::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.16) 0%, rgba(255, 255, 255, 0) 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .image-tile img,
+        .image-tile video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            aspect-ratio: 4 / 3;
+            transition: transform 0.6s ease;
+        }
+
+        .image-tile:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 26px 60px rgba(15, 23, 42, 0.2);
+        }
+
+        .image-tile:hover img,
+        .image-tile:hover video {
+            transform: scale(1.05);
+        }
+
+        .image-tile:hover::after {
+            opacity: 1;
+        }
+
         .contact-section {
             padding: 7rem 5% 3rem;
             text-align: center;
@@ -306,9 +375,12 @@
             filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.05));
         }
 
-        .partnerships-logos img[alt="Google"],
-        .partnerships-logos img[alt="AGL"] {
+        .partnerships-logos img[alt="Google"] {
             height: 56px;
+        }
+
+        .partnerships-logos img[alt="Verizon"] {
+            height: 50px;
         }
 
         .partnerships-ticker {
@@ -388,6 +460,10 @@
                 padding: 4rem 5%;
             }
 
+            .image-grid-section {
+                padding: 3rem 6%;
+            }
+
 
             .partnerships-logos {
                 gap: 3rem;
@@ -397,9 +473,12 @@
                 height: 50px;
             }
 
-            .partnerships-logos img[alt="Google"],
-            .partnerships-logos img[alt="AGL"] {
+            .partnerships-logos img[alt="Google"] {
                 height: 44px;
+            }
+
+            .partnerships-logos img[alt="Verizon"] {
+                height: 40px;
             }
 
             .partnerships-track {
@@ -485,6 +564,34 @@
                 margin-bottom: 1.75rem;
             }
 
+            .image-grid-section {
+                padding: 2.75rem 6%;
+                margin: 1.75rem 4% 0;
+                border-radius: 24px;
+                box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+                background: #ffffff;
+            }
+
+            .image-grid-ticker {
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 0.5rem;
+            }
+
+            .image-grid {
+                display: flex;
+                flex-wrap: nowrap;
+                width: max-content;
+                gap: 1rem;
+            }
+
+            .image-tile {
+                flex: 0 0 80%;
+                max-width: 320px;
+                scroll-snap-align: center;
+            }
+
             .social-links {
                 gap: 0.9rem;
             }
@@ -556,9 +663,12 @@
                 max-width: 140px;
             }
 
-            .partnerships-logos img[alt="Google"],
-            .partnerships-logos img[alt="AGL"] {
+            .partnerships-logos img[alt="Google"] {
                 height: 34px;
+            }
+
+            .partnerships-logos img[alt="Verizon"] {
+                height: 32px;
             }
 
             .partnerships-track {
@@ -614,9 +724,12 @@
                 max-width: 120px;
             }
 
-            .partnerships-logos img[alt="Google"],
-            .partnerships-logos img[alt="AGL"] {
+            .partnerships-logos img[alt="Google"] {
                 height: 30px;
+            }
+
+            .partnerships-logos img[alt="Verizon"] {
+                height: 28px;
             }
 
             .partnerships-track {
@@ -662,6 +775,50 @@
         </div>
     </section>
 
+    <section class="image-grid-section">
+        <h2>Gallery</h2>
+        <div class="image-grid-ticker" id="galleryTicker">
+            <div class="image-grid">
+                <div class="image-tile">
+                    <img src="image%20assets/691A1377.jpg" alt="Gallery image 1" loading="lazy" decoding="async">
+                </div>
+                <div class="image-tile">
+                    <img src="image%20assets/55117974250_36149dea8c_o.jpg" alt="Gallery image 2" loading="lazy" decoding="async">
+                </div>
+                <div class="image-tile">
+                    <img src="image%20assets/DSC07357.jpg" alt="Gallery image 3" loading="lazy" decoding="async">
+                </div>
+                <div class="image-tile">
+                    <video src="image%20assets/4ee4e1cdea934a86b603bc6b36a88dbe.mov" autoplay muted loop playsinline preload="metadata" aria-label="Gallery video 2"></video>
+                </div>
+                <div class="image-tile">
+                    <video src="image%20assets/0048E7AF-ADD8-4598-8964-DDBE4C370763.MP4" autoplay muted loop playsinline preload="metadata" aria-label="Gallery video 1"></video>
+                </div>
+                <div class="image-tile">
+                    <img src="image%20assets/DSC07368.jpg" alt="Gallery image 4" loading="lazy" decoding="async">
+                </div>
+                <div class="image-tile">
+                    <img src="image%20assets/IMG_0659.jpg" alt="Gallery image 5" loading="lazy" decoding="async">
+                </div>
+                <div class="image-tile">
+                    <img src="image%20assets/DSC07568.jpg" alt="Gallery image 6" loading="lazy" decoding="async">
+                </div>
+                <div class="image-tile">
+                    <img src="image%20assets/IMG_1137.jpg" alt="Gallery image 7" loading="lazy" decoding="async">
+                </div>
+                <div class="image-tile">
+                    <img src="image%20assets/IMG_1933_jpg.jpg" alt="Gallery image 8" loading="lazy" decoding="async">
+                </div>
+                <div class="image-tile">
+                    <img src="image%20assets/IMG_2372_jpg.jpg" alt="Gallery image 9" loading="lazy" decoding="async">
+                </div>
+                <div class="image-tile">
+                    <img src="image%20assets/IMG_2397_jpg.jpg" alt="Gallery image 10" loading="lazy" decoding="async">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="contact-section">
         <h2>Let's Connect</h2>
         <p class="partnership-text">Partnership inquiries:</p>
@@ -688,8 +845,8 @@
                     <a href="https://www.wayfair.com" target="_blank" rel="noopener noreferrer">
                         <img src="wayfair-logo.png" alt="Wayfair">
                     </a>
-                    <a href="https://www.agl.com.au" target="_blank" rel="noopener noreferrer">
-                        <img src="agl-logo.svg" alt="AGL">
+                    <a href="https://www.verizon.com/smallbusinessdigitalready/" target="_blank" rel="noopener noreferrer">
+                        <img src="verizon_2024.svg" alt="Verizon">
                     </a>
                 </div>
                 <div class="partnerships-logos ticker-group" aria-hidden="true">
@@ -708,8 +865,8 @@
                     <a href="https://www.wayfair.com" target="_blank" rel="noopener noreferrer" tabindex="-1">
                         <img src="wayfair-logo.png" alt="Wayfair">
                     </a>
-                    <a href="https://www.agl.com.au" target="_blank" rel="noopener noreferrer" tabindex="-1">
-                        <img src="agl-logo.svg" alt="AGL">
+                    <a href="https://www.verizon.com/smallbusinessdigitalready/" target="_blank" rel="noopener noreferrer" tabindex="-1">
+                        <img src="verizon_2024.svg" alt="Verizon">
                     </a>
                 </div>
             </div>
@@ -719,5 +876,55 @@
     <footer>
         <p>&copy; 2026 Sarah Forrest. All rights reserved.</p>
     </footer>
+
+    <script>
+        const galleryTicker = document.getElementById('galleryTicker');
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const isMobile = window.matchMedia('(max-width: 640px)');
+        let tickerInterval = null;
+
+        const startTicker = () => {
+            if (!galleryTicker || prefersReducedMotion.matches || !isMobile.matches) {
+                return;
+            }
+            const step = 0.5;
+            const speed = 20;
+            tickerInterval = setInterval(() => {
+                if (!galleryTicker) {
+                    return;
+                }
+                const maxScroll = galleryTicker.scrollWidth - galleryTicker.clientWidth;
+                if (maxScroll <= 0) {
+                    return;
+                }
+                if (galleryTicker.scrollLeft >= maxScroll - 1) {
+                    galleryTicker.scrollLeft = 0;
+                } else {
+                    galleryTicker.scrollLeft += step;
+                }
+            }, speed);
+        };
+
+        const stopTicker = () => {
+            if (tickerInterval) {
+                clearInterval(tickerInterval);
+                tickerInterval = null;
+            }
+        };
+
+        if (galleryTicker) {
+            galleryTicker.addEventListener('mouseenter', stopTicker);
+            galleryTicker.addEventListener('mouseleave', startTicker);
+            galleryTicker.addEventListener('touchstart', stopTicker, { passive: true });
+            galleryTicker.addEventListener('touchend', startTicker);
+        }
+
+        window.addEventListener('resize', () => {
+            stopTicker();
+            startTicker();
+        });
+
+        startTicker();
+    </script>
 </body>
 </html>
