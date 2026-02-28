@@ -879,7 +879,13 @@
             if (video.dataset.src) {
                 video.src = video.dataset.src;
                 video.removeAttribute('data-src');
+                video.muted = true;
+                video.playsInline = true;
                 video.load();
+                const playPromise = video.play();
+                if (playPromise && typeof playPromise.catch === 'function') {
+                    playPromise.catch(() => {});
+                }
             }
         };
 
