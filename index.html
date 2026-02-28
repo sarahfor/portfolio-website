@@ -394,13 +394,9 @@
         }
 
         .partnerships-logos {
-            display: flex;
-            justify-content: center;
+            display: inline-flex;
             align-items: center;
             gap: 5rem;
-            flex-wrap: wrap;
-            max-width: 1300px;
-            margin: 0 auto;
         }
 
         .partnerships-logos a {
@@ -423,6 +419,51 @@
             max-width: 200px;
             object-fit: contain;
             filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.05));
+        }
+
+        .partnerships-logos img[alt="Google"],
+        .partnerships-logos img[alt="AGL"] {
+            height: 56px;
+        }
+
+        .partnerships-ticker {
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .partnerships-track {
+            display: flex;
+            gap: 5rem;
+            width: max-content;
+            animation: tickerScroll 32s linear infinite;
+            will-change: transform;
+        }
+
+        .partnerships-track:hover {
+            animation-play-state: paused;
+        }
+
+        .ticker-group {
+            display: inline-flex;
+            align-items: center;
+            gap: 5rem;
+            padding-right: 5rem;
+        }
+
+        @keyframes tickerScroll {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .partnerships-track {
+                animation: none;
+                transform: none;
+            }
         }
 
         footer {
@@ -472,6 +513,21 @@
 
             .partnerships-logos img {
                 height: 50px;
+            }
+
+            .partnerships-logos img[alt="Google"],
+            .partnerships-logos img[alt="AGL"] {
+                height: 44px;
+            }
+
+            .partnerships-track {
+                gap: 3rem;
+                animation-duration: 26s;
+            }
+
+            .ticker-group {
+                gap: 3rem;
+                padding-right: 3rem;
             }
 
             .social-links {
@@ -628,9 +684,7 @@
             }
 
             .partnerships-logos {
-                display: grid;
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 1.5rem;
+                gap: 2rem;
             }
 
             .partnerships-logos a {
@@ -638,8 +692,23 @@
             }
 
             .partnerships-logos img {
-                height: 42px;
+                height: 38px;
                 max-width: 140px;
+            }
+
+            .partnerships-logos img[alt="Google"],
+            .partnerships-logos img[alt="AGL"] {
+                height: 34px;
+            }
+
+            .partnerships-track {
+                gap: 2rem;
+                animation-duration: 22s;
+            }
+
+            .ticker-group {
+                gap: 2rem;
+                padding-right: 2rem;
             }
 
             footer {
@@ -681,12 +750,27 @@
             }
 
             .partnerships-logos {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 1.5rem;
             }
 
             .partnerships-logos img {
-                height: 36px;
+                height: 34px;
                 max-width: 120px;
+            }
+
+            .partnerships-logos img[alt="Google"],
+            .partnerships-logos img[alt="AGL"] {
+                height: 30px;
+            }
+
+            .partnerships-track {
+                gap: 1.5rem;
+                animation-duration: 20s;
+            }
+
+            .ticker-group {
+                gap: 1.5rem;
+                padding-right: 1.5rem;
             }
         }
     </style>
@@ -764,25 +848,49 @@
 
     <section class="partnerships-section">
         <h3>previous partnerships:</h3>
-        <div class="partnerships-logos">
-            <a href="https://miro.com/ai/ai-overview/" target="_blank" rel="noopener noreferrer">
-                <img src="miro-logo.png" alt="Miro">
-            </a>
-            <a href="https://www.google.org" target="_blank" rel="noopener noreferrer">
-                <img src="Google_2015_logo.jpg" alt="Google">
-            </a>
-            <a href="https://www.subaru.com" target="_blank" rel="noopener noreferrer">
-                <img src="subaru-logo.png" alt="Subaru">
-            </a>
-            <a href="https://about.meta.com" target="_blank" rel="noopener noreferrer">
-                <img src="meta-logo.png" alt="Meta">
-            </a>
-            <a href="https://www.wayfair.com" target="_blank" rel="noopener noreferrer">
-                <img src="wayfair-logo.png" alt="Wayfair">
-            </a>
-            <a href="https://www.agl.com.au" target="_blank" rel="noopener noreferrer">
-                <img src="agl-logo.svg" alt="AGL">
-            </a>
+        <div class="partnerships-ticker">
+            <div class="partnerships-track">
+                <div class="partnerships-logos ticker-group">
+                    <a href="https://miro.com/ai/ai-overview/" target="_blank" rel="noopener noreferrer">
+                        <img src="miro-logo.png" alt="Miro">
+                    </a>
+                    <a href="https://www.google.org" target="_blank" rel="noopener noreferrer">
+                        <img src="Google_2015_logo.svg" alt="Google">
+                    </a>
+                    <a href="https://www.subaru.com" target="_blank" rel="noopener noreferrer">
+                        <img src="subaru-logo.png" alt="Subaru">
+                    </a>
+                    <a href="https://about.meta.com" target="_blank" rel="noopener noreferrer">
+                        <img src="meta-logo.png" alt="Meta">
+                    </a>
+                    <a href="https://www.wayfair.com" target="_blank" rel="noopener noreferrer">
+                        <img src="wayfair-logo.png" alt="Wayfair">
+                    </a>
+                    <a href="https://www.agl.com.au" target="_blank" rel="noopener noreferrer">
+                        <img src="agl-logo.svg" alt="AGL">
+                    </a>
+                </div>
+                <div class="partnerships-logos ticker-group" aria-hidden="true">
+                    <a href="https://miro.com/ai/ai-overview/" target="_blank" rel="noopener noreferrer" tabindex="-1">
+                        <img src="miro-logo.png" alt="Miro">
+                    </a>
+                    <a href="https://www.google.org" target="_blank" rel="noopener noreferrer" tabindex="-1">
+                        <img src="Google_2015_logo.svg" alt="Google">
+                    </a>
+                    <a href="https://www.subaru.com" target="_blank" rel="noopener noreferrer" tabindex="-1">
+                        <img src="subaru-logo.png" alt="Subaru">
+                    </a>
+                    <a href="https://about.meta.com" target="_blank" rel="noopener noreferrer" tabindex="-1">
+                        <img src="meta-logo.png" alt="Meta">
+                    </a>
+                    <a href="https://www.wayfair.com" target="_blank" rel="noopener noreferrer" tabindex="-1">
+                        <img src="wayfair-logo.png" alt="Wayfair">
+                    </a>
+                    <a href="https://www.agl.com.au" target="_blank" rel="noopener noreferrer" tabindex="-1">
+                        <img src="agl-logo.svg" alt="AGL">
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
