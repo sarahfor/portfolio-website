@@ -445,6 +445,11 @@
                 display: none;
             }
 
+            .hero {
+                background-attachment: scroll;
+                min-height: 55vh;
+            }
+
             .hero h1 {
                 font-size: clamp(2rem, 8vw, 4rem);
             }
@@ -467,11 +472,112 @@
 
             .social-links {
                 justify-content: center;
+                flex-wrap: wrap;
+                gap: 1.2rem;
             }
 
             .about-text h2::after {
                 left: 50%;
                 transform: translateX(-50%);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero {
+                padding: 0 6%;
+                min-height: 50vh;
+            }
+
+            .about-section {
+                padding: 3.5rem 6%;
+            }
+
+            .about-image {
+                max-width: 320px;
+            }
+
+            .about-text .tagline {
+                font-size: 1.15rem;
+                margin-bottom: 1.8rem;
+            }
+
+            .about-text p {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .social-links img {
+                height: 44px;
+            }
+
+            .projects-section {
+                padding: 2.5rem 6%;
+            }
+
+            .project-card {
+                padding: 1.6rem;
+            }
+
+            .project-card h3 {
+                font-size: 1.25rem;
+            }
+
+            .project-card p {
+                font-size: 0.95rem;
+            }
+
+            .contact-section {
+                padding: 5rem 6% 2.5rem;
+            }
+
+            .contact-section h2 {
+                font-size: clamp(2.1rem, 8vw, 3.2rem);
+            }
+
+            .contact-section .email-link {
+                font-size: clamp(1.3rem, 6vw, 1.8rem);
+                word-break: break-word;
+            }
+
+            .partnerships-section {
+                padding: 2.5rem 6% 4rem;
+            }
+
+            .partnerships-logos {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 1.5rem;
+            }
+
+            .partnerships-logos a {
+                justify-self: center;
+            }
+
+            .partnerships-logos img {
+                height: 42px;
+                max-width: 140px;
+            }
+
+            footer {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero h1 {
+                letter-spacing: -1px;
+            }
+
+            .about-text h2 {
+                font-size: clamp(1.9rem, 9vw, 2.6rem);
+            }
+
+            .projects-section h2 {
+                font-size: clamp(1.6rem, 8vw, 2.1rem);
+            }
+
+            .partnerships-logos {
+                grid-template-columns: 1fr;
             }
         }
     </style>
