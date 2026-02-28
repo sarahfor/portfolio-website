@@ -573,23 +573,15 @@
             }
 
             .image-grid-ticker {
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                -webkit-overflow-scrolling: touch;
-                padding-bottom: 0.5rem;
+                overflow: visible;
+                padding-bottom: 0;
             }
 
             .image-grid {
-                display: flex;
-                flex-wrap: nowrap;
-                width: max-content;
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                width: 100%;
                 gap: 1rem;
-            }
-
-            .image-tile {
-                flex: 0 0 80%;
-                max-width: 320px;
-                scroll-snap-align: center;
             }
 
             .social-links {
@@ -792,10 +784,10 @@
                     <video src="image%20assets/4ee4e1cdea934a86b603bc6b36a88dbe.mov" autoplay muted loop playsinline preload="metadata" aria-label="Gallery video 2"></video>
                 </div>
                 <div class="image-tile">
-                    <video src="image%20assets/0048E7AF-ADD8-4598-8964-DDBE4C370763.MP4" autoplay muted loop playsinline preload="metadata" aria-label="Gallery video 1"></video>
+                    <img src="image%20assets/DSC07368.jpg" alt="Gallery image 4" loading="lazy" decoding="async">
                 </div>
                 <div class="image-tile">
-                    <img src="image%20assets/DSC07368.jpg" alt="Gallery image 4" loading="lazy" decoding="async">
+                    <video src="image%20assets/0048E7AF-ADD8-4598-8964-DDBE4C370763.MP4" autoplay muted loop playsinline preload="metadata" aria-label="Gallery video 1"></video>
                 </div>
                 <div class="image-tile">
                     <img src="image%20assets/IMG_0659.jpg" alt="Gallery image 5" loading="lazy" decoding="async">
@@ -877,54 +869,5 @@
         <p>&copy; 2026 Sarah Forrest. All rights reserved.</p>
     </footer>
 
-    <script>
-        const galleryTicker = document.getElementById('galleryTicker');
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-        const isMobile = window.matchMedia('(max-width: 640px)');
-        let tickerInterval = null;
-
-        const startTicker = () => {
-            if (!galleryTicker || prefersReducedMotion.matches || !isMobile.matches) {
-                return;
-            }
-            const step = 0.5;
-            const speed = 20;
-            tickerInterval = setInterval(() => {
-                if (!galleryTicker) {
-                    return;
-                }
-                const maxScroll = galleryTicker.scrollWidth - galleryTicker.clientWidth;
-                if (maxScroll <= 0) {
-                    return;
-                }
-                if (galleryTicker.scrollLeft >= maxScroll - 1) {
-                    galleryTicker.scrollLeft = 0;
-                } else {
-                    galleryTicker.scrollLeft += step;
-                }
-            }, speed);
-        };
-
-        const stopTicker = () => {
-            if (tickerInterval) {
-                clearInterval(tickerInterval);
-                tickerInterval = null;
-            }
-        };
-
-        if (galleryTicker) {
-            galleryTicker.addEventListener('mouseenter', stopTicker);
-            galleryTicker.addEventListener('mouseleave', startTicker);
-            galleryTicker.addEventListener('touchstart', stopTicker, { passive: true });
-            galleryTicker.addEventListener('touchend', startTicker);
-        }
-
-        window.addEventListener('resize', () => {
-            stopTicker();
-            startTicker();
-        });
-
-        startTicker();
-    </script>
 </body>
 </html>
