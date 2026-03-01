@@ -348,6 +348,7 @@
             overflow: hidden;
             box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
             transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+            scroll-snap-align: start;
         }
 
         .news-card:hover {
@@ -675,10 +676,6 @@
                 padding: 1.35rem 6% 0.2rem;
             }
 
-            .news-grid {
-                grid-template-columns: 1fr;
-            }
-
             .partnerships-logos {
                 gap: 3rem;
             }
@@ -842,6 +839,32 @@
 
             .news-heading {
                 font-size: clamp(1.6rem, 8vw, 2.1rem);
+            }
+
+            .news-grid {
+                grid-template-columns: none;
+                grid-auto-flow: column;
+                grid-auto-columns: minmax(84%, 1fr);
+                gap: 0.8rem;
+                overflow-x: auto;
+                overscroll-behavior-x: contain;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                padding: 0 0.15rem 0.35rem;
+                margin: 0 -0.15rem;
+            }
+
+            .news-grid::-webkit-scrollbar {
+                height: 6px;
+            }
+
+            .news-grid::-webkit-scrollbar-thumb {
+                background: rgba(15, 23, 42, 0.18);
+                border-radius: 999px;
+            }
+
+            .news-grid::-webkit-scrollbar-track {
+                background: transparent;
             }
 
             .news-card {
