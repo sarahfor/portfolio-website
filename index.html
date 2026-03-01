@@ -195,6 +195,46 @@
             height: 56px;
         }
 
+        .collaboration-section {
+            padding: 2rem 5% 0.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .collaboration-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0.9rem;
+        }
+
+        .collaboration-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 220px;
+            min-height: 52px;
+            padding: 0.95rem 1.35rem;
+            border-radius: 999px;
+            border: 1px solid rgba(79, 172, 254, 0.2);
+            background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.1px;
+            box-shadow: 0 12px 26px rgba(15, 23, 42, 0.08);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+        }
+
+        .collaboration-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
+            border-color: rgba(79, 172, 254, 0.45);
+            color: #3778c2;
+        }
+
         .image-grid-section {
             padding: 3.5rem 5%;
             max-width: 1250px;
@@ -460,6 +500,10 @@
                 padding: 4rem 5%;
             }
 
+            .collaboration-section {
+                padding: 2rem 6% 0.25rem;
+            }
+
             .image-grid-section {
                 padding: 3rem 6%;
             }
@@ -564,6 +608,20 @@
                 font-size: 1rem;
                 line-height: 1.8;
                 margin-bottom: 1.75rem;
+            }
+
+            .collaboration-section {
+                padding: 1.5rem 6% 0.25rem;
+                margin: 0 4%;
+            }
+
+            .collaboration-links {
+                gap: 0.75rem;
+            }
+
+            .collaboration-links a {
+                width: 100%;
+                padding: 1rem 1.1rem;
             }
 
             .image-grid-section {
@@ -769,6 +827,14 @@
         </div>
     </section>
 
+    <section class="collaboration-section" aria-label="Collaboration links">
+        <div class="collaboration-links">
+            <a href="#contact">AI Workshops</a>
+            <a href="#contact">Conference Demos & Talks</a>
+            <a href="#contact">Strategic AI Projects</a>
+        </div>
+    </section>
+
     <section class="image-grid-section">
         <h2>Gallery</h2>
         <div class="image-grid-ticker" id="galleryTicker">
@@ -783,13 +849,7 @@
                     <img src="image%20assets/DSC07357.jpg" alt="Gallery image 3" loading="lazy" decoding="async">
                 </div>
                 <div class="image-tile">
-                    <video data-src="image%20assets/4ee4e1cdea934a86b603bc6b36a88dbe.mov" autoplay muted loop playsinline preload="none" aria-label="Gallery video 2"></video>
-                </div>
-                <div class="image-tile">
                     <img src="image%20assets/DSC07368.jpg" alt="Gallery image 4" loading="lazy" decoding="async">
-                </div>
-                <div class="image-tile">
-                    <video data-src="image%20assets/0048E7AF-ADD8-4598-8964-DDBE4C370763.MP4" autoplay muted loop playsinline preload="none" aria-label="Gallery video 1"></video>
                 </div>
                 <div class="image-tile">
                     <img src="image%20assets/IMG_0659.jpg" alt="Gallery image 5" loading="lazy" decoding="async">
@@ -809,11 +869,17 @@
                 <div class="image-tile">
                     <img src="image%20assets/IMG_2397_jpg.jpg" alt="Gallery image 10" loading="lazy" decoding="async">
                 </div>
+                <div class="image-tile">
+                    <img src="image%20assets/IMG_1703.jpg" alt="Gallery image 11" loading="lazy" decoding="async">
+                </div>
+                <div class="image-tile">
+                    <img src="image%20assets/IMG_9385.jpg" alt="Gallery image 12" loading="lazy" decoding="async">
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="contact-section">
+    <section class="contact-section" id="contact">
         <h2>Let's Connect</h2>
         <p class="partnership-text">Partnership inquiries:</p>
         <a href="mailto:hellogenxai@gmail.com" class="email-link">hellogenxai@gmail.com</a>
