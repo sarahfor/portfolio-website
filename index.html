@@ -341,11 +341,11 @@
 
         .news-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(260px, 320px));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 0.9rem;
             align-items: stretch;
             justify-content: start;
-            max-width: none;
+            max-width: 980px;
             margin: 0;
         }
 
@@ -369,6 +369,7 @@
         .news-card-compact {
             grid-template-rows: auto 1fr;
         }
+
 
         .news-card-media {
             position: relative;
@@ -1205,6 +1206,22 @@
                         <p>Google.org and Grow with Google announced funding and training programs designed to help small businesses build practical AI capability.</p>
                     </div>
                     <a class="news-link" href="https://blog.google/company-news/outreach-and-initiatives/google-org/google-ai-training-funding-small-businesses/" target="_blank" rel="noopener noreferrer">Read publication &rarr;</a>
+                </div>
+            </article>
+            <article class="news-card news-card-compact">
+                <a class="news-card-media" href="https://youtu.be/nABaoC4qI00?si=37G-A2C2DK8YeNpU" target="_blank" rel="noopener noreferrer">
+                    <img src="https://i.ytimg.com/vi/nABaoC4qI00/hqdefault.jpg" alt="YouTube video thumbnail for AI and small business discussion" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+                </a>
+                <div class="news-card-body">
+                    <div>
+                        <div class="news-meta">
+                            <span class="news-badge">Video</span>
+                            <span class="news-source">YouTube</span>
+                        </div>
+                        <h3><a href="https://youtu.be/nABaoC4qI00?si=37G-A2C2DK8YeNpU" target="_blank" rel="noopener noreferrer">AI for small businesses</a></h3>
+                        <p>A video feature on practical AI use for small businesses, added here as a media highlight alongside the publication coverage.</p>
+                    </div>
+                    <a class="news-link" href="https://youtu.be/nABaoC4qI00?si=37G-A2C2DK8YeNpU" target="_blank" rel="noopener noreferrer">Watch video &rarr;</a>
                 </div>
             </article>
         </div>
