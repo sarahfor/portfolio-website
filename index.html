@@ -232,48 +232,158 @@
             padding: 1.15rem 5% 2.2rem;
             max-width: 1240px;
             margin: 0 auto;
-            text-align: center;
+        }
+
+        .collaboration-shell {
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(300px, 360px);
+            gap: 1.4rem;
+            align-items: center;
+            padding: 1.45rem 1.5rem;
+            border-radius: 28px;
+            border: 1px solid rgba(79, 172, 254, 0.14);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.96) 0%, rgba(247, 251, 255, 0.98) 100%);
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+        }
+
+        .collaboration-shell::before {
+            content: '';
+            position: absolute;
+            inset: auto auto -70px -36px;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(79, 172, 254, 0.14) 0%, rgba(79, 172, 254, 0) 72%);
+            pointer-events: none;
+        }
+
+        .collaboration-copy {
+            position: relative;
+            z-index: 1;
+            max-width: 760px;
+            padding: 0.15rem 0.25rem 0.15rem 0;
+        }
+
+        .collaboration-kicker {
+            width: fit-content;
+            margin-bottom: 0.75rem;
+            padding: 0.4rem 0.72rem;
+            border-radius: 999px;
+            border: 1px solid rgba(79, 172, 254, 0.16);
+            background: rgba(255, 255, 255, 0.84);
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+            font-size: 0.74rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #3778c2;
+        }
+
+        .collaboration-intro {
+            font-size: 1.04rem;
+            line-height: 1.66;
+            color: #4d5764;
+        }
+
+        .collaboration-action {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            gap: 0.8rem;
+            align-self: stretch;
+            padding: 1.05rem 1.05rem 1.05rem 1.35rem;
+            border-left: 1px solid rgba(79, 172, 254, 0.14);
+            background: linear-gradient(145deg, rgba(244, 249, 255, 0.86) 0%, rgba(255, 255, 255, 0.94) 100%);
+            border-radius: 24px;
+        }
+
+        .collaboration-action-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #7b8795;
         }
 
         .collaboration-links {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 0.8rem;
-            max-width: 920px;
-            margin: 0 auto;
-            padding: 0.45rem;
-            border-radius: 32px;
-            border: 1px solid rgba(79, 172, 254, 0.12);
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(247, 251, 255, 0.96) 100%);
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72), 0 18px 36px rgba(15, 23, 42, 0.05);
+            justify-content: flex-start;
+            position: relative;
+            z-index: 1;
         }
 
         .collaboration-links a {
-            display: inline-flex;
-            flex: 1 1 220px;
+            position: relative;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
             align-items: center;
-            justify-content: center;
-            min-width: 208px;
-            min-height: 50px;
-            padding: 0.9rem 1.2rem;
-            border-radius: 999px;
+            width: 100%;
+            min-height: 78px;
+            padding: 1rem 1.15rem;
+            border-radius: 22px;
             border: 1px solid rgba(79, 172, 254, 0.2);
-            background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+            background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
             color: #1a1a1a;
             text-decoration: none;
             font-weight: 600;
-            letter-spacing: 0.08px;
-            box-shadow: 0 10px 22px rgba(15, 23, 42, 0.07);
+            letter-spacing: -0.01em;
+            box-shadow: 0 14px 28px rgba(15, 23, 42, 0.07);
             transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+        }
+
+        .collaboration-links a::after {
+            content: '→';
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 42px;
+            height: 42px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(79, 172, 254, 0.1);
+            color: #3778c2;
+            font-size: 1rem;
+            line-height: 1;
+            flex-shrink: 0;
+            transition: transform 0.25s ease, background 0.25s ease;
         }
 
         .collaboration-links a:hover {
             transform: translateY(-3px);
-            box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
-            border-color: rgba(79, 172, 254, 0.45);
+            box-shadow: 0 18px 34px rgba(15, 23, 42, 0.12);
+            border-color: rgba(79, 172, 254, 0.36);
             color: #3778c2;
+        }
+
+        .collaboration-links a:hover::after {
+            transform: translate(2px, -50%);
+            background: rgba(79, 172, 254, 0.16);
+        }
+
+        .collaboration-link-text {
+            display: grid;
+            gap: 0.16rem;
+            padding-right: 3.7rem;
+        }
+
+        .collaboration-link-title {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 700;
+            line-height: 1.25;
+            color: #1a1a1a;
+        }
+
+        .collaboration-link-subtitle {
+            display: block;
+            font-size: 0.76rem;
+            line-height: 1.45;
+            color: #7b8795;
         }
 
         .python-lab-section {
@@ -1194,6 +1304,24 @@
                 padding: 1.85rem 6% 0.5rem;
             }
 
+            .collaboration-shell {
+                grid-template-columns: 1fr;
+                gap: 0.9rem;
+                padding: 1rem;
+                border-radius: 24px;
+            }
+
+            .collaboration-copy {
+                padding: 0.1rem 0.1rem 0;
+            }
+
+            .collaboration-action {
+                padding: 0.95rem;
+                border-left: 0;
+                border-top: 1px solid rgba(79, 172, 254, 0.14);
+                border-radius: 20px;
+            }
+
             .python-lab-content {
                 grid-template-columns: 1fr;
                 grid-template-areas:
@@ -1284,6 +1412,10 @@
                 background: #ffffff;
             }
 
+            .about-content {
+                gap: 2.35rem;
+            }
+
             .about-image {
                 max-width: 320px;
             }
@@ -1317,14 +1449,39 @@
             }
 
             .about-text p {
-                font-size: 1rem;
-                line-height: 1.8;
+                font-size: 0.98rem;
+                line-height: 1.72;
                 margin-bottom: 1.75rem;
             }
 
             .collaboration-section {
                 padding: 1.5rem 6% 0.25rem;
                 margin: 0 4%;
+            }
+
+            .collaboration-shell {
+                gap: 0.8rem;
+                padding: 0.95rem;
+            }
+
+            .collaboration-kicker {
+                margin-bottom: 0.65rem;
+                padding: 0.35rem 0.64rem;
+                font-size: 0.7rem;
+            }
+
+            .collaboration-intro {
+                font-size: 0.94rem;
+                line-height: 1.58;
+            }
+
+            .collaboration-action {
+                gap: 0.65rem;
+                padding: 0.85rem;
+            }
+
+            .collaboration-action-label {
+                font-size: 0.66rem;
             }
 
             .python-lab-section {
@@ -1438,26 +1595,40 @@
             }
 
             .collaboration-links {
-                display: flex;
-                flex-direction: column;
+                display: grid;
+                grid-template-columns: 1fr;
                 gap: 0.75rem;
                 max-width: none;
                 margin: 0;
-                padding: 0;
-                border: none;
-                background: transparent;
-                box-shadow: none;
                 justify-content: stretch;
-                align-items: stretch;
             }
 
             .collaboration-links a {
                 width: 100%;
                 min-width: 0;
-                min-height: 52px;
-                padding: 1rem 1.1rem;
-                font-size: 0.92rem;
+                min-height: 58px;
+                padding: 0.88rem 1rem;
                 line-height: 1.25;
+                border-radius: 18px;
+            }
+
+            .collaboration-links a::after {
+                width: 32px;
+                height: 32px;
+                font-size: 0.92rem;
+                right: 0.8rem;
+            }
+
+            .collaboration-link-text {
+                padding-right: 2.9rem;
+            }
+
+            .collaboration-link-title {
+                font-size: 0.88rem;
+            }
+
+            .collaboration-link-subtitle {
+                font-size: 0.72rem;
             }
 
             .image-grid-section {
@@ -1795,7 +1966,7 @@
             <div class="about-text">
                 <h2>SARAH FORREST</h2>
                 <p class="tagline">Building bridges between people and technology.</p>
-                <p>Computer Science graduate student and AI/ML Model Validation Expert Fellow, working at the intersection of technology and societal computing. Through research and practice, I explore questions like "What is AI, anyway?" and "How do I prepare for the future of work?"</p>
+                <p>Computer science graduate student and AI/ML Model Validation Expert Fellow, collaborating with tech companies, marketing agencies, public-sector teams, and educators on AI work that is practical, accessible, and socially useful.</p>
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/sarforre" target="_blank" rel="noopener noreferrer">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
@@ -1815,10 +1986,22 @@
     </section>
 
     <section class="collaboration-section" aria-label="Collaboration links">
-        <div class="collaboration-links">
-            <a href="#contact">AI Workshops</a>
-            <a href="#contact">Conference Demos & Talks</a>
-            <a href="#contact">Strategic AI Projects</a>
+        <div class="collaboration-shell">
+            <div class="collaboration-copy">
+                <p class="collaboration-kicker">Collaborate</p>
+                <p class="collaboration-intro">Collaborating with tech companies, marketing agencies, public-sector teams, and educators on AI work that is practical, accessible, and socially useful.</p>
+            </div>
+            <div class="collaboration-action">
+                <p class="collaboration-action-label">Direct contact</p>
+                <div class="collaboration-links">
+                    <a href="mailto:hellogenxai@gmail.com">
+                        <span class="collaboration-link-text">
+                            <span class="collaboration-link-title">Email Sarah</span>
+                            <span class="collaboration-link-subtitle">hellogenxai@gmail.com</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1878,69 +2061,6 @@
         </div>
     </section>
 
-    <section class="python-lab-section" aria-labelledby="python-lab-heading">
-        <div class="python-lab-shell">
-            <div class="python-lab-content">
-                <div class="python-lab-copy">
-                    <p class="python-lab-kicker">Interactive Demo</p>
-                    <h2 id="python-lab-heading">Write your first Python program</h2>
-                    <p class="python-lab-lead">Traditionally, the first program a computer scientist writes is "Hello, World."</p>
-                </div>
-                <div class="python-quickstart">
-                    <p class="python-quickstart-title">30-second guide</p>
-                    <div class="python-formula"><code>print("your message")</code></div>
-                    <ol class="python-steps">
-                        <li><span class="python-step-number">1</span><span><span class="python-inline-code">print</span> tells Python to display something.</span></li>
-                        <li><span class="python-step-number">2</span><span>The quotation marks turn your words into text.</span></li>
-                        <li><span class="python-step-number">3</span><span>Press <span class="python-inline-code">Run code</span> to see the result in the output panel.</span></li>
-                    </ol>
-                </div>
-                <div class="python-lab-workspace">
-                    <div class="python-panel">
-                        <div class="python-panel-header">
-                            <div class="python-panel-title">
-                                <span class="python-panel-dots" aria-hidden="true">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </span>
-                                <span>main.py</span>
-                            </div>
-                            <span class="python-panel-hint">Edit the text in quotes</span>
-                        </div>
-                        <div class="python-editor-shell">
-                            <pre class="python-editor-highlight" id="pythonEditorHighlight" aria-hidden="true"></pre>
-                            <textarea id="pythonEditor" class="python-editor" spellcheck="false" aria-label="Python code editor"># 1. Use print() to display text
-# 2. Put your message inside quotation marks
-
-print("Hello, World!")</textarea>
-                        </div>
-                        <div class="python-controls">
-                            <button type="button" class="python-button" id="pythonRunButton">Run code</button>
-                            <button type="button" class="python-button secondary" id="pythonResetButton">Reset</button>
-                            <span class="python-status" id="pythonStatus">Ready</span>
-                        </div>
-                    </div>
-                    <div class="python-panel python-panel-output">
-                        <div class="python-panel-header">
-                            <div class="python-panel-title">
-                                <span class="python-panel-dots" aria-hidden="true">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </span>
-                                <span>Output</span>
-                            </div>
-                            <span class="python-panel-hint">Printed result</span>
-                        </div>
-                        <pre class="python-output" id="pythonOutput" aria-live="polite">Hello, World!</pre>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
     <section class="image-grid-section">
         <h2>In Practice</h2>
         <div class="image-grid-ticker" id="galleryTicker">
@@ -1984,6 +2104,67 @@ print("Hello, World!")</textarea>
             </div>
         </div>
     </section>
+
+    <section class="python-lab-section" aria-labelledby="python-lab-heading">
+        <div class="python-lab-shell">
+            <div class="python-lab-content">
+                <div class="python-lab-copy">
+                    <p class="python-lab-kicker">Interactive Demo</p>
+                    <h2 id="python-lab-heading">Write your first Python program</h2>
+                    <p class="python-lab-lead">Traditionally, the first program a computer scientist writes is "Hello, World."</p>
+                </div>
+                <div class="python-quickstart">
+                    <p class="python-quickstart-title">30-second guide</p>
+                    <div class="python-formula"><code>print("your message")</code></div>
+                    <ol class="python-steps">
+                        <li><span class="python-step-number">1</span><span><span class="python-inline-code">print</span> tells Python to display something.</span></li>
+                        <li><span class="python-step-number">2</span><span>The quotation marks turn your words into text.</span></li>
+                        <li><span class="python-step-number">3</span><span>Press <span class="python-inline-code">Run code</span> to see the result in the output panel.</span></li>
+                    </ol>
+                </div>
+                <div class="python-lab-workspace">
+                    <div class="python-panel">
+                        <div class="python-panel-header">
+                            <div class="python-panel-title">
+                                <span class="python-panel-dots" aria-hidden="true">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </span>
+                                <span>main.py</span>
+                            </div>
+                            <span class="python-panel-hint">Edit the text in quotes</span>
+                        </div>
+                        <div class="python-editor-shell">
+                            <pre class="python-editor-highlight" id="pythonEditorHighlight" aria-hidden="true"></pre>
+                            <textarea id="pythonEditor" class="python-editor" spellcheck="false" aria-label="Python code editor">print("Hello, World!")</textarea>
+                        </div>
+                        <div class="python-controls">
+                            <button type="button" class="python-button" id="pythonRunButton">Run code</button>
+                            <button type="button" class="python-button secondary" id="pythonResetButton">Reset</button>
+                            <span class="python-status" id="pythonStatus">Ready</span>
+                        </div>
+                    </div>
+                    <div class="python-panel python-panel-output">
+                        <div class="python-panel-header">
+                            <div class="python-panel-title">
+                                <span class="python-panel-dots" aria-hidden="true">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </span>
+                                <span>Output</span>
+                            </div>
+                            <span class="python-panel-hint">Printed result</span>
+                        </div>
+                        <pre class="python-output" id="pythonOutput" aria-live="polite">Hello, World!</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 
     <section class="contact-section" id="contact">
         <div class="contact-card">
