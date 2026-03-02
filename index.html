@@ -736,6 +736,19 @@
             color: #0f8b49;
         }
 
+        .python-token-string-progress {
+            color: #0f8b49;
+            font-weight: 700;
+        }
+
+        .python-token-string-placeholder {
+            color: #a3adba;
+        }
+
+        .python-token-string-input {
+            color: #6a7380;
+        }
+
         .python-token-punctuation {
             color: #9b3db7;
         }
@@ -2231,7 +2244,7 @@
                             </div>
                             <span class="python-panel-hint">Printed result</span>
                         </div>
-                        <pre class="python-output" id="pythonOutput" aria-live="polite">Hello, World!</pre>
+                        <pre class="python-output" id="pythonOutput" aria-live="polite"></pre>
                     </div>
                 </div>
             </div>
@@ -2314,6 +2327,12 @@
             }
 
             const starterCode = editor.value;
+            const guideMessage = 'Hello, World!';
+            const guidePrefix = 'print("';
+            const guideSuffix = '")';
+            const guideStart = starterCode.indexOf(guideMessage);
+            const guideEnd = guideStart + guideMessage.length;
+            let isGuidePristine = true;
             let pyodideReadyPromise = null;
 
             function setStatus(message, tone = 'ready') {
@@ -2398,11 +2417,71 @@
                 return result || ' ';
             }
 
+            function renderGuideCharacters(value) {
+                if (isGuidePristine && value === guideMessage) {
+                    return `<span class="python-token-string-placeholder">${escapeHtml(guideMessage)}</span>`;
+                }
+
+                let matchingPrefixLength = 0;
+                while (
+                    matchingPrefixLength < value.length &&
+                    matchingPrefixLength < guideMessage.length &&
+                    value[matchingPrefixLength] === guideMessage[matchingPrefixLength]
+                ) {
+                    matchingPrefixLength += 1;
+                }
+
+                const matched = escapeHtml(value.slice(0, matchingPrefixLength));
+                const typed = escapeHtml(value.slice(matchingPrefixLength));
+                const remaining = escapeHtml(guideMessage.slice(value.length));
+
+                return [
+                    matched ? `<span class="python-token-string-progress">${matched}</span>` : '',
+                    typed ? `<span class="python-token-string-input">${typed}</span>` : '',
+                    remaining ? `<span class="python-token-string-placeholder">${remaining}</span>` : ''
+                ].join('');
+            }
+
+            function renderGuidedStarter(code) {
+                if (
+                    guideStart === -1 ||
+                    code.includes('\n') ||
+                    !code.startsWith(guidePrefix) ||
+                    !code.endsWith(guideSuffix)
+                ) {
+                    return null;
+                }
+
+                const message = code.slice(guidePrefix.length, code.length - guideSuffix.length);
+
+                return [
+                    '<span class="python-token-function">print</span>',
+                    '<span class="python-token-punctuation">(</span>',
+                    '<span class="python-token-punctuation">"</span>',
+                    renderGuideCharacters(message),
+                    '<span class="python-token-punctuation">"</span>',
+                    '<span class="python-token-punctuation">)</span>'
+                ].join('');
+            }
+
             function syncEditorHighlight() {
-                const lines = editor.value.split('\\n');
-                editorHighlight.innerHTML = lines.map(highlightPythonLine).join('\\n');
+                const guidedStarter = renderGuidedStarter(editor.value);
+                if (guidedStarter) {
+                    editorHighlight.innerHTML = guidedStarter;
+                } else {
+                    const lines = editor.value.split('\\n');
+                    editorHighlight.innerHTML = lines.map(highlightPythonLine).join('\\n');
+                }
                 editorHighlight.scrollTop = editor.scrollTop;
                 editorHighlight.scrollLeft = editor.scrollLeft;
+            }
+
+            function focusGuideMessage() {
+                if (guideStart === -1) {
+                    return;
+                }
+                editor.focus();
+                editor.setSelectionRange(guideStart, guideEnd);
             }
 
             function loadPyodideScript() {
@@ -2487,13 +2566,23 @@ ${error.message}` : 'Python is unavailable right now.');
             }
 
             function resetCode() {
+                isGuidePristine = true;
                 editor.value = starterCode;
                 syncEditorHighlight();
-                setOutput('Hello, World!');
+                setOutput('');
                 setStatus('Ready');
+                focusGuideMessage();
             }
 
-            editor.addEventListener('input', syncEditorHighlight);
+            editor.addEventListener('focus', () => {
+                if (isGuidePristine && editor.value === starterCode) {
+                    editor.setSelectionRange(guideStart, guideEnd);
+                }
+            });
+            editor.addEventListener('input', () => {
+                isGuidePristine = false;
+                syncEditorHighlight();
+            });
             editor.addEventListener('scroll', syncEditorHighlight);
             editor.addEventListener('keydown', (event) => {
                 if (event.key !== 'Tab') {
@@ -2508,6 +2597,12 @@ ${error.message}` : 'Python is unavailable right now.');
             });
 
             syncEditorHighlight();
+            setTimeout(() => {
+                if (document.activeElement !== editor) {
+                    return;
+                }
+                focusGuideMessage();
+            }, 0);
             runButton.addEventListener('click', runCode);
             resetButton.addEventListener('click', resetCode);
         })();
