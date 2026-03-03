@@ -1851,8 +1851,28 @@
                 border-radius: 20px;
             }
 
+            .featured-project-shell {
+                overflow: hidden;
+            }
+
             .featured-project-content {
                 grid-template-columns: 1fr;
+                gap: 1.3rem;
+            }
+
+            .featured-project-stage {
+                margin-right: 0;
+                padding: 0;
+            }
+
+            .featured-project-frame {
+                padding: 0.85rem;
+            }
+
+            .featured-project-image {
+                min-height: 0;
+                max-height: 520px;
+                object-fit: cover;
             }
 
             .python-lab-content {
@@ -2071,6 +2091,24 @@
                 text-align: center;
             }
 
+            .featured-project-meta {
+                justify-content: center;
+            }
+
+            .featured-project-dots {
+                margin: 0 auto;
+            }
+
+            .python-project-stack {
+                justify-content: center;
+            }
+
+            .python-project-stack span:first-child {
+                flex-basis: 100%;
+                justify-content: center;
+                padding-right: 0;
+            }
+
             .featured-project-copy h2 {
                 font-size: clamp(1.9rem, 8vw, 2.65rem);
                 max-width: 11ch;
@@ -2097,7 +2135,7 @@
             }
 
             .featured-project-meta {
-                align-items: flex-start;
+                align-items: center;
             }
 
             .featured-project-stage {
