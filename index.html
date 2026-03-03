@@ -443,9 +443,9 @@
             position: relative;
             z-index: 1;
             display: grid;
-            grid-template-columns: minmax(260px, 0.84fr) minmax(0, 1.4fr);
+            grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.4fr);
             grid-template-areas:
-                "intro intro"
+                "intro project"
                 "guide workspace";
             gap: 1.8rem;
             align-items: start;
@@ -495,6 +495,512 @@
             font-size: 0.98rem;
             line-height: 1.72;
             color: #4d5764;
+        }
+
+        .python-project-spotlight {
+            grid-area: project;
+            align-self: stretch;
+            padding: 1.15rem;
+            border-radius: 26px;
+            border: 1px solid rgba(79, 172, 254, 0.14);
+            background:
+                radial-gradient(circle at top right, rgba(79, 172, 254, 0.14) 0%, rgba(79, 172, 254, 0) 42%),
+                linear-gradient(145deg, rgba(255, 255, 255, 0.96) 0%, rgba(246, 250, 255, 0.94) 100%);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.84),
+                0 20px 40px rgba(15, 23, 42, 0.07);
+            display: grid;
+            gap: 0.95rem;
+            overflow: hidden;
+        }
+
+        .python-project-spotlight-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .python-project-spotlight-kicker {
+            display: inline-flex;
+            align-items: center;
+            min-height: 24px;
+            padding: 0.24rem 0.58rem;
+            border-radius: 999px;
+            background: rgba(79, 172, 254, 0.1);
+            color: #3778c2;
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .python-project-spotlight-slide {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #8a97a8;
+        }
+
+        .python-project-slider {
+            overflow: hidden;
+        }
+
+        .python-project-track {
+            display: flex;
+            width: 100%;
+            transition: transform 0.55s ease;
+            will-change: transform;
+        }
+
+        .python-project-slide {
+            flex: 0 0 100%;
+            min-width: 100%;
+            display: grid;
+            gap: 0.95rem;
+        }
+
+        .python-project-spotlight h3 {
+            font-size: clamp(1.35rem, 2.5vw, 1.78rem);
+            line-height: 1.04;
+            letter-spacing: -0.04em;
+            color: #111827;
+        }
+
+        .python-project-spotlight p {
+            font-size: 0.92rem;
+            line-height: 1.58;
+            color: #516071;
+        }
+
+        .python-project-preview {
+            position: relative;
+            overflow: hidden;
+            min-height: 188px;
+            padding: 0.85rem;
+            border-radius: 22px;
+            border: 1px solid rgba(79, 172, 254, 0.12);
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(243, 248, 255, 0.94) 100%);
+            box-shadow: 0 16px 30px rgba(15, 23, 42, 0.06);
+        }
+
+        .python-project-preview::after {
+            content: '';
+            position: absolute;
+            inset: auto -18px -40px auto;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(79, 172, 254, 0.18) 0%, rgba(79, 172, 254, 0) 72%);
+            pointer-events: none;
+        }
+
+        .python-project-browser {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            gap: 0.72rem;
+            height: 100%;
+            padding: 0.95rem;
+            border-radius: 18px;
+            border: 1px solid rgba(15, 23, 42, 0.06);
+            background: rgba(255, 255, 255, 0.96);
+        }
+
+        .python-project-browser-bar {
+            display: inline-flex;
+            gap: 0.32rem;
+        }
+
+        .python-project-browser-bar span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .python-project-browser-bar span:nth-child(1) {
+            background: #ff8e8e;
+        }
+
+        .python-project-browser-bar span:nth-child(2) {
+            background: #ffd06b;
+        }
+
+        .python-project-browser-bar span:nth-child(3) {
+            background: #67d88b;
+        }
+
+        .python-project-browser-meta {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .python-project-browser-meta strong {
+            font-size: 1rem;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            color: #111827;
+        }
+
+        .python-project-browser-meta span {
+            font-size: 0.78rem;
+            line-height: 1.5;
+            color: #677487;
+        }
+
+        .python-project-mini-layout {
+            display: grid;
+            grid-template-columns: 1.05fr 1.3fr;
+            gap: 0.65rem;
+            margin-top: auto;
+        }
+
+        .python-project-mini-lead,
+        .python-project-mini-card {
+            border-radius: 14px;
+            border: 1px solid rgba(79, 172, 254, 0.1);
+            background: rgba(241, 246, 255, 0.82);
+        }
+
+        .python-project-mini-lead {
+            min-height: 84px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.9rem;
+        }
+
+        .python-project-mini-lead span {
+            font-size: 0.95rem;
+            line-height: 1.02;
+            letter-spacing: -0.04em;
+            color: #6a7384;
+            font-weight: 700;
+        }
+
+        .python-project-mini-grid {
+            display: grid;
+            gap: 0.55rem;
+        }
+
+        .python-project-mini-card {
+            min-height: 39px;
+            padding: 0.55rem 0.65rem;
+        }
+
+        .python-project-mini-card span {
+            display: block;
+            width: 70%;
+            height: 7px;
+            border-radius: 999px;
+            background: rgba(55, 120, 194, 0.18);
+        }
+
+        .python-project-mini-card span + span {
+            width: 48%;
+            margin-top: 0.45rem;
+            background: rgba(15, 23, 42, 0.08);
+        }
+
+        .python-project-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+        }
+
+        .python-project-stack span {
+            display: inline-flex;
+            align-items: center;
+            min-height: 28px;
+            padding: 0.26rem 0.62rem;
+            border-radius: 999px;
+            background: rgba(79, 172, 254, 0.1);
+            border: 1px solid rgba(79, 172, 254, 0.12);
+            color: #3778c2;
+            font-size: 0.74rem;
+            font-weight: 600;
+        }
+
+        .python-project-stack span:first-child {
+            background: transparent;
+            border: 0;
+            padding-left: 0;
+            padding-right: 0.15rem;
+            color: #7a8796;
+            font-weight: 700;
+        }
+
+        .python-project-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+        }
+
+        .python-project-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .python-project-dots {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+
+        .python-project-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            border: 0;
+            padding: 0;
+            background: rgba(55, 120, 194, 0.18);
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .python-project-dot.is-active {
+            background: #4facfe;
+            transform: scale(1.1);
+        }
+
+        .python-project-cycle {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #8a97a8;
+        }
+
+        .python-project-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            padding: 0.7rem 0.95rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: 0.83rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, color 0.22s ease;
+        }
+
+        .python-project-link.primary {
+            background: linear-gradient(180deg, #4facfe 0%, #3f89db 100%);
+            color: #ffffff;
+            box-shadow: 0 14px 28px rgba(63, 137, 219, 0.22);
+        }
+
+        .python-project-link.secondary {
+            background: #ffffff;
+            color: #1a1a1a;
+            border: 1px solid rgba(15, 23, 42, 0.1);
+        }
+
+        .python-project-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .featured-project-section {
+            padding: 1.2rem 5% 0.8rem;
+            max-width: 1240px;
+            margin: 0 auto;
+            background: transparent;
+        }
+
+        .featured-project-shell {
+            position: relative;
+            overflow: visible;
+            border-radius: 36px;
+            border: 1px solid rgba(79, 172, 254, 0.16);
+            background:
+                linear-gradient(135deg, rgba(79, 172, 254, 0.07) 0%, rgba(255, 255, 255, 0) 42%),
+                linear-gradient(145deg, #f8fbff 0%, #ffffff 48%, #f6fbff 100%);
+            box-shadow: 0 28px 72px rgba(15, 23, 42, 0.09);
+            padding: 2.3rem;
+        }
+
+        .featured-project-shell::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(rgba(255, 255, 255, 0.34) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.34) 1px, transparent 1px);
+            background-size: 24px 24px;
+            mask-image: linear-gradient(135deg, rgba(0, 0, 0, 0.16), transparent 62%);
+            pointer-events: none;
+        }
+
+        .featured-project-shell::after {
+            content: '';
+            position: absolute;
+            inset: auto -90px -120px auto;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(79, 172, 254, 0.16) 0%, rgba(79, 172, 254, 0) 72%);
+            pointer-events: none;
+        }
+
+        .featured-project-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: minmax(300px, 0.76fr) minmax(0, 1.38fr);
+            gap: 1.2rem;
+            align-items: center;
+        }
+
+        .featured-project-copy {
+            display: grid;
+            gap: 1rem;
+            align-content: start;
+        }
+
+        .featured-project-copy h2 {
+            font-size: clamp(2.2rem, 4.6vw, 3.35rem);
+            line-height: 0.98;
+            letter-spacing: -0.05em;
+            color: #111827;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .featured-project-lead {
+            font-size: 1rem;
+            line-height: 1.72;
+            color: #4d5764;
+            max-width: 33rem;
+        }
+
+        .featured-project-slider {
+            overflow: hidden;
+            border-radius: 24px;
+            border: 1px solid rgba(79, 172, 254, 0.14);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.82),
+                0 18px 34px rgba(15, 23, 42, 0.06);
+        }
+
+        .featured-project-track {
+            display: flex;
+            transition: transform 0.55s ease;
+            will-change: transform;
+        }
+
+        .featured-project-slide {
+            flex: 0 0 100%;
+            min-width: 100%;
+            display: grid;
+            gap: 0.8rem;
+            padding: 1.2rem;
+        }
+
+        .featured-project-slide h3 {
+            font-size: 1.28rem;
+            line-height: 1.06;
+            letter-spacing: -0.04em;
+            color: #111827;
+        }
+
+        .featured-project-slide p {
+            font-size: 0.92rem;
+            line-height: 1.58;
+            color: #516071;
+        }
+
+        .featured-project-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .featured-project-dots {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+
+        .featured-project-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            border: 0;
+            padding: 0;
+            background: rgba(55, 120, 194, 0.18);
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .featured-project-dot.is-active {
+            background: #4facfe;
+            transform: scale(1.1);
+        }
+
+        .featured-project-stage {
+            position: relative;
+            display: grid;
+            align-content: center;
+            gap: 0.9rem;
+            margin-right: -5rem;
+            padding: 0.4rem 0 0.4rem 0.2rem;
+        }
+
+        .featured-project-frame {
+            position: relative;
+            overflow: hidden;
+            min-height: 100%;
+            padding: 1.15rem;
+            border-radius: 34px;
+            border: 1px solid rgba(79, 172, 254, 0.14);
+            background:
+                radial-gradient(circle at top left, rgba(79, 172, 254, 0.1) 0%, rgba(79, 172, 254, 0) 34%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(247, 251, 255, 0.98) 100%);
+            box-shadow:
+                0 28px 58px rgba(15, 23, 42, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.72);
+        }
+
+        .featured-project-preview-badge {
+            position: absolute;
+            top: 1.3rem;
+            left: 1.3rem;
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            padding: 0.45rem 0.8rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(79, 172, 254, 0.18);
+            box-shadow: 0 12px 22px rgba(15, 23, 42, 0.08);
+            color: #3778c2;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .featured-project-image {
+            width: 100%;
+            display: block;
+            height: auto;
+            min-height: 560px;
+            border-radius: 26px;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            box-shadow: 0 22px 42px rgba(15, 23, 42, 0.09);
+            background: #ffffff;
+        }
+
+        .featured-project-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
         }
 
         .python-quickstart {
@@ -1345,16 +1851,25 @@
                 border-radius: 20px;
             }
 
+            .featured-project-content {
+                grid-template-columns: 1fr;
+            }
+
             .python-lab-content {
                 grid-template-columns: 1fr;
                 grid-template-areas:
                     "intro"
+                    "project"
                     "guide"
                     "workspace";
                 gap: 1.45rem;
             }
 
             .python-lab-copy {
+                max-width: none;
+            }
+
+            .python-project-spotlight {
                 max-width: none;
             }
 
@@ -1528,6 +2043,94 @@
                 font-size: 0.66rem;
             }
 
+            .featured-project-section {
+                padding: 0;
+                margin: 1.5rem 4% 0;
+                background: transparent;
+            }
+
+            .featured-project-shell {
+                overflow: hidden;
+                padding: 1.5rem 1.05rem 1.1rem;
+                border-radius: 24px;
+                box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+            }
+
+            .featured-project-shell::before {
+                background-size: 20px 20px;
+            }
+
+            .featured-project-shell::after {
+                width: 220px;
+                height: 220px;
+                inset: auto -80px -120px auto;
+            }
+
+            .featured-project-copy {
+                align-items: center;
+                text-align: center;
+            }
+
+            .featured-project-copy h2 {
+                font-size: clamp(1.9rem, 8vw, 2.65rem);
+                max-width: 11ch;
+                margin: 0 auto;
+                text-wrap: balance;
+            }
+
+            .featured-project-lead {
+                font-size: 0.98rem;
+                max-width: 25rem;
+                margin: 0 auto;
+            }
+
+            .featured-project-slide {
+                padding: 0.95rem;
+            }
+
+            .featured-project-slide h3 {
+                font-size: 1.08rem;
+            }
+
+            .featured-project-slide p {
+                font-size: 0.86rem;
+            }
+
+            .featured-project-meta {
+                align-items: flex-start;
+            }
+
+            .featured-project-stage {
+                margin-right: 0;
+                padding: 0;
+            }
+
+            .featured-project-frame {
+                padding: 0.7rem;
+                border-radius: 22px;
+            }
+
+            .featured-project-preview-badge {
+                top: 0.95rem;
+                left: 0.95rem;
+                padding: 0.38rem 0.7rem;
+                font-size: 0.66rem;
+            }
+
+            .featured-project-image {
+                min-height: 0;
+                border-radius: 18px;
+            }
+
+            .featured-project-actions {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+
+            .featured-project-actions .python-project-link {
+                width: 100%;
+            }
+
             .python-lab-section {
                 padding: 0;
                 margin: 1.5rem 4% 0;
@@ -1576,6 +2179,68 @@
             .python-lab-copy p {
                 font-size: 0.96rem;
                 line-height: 1.68;
+            }
+
+            .python-project-spotlight {
+                padding: 0.95rem;
+                gap: 0.8rem;
+            }
+
+            .python-project-spotlight-header {
+                align-items: flex-start;
+            }
+
+            .python-project-spotlight h3 {
+                font-size: 1.25rem;
+            }
+
+            .python-project-spotlight p {
+                font-size: 0.88rem;
+                line-height: 1.55;
+            }
+
+            .python-project-preview {
+                min-height: 168px;
+                padding: 0.7rem;
+                border-radius: 18px;
+            }
+
+            .python-project-browser {
+                padding: 0.82rem;
+                border-radius: 15px;
+            }
+
+            .python-project-browser-meta strong {
+                font-size: 0.94rem;
+            }
+
+            .python-project-browser-meta span {
+                font-size: 0.74rem;
+            }
+
+            .python-project-mini-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .python-project-mini-lead {
+                min-height: 72px;
+            }
+
+            .python-project-links {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+
+            .python-project-link {
+                width: 100%;
+            }
+
+            .python-project-nav {
+                align-items: center;
+            }
+
+            .python-project-cycle {
+                font-size: 0.66rem;
             }
 
             .python-quickstart {
@@ -1954,6 +2619,13 @@
                 font-size: clamp(0.74rem, 3.5vw, 0.84rem);
             }
 
+            .featured-project-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.55rem;
+            }
+
+
             .social-links {
                 gap: 0.75rem;
             }
@@ -1983,6 +2655,12 @@
             .python-panel-hint {
                 justify-self: start;
                 text-align: left;
+            }
+
+            .python-project-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.55rem;
             }
 
             .python-controls {
@@ -2192,7 +2870,55 @@
         </div>
     </section>
 
-    <section class="python-lab-section" aria-labelledby="python-lab-heading">
+    <section class="featured-project-section" aria-labelledby="featured-project-heading">
+        <div class="featured-project-shell">
+            <div class="featured-project-content">
+                <div class="featured-project-copy">
+                    <p class="python-lab-kicker">Featured Project</p>
+                    <h2 id="featured-project-heading">Whiteboard to Prototype</h2>
+                    <p class="featured-project-lead">A browser-based tool that turns rough whiteboard sketches into structured, interactive product demos. Built to move ideas from concept to something testable, explainable, and ready to share.</p>
+                    <div class="featured-project-slider" aria-live="polite">
+                        <div class="featured-project-track" id="featuredProjectTrack">
+                            <article class="featured-project-slide">
+                                <h3>From sketch to demo in one flow</h3>
+                                <p>Preview the original whiteboard, then open a finished prototype that translates the idea into a clearer interactive experience.</p>
+                            </article>
+                            <article class="featured-project-slide">
+                                <h3>Built with a lightweight stack</h3>
+                                <p>Designed and deployed as a fast web experience using core frontend tools that are easy to iterate on and share publicly.</p>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="featured-project-meta">
+                        <div class="featured-project-dots" aria-label="Featured project slides">
+                            <button type="button" class="featured-project-dot is-active" data-featured-slide="0" aria-label="Show project overview"></button>
+                            <button type="button" class="featured-project-dot" data-featured-slide="1" aria-label="Show tech stack slide"></button>
+                        </div>
+                    </div>
+                    <div class="python-project-stack" aria-label="Featured project tech stack">
+                        <span>Tech Stack:</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>Claude Code</span>
+                        <span>Codex</span>
+                        <span>GitHub Pages</span>
+                    </div>
+                    <div class="featured-project-actions">
+                        <a class="python-project-link primary" href="https://sarahfor.github.io/whiteboard-to-prototype/" target="_blank" rel="noopener noreferrer">Open project</a>
+                    </div>
+                </div>
+                <div class="featured-project-stage">
+                    <div class="featured-project-frame">
+                        <span class="featured-project-preview-badge">Project Preview</span>
+                        <img class="featured-project-image" src="image%20assets/whiteboard-to-prototype-preview.png" alt="Preview of the Whiteboard to Prototype project interface" loading="lazy" decoding="async">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="python-lab-section" aria-labelledby="python-lab-heading" hidden>
         <div class="python-lab-shell">
             <div class="python-lab-content">
                 <div class="python-lab-copy">
@@ -2200,6 +2926,80 @@
                     <h2 id="python-lab-heading">Write your first Python program</h2>
                     <p class="python-lab-lead">Traditionally, the first program a computer scientist writes is "Hello, World."</p>
                 </div>
+                <aside class="python-project-spotlight" aria-label="Featured project">
+                    <div class="python-project-spotlight-header">
+                        <span class="python-project-spotlight-kicker">Featured Project</span>
+                        <span class="python-project-spotlight-slide">01 / 01</span>
+                    </div>
+                    <div class="python-project-slider" aria-live="polite">
+                        <div class="python-project-track" id="pythonProjectTrack">
+                            <article class="python-project-slide">
+                                <div>
+                                    <h3>Whiteboard to Prototype</h3>
+                                    <p>Turns rough whiteboard sketches into structured, interactive product demos that are easier to test, explain, and share.</p>
+                                </div>
+                                <div class="python-project-preview" aria-hidden="true">
+                                    <div class="python-project-browser">
+                                        <div class="python-project-browser-bar">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                        <div class="python-project-browser-meta">
+                                            <strong>AI Product Demo Builder</strong>
+                                            <span>Sketch to demo in one flow.</span>
+                                        </div>
+                                        <div class="python-project-mini-layout">
+                                            <div class="python-project-mini-lead">
+                                                <span>Turn any sketch into a prototype.</span>
+                                            </div>
+                                            <div class="python-project-mini-grid">
+                                                <div class="python-project-mini-card"><span></span><span></span></div>
+                                                <div class="python-project-mini-card"><span></span><span></span></div>
+                                                <div class="python-project-mini-card"><span></span><span></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="python-project-slide">
+                                <div>
+                                    <h3>Built with a simple web stack</h3>
+                                    <p>Designed as a lightweight browser experience using core frontend tools, then deployed publicly for fast sharing and iteration.</p>
+                                </div>
+                                <div class="python-project-preview" aria-hidden="true">
+                                    <div class="python-project-browser">
+                                        <div class="python-project-browser-bar">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                        <div class="python-project-browser-meta">
+                                            <strong>Tech stack</strong>
+                                            <span>Clean frontend foundation for demos and prototypes.</span>
+                                        </div>
+                                        <div class="python-project-stack" aria-label="Featured project tech stack">
+                                            <span>HTML</span>
+                                            <span>CSS</span>
+                                            <span>JavaScript</span>
+                                            <span>GitHub Pages</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="python-project-nav">
+                        <div class="python-project-dots" aria-label="Featured project slides">
+                            <button type="button" class="python-project-dot is-active" data-project-slide="0" aria-label="Show project overview"></button>
+                            <button type="button" class="python-project-dot" data-project-slide="1" aria-label="Show tech stack"></button>
+                        </div>
+                        <span class="python-project-cycle">Slides every 10 sec</span>
+                    </div>
+                    <div class="python-project-links">
+                        <a class="python-project-link primary" href="https://sarahfor.github.io/whiteboard-to-prototype/" target="_blank" rel="noopener noreferrer">Open project</a>
+                    </div>
+                </aside>
                 <div class="python-quickstart">
                     <p class="python-quickstart-title">30-second guide</p>
                     <div class="python-formula"><code>print("your message")</code></div>
@@ -2315,12 +3115,60 @@
 
     <script>
         (() => {
+            const track = document.getElementById('featuredProjectTrack');
+            const dots = Array.from(document.querySelectorAll('[data-featured-slide]'));
+
+            if (!track || dots.length === 0) {
+                return;
+            }
+
+            let activeSlide = 0;
+            let timerId = null;
+
+            function setSlide(index) {
+                const count = dots.length;
+                activeSlide = ((index % count) + count) % count;
+                track.style.transform = `translateX(-${activeSlide * 100}%)`;
+
+                dots.forEach((dot, dotIndex) => {
+                    const isActive = dotIndex === activeSlide;
+                    dot.classList.toggle('is-active', isActive);
+                    dot.setAttribute('aria-pressed', String(isActive));
+                });
+            }
+
+            function startTimer() {
+                if (timerId) {
+                    window.clearInterval(timerId);
+                }
+
+                timerId = window.setInterval(() => {
+                    setSlide(activeSlide + 1);
+                }, 10000);
+            }
+
+            dots.forEach((dot) => {
+                dot.addEventListener('click', () => {
+                    setSlide(Number(dot.dataset.featuredSlide || 0));
+                    startTimer();
+                });
+            });
+
+            setSlide(0);
+            startTimer();
+        })();
+    </script>
+
+    <script>
+        (() => {
             const editor = document.getElementById('pythonEditor');
             const output = document.getElementById('pythonOutput');
             const editorHighlight = document.getElementById('pythonEditorHighlight');
             const runButton = document.getElementById('pythonRunButton');
             const resetButton = document.getElementById('pythonResetButton');
             const status = document.getElementById('pythonStatus');
+            const projectTrack = document.getElementById('pythonProjectTrack');
+            const projectDots = Array.from(document.querySelectorAll('[data-project-slide]'));
 
             if (!editor || !output || !editorHighlight || !runButton || !resetButton || !status) {
                 return;
@@ -2334,6 +3182,8 @@
             const guideEnd = guideStart + guideMessage.length;
             let isGuidePristine = true;
             let pyodideReadyPromise = null;
+            let activeProjectSlide = 0;
+            let projectSlideTimer = null;
 
             function setStatus(message, tone = 'ready') {
                 status.textContent = message;
@@ -2353,6 +3203,36 @@
 
             function setOutput(message) {
                 output.textContent = message;
+            }
+
+            function setProjectSlide(index) {
+                if (!projectTrack || projectDots.length === 0) {
+                    return;
+                }
+
+                const slideCount = projectDots.length;
+                activeProjectSlide = ((index % slideCount) + slideCount) % slideCount;
+                projectTrack.style.transform = `translateX(-${activeProjectSlide * 100}%)`;
+
+                projectDots.forEach((dot, dotIndex) => {
+                    const isActive = dotIndex === activeProjectSlide;
+                    dot.classList.toggle('is-active', isActive);
+                    dot.setAttribute('aria-pressed', String(isActive));
+                });
+            }
+
+            function startProjectSlideTimer() {
+                if (!projectTrack || projectDots.length < 2) {
+                    return;
+                }
+
+                if (projectSlideTimer) {
+                    window.clearInterval(projectSlideTimer);
+                }
+
+                projectSlideTimer = window.setInterval(() => {
+                    setProjectSlide(activeProjectSlide + 1);
+                }, 10000);
             }
 
             function escapeHtml(value) {
@@ -2597,6 +3477,15 @@ ${error.message}` : 'Python is unavailable right now.');
             });
 
             syncEditorHighlight();
+            setProjectSlide(0);
+            startProjectSlideTimer();
+            projectDots.forEach((dot) => {
+                dot.addEventListener('click', () => {
+                    const nextIndex = Number(dot.dataset.projectSlide || 0);
+                    setProjectSlide(nextIndex);
+                    startProjectSlideTimer();
+                });
+            });
             setTimeout(() => {
                 if (document.activeElement !== editor) {
                     return;
