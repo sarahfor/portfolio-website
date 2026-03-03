@@ -965,25 +965,9 @@
             box-shadow:
                 0 28px 58px rgba(15, 23, 42, 0.1),
                 inset 0 1px 0 rgba(255, 255, 255, 0.72);
-        }
-
-        .featured-project-preview-badge {
-            position: absolute;
-            top: 1.3rem;
-            left: 1.3rem;
-            z-index: 1;
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            padding: 0.45rem 0.8rem;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.92);
-            border: 1px solid rgba(79, 172, 254, 0.18);
-            box-shadow: 0 12px 22px rgba(15, 23, 42, 0.08);
-            color: #3778c2;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
+            justify-content: center;
         }
 
         .featured-project-image {
@@ -991,6 +975,8 @@
             display: block;
             height: auto;
             min-height: 560px;
+            object-fit: contain;
+            object-position: center;
             border-radius: 26px;
             border: 1px solid rgba(15, 23, 42, 0.08);
             box-shadow: 0 22px 42px rgba(15, 23, 42, 0.09);
@@ -2148,13 +2134,6 @@
                 border-radius: 22px;
             }
 
-            .featured-project-preview-badge {
-                top: 0.95rem;
-                left: 0.95rem;
-                padding: 0.38rem 0.7rem;
-                font-size: 0.66rem;
-            }
-
             .featured-project-image {
                 min-height: 0;
                 border-radius: 18px;
@@ -2948,7 +2927,6 @@
                 </div>
                 <div class="featured-project-stage">
                     <div class="featured-project-frame">
-                        <span class="featured-project-preview-badge">Project Preview</span>
                         <img class="featured-project-image" src="image%20assets/whiteboard-to-prototype-preview.png" alt="Preview of the Whiteboard to Prototype project interface" loading="lazy" decoding="async">
                     </div>
                 </div>
