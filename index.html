@@ -807,190 +807,6 @@
             transform: translateY(-2px);
         }
 
-        .featured-project-section {
-            padding: 1.2rem 5% 0.8rem;
-            max-width: 1240px;
-            margin: 0 auto;
-            background: transparent;
-        }
-
-        .featured-project-shell {
-            position: relative;
-            overflow: visible;
-            border-radius: 36px;
-            border: 1px solid rgba(79, 172, 254, 0.16);
-            background:
-                linear-gradient(135deg, rgba(79, 172, 254, 0.07) 0%, rgba(255, 255, 255, 0) 42%),
-                linear-gradient(145deg, #f8fbff 0%, #ffffff 48%, #f6fbff 100%);
-            box-shadow: 0 28px 72px rgba(15, 23, 42, 0.09);
-            padding: 2.3rem;
-        }
-
-        .featured-project-shell::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                linear-gradient(rgba(255, 255, 255, 0.34) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.34) 1px, transparent 1px);
-            background-size: 24px 24px;
-            mask-image: linear-gradient(135deg, rgba(0, 0, 0, 0.16), transparent 62%);
-            pointer-events: none;
-        }
-
-        .featured-project-shell::after {
-            content: '';
-            position: absolute;
-            inset: auto -90px -120px auto;
-            width: 320px;
-            height: 320px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(79, 172, 254, 0.16) 0%, rgba(79, 172, 254, 0) 72%);
-            pointer-events: none;
-        }
-
-        .featured-project-content {
-            position: relative;
-            z-index: 1;
-            display: grid;
-            grid-template-columns: minmax(300px, 0.76fr) minmax(0, 1.38fr);
-            gap: 1.2rem;
-            align-items: center;
-        }
-
-        .featured-project-copy {
-            display: grid;
-            gap: 1rem;
-            align-content: start;
-        }
-
-        .featured-project-copy h2 {
-            font-size: clamp(2.2rem, 4.6vw, 3.35rem);
-            line-height: 0.98;
-            letter-spacing: -0.05em;
-            color: #111827;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-        }
-
-        .featured-project-lead {
-            font-size: 1rem;
-            line-height: 1.72;
-            color: #4d5764;
-            max-width: 33rem;
-        }
-
-        .featured-project-slider {
-            overflow: hidden;
-            border-radius: 24px;
-            border: 1px solid rgba(79, 172, 254, 0.14);
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow:
-                inset 0 1px 0 rgba(255, 255, 255, 0.82),
-                0 18px 34px rgba(15, 23, 42, 0.06);
-        }
-
-        .featured-project-track {
-            display: flex;
-            transition: transform 0.55s ease;
-            will-change: transform;
-        }
-
-        .featured-project-slide {
-            flex: 0 0 100%;
-            min-width: 100%;
-            display: grid;
-            gap: 0.8rem;
-            padding: 1.2rem;
-        }
-
-        .featured-project-slide h3 {
-            font-size: 1.28rem;
-            line-height: 1.06;
-            letter-spacing: -0.04em;
-            color: #111827;
-        }
-
-        .featured-project-slide p {
-            font-size: 0.92rem;
-            line-height: 1.58;
-            color: #516071;
-        }
-
-        .featured-project-meta {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-        }
-
-        .featured-project-dots {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.45rem;
-        }
-
-        .featured-project-dot {
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-            border: 0;
-            padding: 0;
-            background: rgba(55, 120, 194, 0.18);
-            cursor: pointer;
-            transition: transform 0.2s ease, background 0.2s ease;
-        }
-
-        .featured-project-dot.is-active {
-            background: #4facfe;
-            transform: scale(1.1);
-        }
-
-        .featured-project-stage {
-            position: relative;
-            display: grid;
-            align-content: center;
-            gap: 0.9rem;
-            margin-right: -5rem;
-            padding: 0.4rem 0 0.4rem 0.2rem;
-        }
-
-        .featured-project-frame {
-            position: relative;
-            overflow: hidden;
-            min-height: 100%;
-            padding: 1.15rem;
-            border-radius: 34px;
-            border: 1px solid rgba(79, 172, 254, 0.14);
-            background:
-                radial-gradient(circle at top left, rgba(79, 172, 254, 0.1) 0%, rgba(79, 172, 254, 0) 34%),
-                linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(247, 251, 255, 0.98) 100%);
-            box-shadow:
-                0 28px 58px rgba(15, 23, 42, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.72);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .featured-project-image {
-            width: 100%;
-            display: block;
-            height: auto;
-            min-height: 560px;
-            object-fit: contain;
-            object-position: center;
-            border-radius: 26px;
-            border: 1px solid rgba(15, 23, 42, 0.08);
-            box-shadow: 0 22px 42px rgba(15, 23, 42, 0.09);
-            background: #ffffff;
-        }
-
-        .featured-project-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.65rem;
-        }
-
         .python-quickstart {
             grid-area: guide;
             margin-top: 0.2rem;
@@ -1865,30 +1681,6 @@
                 border-radius: 20px;
             }
 
-            .featured-project-shell {
-                overflow: hidden;
-            }
-
-            .featured-project-content {
-                grid-template-columns: 1fr;
-                gap: 1.3rem;
-            }
-
-            .featured-project-stage {
-                margin-right: 0;
-                padding: 0;
-            }
-
-            .featured-project-frame {
-                padding: 0.85rem;
-            }
-
-            .featured-project-image {
-                min-height: 0;
-                max-height: 520px;
-                object-fit: cover;
-            }
-
             .python-lab-content {
                 grid-template-columns: 1fr;
                 grid-template-areas:
@@ -2077,42 +1869,6 @@
                 font-size: 0.66rem;
             }
 
-            .featured-project-section {
-                padding: 0;
-                margin: 1.5rem 4% 0;
-                background: transparent;
-            }
-
-            .featured-project-shell {
-                overflow: hidden;
-                padding: 1.5rem 1.05rem 1.1rem;
-                border-radius: 24px;
-                box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
-            }
-
-            .featured-project-shell::before {
-                background-size: 20px 20px;
-            }
-
-            .featured-project-shell::after {
-                width: 220px;
-                height: 220px;
-                inset: auto -80px -120px auto;
-            }
-
-            .featured-project-copy {
-                align-items: center;
-                text-align: center;
-            }
-
-            .featured-project-meta {
-                justify-content: center;
-            }
-
-            .featured-project-dots {
-                margin: 0 auto;
-            }
-
             .python-project-stack {
                 justify-content: center;
             }
@@ -2121,61 +1877,6 @@
                 flex-basis: 100%;
                 justify-content: center;
                 padding-right: 0;
-            }
-
-            .featured-project-copy h2 {
-                font-size: clamp(1.9rem, 8vw, 2.65rem);
-                max-width: 11ch;
-                margin: 0 auto;
-                text-wrap: balance;
-            }
-
-            .featured-project-lead {
-                font-size: 0.98rem;
-                max-width: 25rem;
-                margin: 0 auto;
-            }
-
-            .featured-project-slide {
-                padding: 0.95rem;
-            }
-
-            .featured-project-slide h3 {
-                font-size: 1.08rem;
-            }
-
-            .featured-project-slide p {
-                font-size: 0.86rem;
-            }
-
-            .featured-project-meta {
-                align-items: center;
-            }
-
-            .featured-project-stage {
-                margin-right: 0;
-                margin-left: -0.45rem;
-                margin-right: -0.45rem;
-                padding: 0.15rem 0 0;
-            }
-
-            .featured-project-frame {
-                padding: 0.4rem;
-                border-radius: 24px;
-            }
-
-            .featured-project-image {
-                min-height: 0;
-                border-radius: 20px;
-            }
-
-            .featured-project-actions {
-                display: grid;
-                grid-template-columns: 1fr;
-            }
-
-            .featured-project-actions .python-project-link {
-                width: 100%;
             }
 
             .python-lab-section {
@@ -2666,13 +2367,6 @@
                 font-size: clamp(0.74rem, 3.5vw, 0.84rem);
             }
 
-            .featured-project-meta {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.55rem;
-            }
-
-
             .social-links {
                 gap: 0.75rem;
             }
@@ -2917,53 +2611,6 @@
         </div>
     </section>
 
-    <section class="featured-project-section" aria-labelledby="featured-project-heading">
-        <div class="featured-project-shell">
-            <div class="featured-project-content">
-                <div class="featured-project-copy">
-                    <p class="python-lab-kicker">Featured Project</p>
-                    <h2 id="featured-project-heading">Whiteboard to Prototype</h2>
-                    <p class="featured-project-lead">A browser-based tool that turns rough whiteboard sketches into structured, interactive product demos. Built to move ideas from concept to something testable, explainable, and ready to share.</p>
-                    <div class="featured-project-slider" aria-live="polite">
-                        <div class="featured-project-track" id="featuredProjectTrack">
-                            <article class="featured-project-slide">
-                                <h3>From sketch to demo in one flow</h3>
-                                <p>Preview the original whiteboard, then open a finished prototype that translates the idea into a clearer interactive experience.</p>
-                            </article>
-                            <article class="featured-project-slide">
-                                <h3>Built with a lightweight stack</h3>
-                                <p>Designed and deployed as a fast web experience using core frontend tools that are easy to iterate on and share publicly.</p>
-                            </article>
-                        </div>
-                    </div>
-                    <div class="featured-project-meta">
-                        <div class="featured-project-dots" aria-label="Featured project slides">
-                            <button type="button" class="featured-project-dot is-active" data-featured-slide="0" aria-label="Show project overview"></button>
-                            <button type="button" class="featured-project-dot" data-featured-slide="1" aria-label="Show tech stack slide"></button>
-                        </div>
-                    </div>
-                    <div class="python-project-stack" aria-label="Featured project tech stack">
-                        <span>Tech Stack:</span>
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                        <span>Claude Code</span>
-                        <span>Codex</span>
-                        <span>GitHub Pages</span>
-                    </div>
-                    <div class="featured-project-actions">
-                        <a class="python-project-link primary" href="https://sarahfor.github.io/whiteboard-to-prototype/" target="_blank" rel="noopener noreferrer">Open project</a>
-                    </div>
-                </div>
-                <div class="featured-project-stage">
-                    <div class="featured-project-frame">
-                        <img class="featured-project-image" src="image%20assets/whiteboard-to-prototype-preview.png" alt="Preview of the Whiteboard to Prototype project interface" loading="lazy" decoding="async">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="python-lab-section" aria-labelledby="python-lab-heading" hidden>
         <div class="python-lab-shell">
             <div class="python-lab-content">
@@ -3158,52 +2805,6 @@
     <footer>
         <p>&copy; 2026 Sarah Forrest. All rights reserved.</p>
     </footer>
-
-    <script>
-        (() => {
-            const track = document.getElementById('featuredProjectTrack');
-            const dots = Array.from(document.querySelectorAll('[data-featured-slide]'));
-
-            if (!track || dots.length === 0) {
-                return;
-            }
-
-            let activeSlide = 0;
-            let timerId = null;
-
-            function setSlide(index) {
-                const count = dots.length;
-                activeSlide = ((index % count) + count) % count;
-                track.style.transform = `translateX(-${activeSlide * 100}%)`;
-
-                dots.forEach((dot, dotIndex) => {
-                    const isActive = dotIndex === activeSlide;
-                    dot.classList.toggle('is-active', isActive);
-                    dot.setAttribute('aria-pressed', String(isActive));
-                });
-            }
-
-            function startTimer() {
-                if (timerId) {
-                    window.clearInterval(timerId);
-                }
-
-                timerId = window.setInterval(() => {
-                    setSlide(activeSlide + 1);
-                }, 10000);
-            }
-
-            dots.forEach((dot) => {
-                dot.addEventListener('click', () => {
-                    setSlide(Number(dot.dataset.featuredSlide || 0));
-                    startTimer();
-                });
-            });
-
-            setSlide(0);
-            startTimer();
-        })();
-    </script>
 
     <script>
         (() => {
