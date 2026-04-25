@@ -447,7 +447,7 @@
             display: grid;
             grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.4fr);
             grid-template-areas:
-                "intro project"
+                "intro workspace"
                 "guide workspace";
             gap: 1.8rem;
             align-items: start;
@@ -1685,17 +1685,12 @@
                 grid-template-columns: 1fr;
                 grid-template-areas:
                     "intro"
-                    "project"
                     "guide"
                     "workspace";
                 gap: 1.45rem;
             }
 
             .python-lab-copy {
-                max-width: none;
-            }
-
-            .python-project-spotlight {
                 max-width: none;
             }
 
@@ -1869,16 +1864,6 @@
                 font-size: 0.66rem;
             }
 
-            .python-project-stack {
-                justify-content: center;
-            }
-
-            .python-project-stack span:first-child {
-                flex-basis: 100%;
-                justify-content: center;
-                padding-right: 0;
-            }
-
             .python-lab-section {
                 padding: 0;
                 margin: 1.5rem 4% 0;
@@ -1927,68 +1912,6 @@
             .python-lab-copy p {
                 font-size: 0.96rem;
                 line-height: 1.68;
-            }
-
-            .python-project-spotlight {
-                padding: 0.95rem;
-                gap: 0.8rem;
-            }
-
-            .python-project-spotlight-header {
-                align-items: flex-start;
-            }
-
-            .python-project-spotlight h3 {
-                font-size: 1.25rem;
-            }
-
-            .python-project-spotlight p {
-                font-size: 0.88rem;
-                line-height: 1.55;
-            }
-
-            .python-project-preview {
-                min-height: 168px;
-                padding: 0.7rem;
-                border-radius: 18px;
-            }
-
-            .python-project-browser {
-                padding: 0.82rem;
-                border-radius: 15px;
-            }
-
-            .python-project-browser-meta strong {
-                font-size: 0.94rem;
-            }
-
-            .python-project-browser-meta span {
-                font-size: 0.74rem;
-            }
-
-            .python-project-mini-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .python-project-mini-lead {
-                min-height: 72px;
-            }
-
-            .python-project-links {
-                display: grid;
-                grid-template-columns: 1fr;
-            }
-
-            .python-project-link {
-                width: 100%;
-            }
-
-            .python-project-nav {
-                align-items: center;
-            }
-
-            .python-project-cycle {
-                font-size: 0.66rem;
             }
 
             .python-quickstart {
@@ -2619,80 +2542,6 @@
                     <h2 id="python-lab-heading">Write your first Python program</h2>
                     <p class="python-lab-lead">Traditionally, the first program a computer scientist writes is "Hello, World."</p>
                 </div>
-                <aside class="python-project-spotlight" aria-label="Featured project">
-                    <div class="python-project-spotlight-header">
-                        <span class="python-project-spotlight-kicker">Featured Project</span>
-                        <span class="python-project-spotlight-slide">01 / 01</span>
-                    </div>
-                    <div class="python-project-slider" aria-live="polite">
-                        <div class="python-project-track" id="pythonProjectTrack">
-                            <article class="python-project-slide">
-                                <div>
-                                    <h3>Whiteboard to Prototype</h3>
-                                    <p>Turns rough whiteboard sketches into structured, interactive product demos that are easier to test, explain, and share.</p>
-                                </div>
-                                <div class="python-project-preview" aria-hidden="true">
-                                    <div class="python-project-browser">
-                                        <div class="python-project-browser-bar">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </div>
-                                        <div class="python-project-browser-meta">
-                                            <strong>AI Product Demo Builder</strong>
-                                            <span>Sketch to demo in one flow.</span>
-                                        </div>
-                                        <div class="python-project-mini-layout">
-                                            <div class="python-project-mini-lead">
-                                                <span>Turn any sketch into a prototype.</span>
-                                            </div>
-                                            <div class="python-project-mini-grid">
-                                                <div class="python-project-mini-card"><span></span><span></span></div>
-                                                <div class="python-project-mini-card"><span></span><span></span></div>
-                                                <div class="python-project-mini-card"><span></span><span></span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="python-project-slide">
-                                <div>
-                                    <h3>Built with a simple web stack</h3>
-                                    <p>Designed as a lightweight browser experience using core frontend tools, then deployed publicly for fast sharing and iteration.</p>
-                                </div>
-                                <div class="python-project-preview" aria-hidden="true">
-                                    <div class="python-project-browser">
-                                        <div class="python-project-browser-bar">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </div>
-                                        <div class="python-project-browser-meta">
-                                            <strong>Tech stack</strong>
-                                            <span>Clean frontend foundation for demos and prototypes.</span>
-                                        </div>
-                                        <div class="python-project-stack" aria-label="Featured project tech stack">
-                                            <span>HTML</span>
-                                            <span>CSS</span>
-                                            <span>JavaScript</span>
-                                            <span>GitHub Pages</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                    <div class="python-project-nav">
-                        <div class="python-project-dots" aria-label="Featured project slides">
-                            <button type="button" class="python-project-dot is-active" data-project-slide="0" aria-label="Show project overview"></button>
-                            <button type="button" class="python-project-dot" data-project-slide="1" aria-label="Show tech stack"></button>
-                        </div>
-                        <span class="python-project-cycle">Slides every 10 sec</span>
-                    </div>
-                    <div class="python-project-links">
-                        <a class="python-project-link primary" href="https://sarahfor.github.io/whiteboard-to-prototype/" target="_blank" rel="noopener noreferrer">Open project</a>
-                    </div>
-                </aside>
                 <div class="python-quickstart">
                     <p class="python-quickstart-title">30-second guide</p>
                     <div class="python-formula"><code>print("your message")</code></div>
@@ -2814,8 +2663,6 @@
             const runButton = document.getElementById('pythonRunButton');
             const resetButton = document.getElementById('pythonResetButton');
             const status = document.getElementById('pythonStatus');
-            const projectTrack = document.getElementById('pythonProjectTrack');
-            const projectDots = Array.from(document.querySelectorAll('[data-project-slide]'));
 
             if (!editor || !output || !editorHighlight || !runButton || !resetButton || !status) {
                 return;
@@ -2829,8 +2676,6 @@
             const guideEnd = guideStart + guideMessage.length;
             let isGuidePristine = true;
             let pyodideReadyPromise = null;
-            let activeProjectSlide = 0;
-            let projectSlideTimer = null;
 
             function setStatus(message, tone = 'ready') {
                 status.textContent = message;
@@ -2850,36 +2695,6 @@
 
             function setOutput(message) {
                 output.textContent = message;
-            }
-
-            function setProjectSlide(index) {
-                if (!projectTrack || projectDots.length === 0) {
-                    return;
-                }
-
-                const slideCount = projectDots.length;
-                activeProjectSlide = ((index % slideCount) + slideCount) % slideCount;
-                projectTrack.style.transform = `translateX(-${activeProjectSlide * 100}%)`;
-
-                projectDots.forEach((dot, dotIndex) => {
-                    const isActive = dotIndex === activeProjectSlide;
-                    dot.classList.toggle('is-active', isActive);
-                    dot.setAttribute('aria-pressed', String(isActive));
-                });
-            }
-
-            function startProjectSlideTimer() {
-                if (!projectTrack || projectDots.length < 2) {
-                    return;
-                }
-
-                if (projectSlideTimer) {
-                    window.clearInterval(projectSlideTimer);
-                }
-
-                projectSlideTimer = window.setInterval(() => {
-                    setProjectSlide(activeProjectSlide + 1);
-                }, 10000);
             }
 
             function escapeHtml(value) {
@@ -3124,15 +2939,6 @@ ${error.message}` : 'Python is unavailable right now.');
             });
 
             syncEditorHighlight();
-            setProjectSlide(0);
-            startProjectSlideTimer();
-            projectDots.forEach((dot) => {
-                dot.addEventListener('click', () => {
-                    const nextIndex = Number(dot.dataset.projectSlide || 0);
-                    setProjectSlide(nextIndex);
-                    startProjectSlideTimer();
-                });
-            });
             setTimeout(() => {
                 if (document.activeElement !== editor) {
                     return;
