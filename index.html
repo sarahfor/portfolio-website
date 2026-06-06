@@ -36,6 +36,8 @@
 
         html {
             scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
         }
 
         body {
@@ -74,7 +76,8 @@
         }
 
         .hero-content {
-            max-width: 1200px;
+            width: min(100%, 1120px);
+            max-width: 1120px;
             z-index: 1;
             position: relative;
             animation: fadeInUp 1s ease-out;
@@ -83,11 +86,15 @@
         .hero-title {
             display: block;
             justify-items: center;
-            white-space: nowrap;
+            max-width: 100%;
+            white-space: normal;
+            overflow: visible;
         }
 
         .hero-title-line {
             display: block;
+            max-width: 100%;
+            text-wrap: balance;
         }
 
         .hero-title-emphasis {
@@ -100,6 +107,7 @@
             font-style: italic;
             display: inline-block;
             position: relative;
+            padding-bottom: 0.08em;
             animation: generativeShimmer 7s ease-in-out infinite;
         }
 
@@ -154,9 +162,9 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 5.9vw, 5.2rem);
+            font-size: clamp(2.35rem, 5.2vw, 4.8rem);
             font-weight: 300;
-            line-height: 1;
+            line-height: 1.12;
             color: #ffffff;
             letter-spacing: 0;
             font-family: Georgia, 'Times New Roman', Times, serif;
@@ -1325,6 +1333,14 @@
             transition: transform 0.6s ease;
         }
 
+        .image-tile img[src*="Claude%20SMB%20Workshop"] {
+            object-position: center 48%;
+        }
+
+        .image-tile img[src*="Claude.jpg"] {
+            object-position: center 68%;
+        }
+
         .image-tile:hover {
             transform: translateY(-10px);
             box-shadow: 0 26px 60px rgba(15, 23, 42, 0.2);
@@ -1631,70 +1647,100 @@
         }
 
         .partnerships-section {
-            padding: 2.9rem 5% 5.6rem;
-            max-width: 1240px;
+            padding: 3.4rem 5% 5.8rem;
+            max-width: 1280px;
             margin: 0 auto;
             text-align: center;
             background: transparent;
         }
 
+        .partnerships-intro {
+            max-width: 840px;
+            margin: 0 auto 2.2rem;
+            text-align: center;
+        }
+
         .partnerships-section h3 {
-            font-size: 1.45rem;
-            font-weight: 500;
-            margin-bottom: 2.75rem;
-            color: #1a1a1a;
-            letter-spacing: -0.5px;
+            max-width: 780px;
+            margin: 0 auto 0.72rem;
+            color: #111827;
             font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: clamp(1.65rem, 3.4vw, 2.55rem);
+            font-weight: 500;
+            line-height: 1.08;
+            letter-spacing: 0;
+        }
+
+        .partnerships-copy {
+            max-width: 680px;
+            margin: 0 auto;
+            color: #4d5764;
+            font-size: 0.98rem;
+            line-height: 1.62;
+            text-align: center;
+        }
+
+        .mobile-break {
+            display: none;
         }
 
         .partnerships-logos {
             display: inline-flex;
             align-items: center;
-            gap: 5rem;
+            gap: 4.4rem;
         }
 
         .partnerships-logos a {
             text-decoration: none;
-            display: inline-block;
-            opacity: 0.75;
-            transition: all 0.4s ease;
-            filter: grayscale(0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .partnerships-logos a:hover {
+        .partnerships-logos a,
+        .partnerships-logos .partner-logo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 128px;
+            min-height: 74px;
             opacity: 1;
-            transform: translateY(-8px) scale(1.05);
-            filter: grayscale(0);
+            transition: transform 0.25s ease;
+            filter: none;
+        }
+
+        .partnerships-logos a:hover,
+        .partnerships-logos .partner-logo:hover {
+            transform: translateY(-3px);
         }
 
         .partnerships-logos img {
-            height: 65px;
+            height: 54px;
             width: auto;
-            max-width: 200px;
+            max-width: 190px;
             object-fit: contain;
-            filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.05));
         }
 
         .partnerships-logos img[alt="Google"] {
-            height: 56px;
+            height: 48px;
         }
 
         .partnerships-logos img[alt="Verizon"] {
-            height: 50px;
+            height: 43px;
         }
 
         .partnerships-logos img[alt="Anthropic"] {
-            height: 34px;
+            height: 30px;
             max-width: 260px;
         }
 
         .partnerships-logos img[alt="IBM"] {
-            height: 58px;
+            height: 49px;
             max-width: 180px;
         }
 
         .partnerships-logos img[alt="OpenAI"] {
-            height: 42px;
+            height: 36px;
             max-width: 240px;
         }
 
@@ -1706,7 +1752,7 @@
         .partnerships-track {
             display: flex;
             width: max-content;
-            animation: tickerScroll 46s linear infinite;
+            animation: tickerScroll 30s linear infinite;
             will-change: transform;
         }
 
@@ -1717,8 +1763,12 @@
         .ticker-group {
             display: inline-flex;
             align-items: center;
-            gap: 5rem;
-            padding-right: 5rem;
+            gap: 4.4rem;
+            padding-right: 4.4rem;
+        }
+
+        .ticker-group[aria-hidden="true"] {
+            display: inline-flex;
         }
 
         @keyframes tickerScroll {
@@ -1753,6 +1803,10 @@
         }
 
         @media (max-width: 968px) {
+            .hero-content {
+                width: min(100%, 46rem);
+            }
+
             .about-content {
                 flex-direction: column;
                 gap: 3rem;
@@ -1828,44 +1882,64 @@
                 padding: 1.35rem 6% 0.2rem;
             }
 
+            .partnerships-section {
+                padding: 3rem 6% 4.4rem;
+            }
+
+            .partnerships-intro {
+                margin-bottom: 2rem;
+                max-width: 42rem;
+            }
+
+            .partnerships-copy {
+                font-size: 0.96rem;
+            }
+
             .partnerships-logos {
-                gap: 3rem;
+                gap: 2.6rem;
+            }
+
+            .partnerships-logos a,
+            .partnerships-logos .partner-logo {
+                min-width: 104px;
+                min-height: 62px;
             }
 
             .partnerships-logos img {
-                height: 50px;
+                height: 44px;
+                max-width: 155px;
             }
 
             .partnerships-logos img[alt="Google"] {
-                height: 44px;
+                height: 39px;
             }
 
             .partnerships-logos img[alt="Verizon"] {
-                height: 40px;
+                height: 35px;
             }
 
             .partnerships-logos img[alt="Anthropic"] {
-                height: 28px;
+                height: 25px;
                 max-width: 210px;
             }
 
             .partnerships-logos img[alt="IBM"] {
-                height: 46px;
+                height: 40px;
                 max-width: 150px;
             }
 
             .partnerships-logos img[alt="OpenAI"] {
-                height: 34px;
+                height: 31px;
                 max-width: 190px;
             }
 
             .partnerships-track {
-                animation-duration: 38s;
+                animation-duration: 24s;
             }
 
             .ticker-group {
-                gap: 3rem;
-                padding-right: 3rem;
+                gap: 2.6rem;
+                padding-right: 2.6rem;
             }
 
             .social-links {
@@ -1887,7 +1961,7 @@
 
             .hero {
                 padding: 0 7%;
-                min-height: 48vh;
+                min-height: min(48vh, 430px);
                 background-position: center 24%;
             }
 
@@ -1896,20 +1970,21 @@
             }
 
             .hero-content {
-                max-width: 19rem;
+                width: min(100%, 24rem);
+                max-width: 24rem;
                 padding: 3.75rem 0 2.75rem;
                 margin: 0 auto;
             }
 
             .hero h1 {
-                font-size: clamp(2rem, 8.8vw, 3rem);
-                line-height: 0.98;
+                font-size: clamp(1.9rem, 8.2vw, 2.8rem);
+                line-height: 1.08;
                 letter-spacing: 0;
                 text-wrap: balance;
             }
 
             .about-section {
-                padding: 3rem 6% 3.1rem;
+                padding: 2.6rem 6% 2.8rem;
                 margin: 1.5rem 4% 0;
                 border-radius: 24px;
                 box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
@@ -2181,7 +2256,7 @@
             }
 
             .image-grid-section {
-                padding: 2.5rem 6%;
+                padding: 2.25rem 6%;
                 margin: 1.5rem 4% 0;
                 border-radius: 24px;
                 box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
@@ -2193,7 +2268,7 @@
             }
 
             .news-section {
-                padding: 1.6rem 6%;
+                padding: 1.45rem 6%;
                 margin: 1.5rem 4% 0;
                 border-radius: 24px;
                 box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
@@ -2213,7 +2288,7 @@
             .news-grid {
                 grid-template-columns: none;
                 grid-auto-flow: column;
-                grid-auto-columns: minmax(84%, 1fr);
+                grid-auto-columns: minmax(82%, 1fr);
                 gap: 0.85rem;
                 overflow-x: auto;
                 overscroll-behavior-x: contain;
@@ -2295,6 +2370,20 @@
 
             .image-tile {
                 border-radius: 18px;
+                box-shadow: 0 10px 24px rgba(15, 23, 42, 0.1);
+            }
+
+            .image-tile img,
+            .image-tile video {
+                aspect-ratio: 1 / 1;
+            }
+
+            .image-tile img[src*="Claude%20SMB%20Workshop"] {
+                object-position: center 44%;
+            }
+
+            .image-tile img[src*="Claude.jpg"] {
+                object-position: center 72%;
             }
 
             .social-links {
@@ -2376,61 +2465,82 @@
             }
 
             .partnerships-section {
-                padding: 2.3rem 6% 3rem;
-                margin: 1.5rem 4% 2rem;
-                border-radius: 24px;
-                box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
-                background: #ffffff;
+                padding: 2.35rem 6% 3.1rem;
+                margin: 0 auto;
+            }
+
+            .partnerships-intro {
+                margin-bottom: 1.55rem;
+                max-width: 22rem;
             }
 
             .partnerships-section h3 {
-                margin-bottom: 2rem;
-                font-size: 1.3rem;
+                font-size: clamp(1.38rem, 6vw, 1.9rem);
+                line-height: 1.12;
+            }
+
+            .partnerships-copy {
+                font-size: 0.9rem;
+                line-height: 1.58;
+            }
+
+            .desktop-break {
+                display: none;
+            }
+
+            .mobile-break {
+                display: inline;
             }
 
             .partnerships-logos {
-                gap: 2rem;
+                gap: 1.7rem;
             }
 
             .partnerships-logos a {
                 justify-self: center;
             }
 
+            .partnerships-logos a,
+            .partnerships-logos .partner-logo {
+                min-width: 92px;
+                min-height: 54px;
+            }
+
             .partnerships-logos img {
-                height: 38px;
-                max-width: 140px;
+                height: 34px;
+                max-width: 125px;
             }
 
             .partnerships-logos img[alt="Google"] {
-                height: 34px;
+                height: 30px;
             }
 
             .partnerships-logos img[alt="Verizon"] {
-                height: 32px;
+                height: 28px;
             }
 
             .partnerships-logos img[alt="Anthropic"] {
-                height: 24px;
-                max-width: 160px;
+                height: 21px;
+                max-width: 145px;
             }
 
             .partnerships-logos img[alt="IBM"] {
-                height: 34px;
-                max-width: 105px;
+                height: 31px;
+                max-width: 100px;
             }
 
             .partnerships-logos img[alt="OpenAI"] {
-                height: 29px;
-                max-width: 150px;
+                height: 26px;
+                max-width: 135px;
             }
 
             .partnerships-track {
-                animation-duration: 32s;
+                animation-duration: 22s;
             }
 
             .ticker-group {
-                gap: 2rem;
-                padding-right: 2rem;
+                gap: 1.7rem;
+                padding-right: 1.7rem;
             }
 
             footer {
@@ -2439,6 +2549,10 @@
         }
 
         @media (max-width: 420px) {
+            .hero {
+                min-height: 42vh;
+            }
+
             .hero h1 {
                 font-size: clamp(1.7rem, 8.6vw, 2.35rem);
                 letter-spacing: 0;
@@ -2454,6 +2568,7 @@
 
             .social-links {
                 gap: 0.75rem;
+                width: min(100%, 292px);
             }
 
             .social-links a {
@@ -2514,44 +2629,83 @@
             }
 
             .partnerships-logos {
-                gap: 1.5rem;
+                gap: 1.3rem;
+            }
+
+            .partnerships-logos a,
+            .partnerships-logos .partner-logo {
+                min-width: 82px;
+                min-height: 48px;
             }
 
             .partnerships-logos img {
-                height: 34px;
-                max-width: 120px;
+                height: 31px;
+                max-width: 112px;
             }
 
             .partnerships-logos img[alt="Google"] {
-                height: 30px;
+                height: 27px;
             }
 
             .partnerships-logos img[alt="Verizon"] {
-                height: 28px;
+                height: 25px;
             }
 
             .partnerships-logos img[alt="Anthropic"] {
-                height: 22px;
-                max-width: 140px;
+                height: 20px;
+                max-width: 126px;
             }
 
             .partnerships-logos img[alt="IBM"] {
-                height: 32px;
-                max-width: 96px;
+                height: 29px;
+                max-width: 90px;
             }
 
             .partnerships-logos img[alt="OpenAI"] {
-                height: 27px;
-                max-width: 130px;
+                height: 24px;
+                max-width: 118px;
             }
 
             .partnerships-track {
-                animation-duration: 30s;
+                animation-duration: 20s;
             }
 
             .ticker-group {
-                gap: 1.5rem;
-                padding-right: 1.5rem;
+                gap: 1.3rem;
+                padding-right: 1.3rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero-content {
+                padding: 3rem 0 2.2rem;
+            }
+
+            .hero h1 {
+                font-size: clamp(1.55rem, 8.3vw, 2rem);
+            }
+
+            .about-section,
+            .collaboration-section,
+            .news-section,
+            .image-grid-section,
+            .python-lab-section,
+            .contact-section {
+                margin-left: 3%;
+                margin-right: 3%;
+            }
+
+            .social-links {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                width: min(100%, 180px);
+            }
+
+            .image-grid {
+                gap: 0.65rem;
+            }
+
+            .partnerships-copy {
+                font-size: 0.86rem;
             }
         }
     </style>
@@ -2593,19 +2747,22 @@
     </section>
 
     <section class="partnerships-section">
-        <h3>Key Partners</h3>
+        <div class="partnerships-intro">
+            <h3>Trusted by teams shaping <br class="desktop-break">how people learn and use AI.</h3>
+            <p class="partnerships-copy">Selected organizations Sarah has partnered with across AI education, <br class="desktop-break">workforce adoption, technical communication, and digital learning.</p>
+        </div>
         <div class="partnerships-ticker">
             <div class="partnerships-track">
                 <div class="partnerships-logos ticker-group">
-                    <img src="anthropic-logo-ticker.png" alt="Anthropic">
-                    <img src="openai-logo-ticker.png" alt="OpenAI">
+                    <span class="partner-logo"><img src="anthropic-logo-ticker.png" alt="Anthropic"></span>
+                    <span class="partner-logo"><img src="openai-logo-ticker.png" alt="OpenAI"></span>
                     <a href="https://www.google.org" target="_blank" rel="noopener noreferrer">
                         <img src="Google_2015_logo.svg" alt="Google">
                     </a>
                     <a href="https://www.verizon.com/smallbusinessdigitalready/" target="_blank" rel="noopener noreferrer">
                         <img src="verizon_2024.svg" alt="Verizon">
                     </a>
-                    <img src="ibm-logo-ticker.png" alt="IBM">
+                    <span class="partner-logo"><img src="ibm-logo-ticker.png" alt="IBM"></span>
                     <a href="https://miro.com/ai/ai-overview/" target="_blank" rel="noopener noreferrer">
                         <img src="miro-logo.png" alt="Miro">
                     </a>
@@ -2617,15 +2774,15 @@
                     </a>
                 </div>
                 <div class="partnerships-logos ticker-group" aria-hidden="true">
-                    <img src="anthropic-logo-ticker.png" alt="Anthropic">
-                    <img src="openai-logo-ticker.png" alt="OpenAI">
+                    <span class="partner-logo"><img src="anthropic-logo-ticker.png" alt="Anthropic"></span>
+                    <span class="partner-logo"><img src="openai-logo-ticker.png" alt="OpenAI"></span>
                     <a href="https://www.google.org" target="_blank" rel="noopener noreferrer" tabindex="-1">
                         <img src="Google_2015_logo.svg" alt="Google">
                     </a>
                     <a href="https://www.verizon.com/smallbusinessdigitalready/" target="_blank" rel="noopener noreferrer" tabindex="-1">
                         <img src="verizon_2024.svg" alt="Verizon">
                     </a>
-                    <img src="ibm-logo-ticker.png" alt="IBM">
+                    <span class="partner-logo"><img src="ibm-logo-ticker.png" alt="IBM"></span>
                     <a href="https://miro.com/ai/ai-overview/" target="_blank" rel="noopener noreferrer" tabindex="-1">
                         <img src="miro-logo.png" alt="Miro">
                     </a>
@@ -2728,6 +2885,9 @@
                     <img src="image%20assets/691A1377.jpg" alt="Gallery image 1" loading="lazy" decoding="async">
                 </div>
                 <div class="image-tile">
+                    <img src="image%20assets/Claude%20SMB%20Workshop.jpg" alt="Sarah Forrest leading a Claude SMB workshop" loading="lazy" decoding="async">
+                </div>
+                <div class="image-tile">
                     <img src="image%20assets/55117974250_36149dea8c_o.jpg" alt="Gallery image 2" loading="lazy" decoding="async">
                 </div>
                 <div class="image-tile">
@@ -2755,10 +2915,7 @@
                     <img src="image%20assets/IMG_2397_jpg.jpg" alt="Gallery image 10" loading="lazy" decoding="async">
                 </div>
                 <div class="image-tile">
-                    <img src="image%20assets/IMG_1703.jpg" alt="Gallery image 11" loading="lazy" decoding="async">
-                </div>
-                <div class="image-tile">
-                    <img src="image%20assets/IMG_9779_jpg.jpg" alt="Gallery image 12" loading="lazy" decoding="async">
+                    <img src="image%20assets/Claude.jpg" alt="Claude workshop sign with a plant in the room" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>
