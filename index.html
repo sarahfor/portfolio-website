@@ -3085,7 +3085,7 @@
             };
 
             if (!('IntersectionObserver' in window)) {
-                startTimer = window.setTimeout(startTicker, 3000);
+                startTimer = window.setTimeout(startTicker, 500);
                 return;
             }
 
@@ -3096,7 +3096,7 @@
                     startTimer = window.setTimeout(() => {
                         startTicker();
                         observer.disconnect();
-                    }, 3000);
+                    }, 500);
                 }
 
                 if (!isVisible && startTimer) {
