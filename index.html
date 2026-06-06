@@ -1753,10 +1753,15 @@
             display: flex;
             width: max-content;
             animation: tickerScroll 30s linear infinite;
+            animation-play-state: paused;
             will-change: transform;
         }
 
-        .partnerships-track:hover {
+        .partnerships-track.ticker-running {
+            animation-play-state: running;
+        }
+
+        .partnerships-track.ticker-running:hover {
             animation-play-state: paused;
         }
 
@@ -2996,6 +3001,50 @@
     </footer>
 
     <script>
+        (() => {
+            const ticker = document.querySelector('.partnerships-track');
+            const section = document.querySelector('.partnerships-section');
+
+            if (!ticker || !section) {
+                return;
+            }
+
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                return;
+            }
+
+            let startTimer = null;
+            const startTicker = () => {
+                startTimer = null;
+                ticker.classList.add('ticker-running');
+            };
+
+            if (!('IntersectionObserver' in window)) {
+                startTimer = window.setTimeout(startTicker, 3000);
+                return;
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                const isVisible = entries.some((entry) => entry.isIntersecting);
+
+                if (isVisible && !ticker.classList.contains('ticker-running') && !startTimer) {
+                    startTimer = window.setTimeout(() => {
+                        startTicker();
+                        observer.disconnect();
+                    }, 3000);
+                }
+
+                if (!isVisible && startTimer) {
+                    window.clearTimeout(startTimer);
+                    startTimer = null;
+                }
+            }, {
+                threshold: 0.35,
+            });
+
+            observer.observe(section);
+        })();
+
         (() => {
             const editor = document.getElementById('pythonEditor');
             const output = document.getElementById('pythonOutput');
