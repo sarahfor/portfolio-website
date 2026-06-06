@@ -81,9 +81,9 @@
         }
 
         .hero-title {
-            display: grid;
-            gap: 0.06em;
+            display: block;
             justify-items: center;
+            white-space: nowrap;
         }
 
         .hero-title-line {
@@ -154,9 +154,9 @@
         }
 
         .hero h1 {
-            font-size: clamp(3.2rem, 7.2vw, 6.2rem);
+            font-size: clamp(2.5rem, 5.9vw, 5.2rem);
             font-weight: 300;
-            line-height: 0.96;
+            line-height: 1;
             color: #ffffff;
             letter-spacing: 0;
             font-family: Georgia, 'Times New Roman', Times, serif;
@@ -1774,7 +1774,7 @@
             }
 
             .hero h1 {
-                font-size: clamp(3rem, 8vw, 4.8rem);
+                font-size: clamp(2.35rem, 7vw, 4rem);
             }
 
             .about-section {
@@ -1902,7 +1902,7 @@
             }
 
             .hero h1 {
-                font-size: clamp(2.65rem, 12vw, 4rem);
+                font-size: clamp(2rem, 8.8vw, 3rem);
                 line-height: 0.98;
                 letter-spacing: 0;
                 text-wrap: balance;
@@ -2440,7 +2440,7 @@
 
         @media (max-width: 420px) {
             .hero h1 {
-                font-size: clamp(2.45rem, 12vw, 3.25rem);
+                font-size: clamp(1.7rem, 8.6vw, 2.35rem);
                 letter-spacing: 0;
             }
 
@@ -2560,8 +2560,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1 class="hero-title">
-                <span class="hero-title-line">It's a <span class="hero-title-emphasis">generative</span></span>
-                <span class="hero-title-line">world</span>
+                <span class="hero-title-line">It's a <span class="hero-title-emphasis">generative</span> world</span>
             </h1>
         </div>
     </section>
@@ -2587,6 +2586,54 @@
                     </a>
                     <a href="https://www.instagram.com/sarforre/?hl=en" target="_blank" rel="noopener noreferrer">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="partnerships-section">
+        <h3>Key Partners</h3>
+        <div class="partnerships-ticker">
+            <div class="partnerships-track">
+                <div class="partnerships-logos ticker-group">
+                    <img src="anthropic-logo-ticker.png" alt="Anthropic">
+                    <img src="openai-logo-ticker.png" alt="OpenAI">
+                    <a href="https://www.google.org" target="_blank" rel="noopener noreferrer">
+                        <img src="Google_2015_logo.svg" alt="Google">
+                    </a>
+                    <a href="https://www.verizon.com/smallbusinessdigitalready/" target="_blank" rel="noopener noreferrer">
+                        <img src="verizon_2024.svg" alt="Verizon">
+                    </a>
+                    <img src="ibm-logo-ticker.png" alt="IBM">
+                    <a href="https://miro.com/ai/ai-overview/" target="_blank" rel="noopener noreferrer">
+                        <img src="miro-logo.png" alt="Miro">
+                    </a>
+                    <a href="https://www.subaru.com" target="_blank" rel="noopener noreferrer">
+                        <img src="subaru-logo.png" alt="Subaru">
+                    </a>
+                    <a href="https://about.meta.com" target="_blank" rel="noopener noreferrer">
+                        <img src="meta-logo.png" alt="Meta">
+                    </a>
+                </div>
+                <div class="partnerships-logos ticker-group" aria-hidden="true">
+                    <img src="anthropic-logo-ticker.png" alt="Anthropic">
+                    <img src="openai-logo-ticker.png" alt="OpenAI">
+                    <a href="https://www.google.org" target="_blank" rel="noopener noreferrer" tabindex="-1">
+                        <img src="Google_2015_logo.svg" alt="Google">
+                    </a>
+                    <a href="https://www.verizon.com/smallbusinessdigitalready/" target="_blank" rel="noopener noreferrer" tabindex="-1">
+                        <img src="verizon_2024.svg" alt="Verizon">
+                    </a>
+                    <img src="ibm-logo-ticker.png" alt="IBM">
+                    <a href="https://miro.com/ai/ai-overview/" target="_blank" rel="noopener noreferrer" tabindex="-1">
+                        <img src="miro-logo.png" alt="Miro">
+                    </a>
+                    <a href="https://www.subaru.com" target="_blank" rel="noopener noreferrer" tabindex="-1">
+                        <img src="subaru-logo.png" alt="Subaru">
+                    </a>
+                    <a href="https://about.meta.com" target="_blank" rel="noopener noreferrer" tabindex="-1">
+                        <img src="meta-logo.png" alt="Meta">
                     </a>
                 </div>
             </div>
@@ -2784,54 +2831,6 @@
             <h2>Connect with me</h2>
             <p>For collaborations, talks, workshops, or AI adoption projects.</p>
             <a href="mailto:hellogenxai@gmail.com?subject=Connect" class="email-link">hellogenxai@gmail.com</a>
-        </div>
-    </section>
-
-    <section class="partnerships-section">
-        <h3>Key Partners</h3>
-        <div class="partnerships-ticker">
-            <div class="partnerships-track">
-                <div class="partnerships-logos ticker-group">
-                    <img src="anthropic-logo-ticker.png" alt="Anthropic">
-                    <img src="openai-logo-ticker.png" alt="OpenAI">
-                    <a href="https://www.google.org" target="_blank" rel="noopener noreferrer">
-                        <img src="Google_2015_logo.svg" alt="Google">
-                    </a>
-                    <a href="https://www.verizon.com/smallbusinessdigitalready/" target="_blank" rel="noopener noreferrer">
-                        <img src="verizon_2024.svg" alt="Verizon">
-                    </a>
-                    <img src="ibm-logo-ticker.png" alt="IBM">
-                    <a href="https://miro.com/ai/ai-overview/" target="_blank" rel="noopener noreferrer">
-                        <img src="miro-logo.png" alt="Miro">
-                    </a>
-                    <a href="https://www.subaru.com" target="_blank" rel="noopener noreferrer">
-                        <img src="subaru-logo.png" alt="Subaru">
-                    </a>
-                    <a href="https://about.meta.com" target="_blank" rel="noopener noreferrer">
-                        <img src="meta-logo.png" alt="Meta">
-                    </a>
-                </div>
-                <div class="partnerships-logos ticker-group" aria-hidden="true">
-                    <img src="anthropic-logo-ticker.png" alt="Anthropic">
-                    <img src="openai-logo-ticker.png" alt="OpenAI">
-                    <a href="https://www.google.org" target="_blank" rel="noopener noreferrer" tabindex="-1">
-                        <img src="Google_2015_logo.svg" alt="Google">
-                    </a>
-                    <a href="https://www.verizon.com/smallbusinessdigitalready/" target="_blank" rel="noopener noreferrer" tabindex="-1">
-                        <img src="verizon_2024.svg" alt="Verizon">
-                    </a>
-                    <img src="ibm-logo-ticker.png" alt="IBM">
-                    <a href="https://miro.com/ai/ai-overview/" target="_blank" rel="noopener noreferrer" tabindex="-1">
-                        <img src="miro-logo.png" alt="Miro">
-                    </a>
-                    <a href="https://www.subaru.com" target="_blank" rel="noopener noreferrer" tabindex="-1">
-                        <img src="subaru-logo.png" alt="Subaru">
-                    </a>
-                    <a href="https://about.meta.com" target="_blank" rel="noopener noreferrer" tabindex="-1">
-                        <img src="meta-logo.png" alt="Meta">
-                    </a>
-                </div>
-            </div>
         </div>
     </section>
 
