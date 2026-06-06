@@ -82,18 +82,12 @@
 
         .hero-title {
             display: grid;
-            gap: 0.28em;
+            gap: 0.06em;
             justify-items: center;
         }
 
         .hero-title-line {
             display: block;
-        }
-
-        .hero-title-small {
-            font-size: 0.52em;
-            font-style: italic;
-            opacity: 0.78;
         }
 
         .hero-title-emphasis {
@@ -104,15 +98,18 @@
             -webkit-background-clip: text;
             background-clip: text;
             font-style: italic;
+            display: inline-block;
+            position: relative;
             animation: generativeShimmer 7s ease-in-out infinite;
         }
 
         .hero-title-emphasis::after {
             content: '';
-            display: block;
-            width: min(100%, 10.5em);
+            position: absolute;
+            left: 4%;
+            right: 4%;
+            bottom: 0.02em;
             height: 1px;
-            margin: 0.08em auto 0;
             background: linear-gradient(90deg, transparent, rgba(143, 211, 255, 0.82), transparent);
             transform-origin: center;
             animation: generativeLine 7s ease-in-out infinite;
@@ -157,9 +154,9 @@
         }
 
         .hero h1 {
-            font-size: 5.6rem;
+            font-size: clamp(3.2rem, 7.2vw, 6.2rem);
             font-weight: 300;
-            line-height: 0.95;
+            line-height: 0.96;
             color: #ffffff;
             letter-spacing: 0;
             font-family: Georgia, 'Times New Roman', Times, serif;
@@ -1738,7 +1735,7 @@
             }
 
             .hero h1 {
-                font-size: 4rem;
+                font-size: clamp(3rem, 8vw, 4.8rem);
             }
 
             .about-section {
@@ -1866,7 +1863,7 @@
             }
 
             .hero h1 {
-                font-size: 3.35rem;
+                font-size: clamp(2.65rem, 12vw, 4rem);
                 line-height: 0.98;
                 letter-spacing: 0;
                 text-wrap: balance;
@@ -2393,7 +2390,7 @@
 
         @media (max-width: 420px) {
             .hero h1 {
-                font-size: 3rem;
+                font-size: clamp(2.45rem, 12vw, 3.25rem);
                 letter-spacing: 0;
             }
 
@@ -2513,8 +2510,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1 class="hero-title">
-                <span class="hero-title-line hero-title-small">It's a</span>
-                <span class="hero-title-line hero-title-emphasis">generative</span>
+                <span class="hero-title-line">It's a <span class="hero-title-emphasis">generative</span></span>
                 <span class="hero-title-line">world</span>
             </h1>
         </div>
@@ -2527,8 +2523,8 @@
             </div>
             <div class="about-text">
                 <h2>SARAH FORREST</h2>
-                <p class="tagline">Turning technical AI concepts into practical programs, content, and workflows.</p>
-                <p>Content marketing and AI adoption lead with 4+ years of experience creating educational, career-focused, and small-business AI programs. I build curriculum, implementation resources, and audience-specific messaging that help learners, advisors, entrepreneurs, and partner teams move from AI curiosity to practical use.</p>
+                <p class="tagline">I make AI easier to understand, explain, and use.</p>
+                <p>I am a tech communicator and AI adoption lead who turns complex ideas into clear learning experiences, practical resources, and real workflows. My work helps small businesses, students, advisors, and partner teams move from "What does this mean?" to "Here is how I can use it."</p>
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/sarforre" target="_blank" rel="noopener noreferrer">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
