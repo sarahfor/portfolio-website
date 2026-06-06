@@ -1728,23 +1728,22 @@
             gap: 4.4rem;
         }
 
-        .partnerships-logos a {
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-
         .partnerships-logos a,
         .partnerships-logos .partner-logo {
+            --logo-width: 150px;
+            --logo-height: 82px;
+            --logo-max-width: 132px;
+            --logo-max-height: 48px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-width: 128px;
-            min-height: 74px;
+            width: var(--logo-width);
+            height: var(--logo-height);
+            flex: 0 0 var(--logo-width);
             opacity: 1;
             transition: transform 0.25s ease;
             filter: none;
+            text-decoration: none;
         }
 
         .partnerships-logos a:hover,
@@ -1753,33 +1752,52 @@
         }
 
         .partnerships-logos img {
-            height: 54px;
+            display: block;
             width: auto;
-            max-width: 190px;
+            height: auto;
+            max-width: var(--logo-max-width);
+            max-height: var(--logo-max-height);
             object-fit: contain;
         }
 
-        .partnerships-logos img[alt="Google"] {
-            height: 48px;
+        .partnerships-logos .partner-logo-anthropic {
+            --logo-max-width: 146px;
+            --logo-max-height: 30px;
         }
 
-        .partnerships-logos img[alt="Verizon"] {
-            height: 43px;
+        .partnerships-logos .partner-logo-openai {
+            --logo-max-width: 130px;
+            --logo-max-height: 38px;
         }
 
-        .partnerships-logos img[alt="Anthropic"] {
-            height: 30px;
-            max-width: 260px;
+        .partnerships-logos .partner-logo-google {
+            --logo-max-width: 128px;
+            --logo-max-height: 44px;
         }
 
-        .partnerships-logos img[alt="IBM"] {
-            height: 49px;
-            max-width: 180px;
+        .partnerships-logos .partner-logo-verizon {
+            --logo-max-width: 138px;
+            --logo-max-height: 38px;
         }
 
-        .partnerships-logos img[alt="OpenAI"] {
-            height: 36px;
-            max-width: 240px;
+        .partnerships-logos .partner-logo-ibm {
+            --logo-max-width: 104px;
+            --logo-max-height: 48px;
+        }
+
+        .partnerships-logos .partner-logo-miro {
+            --logo-max-width: 112px;
+            --logo-max-height: 48px;
+        }
+
+        .partnerships-logos .partner-logo-subaru {
+            --logo-max-width: 108px;
+            --logo-max-height: 48px;
+        }
+
+        .partnerships-logos .partner-logo-meta {
+            --logo-max-width: 118px;
+            --logo-max-height: 48px;
         }
 
         .partnerships-ticker {
@@ -1948,36 +1966,50 @@
 
             .partnerships-logos a,
             .partnerships-logos .partner-logo {
-                min-width: 104px;
-                min-height: 62px;
+                --logo-width: 118px;
+                --logo-height: 68px;
+                --logo-max-width: 104px;
+                --logo-max-height: 40px;
             }
 
-            .partnerships-logos img {
-                height: 44px;
-                max-width: 155px;
+            .partnerships-logos .partner-logo-anthropic {
+                --logo-max-width: 114px;
+                --logo-max-height: 24px;
             }
 
-            .partnerships-logos img[alt="Google"] {
-                height: 39px;
+            .partnerships-logos .partner-logo-openai {
+                --logo-max-width: 102px;
+                --logo-max-height: 31px;
             }
 
-            .partnerships-logos img[alt="Verizon"] {
-                height: 35px;
+            .partnerships-logos .partner-logo-google {
+                --logo-max-width: 100px;
+                --logo-max-height: 36px;
             }
 
-            .partnerships-logos img[alt="Anthropic"] {
-                height: 25px;
-                max-width: 210px;
+            .partnerships-logos .partner-logo-verizon {
+                --logo-max-width: 108px;
+                --logo-max-height: 32px;
             }
 
-            .partnerships-logos img[alt="IBM"] {
-                height: 40px;
-                max-width: 150px;
+            .partnerships-logos .partner-logo-ibm {
+                --logo-max-width: 82px;
+                --logo-max-height: 39px;
             }
 
-            .partnerships-logos img[alt="OpenAI"] {
-                height: 31px;
-                max-width: 190px;
+            .partnerships-logos .partner-logo-miro {
+                --logo-max-width: 92px;
+                --logo-max-height: 40px;
+            }
+
+            .partnerships-logos .partner-logo-subaru {
+                --logo-max-width: 86px;
+                --logo-max-height: 40px;
+            }
+
+            .partnerships-logos .partner-logo-meta {
+                --logo-max-width: 94px;
+                --logo-max-height: 40px;
             }
 
             .partnerships-track {
@@ -2564,36 +2596,50 @@
 
             .partnerships-logos a,
             .partnerships-logos .partner-logo {
-                min-width: 92px;
-                min-height: 54px;
+                --logo-width: 92px;
+                --logo-height: 56px;
+                --logo-max-width: 80px;
+                --logo-max-height: 34px;
             }
 
-            .partnerships-logos img {
-                height: 34px;
-                max-width: 125px;
+            .partnerships-logos .partner-logo-anthropic {
+                --logo-max-width: 90px;
+                --logo-max-height: 19px;
             }
 
-            .partnerships-logos img[alt="Google"] {
-                height: 30px;
+            .partnerships-logos .partner-logo-openai {
+                --logo-max-width: 80px;
+                --logo-max-height: 26px;
             }
 
-            .partnerships-logos img[alt="Verizon"] {
-                height: 28px;
+            .partnerships-logos .partner-logo-google {
+                --logo-max-width: 78px;
+                --logo-max-height: 30px;
             }
 
-            .partnerships-logos img[alt="Anthropic"] {
-                height: 21px;
-                max-width: 145px;
+            .partnerships-logos .partner-logo-verizon {
+                --logo-max-width: 84px;
+                --logo-max-height: 26px;
             }
 
-            .partnerships-logos img[alt="IBM"] {
-                height: 31px;
-                max-width: 100px;
+            .partnerships-logos .partner-logo-ibm {
+                --logo-max-width: 66px;
+                --logo-max-height: 31px;
             }
 
-            .partnerships-logos img[alt="OpenAI"] {
-                height: 26px;
-                max-width: 135px;
+            .partnerships-logos .partner-logo-miro {
+                --logo-max-width: 72px;
+                --logo-max-height: 32px;
+            }
+
+            .partnerships-logos .partner-logo-subaru {
+                --logo-max-width: 68px;
+                --logo-max-height: 32px;
+            }
+
+            .partnerships-logos .partner-logo-meta {
+                --logo-max-width: 74px;
+                --logo-max-height: 32px;
             }
 
             .partnerships-track {
@@ -2696,36 +2742,50 @@
 
             .partnerships-logos a,
             .partnerships-logos .partner-logo {
-                min-width: 82px;
-                min-height: 48px;
+                --logo-width: 82px;
+                --logo-height: 50px;
+                --logo-max-width: 70px;
+                --logo-max-height: 30px;
             }
 
-            .partnerships-logos img {
-                height: 31px;
-                max-width: 112px;
+            .partnerships-logos .partner-logo-anthropic {
+                --logo-max-width: 80px;
+                --logo-max-height: 17px;
             }
 
-            .partnerships-logos img[alt="Google"] {
-                height: 27px;
+            .partnerships-logos .partner-logo-openai {
+                --logo-max-width: 70px;
+                --logo-max-height: 23px;
             }
 
-            .partnerships-logos img[alt="Verizon"] {
-                height: 25px;
+            .partnerships-logos .partner-logo-google {
+                --logo-max-width: 68px;
+                --logo-max-height: 26px;
             }
 
-            .partnerships-logos img[alt="Anthropic"] {
-                height: 20px;
-                max-width: 126px;
+            .partnerships-logos .partner-logo-verizon {
+                --logo-max-width: 74px;
+                --logo-max-height: 23px;
             }
 
-            .partnerships-logos img[alt="IBM"] {
-                height: 29px;
-                max-width: 90px;
+            .partnerships-logos .partner-logo-ibm {
+                --logo-max-width: 58px;
+                --logo-max-height: 28px;
             }
 
-            .partnerships-logos img[alt="OpenAI"] {
-                height: 24px;
-                max-width: 118px;
+            .partnerships-logos .partner-logo-miro {
+                --logo-max-width: 64px;
+                --logo-max-height: 28px;
+            }
+
+            .partnerships-logos .partner-logo-subaru {
+                --logo-max-width: 60px;
+                --logo-max-height: 28px;
+            }
+
+            .partnerships-logos .partner-logo-meta {
+                --logo-max-width: 66px;
+                --logo-max-height: 28px;
             }
 
             .partnerships-track {
@@ -2824,42 +2884,42 @@
         <div class="partnerships-ticker">
             <div class="partnerships-track">
                 <div class="partnerships-logos ticker-group">
-                    <span class="partner-logo"><img src="anthropic-logo-ticker.png" alt="Anthropic"></span>
-                    <span class="partner-logo"><img src="openai-logo-ticker.png" alt="OpenAI"></span>
-                    <a href="https://www.google.org" target="_blank" rel="noopener noreferrer">
+                    <span class="partner-logo partner-logo-anthropic"><img src="anthropic-logo-ticker.png" alt="Anthropic"></span>
+                    <span class="partner-logo partner-logo-openai"><img src="openai-logo-ticker.png" alt="OpenAI"></span>
+                    <a class="partner-logo-google" href="https://www.google.org" target="_blank" rel="noopener noreferrer">
                         <img src="Google_2015_logo.svg" alt="Google">
                     </a>
-                    <a href="https://www.verizon.com/smallbusinessdigitalready/" target="_blank" rel="noopener noreferrer">
+                    <a class="partner-logo-verizon" href="https://www.verizon.com/smallbusinessdigitalready/" target="_blank" rel="noopener noreferrer">
                         <img src="verizon_2024.svg" alt="Verizon">
                     </a>
-                    <span class="partner-logo"><img src="ibm-logo-ticker.png" alt="IBM"></span>
-                    <a href="https://miro.com/ai/ai-overview/" target="_blank" rel="noopener noreferrer">
+                    <span class="partner-logo partner-logo-ibm"><img src="ibm-logo-ticker.png" alt="IBM"></span>
+                    <a class="partner-logo-miro" href="https://miro.com/ai/ai-overview/" target="_blank" rel="noopener noreferrer">
                         <img src="miro-logo.png" alt="Miro">
                     </a>
-                    <a href="https://www.subaru.com" target="_blank" rel="noopener noreferrer">
+                    <a class="partner-logo-subaru" href="https://www.subaru.com" target="_blank" rel="noopener noreferrer">
                         <img src="subaru-logo.png" alt="Subaru">
                     </a>
-                    <a href="https://about.meta.com" target="_blank" rel="noopener noreferrer">
+                    <a class="partner-logo-meta" href="https://about.meta.com" target="_blank" rel="noopener noreferrer">
                         <img src="meta-logo.png" alt="Meta">
                     </a>
                 </div>
                 <div class="partnerships-logos ticker-group" aria-hidden="true">
-                    <span class="partner-logo"><img src="anthropic-logo-ticker.png" alt="Anthropic"></span>
-                    <span class="partner-logo"><img src="openai-logo-ticker.png" alt="OpenAI"></span>
-                    <a href="https://www.google.org" target="_blank" rel="noopener noreferrer" tabindex="-1">
+                    <span class="partner-logo partner-logo-anthropic"><img src="anthropic-logo-ticker.png" alt="Anthropic"></span>
+                    <span class="partner-logo partner-logo-openai"><img src="openai-logo-ticker.png" alt="OpenAI"></span>
+                    <a class="partner-logo-google" href="https://www.google.org" target="_blank" rel="noopener noreferrer" tabindex="-1">
                         <img src="Google_2015_logo.svg" alt="Google">
                     </a>
-                    <a href="https://www.verizon.com/smallbusinessdigitalready/" target="_blank" rel="noopener noreferrer" tabindex="-1">
+                    <a class="partner-logo-verizon" href="https://www.verizon.com/smallbusinessdigitalready/" target="_blank" rel="noopener noreferrer" tabindex="-1">
                         <img src="verizon_2024.svg" alt="Verizon">
                     </a>
-                    <span class="partner-logo"><img src="ibm-logo-ticker.png" alt="IBM"></span>
-                    <a href="https://miro.com/ai/ai-overview/" target="_blank" rel="noopener noreferrer" tabindex="-1">
+                    <span class="partner-logo partner-logo-ibm"><img src="ibm-logo-ticker.png" alt="IBM"></span>
+                    <a class="partner-logo-miro" href="https://miro.com/ai/ai-overview/" target="_blank" rel="noopener noreferrer" tabindex="-1">
                         <img src="miro-logo.png" alt="Miro">
                     </a>
-                    <a href="https://www.subaru.com" target="_blank" rel="noopener noreferrer" tabindex="-1">
+                    <a class="partner-logo-subaru" href="https://www.subaru.com" target="_blank" rel="noopener noreferrer" tabindex="-1">
                         <img src="subaru-logo.png" alt="Subaru">
                     </a>
-                    <a href="https://about.meta.com" target="_blank" rel="noopener noreferrer" tabindex="-1">
+                    <a class="partner-logo-meta" href="https://about.meta.com" target="_blank" rel="noopener noreferrer" tabindex="-1">
                         <img src="meta-logo.png" alt="Meta">
                     </a>
                 </div>
