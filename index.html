@@ -363,6 +363,32 @@
             color: #4d5764;
         }
 
+        .curiosity-prompts {
+            display: grid;
+            gap: 0;
+            margin-top: 1.15rem;
+            border-top: 1px solid rgba(79, 172, 254, 0.14);
+        }
+
+        .curiosity-prompts p {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 0.72rem;
+            align-items: start;
+            padding: 0.78rem 0;
+            border-bottom: 1px solid rgba(79, 172, 254, 0.14);
+            color: #263343;
+            font-size: 0.95rem;
+            line-height: 1.46;
+        }
+
+        .curiosity-prompts span {
+            color: #3778c2;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 1.15rem;
+            line-height: 1;
+        }
+
         .collaboration-action {
             position: relative;
             z-index: 1;
@@ -1564,6 +1590,16 @@
             font-family: Georgia, 'Times New Roman', Times, serif;
         }
 
+        .contact-card p:not(.contact-kicker) {
+            position: relative;
+            z-index: 1;
+            max-width: 34rem;
+            margin: 0 auto 1.35rem;
+            color: #4d5764;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
         .contact-section .email-link {
             position: relative;
             z-index: 1;
@@ -1950,6 +1986,17 @@
                 font-size: 0.94rem;
                 line-height: 1.58;
                 text-wrap: pretty;
+            }
+
+            .curiosity-prompts {
+                margin-top: 0.95rem;
+            }
+
+            .curiosity-prompts p {
+                gap: 0.58rem;
+                padding: 0.68rem 0;
+                font-size: 0.9rem;
+                text-align: left;
             }
 
             .collaboration-action {
@@ -2546,16 +2593,21 @@
     <section class="collaboration-section" aria-label="Collaboration links">
         <div class="collaboration-shell">
             <div class="collaboration-copy">
-                <p class="collaboration-kicker">Collaborate</p>
-                <p class="collaboration-intro">I collaborate with technology companies, public-sector teams, educators, and partner ecosystems on AI adoption strategy, curriculum design, workshops, demos, and clear implementation resources for non-technical audiences.</p>
+                <p class="collaboration-kicker">Start With a Question</p>
+                <p class="collaboration-intro">The best AI work usually begins with a practical question, not a tool. I help teams slow the hype down, understand what is possible, and turn curiosity into a clear next step.</p>
+                <div class="curiosity-prompts" aria-label="Example AI questions">
+                    <p><span>01</span>What should AI change about the way this work gets done?</p>
+                    <p><span>02</span>How do we explain this clearly to people who are not technical?</p>
+                    <p><span>03</span>Where can we test value before we scale a full program?</p>
+                </div>
             </div>
             <div class="collaboration-action">
-                <p class="collaboration-action-label">Direct contact</p>
+                <p class="collaboration-action-label">Bring a question</p>
                 <div class="collaboration-links">
-                    <a href="mailto:hellogenxai@gmail.com">
+                    <a href="mailto:hellogenxai@gmail.com?subject=AI%20question">
                         <span class="collaboration-link-text">
-                            <span class="collaboration-link-title">Email Sarah</span>
-                            <span class="collaboration-link-subtitle">hellogenxai@gmail.com</span>
+                            <span class="collaboration-link-title">Ask Sarah</span>
+                            <span class="collaboration-link-subtitle">Start with the problem, audience, or workflow.</span>
                         </span>
                     </a>
                 </div>
@@ -2565,7 +2617,7 @@
 
     <section class="news-section" aria-labelledby="news-heading">
         <div class="news-section-header">
-            <h2 id="news-heading" class="news-heading">In the News</h2>
+            <h2 id="news-heading" class="news-heading">Signals Worth Following</h2>
         </div>
         <div class="news-grid">
             <article class="news-card news-card-compact">
@@ -2620,7 +2672,7 @@
     </section>
 
     <section class="image-grid-section">
-        <h2>In Practice</h2>
+        <h2>Curiosity in Practice</h2>
         <div class="image-grid-ticker" id="galleryTicker">
             <div class="image-grid">
                 <div class="image-tile">
@@ -2663,13 +2715,13 @@
         </div>
     </section>
 
-    <section class="python-lab-section" aria-labelledby="python-lab-heading" hidden>
+    <section class="python-lab-section" aria-labelledby="python-lab-heading">
         <div class="python-lab-shell">
             <div class="python-lab-content">
                 <div class="python-lab-copy">
-                    <p class="python-lab-kicker">Interactive Demo</p>
-                    <h2 id="python-lab-heading">Write your first Python program</h2>
-                    <p class="python-lab-lead">Traditionally, the first program a computer scientist writes is "Hello, World."</p>
+                    <p class="python-lab-kicker">Tiny Experiment</p>
+                    <h2 id="python-lab-heading">Make the computer answer back</h2>
+                    <p class="python-lab-lead">Curiosity gets easier when the technology responds. Change the words inside the quotes and run a first Python line.</p>
                 </div>
                 <div class="python-quickstart">
                     <p class="python-quickstart-title">30-second guide</p>
@@ -2726,14 +2778,15 @@
 
     <section class="contact-section" id="contact">
         <div class="contact-card">
-            <p class="contact-kicker">Get in Touch</p>
-            <h2>Let's Connect</h2>
-            <a href="mailto:hellogenxai@gmail.com" class="email-link">hellogenxai@gmail.com</a>
+            <p class="contact-kicker">Explore the next question</p>
+            <h2>What are you trying to make clearer?</h2>
+            <p>Bring the messy version. The useful AI conversation usually starts before the answer is obvious.</p>
+            <a href="mailto:hellogenxai@gmail.com?subject=AI%20clarity%20question" class="email-link">hellogenxai@gmail.com</a>
         </div>
     </section>
 
     <section class="partnerships-section">
-        <h3>Selected Partnerships</h3>
+        <h3>People and Platforms Around the Work</h3>
         <div class="partnerships-ticker">
             <div class="partnerships-track">
                 <div class="partnerships-logos ticker-group">
