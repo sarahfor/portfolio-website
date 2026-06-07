@@ -3097,17 +3097,17 @@
         <div class="python-lab-shell">
             <div class="python-lab-content">
                 <div class="python-lab-copy">
-                    <p class="python-lab-kicker">First Line of Code</p>
-                    <h2 id="python-lab-heading">Let's write your first line of code</h2>
-                    <p class="python-lab-lead">Change the words inside the quotes, press run, and watch the computer answer back.</p>
+                    <p class="python-lab-kicker">Python IDE</p>
+                    <h2 id="python-lab-heading">Write Python and run it here</h2>
+                    <p class="python-lab-lead">Use the editor like a small Python workspace. Write code, run it, and read the output or traceback.</p>
                 </div>
                 <div class="python-quickstart">
-                    <p class="python-quickstart-title">30-second guide</p>
-                    <div class="python-formula"><code>print("your message")</code></div>
+                    <p class="python-quickstart-title">Try it</p>
+                    <div class="python-formula"><code>for i in range(3): print(i)</code></div>
                     <ol class="python-steps">
-                        <li><span class="python-step-number">1</span><span><span class="python-inline-code">print</span> tells Python to display something.</span></li>
-                        <li><span class="python-step-number">2</span><span>The quotation marks turn your words into text.</span></li>
-                        <li><span class="python-step-number">3</span><span>Press <span class="python-inline-code">Run code</span> to see the result in the output panel.</span></li>
+                        <li><span class="python-step-number">1</span><span>Write Python in <span class="python-inline-code">main.py</span>.</span></li>
+                        <li><span class="python-step-number">2</span><span>Use loops, variables, functions, imports, and calculations.</span></li>
+                        <li><span class="python-step-number">3</span><span>Press <span class="python-inline-code">Run code</span> to execute it in the browser.</span></li>
                     </ol>
                 </div>
                 <div class="python-lab-workspace">
@@ -3121,11 +3121,14 @@
                                 </span>
                                 <span>main.py</span>
                             </div>
-                            <span class="python-panel-hint">Edit the text in quotes</span>
+                            <span class="python-panel-hint">Write Python</span>
                         </div>
                         <div class="python-editor-shell">
                             <pre class="python-editor-highlight" id="pythonEditorHighlight" aria-hidden="true"></pre>
-                            <textarea id="pythonEditor" class="python-editor" spellcheck="false" aria-label="Python code editor">print("Hello, World!")</textarea>
+                            <textarea id="pythonEditor" class="python-editor" spellcheck="false" aria-label="Python code editor">name = "Sarah"
+
+for i in range(3):
+    print(f"{i + 1}. Hello, {name}")</textarea>
                         </div>
                         <div class="python-controls">
                             <button type="button" class="python-button" id="pythonRunButton">Run code</button>
@@ -3143,7 +3146,7 @@
                                 </span>
                                 <span>Output</span>
                             </div>
-                            <span class="python-panel-hint">Printed result</span>
+                            <span class="python-panel-hint">stdout and errors</span>
                         </div>
                         <pre class="python-output" id="pythonOutput" aria-live="polite"></pre>
                     </div>
@@ -3226,12 +3229,6 @@
             }
 
             const starterCode = editor.value;
-            const guideMessage = 'Hello, World!';
-            const guidePrefix = 'print("';
-            const guideSuffix = '")';
-            const guideStart = starterCode.indexOf(guideMessage);
-            const guideEnd = guideStart + guideMessage.length;
-            let isGuidePristine = true;
             let pyodideReadyPromise = null;
 
             function setStatus(message, tone = 'ready') {
@@ -3294,7 +3291,7 @@
                             end += 1;
                         }
                         const word = line.slice(index, end);
-                        if (word === 'print') {
+                        if (['def', 'for', 'from', 'if', 'import', 'in', 'print', 'range', 'return', 'while'].includes(word)) {
                             result += `<span class="python-token-function">${word}</span>`;
                         } else {
                             result += escapeHtml(word);
@@ -3316,71 +3313,11 @@
                 return result || ' ';
             }
 
-            function renderGuideCharacters(value) {
-                if (isGuidePristine && value === guideMessage) {
-                    return `<span class="python-token-string-placeholder">${escapeHtml(guideMessage)}</span>`;
-                }
-
-                let matchingPrefixLength = 0;
-                while (
-                    matchingPrefixLength < value.length &&
-                    matchingPrefixLength < guideMessage.length &&
-                    value[matchingPrefixLength] === guideMessage[matchingPrefixLength]
-                ) {
-                    matchingPrefixLength += 1;
-                }
-
-                const matched = escapeHtml(value.slice(0, matchingPrefixLength));
-                const typed = escapeHtml(value.slice(matchingPrefixLength));
-                const remaining = escapeHtml(guideMessage.slice(value.length));
-
-                return [
-                    matched ? `<span class="python-token-string-progress">${matched}</span>` : '',
-                    typed ? `<span class="python-token-string-input">${typed}</span>` : '',
-                    remaining ? `<span class="python-token-string-placeholder">${remaining}</span>` : ''
-                ].join('');
-            }
-
-            function renderGuidedStarter(code) {
-                if (
-                    guideStart === -1 ||
-                    code.includes('\n') ||
-                    !code.startsWith(guidePrefix) ||
-                    !code.endsWith(guideSuffix)
-                ) {
-                    return null;
-                }
-
-                const message = code.slice(guidePrefix.length, code.length - guideSuffix.length);
-
-                return [
-                    '<span class="python-token-function">print</span>',
-                    '<span class="python-token-punctuation">(</span>',
-                    '<span class="python-token-punctuation">"</span>',
-                    renderGuideCharacters(message),
-                    '<span class="python-token-punctuation">"</span>',
-                    '<span class="python-token-punctuation">)</span>'
-                ].join('');
-            }
-
             function syncEditorHighlight() {
-                const guidedStarter = renderGuidedStarter(editor.value);
-                if (guidedStarter) {
-                    editorHighlight.innerHTML = guidedStarter;
-                } else {
-                    const lines = editor.value.split('\\n');
-                    editorHighlight.innerHTML = lines.map(highlightPythonLine).join('\\n');
-                }
+                const lines = editor.value.split('\\n');
+                editorHighlight.innerHTML = lines.map(highlightPythonLine).join('\\n');
                 editorHighlight.scrollTop = editor.scrollTop;
                 editorHighlight.scrollLeft = editor.scrollLeft;
-            }
-
-            function focusGuideMessage() {
-                if (guideStart === -1) {
-                    return;
-                }
-                editor.focus();
-                editor.setSelectionRange(guideStart, guideEnd);
             }
 
             function loadPyodideScript() {
@@ -3424,7 +3361,7 @@
             async function runCode() {
                 const code = editor.value;
                 if (!code.trim()) {
-                    setOutput('Write a line of Python to get started.');
+                    setOutput('Write Python code in main.py, then press Run code.');
                     setStatus('Waiting for code');
                     return;
                 }
@@ -3435,6 +3372,7 @@
 
                 try {
                     const pyodide = await getPyodide();
+                    await pyodide.loadPackagesFromImports(code);
                     setStatus('Running', 'loading');
                     const result = await pyodide.runPythonAsync(`
 import io
@@ -3444,12 +3382,23 @@ from contextlib import redirect_stdout, redirect_stderr
 source = ${JSON.stringify(code)}
 stdout_buffer = io.StringIO()
 stderr_buffer = io.StringIO()
+globals_dict = {"__name__": "__main__"}
 
 with redirect_stdout(stdout_buffer), redirect_stderr(stderr_buffer):
     try:
-        exec(source, {})
-    except Exception:
-        traceback.print_exc()
+        exec(compile(source, "main.py", "exec"), globals_dict)
+    except Exception as error:
+        trace = traceback.TracebackException.from_exception(error)
+        user_frames = [frame for frame in trace.stack if frame.filename == "main.py"]
+        if user_frames:
+            print("Traceback (most recent call last):")
+            for frame in user_frames:
+                print(f'  File "main.py", line {frame.lineno}, in {frame.name}')
+                if frame.line:
+                    print(f"    {frame.line.strip()}")
+            print("".join(trace.format_exception_only()), end="")
+        else:
+            traceback.print_exc()
 
 (stdout_buffer.getvalue() + stderr_buffer.getvalue()) or "Program finished with no output."
                     `);
@@ -3465,21 +3414,13 @@ ${error.message}` : 'Python is unavailable right now.');
             }
 
             function resetCode() {
-                isGuidePristine = true;
                 editor.value = starterCode;
                 syncEditorHighlight();
                 setOutput('');
                 setStatus('Ready');
-                focusGuideMessage();
             }
 
-            editor.addEventListener('focus', () => {
-                if (isGuidePristine && editor.value === starterCode) {
-                    editor.setSelectionRange(guideStart, guideEnd);
-                }
-            });
             editor.addEventListener('input', () => {
-                isGuidePristine = false;
                 syncEditorHighlight();
             });
             editor.addEventListener('scroll', syncEditorHighlight);
@@ -3496,12 +3437,6 @@ ${error.message}` : 'Python is unavailable right now.');
             });
 
             syncEditorHighlight();
-            setTimeout(() => {
-                if (document.activeElement !== editor) {
-                    return;
-                }
-                focusGuideMessage();
-            }, 0);
             runButton.addEventListener('click', runCode);
             resetButton.addEventListener('click', resetCode);
         })();
