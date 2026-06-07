@@ -1388,6 +1388,7 @@
             inset: 0;
             background: linear-gradient(135deg, rgba(79, 172, 254, 0.16) 0%, rgba(255, 255, 255, 0) 60%);
             opacity: 0;
+            pointer-events: none;
             transition: opacity 0.4s ease;
         }
 
@@ -1397,6 +1398,7 @@
             height: 100%;
             color: inherit;
             text-decoration: none;
+            cursor: zoom-in;
         }
 
         .image-tile img,
@@ -1430,6 +1432,73 @@
 
         .image-tile:hover::after {
             opacity: 1;
+        }
+
+        .image-lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            background: rgba(8, 14, 24, 0.9);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.24s ease, visibility 0.24s ease;
+        }
+
+        .image-lightbox.is-open {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .image-lightbox-dialog {
+            position: relative;
+            width: min(92vw, 1680px);
+            max-height: 92vh;
+            display: grid;
+            justify-items: center;
+        }
+
+        .image-lightbox-close {
+            position: absolute;
+            top: 0.35rem;
+            right: 0.35rem;
+            width: 48px;
+            height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.58);
+            color: #ffffff;
+            font-size: 1.8rem;
+            line-height: 1;
+            cursor: pointer;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .image-lightbox-close:hover {
+            background: rgba(15, 23, 42, 0.75);
+        }
+
+        .image-lightbox-image {
+            width: auto;
+            max-width: min(92vw, 1680px);
+            max-height: 92vh;
+            display: block;
+            border-radius: 22px;
+            box-shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
+            background: #ffffff;
+        }
+
+        body.lightbox-open {
+            overflow: hidden;
         }
 
         .news-section {
@@ -1758,6 +1827,12 @@
             letter-spacing: 0;
             text-align: center;
             text-wrap: balance;
+        }
+
+        .partnerships-copy span {
+            display: block;
+            width: fit-content;
+            margin: 0 auto;
         }
 
         .mobile-break {
@@ -3000,7 +3075,11 @@
     <section class="partnerships-section">
         <div class="partnerships-intro">
             <h3>Trusted by teams shaping <br class="desktop-break">how people learn and use AI.</h3>
-            <p class="partnerships-copy">Selected partners across AI education,<br>workforce adoption<br>technical communication, and digital learning.</p>
+            <p class="partnerships-copy">
+                <span>Selected partners across AI education,</span>
+                <span>workforce adoption</span>
+                <span>technical communication, and digital learning.</span>
+            </p>
         </div>
         <div class="partnerships-ticker">
             <div class="partnerships-track">
@@ -3132,68 +3211,75 @@
         <div class="image-grid-ticker" id="galleryTicker">
             <div class="image-grid">
                 <div class="image-tile">
-                    <a href="image%20assets/691A1377.jpg" target="_blank" rel="noopener noreferrer">
+                    <a href="image%20assets/691A1377.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/691A1377.jpg" data-image-alt="Gallery image 1" aria-label="Expand gallery image 1">
                         <img src="image%20assets/thumbs/691A1377-thumb.jpg" alt="Gallery image 1" loading="lazy" decoding="async">
                     </a>
                 </div>
                 <div class="image-tile">
-                    <a href="image%20assets/Claude%20SMB%20Workshop.jpg" target="_blank" rel="noopener noreferrer">
+                    <a href="image%20assets/Claude%20SMB%20Workshop.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/Claude%20SMB%20Workshop.jpg" data-image-alt="Sarah Forrest leading a Claude SMB workshop" aria-label="Expand workshop image">
                         <img src="image%20assets/thumbs/Claude%20SMB%20Workshop-thumb.jpg" alt="Sarah Forrest leading a Claude SMB workshop" loading="lazy" decoding="async">
                     </a>
                 </div>
                 <div class="image-tile">
-                    <a href="image%20assets/55117974250_36149dea8c_o.jpg" target="_blank" rel="noopener noreferrer">
+                    <a href="image%20assets/55117974250_36149dea8c_o.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/55117974250_36149dea8c_o.jpg" data-image-alt="Gallery image 2" aria-label="Expand gallery image 2">
                         <img src="image%20assets/thumbs/55117974250_36149dea8c_o-thumb.jpg" alt="Gallery image 2" loading="lazy" decoding="async">
                     </a>
                 </div>
                 <div class="image-tile">
-                    <a href="image%20assets/DSC07357.jpg" target="_blank" rel="noopener noreferrer">
+                    <a href="image%20assets/DSC07357.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/DSC07357.jpg" data-image-alt="Gallery image 3" aria-label="Expand gallery image 3">
                         <img src="image%20assets/thumbs/DSC07357-thumb.jpg" alt="Gallery image 3" loading="lazy" decoding="async">
                     </a>
                 </div>
                 <div class="image-tile">
-                    <a href="image%20assets/DSC07368.jpg" target="_blank" rel="noopener noreferrer">
+                    <a href="image%20assets/DSC07368.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/DSC07368.jpg" data-image-alt="Gallery image 4" aria-label="Expand gallery image 4">
                         <img src="image%20assets/thumbs/DSC07368-thumb.jpg" alt="Gallery image 4" loading="lazy" decoding="async">
                     </a>
                 </div>
                 <div class="image-tile">
-                    <a href="image%20assets/IMG_0659.jpg" target="_blank" rel="noopener noreferrer">
+                    <a href="image%20assets/IMG_0659.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/IMG_0659.jpg" data-image-alt="Gallery image 5" aria-label="Expand gallery image 5">
                         <img src="image%20assets/thumbs/IMG_0659-thumb.jpg" alt="Gallery image 5" loading="lazy" decoding="async">
                     </a>
                 </div>
                 <div class="image-tile">
-                    <a href="image%20assets/DSC07568.jpg" target="_blank" rel="noopener noreferrer">
+                    <a href="image%20assets/DSC07568.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/DSC07568.jpg" data-image-alt="Gallery image 6" aria-label="Expand gallery image 6">
                         <img src="image%20assets/thumbs/DSC07568-thumb.jpg" alt="Gallery image 6" loading="lazy" decoding="async">
                     </a>
                 </div>
                 <div class="image-tile">
-                    <a href="image%20assets/IMG_1137.jpg" target="_blank" rel="noopener noreferrer">
+                    <a href="image%20assets/IMG_1137.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/IMG_1137.jpg" data-image-alt="Gallery image 7" aria-label="Expand gallery image 7">
                         <img src="image%20assets/thumbs/IMG_1137-thumb.jpg" alt="Gallery image 7" loading="lazy" decoding="async">
                     </a>
                 </div>
                 <div class="image-tile">
-                    <a href="image%20assets/IMG_1933_jpg.jpg" target="_blank" rel="noopener noreferrer">
+                    <a href="image%20assets/IMG_1933_jpg.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/IMG_1933_jpg.jpg" data-image-alt="Gallery image 8" aria-label="Expand gallery image 8">
                         <img src="image%20assets/thumbs/IMG_1933_jpg-thumb.jpg" alt="Gallery image 8" loading="lazy" decoding="async">
                     </a>
                 </div>
                 <div class="image-tile">
-                    <a href="image%20assets/IMG_2372_jpg.jpg" target="_blank" rel="noopener noreferrer">
+                    <a href="image%20assets/IMG_2372_jpg.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/IMG_2372_jpg.jpg" data-image-alt="Gallery image 9" aria-label="Expand gallery image 9">
                         <img src="image%20assets/thumbs/IMG_2372_jpg-thumb.jpg" alt="Gallery image 9" loading="lazy" decoding="async">
                     </a>
                 </div>
                 <div class="image-tile">
-                    <a href="image%20assets/IMG_2397_jpg.jpg" target="_blank" rel="noopener noreferrer">
+                    <a href="image%20assets/IMG_2397_jpg.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/IMG_2397_jpg.jpg" data-image-alt="Gallery image 10" aria-label="Expand gallery image 10">
                         <img src="image%20assets/thumbs/IMG_2397_jpg-thumb.jpg" alt="Gallery image 10" loading="lazy" decoding="async">
                     </a>
                 </div>
                 <div class="image-tile">
-                    <a href="image%20assets/Claude.jpg" target="_blank" rel="noopener noreferrer">
+                    <a href="image%20assets/Claude.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/Claude.jpg" data-image-alt="Claude workshop sign with a plant in the room" aria-label="Expand Claude image">
                         <img src="image%20assets/thumbs/Claude-thumb.jpg" alt="Claude workshop sign with a plant in the room" loading="lazy" decoding="async">
                     </a>
                 </div>
             </div>
         </div>
     </section>
+
+    <div class="image-lightbox" id="imageLightbox" aria-hidden="true" tabindex="-1">
+        <div class="image-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Expanded image view">
+            <button class="image-lightbox-close" id="imageLightboxClose" type="button" aria-label="Close image view">&times;</button>
+            <img class="image-lightbox-image" id="imageLightboxImage" src="" alt="">
+        </div>
+    </div>
 
     <section class="python-lab-section" aria-labelledby="python-lab-heading">
         <div class="python-lab-shell">
@@ -3313,6 +3399,58 @@
             });
 
             observer.observe(section);
+        })();
+
+        (() => {
+            const lightbox = document.getElementById('imageLightbox');
+            const lightboxImage = document.getElementById('imageLightboxImage');
+            const closeButton = document.getElementById('imageLightboxClose');
+            const triggers = document.querySelectorAll('.image-lightbox-trigger');
+
+            if (!lightbox || !lightboxImage || !closeButton || triggers.length === 0) {
+                return;
+            }
+
+            let activeTrigger = null;
+
+            function closeLightbox() {
+                lightbox.classList.remove('is-open');
+                lightbox.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('lightbox-open');
+                lightboxImage.removeAttribute('src');
+                lightboxImage.removeAttribute('alt');
+                if (activeTrigger) {
+                    activeTrigger.focus();
+                    activeTrigger = null;
+                }
+            }
+
+            triggers.forEach((trigger) => {
+                trigger.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    activeTrigger = trigger;
+                    lightboxImage.src = trigger.dataset.fullImage || trigger.getAttribute('href');
+                    lightboxImage.alt = trigger.dataset.imageAlt || trigger.querySelector('img')?.alt || '';
+                    lightbox.classList.add('is-open');
+                    lightbox.setAttribute('aria-hidden', 'false');
+                    document.body.classList.add('lightbox-open');
+                    closeButton.focus();
+                });
+            });
+
+            closeButton.addEventListener('click', closeLightbox);
+
+            lightbox.addEventListener('click', (event) => {
+                if (event.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            window.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
+                    closeLightbox();
+                }
+            });
         })();
 
         (() => {
