@@ -6,6 +6,7 @@
     <title>Sarah Forrest - Portfolio</title>
     <link rel="icon" type="image/png" href="favicon-profile.png">
     <link rel="apple-touch-icon" href="favicon-profile.png">
+    <link rel="preload" as="image" href="hero-background.jpg">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M6HL8FDHJ1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -1390,6 +1391,14 @@
             transition: opacity 0.4s ease;
         }
 
+        .image-tile a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            color: inherit;
+            text-decoration: none;
+        }
+
         .image-tile img,
         .image-tile video {
             width: 100%;
@@ -1404,6 +1413,7 @@
             object-position: center 48%;
         }
 
+        .image-tile img[src*="Claude-thumb.jpg"],
         .image-tile img[src*="Claude.jpg"] {
             object-position: center 68%;
         }
@@ -2516,6 +2526,7 @@
                 object-position: center 44%;
             }
 
+            .image-tile img[src*="Claude-thumb.jpg"],
             .image-tile img[src*="Claude.jpg"] {
                 object-position: center 72%;
             }
@@ -2994,43 +3005,43 @@
         <div class="partnerships-ticker">
             <div class="partnerships-track">
                 <div class="partnerships-logos ticker-group">
-                    <span class="partner-logo partner-logo-anthropic"><img src="anthropic-logo-ticker.png" alt="Anthropic"></span>
-                    <span class="partner-logo partner-logo-openai"><img src="openai-logo-ticker.png" alt="OpenAI"></span>
+                    <span class="partner-logo partner-logo-anthropic"><img src="anthropic-logo-ticker.png" alt="Anthropic" loading="lazy" decoding="async"></span>
+                    <span class="partner-logo partner-logo-openai"><img src="openai-logo-ticker.png" alt="OpenAI" loading="lazy" decoding="async"></span>
                     <a class="partner-logo-google" href="https://www.google.org" target="_blank" rel="noopener noreferrer">
-                        <img src="Google_2015_logo.svg" alt="Google">
+                        <img src="Google_2015_logo.svg" alt="Google" loading="lazy" decoding="async">
                     </a>
                     <a class="partner-logo-verizon" href="https://www.verizon.com/smallbusinessdigitalready/" target="_blank" rel="noopener noreferrer">
-                        <img src="verizon_2024.svg" alt="Verizon">
+                        <img src="verizon_2024.svg" alt="Verizon" loading="lazy" decoding="async">
                     </a>
-                    <span class="partner-logo partner-logo-ibm"><img src="ibm-logo-ticker.png" alt="IBM"></span>
+                    <span class="partner-logo partner-logo-ibm"><img src="ibm-logo-ticker.png" alt="IBM" loading="lazy" decoding="async"></span>
                     <a class="partner-logo-miro" href="https://miro.com/ai/ai-overview/" target="_blank" rel="noopener noreferrer">
-                        <img src="miro-logo.png" alt="Miro">
+                        <img src="miro-logo.png" alt="Miro" loading="lazy" decoding="async">
                     </a>
                     <a class="partner-logo-subaru" href="https://www.subaru.com" target="_blank" rel="noopener noreferrer">
-                        <img src="subaru-logo.png" alt="Subaru">
+                        <img src="subaru-logo.png" alt="Subaru" loading="lazy" decoding="async">
                     </a>
                     <a class="partner-logo-meta" href="https://about.meta.com" target="_blank" rel="noopener noreferrer">
-                        <img src="meta-logo.png" alt="Meta">
+                        <img src="meta-logo.png" alt="Meta" loading="lazy" decoding="async">
                     </a>
                 </div>
                 <div class="partnerships-logos ticker-group" aria-hidden="true">
-                    <span class="partner-logo partner-logo-anthropic"><img src="anthropic-logo-ticker.png" alt="Anthropic"></span>
-                    <span class="partner-logo partner-logo-openai"><img src="openai-logo-ticker.png" alt="OpenAI"></span>
+                    <span class="partner-logo partner-logo-anthropic"><img src="anthropic-logo-ticker.png" alt="Anthropic" loading="lazy" decoding="async"></span>
+                    <span class="partner-logo partner-logo-openai"><img src="openai-logo-ticker.png" alt="OpenAI" loading="lazy" decoding="async"></span>
                     <a class="partner-logo-google" href="https://www.google.org" target="_blank" rel="noopener noreferrer" tabindex="-1">
-                        <img src="Google_2015_logo.svg" alt="Google">
+                        <img src="Google_2015_logo.svg" alt="Google" loading="lazy" decoding="async">
                     </a>
                     <a class="partner-logo-verizon" href="https://www.verizon.com/smallbusinessdigitalready/" target="_blank" rel="noopener noreferrer" tabindex="-1">
-                        <img src="verizon_2024.svg" alt="Verizon">
+                        <img src="verizon_2024.svg" alt="Verizon" loading="lazy" decoding="async">
                     </a>
-                    <span class="partner-logo partner-logo-ibm"><img src="ibm-logo-ticker.png" alt="IBM"></span>
+                    <span class="partner-logo partner-logo-ibm"><img src="ibm-logo-ticker.png" alt="IBM" loading="lazy" decoding="async"></span>
                     <a class="partner-logo-miro" href="https://miro.com/ai/ai-overview/" target="_blank" rel="noopener noreferrer" tabindex="-1">
-                        <img src="miro-logo.png" alt="Miro">
+                        <img src="miro-logo.png" alt="Miro" loading="lazy" decoding="async">
                     </a>
                     <a class="partner-logo-subaru" href="https://www.subaru.com" target="_blank" rel="noopener noreferrer" tabindex="-1">
-                        <img src="subaru-logo.png" alt="Subaru">
+                        <img src="subaru-logo.png" alt="Subaru" loading="lazy" decoding="async">
                     </a>
                     <a class="partner-logo-meta" href="https://about.meta.com" target="_blank" rel="noopener noreferrer" tabindex="-1">
-                        <img src="meta-logo.png" alt="Meta">
+                        <img src="meta-logo.png" alt="Meta" loading="lazy" decoding="async">
                     </a>
                 </div>
             </div>
@@ -3068,7 +3079,7 @@
         <div class="news-grid">
             <article class="news-card news-card-compact">
                 <a class="news-card-media" href="https://blog.google/company-news/outreach-and-initiatives/grow-with-google/google-ai-training-massachusetts-residents/" target="_blank" rel="noopener noreferrer">
-                    <img src="image%20assets/691A1377.jpg" alt="Governor Maura Healey and Google leaders with Massachusetts AI training graduates" loading="lazy" decoding="async">
+                    <img src="image%20assets/thumbs/691A1377-thumb.jpg" alt="Governor Maura Healey and Google leaders with Massachusetts AI training graduates" loading="lazy" decoding="async">
                 </a>
                 <div class="news-card-body">
                     <div>
@@ -3084,7 +3095,7 @@
             </article>
             <article class="news-card news-card-compact">
                 <a class="news-card-media" href="https://aihub.masstech.org/google-certificates" target="_blank" rel="noopener noreferrer">
-                    <img src="image%20assets/google-certificates-cover.jpg" alt="Grow with Google announcement cover for Massachusetts AI Hub training access" loading="lazy" decoding="async">
+                    <img src="image%20assets/thumbs/google-certificates-cover-thumb.jpg" alt="Grow with Google announcement cover for Massachusetts AI Hub training access" loading="lazy" decoding="async">
                 </a>
                 <div class="news-card-body">
                     <div>
@@ -3122,40 +3133,64 @@
         <div class="image-grid-ticker" id="galleryTicker">
             <div class="image-grid">
                 <div class="image-tile">
-                    <img src="image%20assets/691A1377.jpg" alt="Gallery image 1" loading="lazy" decoding="async">
+                    <a href="image%20assets/691A1377.jpg" target="_blank" rel="noopener noreferrer">
+                        <img src="image%20assets/thumbs/691A1377-thumb.jpg" alt="Gallery image 1" loading="lazy" decoding="async">
+                    </a>
                 </div>
                 <div class="image-tile">
-                    <img src="image%20assets/Claude%20SMB%20Workshop.jpg" alt="Sarah Forrest leading a Claude SMB workshop" loading="lazy" decoding="async">
+                    <a href="image%20assets/Claude%20SMB%20Workshop.jpg" target="_blank" rel="noopener noreferrer">
+                        <img src="image%20assets/thumbs/Claude%20SMB%20Workshop-thumb.jpg" alt="Sarah Forrest leading a Claude SMB workshop" loading="lazy" decoding="async">
+                    </a>
                 </div>
                 <div class="image-tile">
-                    <img src="image%20assets/55117974250_36149dea8c_o.jpg" alt="Gallery image 2" loading="lazy" decoding="async">
+                    <a href="image%20assets/55117974250_36149dea8c_o.jpg" target="_blank" rel="noopener noreferrer">
+                        <img src="image%20assets/thumbs/55117974250_36149dea8c_o-thumb.jpg" alt="Gallery image 2" loading="lazy" decoding="async">
+                    </a>
                 </div>
                 <div class="image-tile">
-                    <img src="image%20assets/DSC07357.jpg" alt="Gallery image 3" loading="lazy" decoding="async">
+                    <a href="image%20assets/DSC07357.jpg" target="_blank" rel="noopener noreferrer">
+                        <img src="image%20assets/thumbs/DSC07357-thumb.jpg" alt="Gallery image 3" loading="lazy" decoding="async">
+                    </a>
                 </div>
                 <div class="image-tile">
-                    <img src="image%20assets/DSC07368.jpg" alt="Gallery image 4" loading="lazy" decoding="async">
+                    <a href="image%20assets/DSC07368.jpg" target="_blank" rel="noopener noreferrer">
+                        <img src="image%20assets/thumbs/DSC07368-thumb.jpg" alt="Gallery image 4" loading="lazy" decoding="async">
+                    </a>
                 </div>
                 <div class="image-tile">
-                    <img src="image%20assets/IMG_0659.jpg" alt="Gallery image 5" loading="lazy" decoding="async">
+                    <a href="image%20assets/IMG_0659.jpg" target="_blank" rel="noopener noreferrer">
+                        <img src="image%20assets/thumbs/IMG_0659-thumb.jpg" alt="Gallery image 5" loading="lazy" decoding="async">
+                    </a>
                 </div>
                 <div class="image-tile">
-                    <img src="image%20assets/DSC07568.jpg" alt="Gallery image 6" loading="lazy" decoding="async">
+                    <a href="image%20assets/DSC07568.jpg" target="_blank" rel="noopener noreferrer">
+                        <img src="image%20assets/thumbs/DSC07568-thumb.jpg" alt="Gallery image 6" loading="lazy" decoding="async">
+                    </a>
                 </div>
                 <div class="image-tile">
-                    <img src="image%20assets/IMG_1137.jpg" alt="Gallery image 7" loading="lazy" decoding="async">
+                    <a href="image%20assets/IMG_1137.jpg" target="_blank" rel="noopener noreferrer">
+                        <img src="image%20assets/thumbs/IMG_1137-thumb.jpg" alt="Gallery image 7" loading="lazy" decoding="async">
+                    </a>
                 </div>
                 <div class="image-tile">
-                    <img src="image%20assets/IMG_1933_jpg.jpg" alt="Gallery image 8" loading="lazy" decoding="async">
+                    <a href="image%20assets/IMG_1933_jpg.jpg" target="_blank" rel="noopener noreferrer">
+                        <img src="image%20assets/thumbs/IMG_1933_jpg-thumb.jpg" alt="Gallery image 8" loading="lazy" decoding="async">
+                    </a>
                 </div>
                 <div class="image-tile">
-                    <img src="image%20assets/IMG_2372_jpg.jpg" alt="Gallery image 9" loading="lazy" decoding="async">
+                    <a href="image%20assets/IMG_2372_jpg.jpg" target="_blank" rel="noopener noreferrer">
+                        <img src="image%20assets/thumbs/IMG_2372_jpg-thumb.jpg" alt="Gallery image 9" loading="lazy" decoding="async">
+                    </a>
                 </div>
                 <div class="image-tile">
-                    <img src="image%20assets/IMG_2397_jpg.jpg" alt="Gallery image 10" loading="lazy" decoding="async">
+                    <a href="image%20assets/IMG_2397_jpg.jpg" target="_blank" rel="noopener noreferrer">
+                        <img src="image%20assets/thumbs/IMG_2397_jpg-thumb.jpg" alt="Gallery image 10" loading="lazy" decoding="async">
+                    </a>
                 </div>
                 <div class="image-tile">
-                    <img src="image%20assets/Claude.jpg" alt="Claude workshop sign with a plant in the room" loading="lazy" decoding="async">
+                    <a href="image%20assets/Claude.jpg" target="_blank" rel="noopener noreferrer">
+                        <img src="image%20assets/thumbs/Claude-thumb.jpg" alt="Claude workshop sign with a plant in the room" loading="lazy" decoding="async">
+                    </a>
                 </div>
             </div>
         </div>
