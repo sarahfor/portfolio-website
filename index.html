@@ -2531,7 +2531,7 @@
                 box-shadow: none;
                 opacity: 1;
                 filter: none;
-                overflow: hidden;
+                overflow: visible;
             }
 
             .social-links img {
@@ -2908,7 +2908,15 @@
         <div class="about-card">
             <div class="about-content">
                 <div class="about-image">
-                    <img src="profile-image.jpg" alt="Sarah Forrest">
+                    <img
+                        src="profile-image-900.jpg"
+                        srcset="profile-image-600.jpg 600w, profile-image-900.jpg 900w, profile-image-1200.jpg 1200w"
+                        sizes="(max-width: 640px) 300px, (max-width: 968px) 400px, 450px"
+                        width="900"
+                        height="600"
+                        alt="Sarah Forrest"
+                        loading="lazy"
+                        decoding="async">
                     <div class="social-links">
                         <a href="https://www.linkedin.com/in/sarforre" target="_blank" rel="noopener noreferrer">
                             <img src="linkedin-logo.svg" alt="LinkedIn">
