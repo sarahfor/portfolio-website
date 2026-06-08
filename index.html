@@ -1401,6 +1401,12 @@
             cursor: zoom-in;
         }
 
+        .image-tile picture {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
         .image-tile img,
         .image-tile video {
             width: 100%;
@@ -3286,7 +3292,10 @@
                 </div>
                 <div class="image-tile">
                     <a href="image%20assets/C34410DE-014F-4F94-AE54-7F47871B20D8.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/C34410DE-014F-4F94-AE54-7F47871B20D8.jpg" data-image-alt="Claude event question of the day skyline graphic" aria-label="Expand Claude skyline graphic">
-                        <img src="image%20assets/thumbs/C34410DE-014F-4F94-AE54-7F47871B20D8-display.jpg" alt="Claude event question of the day skyline graphic" loading="lazy" decoding="async">
+                        <picture>
+                            <source media="(max-width: 767px)" srcset="image%20assets/thumbs/C34410DE-014F-4F94-AE54-7F47871B20D8-mobile.jpg">
+                            <img src="image%20assets/thumbs/C34410DE-014F-4F94-AE54-7F47871B20D8-display.jpg" alt="Claude event question of the day skyline graphic" loading="lazy" decoding="async">
+                        </picture>
                     </a>
                 </div>
                 <div class="image-tile">
