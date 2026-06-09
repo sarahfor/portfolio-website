@@ -2378,8 +2378,8 @@
                 font-size: clamp(1.65rem, 7.2vw, 2.2rem);
                 max-width: 100%;
                 margin: 0 auto;
-                white-space: nowrap;
-                text-wrap: nowrap;
+                line-height: 0.98;
+                text-wrap: balance;
             }
 
             .python-lab-lead {
@@ -3039,6 +3039,7 @@
 
             .python-lab-copy h2 {
                 font-size: clamp(1.48rem, 7vw, 1.62rem);
+                line-height: 0.98;
             }
 
             .about-section,
@@ -3336,7 +3337,7 @@
             <div class="python-lab-content">
                 <div class="python-lab-copy">
                     <p class="python-lab-kicker">Coding 101: Python</p>
-                    <h2 id="python-lab-heading">First Line<br class="desktop-break"> of Code</h2>
+                    <h2 id="python-lab-heading">First Line<br class="desktop-break">of Code</h2>
                     <p class="python-lab-lead">Start with one line, then keep going. The editor runs Python code in the browser and shows the output or traceback.</p>
                 </div>
                 <div class="python-quickstart">
@@ -3424,7 +3425,7 @@
             };
 
             if (!('IntersectionObserver' in window)) {
-                startTimer = window.setTimeout(startTicker, 500);
+                startTimer = window.setTimeout(startTicker, 350);
                 return;
             }
 
@@ -3435,7 +3436,7 @@
                     startTimer = window.setTimeout(() => {
                         startTicker();
                         observer.disconnect();
-                    }, 500);
+                    }, 350);
                 }
 
                 if (!isVisible && startTimer) {
@@ -3443,7 +3444,7 @@
                     startTimer = null;
                 }
             }, {
-                rootMargin: '0px 0px 35% 0px',
+                rootMargin: '0px 0px 45% 0px',
                 threshold: 0.01,
             });
 
