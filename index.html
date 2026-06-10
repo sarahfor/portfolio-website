@@ -2215,27 +2215,36 @@
             }
 
             .hero {
-                padding: 0 7%;
-                min-height: min(48vh, 430px);
-                background-position: center 24%;
+                align-items: flex-end;
+                padding: 0 5% 1.35rem;
+                min-height: min(56vh, 500px);
+                background-position: center 22%;
             }
 
             .hero::before {
-                background: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.2) 55%, rgba(0, 0, 0, 0.15) 100%);
+                background:
+                    linear-gradient(180deg, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0.12) 42%, rgba(7, 17, 31, 0.56) 100%);
             }
 
             .hero-content {
-                width: min(100%, 24rem);
-                max-width: 24rem;
-                padding: 3.75rem 0 2.75rem;
+                width: min(100%, 22.5rem);
+                max-width: 22.5rem;
+                padding: 1.05rem 1rem 1.15rem;
                 margin: 0 auto;
+                text-align: left;
+                border-radius: 24px;
+                border: 1px solid rgba(255, 255, 255, 0.16);
+                background: linear-gradient(180deg, rgba(7, 19, 34, 0.26) 0%, rgba(7, 19, 34, 0.38) 100%);
+                box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
+                backdrop-filter: blur(14px);
             }
 
             .hero h1 {
-                font-size: clamp(1.9rem, 8.2vw, 2.8rem);
-                line-height: 1.08;
+                font-size: clamp(1.95rem, 8vw, 2.45rem);
+                line-height: 1.02;
                 letter-spacing: 0;
-                text-wrap: balance;
+                text-wrap: pretty;
+                text-shadow: 0 4px 18px rgba(0, 0, 0, 0.34);
             }
 
             .hero-eyebrow {
@@ -2243,6 +2252,10 @@
                 padding: 0.35rem 0.72rem;
                 font-size: 0.66rem;
                 margin-bottom: 0.85rem;
+                background: rgba(255, 255, 255, 0.12);
+                color: rgba(255, 255, 255, 0.9);
+                border-color: rgba(255, 255, 255, 0.18);
+                box-shadow: none;
             }
 
             .about-section {
@@ -3058,11 +3071,12 @@
 
         @media (max-width: 360px) {
             .hero-content {
-                padding: 3rem 0 2.2rem;
+                width: min(100%, 20.75rem);
+                padding: 0.95rem 0.9rem 1rem;
             }
 
             .hero h1 {
-                font-size: clamp(1.25rem, 7.4vw, 1.65rem);
+                font-size: clamp(1.72rem, 8vw, 2.05rem);
             }
 
             .python-lab-copy h2 {
@@ -3105,7 +3119,6 @@
 <body>
     <section class="hero">
         <div class="hero-content">
-            <p class="hero-eyebrow">AI adoption, learning design, and technical communication</p>
             <h1 class="hero-title">
                 <span class="hero-title-line">It's a <span class="hero-title-emphasis">generative</span> world</span>
             </h1>
