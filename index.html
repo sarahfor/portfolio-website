@@ -1887,15 +1887,50 @@
         }
 
         .partnerships-section h3 {
-            max-width: 780px;
-            margin: 0 auto 0.55rem;
-            color: #3778c2;
-            font-family: 'Aptos', 'Trebuchet MS', 'Segoe UI', sans-serif;
-            font-size: clamp(0.96rem, 1.35vw, 1.06rem);
-            font-weight: 700;
-            line-height: 1.2;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            max-width: 13.5ch;
+            margin: 0 auto 1rem;
+            color: #162132;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: clamp(1.95rem, 4.35vw, 3.15rem);
+            font-weight: 500;
+            line-height: 0.98;
+            letter-spacing: -0.045em;
+            transition: color 0.25s ease, transform 0.25s ease;
+        }
+
+        .partnerships-section h3 span {
+            display: block;
+            white-space: nowrap;
+        }
+
+        .partnerships-section h3 span + span {
+            color: #24384f;
+        }
+
+        .partnerships-section h3::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -12px;
+            width: 88px;
+            height: 4px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, rgba(79, 172, 254, 0.92) 0%, rgba(94, 179, 214, 0.92) 100%);
+            transform: translateX(-50%);
+            box-shadow: 0 10px 22px rgba(79, 172, 254, 0.18);
+            transition: width 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+        }
+
+        .partnerships-intro:hover h3 {
+            color: #214773;
+            transform: translateY(-1px);
+        }
+
+        .partnerships-intro:hover h3::after {
+            width: 112px;
+            box-shadow: 0 14px 28px rgba(79, 172, 254, 0.24);
         }
 
         .partnerships-copy {
@@ -2809,13 +2844,19 @@
             }
 
             .partnerships-section h3 {
-                max-width: 23.5rem;
+                max-width: none;
                 margin-left: auto;
                 margin-right: auto;
-                font-size: 0.82rem;
-                line-height: 1.2;
-                letter-spacing: 0.16em;
-                text-wrap: balance;
+                margin-bottom: 0.95rem;
+                font-size: clamp(1.48rem, 5.9vw, 1.92rem);
+                line-height: 1;
+                letter-spacing: -0.038em;
+            }
+
+            .partnerships-section h3::after {
+                bottom: -10px;
+                width: 72px;
+                height: 3px;
             }
 
             .partnerships-copy {
@@ -2933,8 +2974,8 @@
             }
 
             .partnerships-section h3 {
-                max-width: 21.5rem;
-                font-size: 0.76rem;
+                max-width: none;
+                font-size: clamp(1.26rem, 6.3vw, 1.58rem);
             }
 
             .partnerships-copy {
@@ -3193,7 +3234,7 @@
 
     <section class="partnerships-section" id="partners">
         <div class="partnerships-intro">
-            <h3>Trusted by teams shaping <br class="desktop-break">how people learn and use AI.</h3>
+            <h3><span>Trusted by teams shaping</span><span>how people learn and use AI.</span></h3>
         </div>
         <div class="partnerships-ticker">
             <div class="partnerships-track">
