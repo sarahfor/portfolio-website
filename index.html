@@ -1771,6 +1771,162 @@
             border-color: rgba(55, 120, 194, 0.35);
         }
 
+        .learning-library-section {
+            padding: 1.2rem 5% 0.8rem;
+            max-width: 1240px;
+            margin: 0 auto;
+            background: transparent;
+        }
+
+        .learning-library-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 36px;
+            border: 1px solid rgba(79, 172, 254, 0.16);
+            background:
+                linear-gradient(135deg, rgba(79, 172, 254, 0.07) 0%, rgba(255, 255, 255, 0) 42%),
+                linear-gradient(145deg, #f8fbff 0%, #ffffff 48%, #f6fbff 100%);
+            box-shadow: 0 28px 72px rgba(15, 23, 42, 0.09);
+            padding: 2.35rem;
+        }
+
+        .learning-library-card::before {
+            content: '';
+            position: absolute;
+            inset: auto auto -72px -40px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(79, 172, 254, 0.16) 0%, rgba(79, 172, 254, 0) 72%);
+            pointer-events: none;
+        }
+
+        .learning-library-card::after {
+            content: '';
+            position: absolute;
+            inset: 18px 18px auto auto;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(94, 179, 214, 0.1) 0%, rgba(94, 179, 214, 0) 72%);
+            pointer-events: none;
+        }
+
+        .learning-library-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .learning-library-kicker {
+            display: inline-flex;
+            align-items: center;
+            min-height: 30px;
+            padding: 0.28rem 0.72rem;
+            border-radius: 999px;
+            border: 1px solid rgba(79, 172, 254, 0.16);
+            background: rgba(255, 255, 255, 0.86);
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #3778c2;
+        }
+
+        .learning-library-heading {
+            margin-top: 0.85rem;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 500;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            color: #162132;
+            max-width: 10ch;
+        }
+
+        .learning-library-lead {
+            max-width: 46rem;
+            margin-top: 0.95rem;
+            font-size: 1rem;
+            line-height: 1.74;
+            color: #5b6877;
+        }
+
+        .learning-library-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 1.35rem;
+        }
+
+        .learning-library-item {
+            position: relative;
+            border-radius: 28px;
+            border: 1px solid rgba(79, 172, 254, 0.14);
+            background: rgba(255, 255, 255, 0.92);
+            box-shadow: 0 18px 36px rgba(15, 23, 42, 0.05);
+            padding: 1.3rem;
+        }
+
+        .learning-library-tag {
+            display: inline-flex;
+            align-items: center;
+            min-height: 28px;
+            padding: 0.24rem 0.62rem;
+            border-radius: 999px;
+            background: rgba(79, 172, 254, 0.1);
+            color: #3778c2;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .learning-library-item h3 {
+            margin-top: 0.9rem;
+            font-size: 1.2rem;
+            line-height: 1.08;
+            letter-spacing: -0.03em;
+            color: #162132;
+        }
+
+        .learning-library-item p {
+            margin-top: 0.7rem;
+            font-size: 0.94rem;
+            line-height: 1.62;
+            color: #5b6877;
+        }
+
+        .learning-library-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            margin-top: 1rem;
+        }
+
+        .learning-library-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            padding: 0.7rem 0.95rem;
+            border-radius: 999px;
+            border: 1px solid rgba(15, 23, 42, 0.1);
+            background: #ffffff;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 0.83rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, color 0.22s ease;
+        }
+
+        .learning-library-link:hover {
+            transform: translateY(-2px);
+            color: #3778c2;
+            border-color: rgba(79, 172, 254, 0.22);
+        }
+
         .contact-section {
             padding: 5.6rem 5% 3.4rem;
             max-width: 1240px;
@@ -2761,6 +2917,30 @@
                 margin: 1.5rem 4% 0;
             }
 
+            .learning-library-section {
+                padding: 0 6% 0.4rem;
+            }
+
+            .learning-library-card {
+                padding: 1.5rem 1.05rem 1.15rem;
+                border-radius: 24px;
+                box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+            }
+
+            .learning-library-heading {
+                font-size: clamp(1.68rem, 7vw, 2.18rem);
+                max-width: 11ch;
+            }
+
+            .learning-library-lead {
+                font-size: 0.96rem;
+                line-height: 1.68;
+            }
+
+            .learning-library-grid {
+                grid-template-columns: 1fr;
+            }
+
             .contact-card {
                 padding: 2rem 1.25rem 1.85rem;
                 border-radius: 24px;
@@ -2913,6 +3093,10 @@
                 max-width: 21.75rem;
                 font-size: 0.88rem;
                 line-height: 1.56;
+            }
+
+            .learning-library-heading {
+                font-size: clamp(1.52rem, 7vw, 1.86rem);
             }
 
             .partnerships-copy {
@@ -3381,63 +3565,41 @@
         </div>
     </div>
 
-    <section class="python-lab-section" aria-labelledby="python-lab-heading">
-        <div class="python-lab-shell">
-            <div class="python-lab-content">
-                <div class="python-lab-copy">
-                    <p class="python-lab-kicker">Coding 101: Python</p>
-                    <h2 id="python-lab-heading"><span class="python-heading-line">Write your</span><span class="python-heading-line">first line of code</span></h2>
-                    <p class="python-lab-lead">Start with one line, then keep going. The editor runs Python code in the browser and shows the output or traceback.</p>
-                    <div class="python-project-links">
-                        <a class="python-project-link primary" href="ai-playground.html">Open AI Playground</a>
-                        <a class="python-project-link secondary" href="ai-playground.html#prompt-lab">Try your first prompt</a>
-                    </div>
-                </div>
-                <div class="python-quickstart">
-                    <p class="python-quickstart-title">Start here</p>
-                    <div class="python-formula"><code>print("Hello, World!")</code></div>
-                    <ol class="python-steps">
-                        <li><span class="python-step-number">1</span><span>Start by changing the words inside the quotes.</span></li>
-                        <li><span class="python-step-number">2</span><span>Press <span class="python-inline-code">Run code</span> and read the output.</span></li>
-                        <li><span class="python-step-number">3</span><span>Then try loops, variables, functions, imports, and calculations.</span></li>
-                    </ol>
-                </div>
-                <div class="python-lab-workspace">
-                    <div class="python-panel">
-                        <div class="python-panel-header">
-                            <div class="python-panel-title">
-                                <span class="python-panel-dots" aria-hidden="true">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </span>
-                                <span>main.py</span>
-                            </div>
-                            <span class="python-panel-hint">Edit or replace the starter</span>
+    <section class="learning-library-section" aria-labelledby="learning-library-heading">
+        <div class="learning-library-card">
+            <div class="learning-library-inner">
+                <p class="learning-library-kicker">What is AI, anyway?</p>
+                <h2 class="learning-library-heading" id="learning-library-heading">Start with the official learning libraries.</h2>
+                <p class="learning-library-lead">When you want more structure, go to the official learning hubs. These are the programs and guides directly published by Anthropic, OpenAI, and Google.</p>
+                <div class="learning-library-grid">
+                    <article class="learning-library-item">
+                        <span class="learning-library-tag">Anthropic</span>
+                        <h3>Anthropic Academy</h3>
+                        <p>Courses and learning resources focused on AI fluency, Claude, API development, and practical ways to build with the models.</p>
+                        <div class="learning-library-links">
+                            <a class="learning-library-link" href="https://www.anthropic.com/learn" target="_blank" rel="noopener noreferrer">Open Anthropic Academy</a>
+                            <a class="learning-library-link" href="https://www.anthropic.com/ai-fluency" target="_blank" rel="noopener noreferrer">AI Fluency course</a>
                         </div>
-                        <div class="python-editor-shell">
-                            <pre class="python-editor-highlight" id="pythonEditorHighlight" aria-hidden="true"></pre>
-                            <textarea id="pythonEditor" class="python-editor" spellcheck="false" aria-label="Python code editor">print("Hello, World!")</textarea>
+                    </article>
+                    <article class="learning-library-item">
+                        <span class="learning-library-tag">OpenAI</span>
+                        <h3>OpenAI Academy</h3>
+                        <p>Official OpenAI learning hub with skills content, events, and practical guidance for people trying to use AI more effectively.</p>
+                        <div class="learning-library-links">
+                            <a class="learning-library-link" href="https://academy.openai.com/" target="_blank" rel="noopener noreferrer">Open OpenAI Academy</a>
+                            <a class="learning-library-link" href="https://academy.openai.com/public/videos/mastering-prompts-the-key-to-getting-what-you-need-from-chatgptmastering-prompts-the-key-to-getting-what-you-need-from-chatgpt-2025-03-20" target="_blank" rel="noopener noreferrer">Prompting lesson</a>
                         </div>
-                        <div class="python-controls">
-                            <button type="button" class="python-button" id="pythonRunButton">Run code</button>
-                            <button type="button" class="python-button secondary" id="pythonResetButton">Reset</button>
-                            <span class="python-status" id="pythonStatus">Ready</span>
+                    </article>
+                    <article class="learning-library-item">
+                        <span class="learning-library-tag">Google</span>
+                        <h3>Google AI learning</h3>
+                        <p>Google’s official AI learning pages, including AI Essentials, prompt training, and broader AI skills content through Grow with Google and Google AI.</p>
+                        <div class="learning-library-links">
+                            <a class="learning-library-link" href="https://grow.google/ai" target="_blank" rel="noopener noreferrer">Explore AI training</a>
+                            <a class="learning-library-link" href="https://ai.google/learn-ai-skills/" target="_blank" rel="noopener noreferrer">Google AI skills</a>
+                            <a class="learning-library-link" href="https://grow.google/ai-essentials/" target="_blank" rel="noopener noreferrer">Google AI Essentials</a>
                         </div>
-                    </div>
-                    <div class="python-panel python-panel-output">
-                        <div class="python-panel-header">
-                            <div class="python-panel-title">
-                                <span class="python-panel-dots" aria-hidden="true">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </span>
-                                <span>Output</span>
-                            </div>
-                        </div>
-                        <pre class="python-output" id="pythonOutput" aria-live="polite"></pre>
-                    </div>
+                    </article>
                 </div>
             </div>
         </div>
@@ -3588,251 +3750,6 @@
             });
         })();
 
-        (() => {
-            const editor = document.getElementById('pythonEditor');
-            const output = document.getElementById('pythonOutput');
-            const editorHighlight = document.getElementById('pythonEditorHighlight');
-            const runButton = document.getElementById('pythonRunButton');
-            const resetButton = document.getElementById('pythonResetButton');
-            const status = document.getElementById('pythonStatus');
-
-            if (!editor || !output || !editorHighlight || !runButton || !resetButton || !status) {
-                return;
-            }
-
-            const starterCode = editor.value;
-            const starterEditableText = 'Hello, World!';
-            const starterTextStart = starterCode.indexOf(starterEditableText);
-            const starterTextEnd = starterTextStart + starterEditableText.length;
-            let isStarterPristine = true;
-            let pyodideReadyPromise = null;
-
-            function setStatus(message, tone = 'ready') {
-                status.textContent = message;
-                status.classList.remove('is-loading', 'is-error');
-                if (tone === 'loading') {
-                    status.classList.add('is-loading');
-                }
-                if (tone === 'error') {
-                    status.classList.add('is-error');
-                }
-            }
-
-            function setBusy(isBusy) {
-                runButton.disabled = isBusy;
-                resetButton.disabled = isBusy;
-            }
-
-            function setOutput(message) {
-                output.textContent = message;
-            }
-
-            function escapeHtml(value) {
-                return value
-                    .replace(/&/g, '&amp;')
-                    .replace(/</g, '&lt;')
-                    .replace(/>/g, '&gt;');
-            }
-
-            function highlightPythonLine(line) {
-                let result = '';
-                let index = 0;
-
-                while (index < line.length) {
-                    const char = line[index];
-
-                    if (char === '#') {
-                        result += `<span class="python-token-comment">${escapeHtml(line.slice(index))}</span>`;
-                        break;
-                    }
-
-                    if (char === '"' || char === "'") {
-                        const quote = char;
-                        let end = index + 1;
-                        while (end < line.length) {
-                            if (line[end] === quote && line[end - 1] !== '\\\\') {
-                                end += 1;
-                                break;
-                            }
-                            end += 1;
-                        }
-                        result += `<span class="python-token-string">${escapeHtml(line.slice(index, end))}</span>`;
-                        index = end;
-                        continue;
-                    }
-
-                    if (/[A-Za-z_]/.test(char)) {
-                        let end = index + 1;
-                        while (end < line.length && /[A-Za-z0-9_]/.test(line[end])) {
-                            end += 1;
-                        }
-                        const word = line.slice(index, end);
-                        if (['def', 'for', 'from', 'if', 'import', 'in', 'print', 'range', 'return', 'while'].includes(word)) {
-                            result += `<span class="python-token-function">${word}</span>`;
-                        } else {
-                            result += escapeHtml(word);
-                        }
-                        index = end;
-                        continue;
-                    }
-
-                    if ('()'.includes(char)) {
-                        result += `<span class="python-token-punctuation">${escapeHtml(char)}</span>`;
-                        index += 1;
-                        continue;
-                    }
-
-                    result += escapeHtml(char);
-                    index += 1;
-                }
-
-                return result || ' ';
-            }
-
-            function syncEditorHighlight() {
-                const lines = editor.value.split('\\n');
-                editorHighlight.innerHTML = lines.map(highlightPythonLine).join('\\n');
-                editorHighlight.scrollTop = editor.scrollTop;
-                editorHighlight.scrollLeft = editor.scrollLeft;
-            }
-
-            function loadPyodideScript() {
-                return new Promise((resolve, reject) => {
-                    if (window.loadPyodide) {
-                        resolve();
-                        return;
-                    }
-
-                    const existingScript = document.querySelector('script[data-pyodide-loader="true"]');
-                    if (existingScript) {
-                        existingScript.addEventListener('load', resolve, { once: true });
-                        existingScript.addEventListener('error', () => reject(new Error('Unable to load the Python runtime.')), { once: true });
-                        return;
-                    }
-
-                    const script = document.createElement('script');
-                    script.src = 'https://cdn.jsdelivr.net/pyodide/v0.27.2/full/pyodide.js';
-                    script.dataset.pyodideLoader = 'true';
-                    script.onload = () => resolve();
-                    script.onerror = () => reject(new Error('Unable to load the Python runtime.'));
-                    document.head.appendChild(script);
-                });
-            }
-
-            async function getPyodide() {
-                if (!pyodideReadyPromise) {
-                    pyodideReadyPromise = (async () => {
-                        await loadPyodideScript();
-                        return window.loadPyodide({
-                            indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.27.2/full/'
-                        });
-                    })().catch((error) => {
-                        pyodideReadyPromise = null;
-                        throw error;
-                    });
-                }
-                return pyodideReadyPromise;
-            }
-
-            async function runCode() {
-                const code = editor.value;
-                if (!code.trim()) {
-                    setOutput('Write Python code in main.py, then press Run code.');
-                    setStatus('Waiting for code');
-                    return;
-                }
-
-                setBusy(true);
-                setOutput('');
-                setStatus(pyodideReadyPromise ? 'Running' : 'Loading runtime', 'loading');
-
-                try {
-                    const pyodide = await getPyodide();
-                    await pyodide.loadPackagesFromImports(code);
-                    setStatus('Running', 'loading');
-                    const result = await pyodide.runPythonAsync(`
-import io
-import traceback
-from contextlib import redirect_stdout, redirect_stderr
-
-source = ${JSON.stringify(code)}
-stdout_buffer = io.StringIO()
-stderr_buffer = io.StringIO()
-globals_dict = {"__name__": "__main__"}
-
-with redirect_stdout(stdout_buffer), redirect_stderr(stderr_buffer):
-    try:
-        exec(compile(source, "main.py", "exec"), globals_dict)
-    except Exception as error:
-        trace = traceback.TracebackException.from_exception(error)
-        user_frames = [frame for frame in trace.stack if frame.filename == "main.py"]
-        if user_frames:
-            print("Traceback (most recent call last):")
-            for frame in user_frames:
-                print(f'  File "main.py", line {frame.lineno}, in {frame.name}')
-                if frame.line:
-                    print(f"    {frame.line.strip()}")
-            print("".join(trace.format_exception_only()), end="")
-        else:
-            traceback.print_exc()
-
-(stdout_buffer.getvalue() + stderr_buffer.getvalue()) or "Program finished with no output."
-                    `);
-                    setOutput(String(result).trimEnd() || 'Program finished with no output.');
-                    setStatus('Run complete');
-                } catch (error) {
-                    setOutput(error && error.message ? `Error:
-${error.message}` : 'Python is unavailable right now.');
-                    setStatus('Unavailable', 'error');
-                } finally {
-                    setBusy(false);
-                }
-            }
-
-            function resetCode() {
-                editor.value = starterCode;
-                isStarterPristine = true;
-                syncEditorHighlight();
-                setOutput('');
-                setStatus('Ready');
-                focusStarterText();
-            }
-
-            function focusStarterText() {
-                if (starterTextStart === -1 || !isStarterPristine || editor.value !== starterCode) {
-                    return;
-                }
-                editor.focus();
-                editor.setSelectionRange(starterTextStart, starterTextEnd);
-            }
-
-            editor.addEventListener('input', () => {
-                isStarterPristine = false;
-                syncEditorHighlight();
-            });
-            editor.addEventListener('focus', focusStarterText);
-            editor.addEventListener('scroll', syncEditorHighlight);
-            editor.addEventListener('keydown', (event) => {
-                if (event.key !== 'Tab') {
-                    return;
-                }
-
-                event.preventDefault();
-                const start = editor.selectionStart;
-                const end = editor.selectionEnd;
-                editor.setRangeText('    ', start, end, 'end');
-                syncEditorHighlight();
-            });
-
-            syncEditorHighlight();
-            setTimeout(() => {
-                if (document.activeElement === editor) {
-                    focusStarterText();
-                }
-            }, 0);
-            runButton.addEventListener('click', runCode);
-            resetButton.addEventListener('click', resetCode);
-        })();
     </script>
 </body>
 </html>
