@@ -2065,12 +2065,20 @@
             text-align: center;
         }
 
+        .partnerships-kicker-line {
+            display: block;
+        }
+
         .mobile-break {
             display: none;
         }
 
         .kicker-break {
             display: block;
+        }
+
+        .cta-mobile-break {
+            display: none;
         }
 
         .partnerships-logos {
@@ -2964,7 +2972,7 @@
             }
 
             .learning-library-section {
-                padding: 0 4% 0.25rem;
+                padding: 0.95rem 4% 0.25rem;
             }
 
             .learning-library-card {
@@ -3057,18 +3065,29 @@
             }
 
             .partnerships-kicker {
-                max-width: 17ch;
+                max-width: none;
                 margin-bottom: 0.45rem;
-                font-size: clamp(1.18rem, 4.8vw, 1.42rem);
-                line-height: 1.08;
+                font-size: clamp(1.04rem, 4.35vw, 1.22rem);
+                line-height: 1.04;
             }
 
-            .kicker-break {
+            .partnerships-kicker-line {
                 display: block;
+                white-space: nowrap;
             }
 
             .kicker-break {
                 display: none;
+            }
+
+            .collaboration-link-title {
+                max-width: 11ch;
+                margin: 0 auto;
+                line-height: 1.12;
+            }
+
+            .cta-mobile-break {
+                display: block;
             }
 
             .partnerships-copy span {
@@ -3193,7 +3212,7 @@
             }
 
             .partnerships-kicker {
-                max-width: 18ch;
+                max-width: none;
                 font-size: clamp(1.04rem, 4.8vw, 1.18rem);
             }
 
@@ -3450,7 +3469,7 @@
     </section>
 
     <section class="partnerships-section" id="partners">
-        <p class="partnerships-kicker">Trusted by teams shaping<br class="kicker-break"> how people learn and use AI.</p>
+        <p class="partnerships-kicker"><span class="partnerships-kicker-line">Trusted by teams shaping how people</span><span class="partnerships-kicker-line">learn and use AI.</span></p>
         <div class="partnerships-ticker">
             <div class="partnerships-track">
                 <div class="partnerships-logos ticker-group">
@@ -3512,7 +3531,7 @@
                 <div class="collaboration-links">
                     <a href="mailto:hellogenxai@gmail.com?subject=AI%20question">
                         <span class="collaboration-link-text">
-                            <span class="collaboration-link-title">Start a conversation</span>
+                            <span class="collaboration-link-title">Start a<br class="cta-mobile-break"> conversation</span>
                             <span class="collaboration-link-subtitle">Share a question, project, or speaking opportunity.</span>
                         </span>
                     </a>
@@ -3578,7 +3597,7 @@
     </section>
 
     <section class="image-grid-section">
-        <h2>Curiosity in Practice</h2>
+        <h2>AI x The Future of Work</h2>
         <div class="image-grid-ticker" id="galleryTicker">
             <div class="image-grid">
                 <div class="image-tile">
