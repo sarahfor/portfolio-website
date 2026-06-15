@@ -2055,7 +2055,7 @@
         }
 
         .partnerships-kicker {
-            margin: 0 auto 0.7rem;
+            margin: 0 auto 1.05rem;
             color: #162132;
             font-family: Georgia, 'Times New Roman', Times, serif;
             font-size: clamp(1.5rem, 2.5vw, 2.15rem);
@@ -2395,9 +2395,9 @@
 
             .hero {
                 align-items: flex-end;
-                padding: 0 5% 1.35rem;
-                min-height: min(56vh, 500px);
-                background-position: center 22%;
+                padding: 0 4% 1rem;
+                min-height: min(48vh, 420px);
+                background-position: center 20%;
             }
 
             .hero::before {
@@ -2406,12 +2406,12 @@
             }
 
             .hero-content {
-                width: min(100%, 22.5rem);
-                max-width: 22.5rem;
-                padding: 1.05rem 1rem 1.15rem;
+                width: min(100%, 21.75rem);
+                max-width: 21.75rem;
+                padding: 0.9rem 0.95rem 0.95rem;
                 margin: 0 auto;
                 text-align: left;
-                border-radius: 24px;
+                border-radius: 22px;
                 border: 1px solid rgba(255, 255, 255, 0.16);
                 background: linear-gradient(180deg, rgba(7, 19, 34, 0.26) 0%, rgba(7, 19, 34, 0.38) 100%);
                 box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
@@ -2419,8 +2419,8 @@
             }
 
             .hero h1 {
-                font-size: clamp(1.95rem, 8vw, 2.45rem);
-                line-height: 1.02;
+                font-size: clamp(1.82rem, 7vw, 2.22rem);
+                line-height: 1.04;
                 letter-spacing: 0;
                 text-wrap: pretty;
                 text-shadow: 0 4px 18px rgba(0, 0, 0, 0.34);
@@ -2438,13 +2438,13 @@
             }
 
             .about-section {
-                padding: 2.3rem 0 1.45rem;
-                margin: 1.5rem 4% 0;
+                padding: 1.8rem 0 1.1rem;
+                margin: 1.1rem 4% 0;
             }
 
             .about-card {
-                padding: 1.6rem 1.05rem 1.4rem;
-                border-radius: 24px;
+                padding: 1.3rem 0.95rem 1.15rem;
+                border-radius: 22px;
                 box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
             }
 
@@ -2461,27 +2461,31 @@
             }
 
             .about-content {
-                gap: 1.35rem;
+                gap: 1rem;
                 align-items: center;
             }
 
             .about-image {
-                max-width: min(100%, 300px);
+                max-width: min(100%, 314px);
+                padding: 1rem;
+                border-radius: 24px;
             }
 
             .about-image img {
-                border-radius: 24px;
+                border-radius: 20px;
                 box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
             }
 
             .about-text {
-                max-width: 31rem;
+                max-width: 32rem;
                 margin: 0 auto;
                 text-align: center;
+                padding: 0 0.1rem;
             }
 
             .about-text h2 {
                 letter-spacing: -1px;
+                margin-bottom: 1rem;
             }
 
             .about-text h2::after {
@@ -2490,25 +2494,59 @@
             }
 
             .about-text .tagline {
-                font-size: clamp(0.82rem, 3.4vw, 0.96rem);
+                font-size: clamp(0.84rem, 3.2vw, 0.94rem);
                 font-family: Georgia, 'Times New Roman', Times, serif;
                 line-height: 1.22;
-                margin-top: 1.35rem;
-                margin-bottom: 1rem;
+                margin-top: 1.1rem;
+                margin-bottom: 0.85rem;
                 letter-spacing: -0.015em;
                 text-align: center;
                 max-width: 100%;
             }
 
             .about-text p {
-                max-width: min(100%, 31rem);
+                max-width: min(100%, 33ch);
                 margin-left: auto;
                 margin-right: auto;
-                font-size: 0.92rem;
-                line-height: 1.6;
-                margin-bottom: 1.2rem;
+                font-size: 0.95rem;
+                line-height: 1.58;
+                margin-bottom: 0;
                 text-align: center;
                 text-wrap: pretty;
+            }
+
+            .social-links {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                width: 100%;
+                max-width: 100%;
+                margin: 0.9rem auto 0;
+                gap: 0.45rem;
+            }
+
+            .social-links a {
+                width: 100%;
+                min-width: 0;
+                height: 50px;
+                flex-basis: auto;
+                border-radius: 14px;
+            }
+
+            .social-links img {
+                width: 42px;
+                height: 42px;
+            }
+
+            .social-links img[alt="Substack"],
+            .social-links img[alt="GitHub"] {
+                width: 50px;
+                height: 20px;
+            }
+
+            .social-links img[alt="LinkedIn"],
+            .social-links img[alt="Instagram"] {
+                width: 54px;
+                height: 20px;
             }
 
             .collaboration-section {
@@ -2921,37 +2959,63 @@
             }
 
             .contact-section {
-                padding: 4rem 6% 2.25rem;
-                margin: 1.5rem 4% 0;
+                padding: 3.2rem 6% 2rem;
+                margin: 1.1rem 4% 0;
             }
 
             .learning-library-section {
-                padding: 0 6% 0.4rem;
+                padding: 0 4% 0.25rem;
             }
 
             .learning-library-card {
-                padding: 1.5rem 1.05rem 1.15rem;
-                border-radius: 24px;
+                padding: 1.3rem 0.95rem 1rem;
+                border-radius: 22px;
                 box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
             }
 
             .learning-library-heading {
-                font-size: clamp(1.68rem, 7vw, 2.18rem);
-                max-width: 11ch;
+                font-size: clamp(1.58rem, 6.5vw, 1.96rem);
+                max-width: 8.6ch;
+                line-height: 1.02;
             }
 
             .learning-library-lead {
-                font-size: 0.96rem;
-                line-height: 1.68;
+                font-size: 0.93rem;
+                line-height: 1.6;
             }
 
             .learning-library-grid {
                 grid-template-columns: 1fr;
+                gap: 0.85rem;
+            }
+
+            .learning-library-item {
+                padding: 1.1rem;
+                border-radius: 22px;
+            }
+
+            .learning-library-item h3 {
+                font-size: 1.08rem;
+            }
+
+            .learning-library-item p {
+                font-size: 0.9rem;
+                line-height: 1.56;
+            }
+
+            .learning-library-links {
+                gap: 0.55rem;
+            }
+
+            .learning-library-link {
+                min-height: 40px;
+                padding: 0.66rem 0.9rem;
+                font-size: 0.8rem;
             }
 
             .contact-card {
-                padding: 2rem 1.25rem 1.85rem;
-                border-radius: 24px;
+                padding: 1.75rem 1.15rem 1.6rem;
+                border-radius: 22px;
                 box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
             }
 
@@ -2980,7 +3044,7 @@
             }
 
             .partnerships-section {
-                padding: 0.25rem 6% 2rem;
+                padding: 0.1rem 4% 1.45rem;
                 margin: 0 auto;
             }
 
@@ -2993,9 +3057,14 @@
             }
 
             .partnerships-kicker {
-                margin-bottom: 0.6rem;
-                font-size: clamp(1.24rem, 4.8vw, 1.5rem);
-                line-height: 1.2;
+                max-width: 17ch;
+                margin-bottom: 0.45rem;
+                font-size: clamp(1.18rem, 4.8vw, 1.42rem);
+                line-height: 1.08;
+            }
+
+            .kicker-break {
+                display: block;
             }
 
             .kicker-break {
@@ -3015,7 +3084,7 @@
             }
 
             .partnerships-logos {
-                gap: 1.7rem;
+                gap: 1.3rem;
             }
 
             .partnerships-logos a {
@@ -3075,8 +3144,8 @@
             }
 
             .ticker-group {
-                gap: 1.7rem;
-                padding-right: 1.7rem;
+                gap: 1.3rem;
+                padding-right: 1.3rem;
             }
 
             footer {
@@ -3086,16 +3155,21 @@
 
         @media (max-width: 420px) {
             .hero {
-                min-height: 42vh;
+                min-height: 40vh;
             }
 
             .hero h1 {
-                font-size: clamp(1.45rem, 7.7vw, 2.05rem);
+                font-size: clamp(1.52rem, 7.2vw, 1.92rem);
                 letter-spacing: 0;
             }
 
+            .hero-content {
+                width: min(100%, 20.75rem);
+                padding: 0.82rem 0.82rem 0.88rem;
+            }
+
             .about-text h2 {
-                font-size: clamp(1.72rem, 8vw, 2.28rem);
+                font-size: clamp(1.64rem, 7.2vw, 2.1rem);
             }
 
             .about-text .tagline {
@@ -3109,7 +3183,7 @@
             }
 
             .learning-library-heading {
-                font-size: clamp(1.52rem, 7vw, 1.86rem);
+                font-size: clamp(1.46rem, 6.8vw, 1.76rem);
             }
 
             .partnerships-copy {
@@ -3119,7 +3193,8 @@
             }
 
             .partnerships-kicker {
-                font-size: clamp(1.08rem, 5vw, 1.26rem);
+                max-width: 18ch;
+                font-size: clamp(1.04rem, 4.8vw, 1.18rem);
             }
 
             .partnerships-copy span {
@@ -3133,15 +3208,17 @@
             }
 
             .social-links {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
                 gap: 0.35rem;
                 width: 100%;
             }
 
             .social-links a {
-                width: 58px;
+                width: 100%;
                 height: 46px;
-                flex-basis: 58px;
-                border-radius: 14px;
+                flex-basis: auto;
+                border-radius: 13px;
             }
 
             .social-links img {
@@ -3304,14 +3381,16 @@
             }
 
             .social-links {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
                 width: 100%;
                 gap: 0.28rem;
             }
 
             .social-links a {
-                width: 54px;
+                width: 100%;
                 height: 42px;
-                flex-basis: 54px;
+                flex-basis: auto;
             }
 
             .image-grid {
