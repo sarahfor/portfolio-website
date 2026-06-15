@@ -2056,17 +2056,21 @@
 
         .partnerships-kicker {
             margin: 0 auto 0.7rem;
-            color: #24384f;
+            color: #162132;
             font-family: Georgia, 'Times New Roman', Times, serif;
-            font-size: clamp(1rem, 1.55vw, 1.18rem);
+            font-size: clamp(1.5rem, 2.5vw, 2.15rem);
             font-weight: 500;
-            letter-spacing: -0.01em;
-            line-height: 1.2;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
             text-align: center;
         }
 
         .mobile-break {
             display: none;
+        }
+
+        .kicker-break {
+            display: block;
         }
 
         .partnerships-logos {
@@ -2088,14 +2092,18 @@
             height: var(--logo-height);
             flex: 0 0 var(--logo-width);
             opacity: 1;
-            transition: transform 0.25s ease;
+            transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.28s ease, box-shadow 0.28s ease;
             filter: none;
             text-decoration: none;
+            border-radius: 12px;
+            position: relative;
         }
 
         .partnerships-logos a:hover,
         .partnerships-logos .partner-logo:hover {
-            transform: translateY(-3px);
+            transform: translateY(-6px) scale(1.08);
+            filter: drop-shadow(0 8px 18px rgba(36, 56, 79, 0.18));
+            cursor: pointer;
         }
 
         .partnerships-logos img {
@@ -2986,7 +2994,12 @@
 
             .partnerships-kicker {
                 margin-bottom: 0.6rem;
-                font-size: 0.96rem;
+                font-size: clamp(1.24rem, 4.8vw, 1.5rem);
+                line-height: 1.2;
+            }
+
+            .kicker-break {
+                display: none;
             }
 
             .partnerships-copy span {
@@ -3106,7 +3119,7 @@
             }
 
             .partnerships-kicker {
-                font-size: 0.9rem;
+                font-size: clamp(1.08rem, 5vw, 1.26rem);
             }
 
             .partnerships-copy span {
@@ -3358,7 +3371,7 @@
     </section>
 
     <section class="partnerships-section" id="partners">
-        <p class="partnerships-kicker">Selected partners</p>
+        <p class="partnerships-kicker">Trusted by teams shaping<br class="kicker-break"> how people learn and use AI.</p>
         <div class="partnerships-ticker">
             <div class="partnerships-track">
                 <div class="partnerships-logos ticker-group">
