@@ -1438,7 +1438,7 @@
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 1.3rem;
-            margin-bottom: 2.2rem;
+            margin-bottom: 1.1rem;
         }
 
         .future-report-card {
@@ -1478,71 +1478,17 @@
             transform: scale(1.02);
         }
 
-        .future-report-card-body {
-            display: grid;
-            gap: 0.75rem;
-            height: 100%;
-            padding: 1.35rem 1.35rem 1.45rem;
-        }
-
-        .future-report-card-topline {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-        }
-
-        .future-report-tag {
-            display: inline-flex;
-            align-items: center;
-            min-height: 34px;
-            padding: 0.4rem 0.85rem;
-            border-radius: 999px;
-            background: #edf4ff;
-            color: #3b73c6;
-            font-size: 0.78rem;
-            font-weight: 800;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-        }
-
-        .future-report-page {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: #667085;
-        }
-
-        .future-report-card h3 {
-            margin: 0;
-            font-size: clamp(1.3rem, 2.2vw, 1.55rem);
-            line-height: 1.08;
-            letter-spacing: -0.03em;
-            color: #111827;
-        }
-
-        .future-report-card p {
-            margin: 0;
-            font-size: 0.98rem;
-            line-height: 1.62;
-            color: #5b677a;
-        }
-
-        .future-report-source {
-            margin-top: 0.2rem;
-            font-size: 0.82rem;
-            color: #7a8495;
-        }
-
         .future-image-carousel-shell {
             display: grid;
             gap: 1rem;
         }
 
-        .future-image-carousel-header {
-            display: flex;
-            align-items: end;
-            justify-content: space-between;
-            gap: 1rem;
+        .future-report-summary {
+            max-width: 54rem;
+            margin: 0 0 2.2rem;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #5b677a;
         }
 
         .future-image-carousel-copy {
@@ -1559,62 +1505,39 @@
             color: #3b73c6;
         }
 
-        .future-image-carousel-copy h3 {
-            margin: 0;
-            font-size: clamp(1.3rem, 2.4vw, 1.75rem);
-            line-height: 1.06;
-            letter-spacing: -0.04em;
-            color: #111827;
+        .future-image-ticker {
+            overflow: hidden;
+            width: 100%;
         }
 
-        .future-image-carousel-controls {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
+        .future-image-track {
+            display: flex;
+            width: max-content;
+            animation: futureImageTickerScroll 36s linear infinite;
+            will-change: transform;
         }
 
-        .future-image-carousel-button {
-            width: 46px;
-            height: 46px;
-            border: 1px solid rgba(59, 115, 198, 0.18);
-            border-radius: 999px;
-            background: rgba(237, 244, 255, 0.92);
-            color: #3b73c6;
-            font-size: 1.35rem;
-            line-height: 1;
-            cursor: pointer;
-            transition: transform 0.2s ease, background 0.2s ease;
+        .future-image-track:hover {
+            animation-play-state: paused;
         }
 
-        .future-image-carousel-button:hover {
-            transform: translateY(-1px);
-            background: #e5f0ff;
-        }
-
-        .future-image-carousel {
-            display: grid;
-            grid-auto-flow: column;
-            grid-auto-columns: minmax(280px, 31%);
+        .future-image-track .ticker-group {
             gap: 1rem;
-            overflow-x: auto;
-            overscroll-behavior-x: contain;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            padding-bottom: 0.3rem;
-            scrollbar-width: none;
-            -webkit-overflow-scrolling: touch;
+            padding-right: 1rem;
         }
 
-        .future-image-carousel.is-auto-scrolling {
-            scroll-behavior: auto;
+        .future-image-track .image-tile {
+            width: clamp(268px, 27vw, 360px);
+            flex: 0 0 auto;
         }
 
-        .future-image-carousel::-webkit-scrollbar {
-            display: none;
-        }
-
-        .future-image-carousel .image-tile {
-            scroll-snap-align: start;
+        @keyframes futureImageTickerScroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         .image-grid {
@@ -3032,38 +2955,21 @@
 
             .future-report-grid {
                 gap: 1rem;
+                margin-bottom: 0.95rem;
+            }
+
+            .future-report-summary {
                 margin-bottom: 1.5rem;
+                font-size: 0.94rem;
+                line-height: 1.58;
             }
 
             .future-report-card {
                 border-radius: 22px;
             }
 
-            .future-report-card-body {
-                padding: 1.05rem 1.05rem 1.15rem;
-            }
-
-            .future-report-card h3 {
-                font-size: 1.22rem;
-            }
-
-            .future-report-card p {
-                font-size: 0.92rem;
-                line-height: 1.55;
-            }
-
-            .future-image-carousel-header {
-                align-items: start;
-                flex-direction: column;
-            }
-
-            .future-image-carousel-controls {
-                align-self: flex-end;
-            }
-
-            .future-image-carousel {
-                grid-auto-columns: 84%;
-                gap: 0.8rem;
+            .future-image-track .image-tile {
+                width: min(82vw, 348px);
             }
 
             .news-section + .image-grid-section {
@@ -3878,21 +3784,13 @@
         <div class="future-work-header">
             <p class="future-work-kicker">Future of Jobs Report 2025</p>
             <h2>AI x The Future of Work</h2>
-            <p class="future-work-lead">Report summary: job churn, upskilling, and role change through 2030.</p>
+            <p class="future-work-lead">The future of work is less about one tool replacing one job and more about workflows being restructured across people, systems, and software.</p>
         </div>
         <div class="future-report-grid">
             <article class="future-report-card">
                 <a href="image%20assets/future-jobs-linkedin-carousel-1.png" class="image-lightbox-trigger" data-full-image="image%20assets/future-jobs-linkedin-carousel-1.png" data-image-alt="Future of Jobs Report 2025 slide showing projected global employment change by 2030" aria-label="Expand future of jobs report slide one">
                     <div class="future-report-card-media">
                         <img src="image%20assets/future-jobs-linkedin-carousel-1.png" alt="Future of Jobs Report 2025 slide showing projected global employment change by 2030" loading="lazy" decoding="async">
-                    </div>
-                    <div class="future-report-card-body">
-                        <div class="future-report-card-topline">
-                            <span class="future-report-tag">Report 01</span>
-                            <span class="future-report-page">01 / 03</span>
-                        </div>
-                        <h3>The job market is getting a system update.</h3>
-                        <p class="future-report-source">Open the full slide.</p>
                     </div>
                 </a>
             </article>
@@ -3901,14 +3799,6 @@
                     <div class="future-report-card-media">
                         <img src="image%20assets/future-jobs-linkedin-carousel-2.png" alt="Future of Jobs Report 2025 slide about upskilling by 2030" loading="lazy" decoding="async">
                     </div>
-                    <div class="future-report-card-body">
-                        <div class="future-report-card-topline">
-                            <span class="future-report-tag">Report 02</span>
-                            <span class="future-report-page">02 / 03</span>
-                        </div>
-                        <h3>Upskilling by 2030.</h3>
-                        <p class="future-report-source">Open the full slide.</p>
-                    </div>
                 </a>
             </article>
             <article class="future-report-card">
@@ -3916,91 +3806,145 @@
                     <div class="future-report-card-media">
                         <img src="image%20assets/future-jobs-linkedin-carousel-3.png" alt="Future of Jobs Report 2025 slide comparing growing and declining jobs by 2030" loading="lazy" decoding="async">
                     </div>
-                    <div class="future-report-card-body">
-                        <div class="future-report-card-topline">
-                            <span class="future-report-tag">Report 03</span>
-                            <span class="future-report-page">03 / 03</span>
-                        </div>
-                        <h3>Growth and decline side by side.</h3>
-                        <p class="future-report-source">Open the full slide.</p>
-                    </div>
                 </a>
             </article>
         </div>
         <div class="future-image-carousel-shell">
-            <div class="future-image-carousel-header">
-                <div class="future-image-carousel-copy">
-                    <p>Field images</p>
-                    <h3>Scenes from AI education, research, and workforce conversations.</h3>
-                </div>
-                <div class="future-image-carousel-controls" aria-label="Image carousel controls">
-                    <button class="future-image-carousel-button" type="button" data-carousel-target="futureWorkCarousel" data-carousel-direction="prev" aria-label="Scroll to previous images">&#8249;</button>
-                    <button class="future-image-carousel-button" type="button" data-carousel-target="futureWorkCarousel" data-carousel-direction="next" aria-label="Scroll to next images">&#8250;</button>
-                </div>
+            <div class="future-image-carousel-copy">
+                <p>Field images</p>
             </div>
-            <div class="future-image-carousel" id="futureWorkCarousel">
-                <div class="image-tile">
-                    <a href="image%20assets/691A1377.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/691A1377.jpg" data-image-alt="Gallery image 1" aria-label="Expand gallery image 1">
-                        <img src="image%20assets/thumbs/691A1377-thumb.jpg" alt="Gallery image 1" loading="lazy" decoding="async">
-                    </a>
-                </div>
-                <div class="image-tile">
-                    <a href="image%20assets/Claude%20SMB%20Workshop.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/Claude%20SMB%20Workshop.jpg" data-image-alt="Sarah Forrest leading a Claude SMB workshop" aria-label="Expand workshop image">
-                        <img src="image%20assets/thumbs/Claude%20SMB%20Workshop-thumb.jpg" alt="Sarah Forrest leading a Claude SMB workshop" loading="lazy" decoding="async">
-                    </a>
-                </div>
-                <div class="image-tile">
-                    <a href="image%20assets/55117974250_36149dea8c_o.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/55117974250_36149dea8c_o.jpg" data-image-alt="Gallery image 2" aria-label="Expand gallery image 2">
-                        <img src="image%20assets/thumbs/55117974250_36149dea8c_o-thumb.jpg" alt="Gallery image 2" loading="lazy" decoding="async">
-                    </a>
-                </div>
-                <div class="image-tile">
-                    <a href="image%20assets/DSC07368.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/DSC07368.jpg" data-image-alt="Gallery image 4" aria-label="Expand gallery image 4">
-                        <img src="image%20assets/thumbs/DSC07368-thumb.jpg" alt="Gallery image 4" loading="lazy" decoding="async">
-                    </a>
-                </div>
-                <div class="image-tile">
-                    <a href="image%20assets/IMG_4963.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/IMG_4963.jpg" data-image-alt="Sarah Forrest at the MIT-IBM Watson AI Lab" aria-label="Expand MIT-IBM Watson AI Lab image">
-                        <img src="image%20assets/thumbs/IMG_4963-thumb.jpg" alt="Sarah Forrest at the MIT-IBM Watson AI Lab" loading="lazy" decoding="async">
-                    </a>
-                </div>
-                <div class="image-tile">
-                    <a href="image%20assets/IMG_0659.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/IMG_0659.jpg" data-image-alt="Gallery image 5" aria-label="Expand gallery image 5">
-                        <img src="image%20assets/thumbs/IMG_0659-thumb.jpg" alt="Gallery image 5" loading="lazy" decoding="async">
-                    </a>
-                </div>
-                <div class="image-tile">
-                    <a href="image%20assets/thumbs/C34410DE-014F-4F94-AE54-7F47871B20D8-display.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/thumbs/C34410DE-014F-4F94-AE54-7F47871B20D8-display.jpg" data-image-alt="Claude event question of the day skyline graphic" aria-label="Expand Claude skyline graphic">
-                        <picture>
-                            <source media="(max-width: 767px)" srcset="image%20assets/thumbs/C34410DE-014F-4F94-AE54-7F47871B20D8-mobile.jpg">
-                            <img src="image%20assets/thumbs/C34410DE-014F-4F94-AE54-7F47871B20D8-display.jpg" alt="Claude event question of the day skyline graphic" loading="lazy" decoding="async">
-                        </picture>
-                    </a>
-                </div>
-                <div class="image-tile">
-                    <a href="image%20assets/DSC07568.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/DSC07568.jpg" data-image-alt="Gallery image 6" aria-label="Expand gallery image 6">
-                        <img src="image%20assets/thumbs/DSC07568-thumb.jpg" alt="Gallery image 6" loading="lazy" decoding="async">
-                    </a>
-                </div>
-                <div class="image-tile">
-                    <a href="image%20assets/IMG_1933_jpg.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/IMG_1933_jpg.jpg" data-image-alt="Gallery image 8" aria-label="Expand gallery image 8">
-                        <img src="image%20assets/thumbs/IMG_1933_jpg-thumb.jpg" alt="Gallery image 8" loading="lazy" decoding="async">
-                    </a>
-                </div>
-                <div class="image-tile">
-                    <a href="image%20assets/IMG_2372_jpg.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/IMG_2372_jpg.jpg" data-image-alt="Gallery image 9" aria-label="Expand gallery image 9">
-                        <img src="image%20assets/thumbs/IMG_2372_jpg-thumb.jpg" alt="Gallery image 9" loading="lazy" decoding="async">
-                    </a>
-                </div>
-                <div class="image-tile">
-                    <a href="image%20assets/IMG_2397_jpg.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/IMG_2397_jpg.jpg" data-image-alt="Gallery image 10" aria-label="Expand gallery image 10">
-                        <img src="image%20assets/thumbs/IMG_2397_jpg-thumb.jpg" alt="Gallery image 10" loading="lazy" decoding="async">
-                    </a>
-                </div>
-                <div class="image-tile">
-                    <a href="image%20assets/Claude.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/Claude.jpg" data-image-alt="Claude workshop sign with a plant in the room" aria-label="Expand Claude image">
-                        <img src="image%20assets/thumbs/Claude-thumb.jpg" alt="Claude workshop sign with a plant in the room" loading="lazy" decoding="async">
-                    </a>
+            <div class="future-image-ticker">
+                <div class="future-image-track">
+                    <div class="ticker-group">
+                        <div class="image-tile">
+                            <a href="image%20assets/691A1377.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/691A1377.jpg" data-image-alt="Gallery image 1" aria-label="Expand gallery image 1">
+                                <img src="image%20assets/thumbs/691A1377-thumb.jpg" alt="Gallery image 1" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                        <div class="image-tile">
+                            <a href="image%20assets/Claude%20SMB%20Workshop.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/Claude%20SMB%20Workshop.jpg" data-image-alt="Sarah Forrest leading a Claude SMB workshop" aria-label="Expand workshop image">
+                                <img src="image%20assets/thumbs/Claude%20SMB%20Workshop-thumb.jpg" alt="Sarah Forrest leading a Claude SMB workshop" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                        <div class="image-tile">
+                            <a href="image%20assets/55117974250_36149dea8c_o.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/55117974250_36149dea8c_o.jpg" data-image-alt="Gallery image 2" aria-label="Expand gallery image 2">
+                                <img src="image%20assets/thumbs/55117974250_36149dea8c_o-thumb.jpg" alt="Gallery image 2" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                        <div class="image-tile">
+                            <a href="image%20assets/DSC07368.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/DSC07368.jpg" data-image-alt="Gallery image 4" aria-label="Expand gallery image 4">
+                                <img src="image%20assets/thumbs/DSC07368-thumb.jpg" alt="Gallery image 4" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                        <div class="image-tile">
+                            <a href="image%20assets/IMG_4963.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/IMG_4963.jpg" data-image-alt="Sarah Forrest at the MIT-IBM Watson AI Lab" aria-label="Expand MIT-IBM Watson AI Lab image">
+                                <img src="image%20assets/thumbs/IMG_4963-thumb.jpg" alt="Sarah Forrest at the MIT-IBM Watson AI Lab" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                        <div class="image-tile">
+                            <a href="image%20assets/IMG_0659.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/IMG_0659.jpg" data-image-alt="Gallery image 5" aria-label="Expand gallery image 5">
+                                <img src="image%20assets/thumbs/IMG_0659-thumb.jpg" alt="Gallery image 5" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                        <div class="image-tile">
+                            <a href="image%20assets/thumbs/C34410DE-014F-4F94-AE54-7F47871B20D8-display.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/thumbs/C34410DE-014F-4F94-AE54-7F47871B20D8-display.jpg" data-image-alt="Claude event question of the day skyline graphic" aria-label="Expand Claude skyline graphic">
+                                <picture>
+                                    <source media="(max-width: 767px)" srcset="image%20assets/thumbs/C34410DE-014F-4F94-AE54-7F47871B20D8-mobile.jpg">
+                                    <img src="image%20assets/thumbs/C34410DE-014F-4F94-AE54-7F47871B20D8-display.jpg" alt="Claude event question of the day skyline graphic" loading="lazy" decoding="async">
+                                </picture>
+                            </a>
+                        </div>
+                        <div class="image-tile">
+                            <a href="image%20assets/DSC07568.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/DSC07568.jpg" data-image-alt="Gallery image 6" aria-label="Expand gallery image 6">
+                                <img src="image%20assets/thumbs/DSC07568-thumb.jpg" alt="Gallery image 6" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                        <div class="image-tile">
+                            <a href="image%20assets/IMG_1933_jpg.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/IMG_1933_jpg.jpg" data-image-alt="Gallery image 8" aria-label="Expand gallery image 8">
+                                <img src="image%20assets/thumbs/IMG_1933_jpg-thumb.jpg" alt="Gallery image 8" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                        <div class="image-tile">
+                            <a href="image%20assets/IMG_2372_jpg.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/IMG_2372_jpg.jpg" data-image-alt="Gallery image 9" aria-label="Expand gallery image 9">
+                                <img src="image%20assets/thumbs/IMG_2372_jpg-thumb.jpg" alt="Gallery image 9" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                        <div class="image-tile">
+                            <a href="image%20assets/IMG_2397_jpg.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/IMG_2397_jpg.jpg" data-image-alt="Gallery image 10" aria-label="Expand gallery image 10">
+                                <img src="image%20assets/thumbs/IMG_2397_jpg-thumb.jpg" alt="Gallery image 10" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                        <div class="image-tile">
+                            <a href="image%20assets/Claude.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/Claude.jpg" data-image-alt="Claude workshop sign with a plant in the room" aria-label="Expand Claude image">
+                                <img src="image%20assets/thumbs/Claude-thumb.jpg" alt="Claude workshop sign with a plant in the room" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ticker-group" aria-hidden="true">
+                        <div class="image-tile">
+                            <a href="image%20assets/691A1377.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/691A1377.jpg" data-image-alt="Gallery image 1" aria-label="Expand gallery image 1 duplicate">
+                                <img src="image%20assets/thumbs/691A1377-thumb.jpg" alt="Gallery image 1" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                        <div class="image-tile">
+                            <a href="image%20assets/Claude%20SMB%20Workshop.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/Claude%20SMB%20Workshop.jpg" data-image-alt="Sarah Forrest leading a Claude SMB workshop" aria-label="Expand workshop image duplicate">
+                                <img src="image%20assets/thumbs/Claude%20SMB%20Workshop-thumb.jpg" alt="Sarah Forrest leading a Claude SMB workshop" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                        <div class="image-tile">
+                            <a href="image%20assets/55117974250_36149dea8c_o.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/55117974250_36149dea8c_o.jpg" data-image-alt="Gallery image 2" aria-label="Expand gallery image 2 duplicate">
+                                <img src="image%20assets/thumbs/55117974250_36149dea8c_o-thumb.jpg" alt="Gallery image 2" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                        <div class="image-tile">
+                            <a href="image%20assets/DSC07368.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/DSC07368.jpg" data-image-alt="Gallery image 4" aria-label="Expand gallery image 4 duplicate">
+                                <img src="image%20assets/thumbs/DSC07368-thumb.jpg" alt="Gallery image 4" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                        <div class="image-tile">
+                            <a href="image%20assets/IMG_4963.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/IMG_4963.jpg" data-image-alt="Sarah Forrest at the MIT-IBM Watson AI Lab" aria-label="Expand MIT-IBM Watson AI Lab image duplicate">
+                                <img src="image%20assets/thumbs/IMG_4963-thumb.jpg" alt="Sarah Forrest at the MIT-IBM Watson AI Lab" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                        <div class="image-tile">
+                            <a href="image%20assets/IMG_0659.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/IMG_0659.jpg" data-image-alt="Gallery image 5" aria-label="Expand gallery image 5 duplicate">
+                                <img src="image%20assets/thumbs/IMG_0659-thumb.jpg" alt="Gallery image 5" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                        <div class="image-tile">
+                            <a href="image%20assets/thumbs/C34410DE-014F-4F94-AE54-7F47871B20D8-display.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/thumbs/C34410DE-014F-4F94-AE54-7F47871B20D8-display.jpg" data-image-alt="Claude event question of the day skyline graphic" aria-label="Expand Claude skyline graphic duplicate">
+                                <picture>
+                                    <source media="(max-width: 767px)" srcset="image%20assets/thumbs/C34410DE-014F-4F94-AE54-7F47871B20D8-mobile.jpg">
+                                    <img src="image%20assets/thumbs/C34410DE-014F-4F94-AE54-7F47871B20D8-display.jpg" alt="Claude event question of the day skyline graphic" loading="lazy" decoding="async">
+                                </picture>
+                            </a>
+                        </div>
+                        <div class="image-tile">
+                            <a href="image%20assets/DSC07568.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/DSC07568.jpg" data-image-alt="Gallery image 6" aria-label="Expand gallery image 6 duplicate">
+                                <img src="image%20assets/thumbs/DSC07568-thumb.jpg" alt="Gallery image 6" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                        <div class="image-tile">
+                            <a href="image%20assets/IMG_1933_jpg.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/IMG_1933_jpg.jpg" data-image-alt="Gallery image 8" aria-label="Expand gallery image 8 duplicate">
+                                <img src="image%20assets/thumbs/IMG_1933_jpg-thumb.jpg" alt="Gallery image 8" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                        <div class="image-tile">
+                            <a href="image%20assets/IMG_2372_jpg.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/IMG_2372_jpg.jpg" data-image-alt="Gallery image 9" aria-label="Expand gallery image 9 duplicate">
+                                <img src="image%20assets/thumbs/IMG_2372_jpg-thumb.jpg" alt="Gallery image 9" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                        <div class="image-tile">
+                            <a href="image%20assets/IMG_2397_jpg.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/IMG_2397_jpg.jpg" data-image-alt="Gallery image 10" aria-label="Expand gallery image 10 duplicate">
+                                <img src="image%20assets/thumbs/IMG_2397_jpg-thumb.jpg" alt="Gallery image 10" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                        <div class="image-tile">
+                            <a href="image%20assets/Claude.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/Claude.jpg" data-image-alt="Claude workshop sign with a plant in the room" aria-label="Expand Claude image duplicate">
+                                <img src="image%20assets/thumbs/Claude-thumb.jpg" alt="Claude workshop sign with a plant in the room" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -4114,86 +4058,6 @@
             });
 
             observer.observe(section);
-        })();
-
-        (() => {
-            const buttons = document.querySelectorAll('[data-carousel-target]');
-
-            buttons.forEach((button) => {
-                button.addEventListener('click', () => {
-                    const targetId = button.getAttribute('data-carousel-target');
-                    const direction = button.getAttribute('data-carousel-direction');
-                    const carousel = targetId ? document.getElementById(targetId) : null;
-
-                    if (!carousel) {
-                        return;
-                    }
-
-                    const scrollAmount = Math.max(carousel.clientWidth * 0.82, 280);
-                    const offset = direction === 'prev' ? -scrollAmount : scrollAmount;
-
-                    carousel.scrollBy({
-                        left: offset,
-                        behavior: 'smooth',
-                    });
-                });
-            });
-        })();
-
-        (() => {
-            const carousel = document.getElementById('futureWorkCarousel');
-
-            if (!carousel || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                return;
-            }
-
-            let autoScrollId = null;
-            let resumeId = null;
-            const step = () => {
-                const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
-
-                if (maxScrollLeft <= 0) {
-                    return;
-                }
-
-                const atEnd = carousel.scrollLeft >= maxScrollLeft - 4;
-                carousel.scrollLeft = atEnd ? 0 : carousel.scrollLeft + 1;
-            };
-
-            const stopAutoScroll = () => {
-                if (autoScrollId) {
-                    window.clearInterval(autoScrollId);
-                    autoScrollId = null;
-                }
-            };
-
-            const startAutoScroll = () => {
-                if (autoScrollId) {
-                    return;
-                }
-
-                carousel.classList.add('is-auto-scrolling');
-                autoScrollId = window.setInterval(step, 22);
-            };
-
-            const pauseAndResume = () => {
-                stopAutoScroll();
-
-                if (resumeId) {
-                    window.clearTimeout(resumeId);
-                }
-
-                resumeId = window.setTimeout(startAutoScroll, 1400);
-            };
-
-            carousel.addEventListener('mouseenter', stopAutoScroll);
-            carousel.addEventListener('mouseleave', startAutoScroll);
-            carousel.addEventListener('focusin', stopAutoScroll);
-            carousel.addEventListener('focusout', startAutoScroll);
-            carousel.addEventListener('pointerdown', pauseAndResume);
-            carousel.addEventListener('wheel', pauseAndResume, { passive: true });
-
-            startAutoScroll();
         })();
 
         (() => {
