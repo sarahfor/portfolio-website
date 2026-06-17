@@ -1914,7 +1914,7 @@
 
         .news-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 0.9rem;
             align-items: stretch;
             justify-content: start;
@@ -1943,6 +1943,10 @@
             grid-template-rows: auto 1fr;
         }
 
+        .news-card-featured {
+            grid-row: auto;
+        }
+
 
         .news-card-media {
             position: relative;
@@ -1964,6 +1968,14 @@
         }
 
         .news-card-media-logo::after {
+            display: none;
+        }
+
+        .news-card-featured .news-card-media {
+            background: #ffffff;
+        }
+
+        .news-card-featured .news-card-media::after {
             display: none;
         }
 
@@ -1994,6 +2006,12 @@
             border: 0;
             background: transparent;
             transform: none;
+        }
+
+        .news-card-featured img {
+            aspect-ratio: 5 / 4;
+            object-fit: contain;
+            background: #ffffff;
         }
 
         .news-card:hover img {
@@ -2078,6 +2096,13 @@
         .news-link:hover {
             color: #3778c2;
             border-color: rgba(55, 120, 194, 0.35);
+        }
+
+        .news-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            align-items: center;
         }
 
         .learning-library-section {
@@ -3310,6 +3335,10 @@
                 border-radius: 18px;
             }
 
+            .news-card-featured {
+                grid-column: auto;
+            }
+
             .news-meta {
                 gap: 0.45rem;
             }
@@ -4057,23 +4086,29 @@
                         <h3><a href="https://blog.google/company-news/outreach-and-initiatives/grow-with-google/google-ai-training-massachusetts-residents/" target="_blank" rel="noopener noreferrer">Google AI training for Massachusetts residents</a></h3>
                         <p>A statewide AI training initiative expanding practical AI and career skills access for Massachusetts residents.</p>
                     </div>
-                    <a class="news-link" href="https://blog.google/company-news/outreach-and-initiatives/grow-with-google/google-ai-training-massachusetts-residents/" target="_blank" rel="noopener noreferrer">Read publication &rarr;</a>
+                    <div class="news-actions">
+                        <a class="news-link" href="https://blog.google/company-news/outreach-and-initiatives/grow-with-google/google-ai-training-massachusetts-residents/" target="_blank" rel="noopener noreferrer">Read announcement &rarr;</a>
+                        <a class="news-link" href="https://aihub.masstech.org/google-certificates" target="_blank" rel="noopener noreferrer">Get Free Google AI training &rarr;</a>
+                    </div>
                 </div>
             </article>
-            <article class="news-card news-card-compact">
-                <a class="news-card-media" href="https://aihub.masstech.org/google-certificates" target="_blank" rel="noopener noreferrer">
-                    <img src="image%20assets/thumbs/google-certificates-cover-thumb.jpg" alt="Grow with Google announcement cover for Massachusetts AI Hub training access" loading="lazy" decoding="async">
+            <article class="news-card news-card-compact news-card-featured">
+                <a class="news-card-media" href="https://economicimpact.google/state/ma/" target="_blank" rel="noopener noreferrer">
+                    <img src="image%20assets/google-economic-impact-quote.png" alt="Sarah Forrest quote from the Google AI Essentials Massachusetts economic impact report" loading="lazy" decoding="async">
                 </a>
                 <div class="news-card-body">
                     <div>
                         <div class="news-meta">
-                            <span class="news-badge">Announcement</span>
-                            <span class="news-source">Massachusetts AI Hub</span>
+                            <span class="news-badge">Report</span>
+                            <span class="news-source">Google Economic Impact</span>
                         </div>
-                        <h3><a href="https://aihub.masstech.org/google-certificates" target="_blank" rel="noopener noreferrer">Grow with Google training through the Massachusetts AI Hub</a></h3>
-                        <p>No-cost access to AI and career certificate programs, supporting applied learning and practical skill-building across Massachusetts.</p>
+                        <h3><a href="https://economicimpact.google/state/ma/" target="_blank" rel="noopener noreferrer">Google Economic Impact: Massachusetts</a></h3>
+                        <p>Google's state report on economic activity, digital tools, and business impact across Massachusetts.</p>
                     </div>
-                    <a class="news-link" href="https://aihub.masstech.org/google-certificates" target="_blank" rel="noopener noreferrer">Access free resources &rarr;</a>
+                    <div class="news-actions">
+                        <a class="news-link" href="https://economicimpact.google/state/ma/" target="_blank" rel="noopener noreferrer">The report &rarr;</a>
+                        <a class="news-link" href="https://storage.googleapis.com/eir-state-reports/ma.pdf" target="_blank" rel="noopener noreferrer">Download PDF &rarr;</a>
+                    </div>
                 </div>
             </article>
             <article class="news-card news-card-compact">
