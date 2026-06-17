@@ -1453,8 +1453,9 @@
 
         .future-report-panel-primary {
             display: grid;
-            grid-template-columns: minmax(0, 0.86fr) minmax(300px, 1.14fr);
-            gap: 1rem;
+            grid-template-columns: 1fr;
+            align-content: start;
+            gap: 1.2rem;
             min-height: 0;
             padding: 1.55rem;
         }
@@ -1484,19 +1485,23 @@
 
         .future-stat-copy {
             display: grid;
-            align-content: space-between;
-            gap: 1rem;
+            align-content: start;
+            gap: 0.9rem;
         }
 
         .future-stat-copy h3 {
-            max-width: 14ch;
+            max-width: 15ch;
             margin: 0;
             color: #111111;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            font-size: clamp(2rem, 3vw, 3rem);
+            font-family: inherit;
+            font-size: clamp(1.75rem, 2.6vw, 2.55rem);
             font-weight: 500;
-            line-height: 0.98;
+            line-height: 1.02;
             letter-spacing: 0;
+        }
+
+        .future-stat-copy h3 span {
+            white-space: nowrap;
         }
 
         .future-report-panel-dark h3 {
@@ -1517,24 +1522,29 @@
             line-height: 1.45;
         }
 
+        .future-stat-copy > p {
+            max-width: 30rem;
+        }
+
         .future-report-panel-dark p {
             color: rgba(255, 255, 255, 0.7);
         }
 
         .future-metric-stack {
             display: grid;
-            gap: 0.72rem;
-            align-content: end;
+            gap: 0.95rem;
+            height: auto;
+            align-content: start;
         }
 
         .future-metric-row {
             display: grid;
-            gap: 0.32rem;
+            gap: 0.42rem;
         }
 
         .future-metric-bar {
             position: relative;
-            height: 2.8rem;
+            height: 3.15rem;
             overflow: hidden;
             border-radius: 0;
             background: #eef3f8;
@@ -1635,10 +1645,10 @@
         }
 
         .future-report-source {
-            margin-top: 0.65rem;
+            margin-top: 1.35rem;
             color: #7c8796;
-            font-size: 0.7rem;
-            font-weight: 700;
+            font-size: 0.42rem;
+            font-weight: 600;
         }
 
         .future-image-carousel-shell {
@@ -2235,8 +2245,8 @@
         }
 
         .learning-library-links {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            justify-items: start;
             gap: 0.65rem;
             margin-top: 1rem;
         }
@@ -3178,7 +3188,7 @@
 
             .future-stat-copy h3 {
                 max-width: 16ch;
-                font-size: clamp(1.9rem, 9.5vw, 2.55rem);
+                font-size: clamp(1.65rem, 7.4vw, 2.1rem);
             }
 
             .future-report-panel-dark h3 {
@@ -3187,7 +3197,7 @@
 
             .future-metric-row {
                 grid-template-columns: 1fr;
-                gap: 0.28rem;
+                gap: 0.34rem;
             }
 
             .future-metric-label {
@@ -3204,7 +3214,7 @@
             }
 
             .future-metric-bar {
-                height: 2.45rem;
+                height: 2.7rem;
             }
 
             .future-dot-chart {
@@ -4089,14 +4099,14 @@
         <div class="future-work-header">
             <p class="future-work-kicker">Future of Jobs Report 2025</p>
             <h2>AI x The Future of Work</h2>
-            <p class="future-work-lead">The future of work is less about one tool replacing one job and more about workflows being restructured across people, systems, and software.</p>
+            <p class="future-work-lead">The future of work is less about one tool replacing one job and<br>more about workflows being restructured across people, systems, and software.</p>
         </div>
         <div class="future-report-grid">
             <article class="future-report-panel future-report-panel-primary">
                 <div class="future-stat-copy">
                     <div>
                         <p class="future-stat-eyebrow">Jobs by 2030</p>
-                        <h3>AI is changing the shape of work.</h3>
+                        <h3>AI is changing,<br><span>the shape of work.</span></h3>
                     </div>
                     <p>New roles, redesigned work, and automation pressure are happening at the same time. The net result is growth, but the transition is uneven.</p>
                 </div>
@@ -4312,12 +4322,9 @@
         </div>
     </div>
 
-    <section class="learning-library-section" aria-labelledby="learning-library-heading">
+    <section class="learning-library-section" aria-label="Official AI learning resources">
         <div class="learning-library-card">
             <div class="learning-library-inner">
-                <p class="learning-library-kicker">What is AI, anyway?</p>
-                <h2 class="learning-library-heading" id="learning-library-heading">Go straight<br> to the source.</h2>
-                <p class="learning-library-lead">The best AI education comes directly from the companies building it. These are the official learning programs from Anthropic, OpenAI, and Google — structured, free, and built for people who want to actually use this stuff.</p>
                 <div class="learning-library-grid">
                     <article class="learning-library-item">
                         <div class="learning-library-brand">
@@ -4330,6 +4337,7 @@
                         <p>Courses and learning resources focused on AI fluency, Claude, API development, and practical ways to build with the models.</p>
                         <div class="learning-library-links">
                             <a class="learning-library-link" href="https://www.anthropic.com/learn" target="_blank" rel="noopener noreferrer">Open Anthropic Academy</a>
+                            <a class="learning-library-link" href="https://claude.ai/" target="_blank" rel="noopener noreferrer">Claude</a>
                             <a class="learning-library-link" href="https://www.anthropic.com/ai-fluency" target="_blank" rel="noopener noreferrer">AI Fluency course</a>
                         </div>
                     </article>
@@ -4344,6 +4352,7 @@
                         <p>Official OpenAI learning hub with skills content, events, and practical guidance for people trying to use AI more effectively.</p>
                         <div class="learning-library-links">
                             <a class="learning-library-link" href="https://academy.openai.com/" target="_blank" rel="noopener noreferrer">Open OpenAI Academy</a>
+                            <a class="learning-library-link" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">ChatGPT</a>
                             <a class="learning-library-link" href="https://academy.openai.com/public/videos/mastering-prompts-the-key-to-getting-what-you-need-from-chatgptmastering-prompts-the-key-to-getting-what-you-need-from-chatgpt-2025-03-20" target="_blank" rel="noopener noreferrer">Prompting lesson</a>
                         </div>
                     </article>
