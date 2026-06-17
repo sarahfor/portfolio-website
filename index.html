@@ -1436,13 +1436,14 @@
 
         .future-report-grid {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
             gap: 1.3rem;
             margin-bottom: 1.1rem;
+            align-items: stretch;
         }
 
-        .future-report-card {
-            display: grid;
+        .future-report-panel {
+            position: relative;
             overflow: hidden;
             border-radius: 28px;
             border: 1px solid rgba(15, 23, 42, 0.08);
@@ -1450,32 +1451,194 @@
             box-shadow: 0 18px 44px rgba(15, 23, 42, 0.1);
         }
 
-        .future-report-card a {
-            display: block;
-            height: 100%;
-            color: inherit;
-            text-decoration: none;
-            cursor: zoom-in;
+        .future-report-panel-primary {
+            display: grid;
+            grid-template-columns: minmax(0, 0.86fr) minmax(300px, 1.14fr);
+            gap: 1rem;
+            min-height: 0;
+            padding: 1.55rem;
         }
 
-        .future-report-card-media {
+        .future-report-panel-dark {
+            display: grid;
+            align-content: start;
+            gap: 0.9rem;
+            min-height: 0;
+            padding: 1.45rem;
+            color: #ffffff;
+            background: #111111;
+        }
+
+        .future-stat-eyebrow {
+            margin: 0 0 0.6rem;
+            color: #5f6b7a;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .future-report-panel-dark .future-stat-eyebrow {
+            color: rgba(255, 255, 255, 0.64);
+        }
+
+        .future-stat-copy {
+            display: grid;
+            align-content: space-between;
+            gap: 1rem;
+        }
+
+        .future-stat-copy h3 {
+            max-width: 14ch;
+            margin: 0;
+            color: #111111;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: clamp(2rem, 3vw, 3rem);
+            font-weight: 500;
+            line-height: 0.98;
+            letter-spacing: 0;
+        }
+
+        .future-report-panel-dark h3 {
+            max-width: 15ch;
+            margin: 0;
+            color: #ffffff;
+            font-size: clamp(1.75rem, 2.6vw, 2.55rem);
+            font-weight: 500;
+            line-height: 1.02;
+            letter-spacing: 0;
+        }
+
+        .future-stat-copy p,
+        .future-report-panel-dark p {
+            margin: 0;
+            color: #5b677a;
+            font-size: 0.92rem;
+            line-height: 1.45;
+        }
+
+        .future-report-panel-dark p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .future-metric-stack {
+            display: grid;
+            gap: 0.72rem;
+            align-content: end;
+        }
+
+        .future-metric-row {
+            display: grid;
+            gap: 0.32rem;
+        }
+
+        .future-metric-bar {
             position: relative;
-            aspect-ratio: 4 / 5;
+            height: 2.8rem;
             overflow: hidden;
-            background: linear-gradient(180deg, #f8fbff 0%, #eef4fb 100%);
+            border-radius: 0;
+            background: #eef3f8;
         }
 
-        .future-report-card-media img {
+        .future-metric-fill {
+            position: absolute;
+            inset: 0 auto 0 0;
+            display: flex;
+            align-items: center;
+            width: var(--metric-width);
+            min-width: 42%;
+            padding: 0 0.85rem;
+            color: #ffffff;
+            background: var(--metric-color);
+            font-size: clamp(1.25rem, 2.4vw, 1.85rem);
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .future-metric-label {
+            display: flex;
+            gap: 0.45rem;
+            align-items: baseline;
+            justify-content: space-between;
+        }
+
+        .future-metric-label strong {
+            color: #111111;
+            font-size: 0.88rem;
+            line-height: 1.1;
+        }
+
+        .future-metric-label span {
+            color: #6a7483;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .future-dot-chart {
+            display: grid;
+            grid-template-columns: repeat(10, minmax(0, 1fr));
+            gap: 0.42rem;
+            align-self: center;
+            justify-self: center;
             width: 100%;
-            height: 100%;
-            display: block;
-            object-fit: cover;
-            object-position: top center;
-            transition: transform 0.5s ease;
+            max-width: 168px;
         }
 
-        .future-report-card:hover .future-report-card-media img {
-            transform: scale(1.02);
+        .future-dot-chart span {
+            display: block;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: #aab2bd;
+        }
+
+        .future-dot-chart span:nth-child(n+42):nth-child(-n+70) {
+            background: #4aa8ff;
+        }
+
+        .future-dot-chart span:nth-child(n+71):nth-child(-n+89) {
+            background: #2f70dc;
+        }
+
+        .future-dot-chart span:nth-child(n+90) {
+            background: #183f83;
+        }
+
+        .future-insight-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.72rem;
+            margin-top: 0.8rem;
+        }
+
+        .future-insight-card {
+            min-height: 0;
+            padding: 0.9rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .future-insight-card strong {
+            display: block;
+            margin-bottom: 0.45rem;
+            color: #ffffff;
+            font-size: clamp(1.65rem, 2.5vw, 2.15rem);
+            font-weight: 600;
+            line-height: 0.95;
+        }
+
+        .future-insight-card span {
+            color: rgba(255, 255, 255, 0.76);
+            font-size: 0.78rem;
+            line-height: 1.28;
+        }
+
+        .future-report-source {
+            margin-top: 0.65rem;
+            color: #7c8796;
+            font-size: 0.7rem;
+            font-weight: 700;
         }
 
         .future-image-carousel-shell {
@@ -2485,6 +2648,15 @@
                 grid-template-columns: 1fr;
             }
 
+            .future-report-panel-primary {
+                grid-template-columns: 1fr;
+                min-height: 0;
+            }
+
+            .future-report-panel-dark {
+                min-height: 0;
+            }
+
             .future-image-carousel {
                 grid-auto-columns: minmax(280px, 62%);
             }
@@ -2994,14 +3166,81 @@
                 margin-bottom: 0.95rem;
             }
 
+            .future-report-panel-primary,
+            .future-report-panel-dark {
+                padding: 1rem;
+                border-radius: 22px;
+            }
+
+            .future-stat-copy {
+                gap: 1rem;
+            }
+
+            .future-stat-copy h3 {
+                max-width: 16ch;
+                font-size: clamp(1.9rem, 9.5vw, 2.55rem);
+            }
+
+            .future-report-panel-dark h3 {
+                font-size: clamp(1.7rem, 8vw, 2.25rem);
+            }
+
+            .future-metric-row {
+                grid-template-columns: 1fr;
+                gap: 0.28rem;
+            }
+
+            .future-metric-label {
+                display: grid;
+                gap: 0.1rem;
+            }
+
+            .future-metric-label span {
+                text-align: left;
+            }
+
+            .future-metric-fill {
+                font-size: clamp(1.15rem, 7vw, 1.55rem);
+            }
+
+            .future-metric-bar {
+                height: 2.45rem;
+            }
+
+            .future-dot-chart {
+                gap: 0.24rem;
+                max-width: 132px;
+                margin: 0.35rem auto;
+            }
+
+            .future-insight-grid {
+                grid-template-columns: 1fr;
+                gap: 0.55rem;
+            }
+
+            .future-insight-card {
+                display: grid;
+                grid-template-columns: 3.2rem minmax(0, 1fr);
+                gap: 0.65rem;
+                align-items: center;
+                min-height: 0;
+                padding: 0.72rem;
+            }
+
+            .future-insight-card strong {
+                margin-bottom: 0;
+                font-size: clamp(1.45rem, 8vw, 1.85rem);
+            }
+
+            .future-insight-card span {
+                font-size: 0.72rem;
+                line-height: 1.22;
+            }
+
             .future-report-summary {
                 margin-bottom: 1.5rem;
                 font-size: 0.94rem;
                 line-height: 1.58;
-            }
-
-            .future-report-card {
-                border-radius: 22px;
             }
 
             .future-image-track .image-tile {
@@ -3853,26 +4092,74 @@
             <p class="future-work-lead">The future of work is less about one tool replacing one job and more about workflows being restructured across people, systems, and software.</p>
         </div>
         <div class="future-report-grid">
-            <article class="future-report-card">
-                <a href="image%20assets/future-jobs-linkedin-carousel-1.png" class="image-lightbox-trigger" data-full-image="image%20assets/future-jobs-linkedin-carousel-1.png" data-image-alt="Future of Jobs Report 2025 slide showing projected global employment change by 2030" aria-label="Expand future of jobs report slide one">
-                    <div class="future-report-card-media">
-                        <img src="image%20assets/future-jobs-linkedin-carousel-1.png" alt="Future of Jobs Report 2025 slide showing projected global employment change by 2030" loading="lazy" decoding="async">
+            <article class="future-report-panel future-report-panel-primary">
+                <div class="future-stat-copy">
+                    <div>
+                        <p class="future-stat-eyebrow">Jobs by 2030</p>
+                        <h3>AI is changing the shape of work.</h3>
                     </div>
-                </a>
+                    <p>New roles, redesigned work, and automation pressure are happening at the same time. The net result is growth, but the transition is uneven.</p>
+                </div>
+                <div class="future-metric-stack" aria-label="Projected global employment change by 2030">
+                    <div class="future-metric-row">
+                        <div class="future-metric-label">
+                            <strong>Jobs created</strong>
+                            <span>+14% of today's formal jobs</span>
+                        </div>
+                        <div class="future-metric-bar">
+                            <div class="future-metric-fill" style="--metric-width: 100%; --metric-color: #4aa8ff;">170M</div>
+                        </div>
+                    </div>
+                    <div class="future-metric-row">
+                        <div class="future-metric-label">
+                            <strong>Jobs displaced</strong>
+                            <span>-8% of today's formal jobs</span>
+                        </div>
+                        <div class="future-metric-bar">
+                            <div class="future-metric-fill" style="--metric-width: 54%; --metric-color: #061321;">92M</div>
+                        </div>
+                    </div>
+                    <div class="future-metric-row">
+                        <div class="future-metric-label">
+                            <strong>Net growth</strong>
+                            <span>+7% total employment</span>
+                        </div>
+                        <div class="future-metric-bar">
+                            <div class="future-metric-fill" style="--metric-width: 46%; --metric-color: #2f70dc;">+78M</div>
+                        </div>
+                    </div>
+                </div>
             </article>
-            <article class="future-report-card">
-                <a href="image%20assets/future-jobs-linkedin-carousel-2.png" class="image-lightbox-trigger" data-full-image="image%20assets/future-jobs-linkedin-carousel-2.png" data-image-alt="Future of Jobs Report 2025 slide about upskilling by 2030" aria-label="Expand future of jobs report slide two">
-                    <div class="future-report-card-media">
-                        <img src="image%20assets/future-jobs-linkedin-carousel-2.png" alt="Future of Jobs Report 2025 slide about upskilling by 2030" loading="lazy" decoding="async">
+            <article class="future-report-panel future-report-panel-dark">
+                <div>
+                    <p class="future-stat-eyebrow">If the global workforce were 100 people</p>
+                    <h3>59 would need training by 2030.</h3>
+                </div>
+                <div class="future-dot-chart" aria-label="100-person workforce chart showing upskilling need by 2030">
+                    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <div>
+                    <div class="future-insight-grid">
+                        <div class="future-insight-card">
+                            <strong>22%</strong>
+                            <span>of formal jobs are expected to be affected by labor-market churn.</span>
+                        </div>
+                        <div class="future-insight-card">
+                            <strong>41</strong>
+                            <span>workers would not need major upskilling by 2030.</span>
+                        </div>
                     </div>
-                </a>
-            </article>
-            <article class="future-report-card">
-                <a href="image%20assets/future-jobs-linkedin-carousel-3.png" class="image-lightbox-trigger" data-full-image="image%20assets/future-jobs-linkedin-carousel-3.png" data-image-alt="Future of Jobs Report 2025 slide comparing growing and declining jobs by 2030" aria-label="Expand future of jobs report slide three">
-                    <div class="future-report-card-media">
-                        <img src="image%20assets/future-jobs-linkedin-carousel-3.png" alt="Future of Jobs Report 2025 slide comparing growing and declining jobs by 2030" loading="lazy" decoding="async">
-                    </div>
-                </a>
+                    <p class="future-report-source">Source: World Economic Forum, Future of Jobs Report 2025.</p>
+                </div>
             </article>
         </div>
         <div class="future-image-carousel-shell">
