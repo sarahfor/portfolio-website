@@ -2151,6 +2151,13 @@
             z-index: 1;
         }
 
+        .learning-library-label {
+            display: flex;
+            align-items: baseline;
+            gap: 0.7rem;
+            margin-bottom: 1.15rem;
+        }
+
         .learning-library-kicker {
             display: inline-flex;
             align-items: center;
@@ -2165,6 +2172,14 @@
             letter-spacing: 0.16em;
             text-transform: uppercase;
             color: #3778c2;
+        }
+
+        .learning-library-label-note {
+            color: #5b6877;
+            font-size: 0.86rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-transform: lowercase;
         }
 
         .learning-library-heading {
@@ -3475,6 +3490,15 @@
                 box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
             }
 
+            .learning-library-label {
+                gap: 0.55rem;
+                margin-bottom: 0.95rem;
+            }
+
+            .learning-library-label-note {
+                font-size: 0.78rem;
+            }
+
             .learning-library-heading {
                 font-size: clamp(1.58rem, 6.5vw, 1.96rem);
                 max-width: 8.6ch;
@@ -4225,6 +4249,11 @@
                             </a>
                         </div>
                         <div class="image-tile">
+                            <a href="image%20assets/IMG_5212.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/IMG_5212.jpg" data-image-alt="Sarah Forrest with collaborators at a Claude event" aria-label="Expand Claude event group photo">
+                                <img src="image%20assets/thumbs/IMG_5212-thumb.jpg" alt="Sarah Forrest with collaborators at a Claude event" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                        <div class="image-tile">
                             <a href="image%20assets/55117974250_36149dea8c_o.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/55117974250_36149dea8c_o.jpg" data-image-alt="Gallery image 2" aria-label="Expand gallery image 2">
                                 <img src="image%20assets/thumbs/55117974250_36149dea8c_o-thumb.jpg" alt="Gallery image 2" loading="lazy" decoding="async">
                             </a>
@@ -4287,6 +4316,11 @@
                         <div class="image-tile">
                             <a href="image%20assets/Claude%20SMB%20Workshop.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/Claude%20SMB%20Workshop.jpg" data-image-alt="Sarah Forrest leading a Claude SMB workshop" aria-label="Expand workshop image duplicate">
                                 <img src="image%20assets/thumbs/Claude%20SMB%20Workshop-thumb.jpg" alt="Sarah Forrest leading a Claude SMB workshop" loading="lazy" decoding="async">
+                            </a>
+                        </div>
+                        <div class="image-tile">
+                            <a href="image%20assets/IMG_5212.jpg" class="image-lightbox-trigger" data-full-image="image%20assets/IMG_5212.jpg" data-image-alt="Sarah Forrest with collaborators at a Claude event" aria-label="Expand Claude event group photo duplicate">
+                                <img src="image%20assets/thumbs/IMG_5212-thumb.jpg" alt="Sarah Forrest with collaborators at a Claude event" loading="lazy" decoding="async">
                             </a>
                         </div>
                         <div class="image-tile">
@@ -4360,6 +4394,10 @@
     <section class="learning-library-section" aria-label="Official AI learning resources">
         <div class="learning-library-card">
             <div class="learning-library-inner">
+                <div class="learning-library-label">
+                    <p class="learning-library-kicker">Learning Lab</p>
+                    <span class="learning-library-label-note">hands on</span>
+                </div>
                 <div class="learning-library-grid">
                     <article class="learning-library-item">
                         <div class="learning-library-brand">
