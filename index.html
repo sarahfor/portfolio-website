@@ -1895,10 +1895,47 @@
         }
 
         .news-section {
-            padding: 2.6rem 5% 0.45rem;
+            padding: 0.9rem 5% 0.45rem;
             max-width: 1280px;
             margin: 0 auto;
             background: transparent;
+        }
+
+        .engagement-strip {
+            display: flex;
+            justify-content: center;
+            padding: 0.15rem 5% 1rem;
+        }
+
+        .engagement-actions {
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.72rem;
+        }
+
+        .engagement-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 0.7rem 1.08rem;
+            border-radius: 999px;
+            border: 1px solid rgba(66, 133, 244, 0.18);
+            background: #ffffff;
+            color: #1f2a38;
+            font-size: 0.92rem;
+            font-weight: 750;
+            line-height: 1;
+            text-decoration: none;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+        }
+
+        .engagement-action:hover {
+            transform: translateY(-2px);
+            color: #1a73e8;
+            border-color: rgba(26, 115, 232, 0.34);
+            box-shadow: 0 12px 26px rgba(66, 133, 244, 0.16);
         }
 
         .news-section-header {
@@ -3321,8 +3358,8 @@
             }
 
             .news-section {
-                padding: 2rem 5% 0.45rem;
-                margin: 1rem 0 0;
+                padding: 0.8rem 5% 0.45rem;
+                margin: 0.4rem 0 0;
                 background: transparent;
             }
 
@@ -3410,6 +3447,22 @@
             .news-card p {
                 font-size: 0.78rem;
                 line-height: 1.42;
+            }
+
+            .engagement-strip {
+                padding: 0.05rem 5% 0.8rem;
+            }
+
+            .engagement-actions {
+                width: min(100%, 23rem);
+                gap: 0.5rem;
+            }
+
+            .engagement-action {
+                min-height: 42px;
+                padding: 0.66rem 0.92rem;
+                font-size: 0.85rem;
+                flex: 1 1 9rem;
             }
 
             .image-grid-ticker {
@@ -4086,34 +4139,14 @@
         </div>
     </section>
 
-    <section class="collaboration-section" aria-label="Collaboration links">
-        <div class="collaboration-shell">
-            <div class="collaboration-copy">
-                <p class="collaboration-kicker">Start With a Question</p>
-                <p class="collaboration-intro">The strongest AI work usually starts with a clear question, a real workflow, or a business priority worth examining.</p>
-                <div class="curiosity-prompts" aria-label="Example AI questions">
-                    <p><span>01</span>What should AI change about the way this work gets done?</p>
-                    <p><span>02</span>How do we explain this clearly to people who are not technical?</p>
-                    <p><span>03</span>Where can we test value before we scale a full program?</p>
-                </div>
-            </div>
-            <div class="collaboration-action">
-                <div class="collaboration-links">
-                    <a href="mailto:hellogenxai@gmail.com?subject=AI%20question">
-                        <span class="collaboration-link-text">
-                            <span class="collaboration-link-title">Start a<br class="cta-mobile-break"> conversation</span>
-                            <span class="collaboration-link-subtitle">Share a question, project,<br class="cta-mobile-break"> or speaking opportunity.</span>
-                        </span>
-                    </a>
-                </div>
-            </div>
+    <div class="engagement-strip" aria-label="Portfolio actions">
+        <div class="engagement-actions">
+            <a class="engagement-action" href="#portfolio">Explore my portfolio</a>
+            <a class="engagement-action" href="#contact">Contact me</a>
         </div>
-    </section>
+    </div>
 
-    <section class="news-section" aria-labelledby="news-heading">
-        <div class="news-section-header">
-            <h2 id="news-heading" class="news-heading">In the News</h2>
-        </div>
+    <section class="news-section" aria-label="News features">
         <div class="news-grid">
             <article class="news-card news-card-compact">
                 <a class="news-card-media" href="https://blog.google/company-news/outreach-and-initiatives/grow-with-google/google-ai-training-massachusetts-residents/" target="_blank" rel="noopener noreferrer">
@@ -4172,7 +4205,7 @@
         </div>
     </section>
 
-    <section class="image-grid-section">
+    <section class="image-grid-section" id="portfolio">
         <div class="future-work-header">
             <p class="future-work-kicker">Future of Jobs Report 2025</p>
             <h2>AI x The Future of Work</h2>
