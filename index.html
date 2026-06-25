@@ -313,28 +313,34 @@
 
         .social-links {
             display: flex;
-            gap: 0.62rem;
+            flex-wrap: wrap;
+            gap: 0.55rem;
             align-items: center;
-            justify-content: center;
-            width: 100%;
-            margin-top: 0.85rem;
+            justify-content: flex-start;
+            width: min(100%, 32rem);
+            margin-top: 0.15rem;
+            margin-bottom: 1rem;
             position: relative;
             z-index: 1;
         }
 
         .social-links a {
-            width: 82px;
-            height: 58px;
-            flex: 0 0 82px;
+            min-width: 0;
+            width: auto;
+            height: 42px;
+            flex: 0 1 auto;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            border-radius: 16px;
-            border: 1px solid rgba(79, 172, 254, 0.12);
-            background: rgba(255, 255, 255, 0.78);
+            padding: 0.45rem 0.74rem;
+            border-radius: 999px;
+            border: 1px solid rgba(66, 133, 244, 0.16);
+            background: rgba(255, 255, 255, 0.64);
             box-shadow:
-                0 8px 18px rgba(15, 23, 42, 0.04),
-                inset 0 1px 0 rgba(255, 255, 255, 0.62);
+                0 10px 24px rgba(15, 42, 82, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(14px) saturate(140%);
+            -webkit-backdrop-filter: blur(14px) saturate(140%);
             transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
             opacity: 1;
             filter: none;
@@ -351,8 +357,8 @@
         }
 
         .social-links img {
-            width: 58px;
-            height: 58px;
+            width: 64px;
+            height: 24px;
             object-fit: contain;
             filter: none;
             opacity: 0.92;
@@ -367,18 +373,18 @@
 
         .social-links img[alt="Substack"] {
             width: 72px;
-            height: 27px;
+            height: 24px;
         }
 
         .social-links img[alt="GitHub"] {
             width: 72px;
-            height: 26px;
+            height: 24px;
         }
 
         .social-links img[alt="LinkedIn"],
         .social-links img[alt="Instagram"] {
             width: 76px;
-            height: 28px;
+            height: 24px;
         }
 
         .social-links img[alt="LinkedIn"] {
@@ -1977,7 +1983,7 @@
         .news-grid {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 0;
+            gap: 1rem;
             align-items: stretch;
             justify-content: start;
             max-width: none;
@@ -1986,18 +1992,26 @@
 
         .news-card {
             display: grid;
-            padding: 1.35rem 1.4rem 1.55rem;
-            background: transparent;
-            transition: background-color 0.3s ease;
+            padding: 0.85rem;
+            border-radius: 24px;
+            border: 1px solid rgba(79, 172, 254, 0.12);
+            background:
+                linear-gradient(145deg, rgba(255, 255, 255, 0.74), rgba(244, 250, 255, 0.44));
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.82),
+                0 18px 42px rgba(15, 42, 82, 0.07);
+            backdrop-filter: blur(14px) saturate(145%);
+            -webkit-backdrop-filter: blur(14px) saturate(145%);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
             scroll-snap-align: start;
         }
 
         .news-card:first-child {
-            padding-left: 0;
+            padding-left: 0.85rem;
         }
 
         .news-card:last-child {
-            padding-right: 0;
+            padding-right: 0.85rem;
         }
 
         .news-card:not(:last-child) {
@@ -2005,7 +2019,13 @@
         }
 
         .news-card:hover {
-            background: rgba(255, 255, 255, 0.34);
+            transform: translateY(-4px);
+            border-color: rgba(66, 133, 244, 0.2);
+            background:
+                linear-gradient(145deg, rgba(255, 255, 255, 0.86), rgba(241, 248, 255, 0.56));
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                0 24px 54px rgba(15, 42, 82, 0.11);
         }
 
         .news-card-compact {
@@ -2020,7 +2040,8 @@
         .news-card-media {
             position: relative;
             overflow: hidden;
-            background: transparent;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.5);
             padding: 0;
         }
 
@@ -2032,7 +2053,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(180deg, #fdfefe 0%, #f4f9ff 100%);
+            background:
+                radial-gradient(circle at 50% 38%, rgba(79, 172, 254, 0.13), rgba(79, 172, 254, 0) 50%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(244, 249, 255, 0.72) 100%);
             padding: 0.9rem;
         }
 
@@ -2062,7 +2085,7 @@
             display: block;
             object-fit: contain;
             aspect-ratio: 5 / 4;
-            border-radius: 0;
+            border-radius: 18px;
             background: #f3f6f9;
             transition: transform 0.6s ease;
         }
@@ -2099,8 +2122,8 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            gap: 0.55rem;
-            padding: 1rem 0 0;
+            gap: 0.72rem;
+            padding: 0.95rem 0.25rem 0.15rem;
         }
 
         .news-meta {
@@ -2130,8 +2153,8 @@
         }
 
         .news-card h3 {
-            font-size: clamp(0.98rem, 1.2vw, 1.12rem);
-            line-height: 1.18;
+            font-size: clamp(1.02rem, 1.28vw, 1.18rem);
+            line-height: 1.14;
             letter-spacing: -0.025em;
         }
 
@@ -2190,9 +2213,13 @@
             border-radius: 36px;
             border: 1px solid rgba(79, 172, 254, 0.16);
             background:
-                linear-gradient(135deg, rgba(79, 172, 254, 0.07) 0%, rgba(255, 255, 255, 0) 42%),
-                linear-gradient(145deg, #f8fbff 0%, #ffffff 48%, #f6fbff 100%);
-            box-shadow: 0 28px 72px rgba(15, 23, 42, 0.09);
+                radial-gradient(circle at 10% 8%, rgba(79, 172, 254, 0.16), rgba(79, 172, 254, 0) 36%),
+                linear-gradient(145deg, rgba(255, 255, 255, 0.82) 0%, rgba(246, 251, 255, 0.64) 100%);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.86),
+                0 28px 72px rgba(15, 42, 82, 0.09);
+            backdrop-filter: blur(18px) saturate(150%);
+            -webkit-backdrop-filter: blur(18px) saturate(150%);
             padding: 2.35rem;
         }
 
@@ -2283,10 +2310,22 @@
         .learning-library-item {
             position: relative;
             border-radius: 28px;
-            border: 1px solid rgba(79, 172, 254, 0.14);
-            background: rgba(255, 255, 255, 0.92);
-            box-shadow: 0 18px 36px rgba(15, 23, 42, 0.05);
+            border: 1px solid rgba(79, 172, 254, 0.12);
+            background:
+                linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(246, 251, 255, 0.5));
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.84),
+                0 18px 36px rgba(15, 42, 82, 0.06);
+            transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
             padding: 1.3rem;
+        }
+
+        .learning-library-item:hover {
+            transform: translateY(-4px);
+            border-color: rgba(66, 133, 244, 0.2);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                0 24px 48px rgba(15, 42, 82, 0.1);
         }
 
         .learning-library-brand {
@@ -2343,7 +2382,7 @@
 
         .learning-library-item h3 {
             margin-top: 0.9rem;
-            font-size: 1.2rem;
+            font-size: 1.24rem;
             line-height: 1.08;
             letter-spacing: -0.03em;
             color: #162132;
@@ -2989,37 +3028,38 @@
             }
 
             .social-links {
-                display: grid;
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                width: min(100%, 28rem);
                 max-width: 100%;
-                margin: 1rem auto 0;
+                margin: 0.2rem 0 0.9rem;
                 gap: 0.55rem;
             }
 
             .social-links a {
-                width: 100%;
+                width: auto;
                 min-width: 0;
-                height: 54px;
+                height: 40px;
                 flex-basis: auto;
-                border-radius: 14px;
+                border-radius: 999px;
             }
 
             .social-links img {
-                width: 42px;
-                height: 42px;
+                width: 58px;
+                height: 22px;
             }
 
             .social-links img[alt="Substack"],
             .social-links img[alt="GitHub"] {
-                width: 50px;
-                height: 20px;
+                width: 64px;
+                height: 22px;
             }
 
             .social-links img[alt="LinkedIn"],
             .social-links img[alt="Instagram"] {
-                width: 54px;
-                height: 20px;
+                width: 66px;
+                height: 22px;
             }
 
             .collaboration-section {
@@ -3398,7 +3438,7 @@
             .news-grid {
                 grid-template-columns: 1fr;
                 grid-auto-flow: row;
-                gap: 0;
+                gap: 0.85rem;
                 overflow: visible;
                 padding: 0;
                 margin: 0;
@@ -3409,17 +3449,18 @@
             }
 
             .news-card {
-                padding: 1.05rem 0 1.2rem;
+                padding: 0.75rem;
+                border-radius: 22px;
                 border-right: 0;
                 border-bottom: 0;
             }
 
             .news-card:first-child {
-                padding-left: 0;
+                padding-left: 0.75rem;
             }
 
             .news-card:last-child {
-                padding-right: 0;
+                padding-right: 0.75rem;
                 border-bottom: 0;
             }
 
@@ -3459,7 +3500,7 @@
 
             .news-card-body {
                 gap: 0.45rem;
-                padding: 0.85rem 0 0;
+                padding: 0.78rem 0.15rem 0.1rem;
             }
 
             .news-card h3 {
@@ -3518,31 +3559,32 @@
             .social-links {
                 display: flex;
                 width: min(100%, 100%);
-                margin: 1.1rem auto 0;
+                margin: 0.2rem 0 0.85rem;
                 gap: 0.55rem;
-                justify-content: center;
+                justify-content: flex-start;
             }
 
             .social-links a {
-                width: 68px;
-                height: 54px;
-                flex-basis: 68px;
+                width: auto;
+                height: 40px;
+                flex-basis: auto;
+                padding: 0.44rem 0.62rem;
                 aspect-ratio: auto;
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                background: rgba(255, 255, 255, 0.24);
-                border: 1px solid rgba(79, 172, 254, 0.08);
-                border-radius: 16px;
-                box-shadow: none;
+                background: rgba(255, 255, 255, 0.6);
+                border: 1px solid rgba(79, 172, 254, 0.14);
+                border-radius: 999px;
+                box-shadow: 0 10px 22px rgba(15, 42, 82, 0.05);
                 opacity: 1;
                 filter: none;
                 overflow: visible;
             }
 
             .social-links img {
-                width: 44px;
-                height: 44px;
+                width: 58px;
+                height: 22px;
                 max-width: 100%;
                 max-height: 100%;
                 object-fit: contain;
@@ -3550,18 +3592,18 @@
             }
 
             .social-links img[alt="Substack"] {
-                width: 54px;
+                width: 64px;
                 height: 22px;
             }
 
             .social-links img[alt="GitHub"] {
-                width: 54px;
+                width: 64px;
                 height: 22px;
             }
 
             .social-links img[alt="LinkedIn"],
             .social-links img[alt="Instagram"] {
-                width: 58px;
+                width: 66px;
                 height: 22px;
             }
 
@@ -3866,38 +3908,38 @@
             }
 
             .social-links {
-                display: grid;
-                grid-template-columns: repeat(4, minmax(0, 1fr));
+                display: flex;
+                flex-wrap: wrap;
                 gap: 0.35rem;
                 width: 100%;
             }
 
             .social-links a {
-                width: 100%;
-                height: 46px;
+                width: auto;
+                height: 38px;
                 flex-basis: auto;
-                border-radius: 13px;
+                border-radius: 999px;
             }
 
             .social-links img {
-                width: 38px;
-                height: 38px;
+                width: 54px;
+                height: 20px;
             }
 
             .social-links img[alt="Substack"] {
-                width: 45px;
-                height: 19px;
+                width: 58px;
+                height: 20px;
             }
 
             .social-links img[alt="GitHub"] {
-                width: 45px;
-                height: 19px;
+                width: 58px;
+                height: 20px;
             }
 
             .social-links img[alt="LinkedIn"],
             .social-links img[alt="Instagram"] {
-                width: 48px;
-                height: 19px;
+                width: 60px;
+                height: 20px;
             }
 
             .social-links img[alt="LinkedIn"] {
@@ -4039,15 +4081,15 @@
             }
 
             .social-links {
-                display: grid;
-                grid-template-columns: repeat(4, minmax(0, 1fr));
+                display: flex;
+                flex-wrap: wrap;
                 width: 100%;
                 gap: 0.28rem;
             }
 
             .social-links a {
-                width: 100%;
-                height: 42px;
+                width: auto;
+                height: 36px;
                 flex-basis: auto;
             }
 
@@ -4083,7 +4125,11 @@
                         alt="Sarah Forrest"
                         loading="lazy"
                         decoding="async">
-                    <div class="social-links">
+                </div>
+                <div class="about-text">
+                    <h2>SARAH FORREST</h2>
+                    <p>I am a computer scientist, AI workforce strategist, and tech communicator. I build AI learning experiences, translate technical systems into practical workflows, and help people and teams develop the skills to use AI with intention.</p>
+                    <div class="social-links" aria-label="Social links">
                         <a href="https://www.linkedin.com/in/sarforre" target="_blank" rel="noopener noreferrer">
                             <img src="linkedin-logo.svg" alt="LinkedIn">
                         </a>
@@ -4097,10 +4143,6 @@
                             <img src="instagram-logo.svg" alt="Instagram">
                         </a>
                     </div>
-                </div>
-                <div class="about-text">
-                    <h2>SARAH FORREST</h2>
-                    <p>I am a computer scientist, AI workforce strategist, and tech communicator. I build AI learning experiences, translate technical systems into practical workflows, and help people and teams develop the skills to use AI with intention.</p>
                     <div class="about-actions" aria-label="Contact action">
                         <a class="about-action" href="#contact">Contact me</a>
                     </div>
@@ -4160,7 +4202,7 @@
     <section class="news-section" aria-label="News features">
         <div class="news-section-header">
             <h2 class="news-heading">Selected Work &amp; Features</h2>
-            <p class="news-subheading">Programs I have built, public features, and AI workforce work in the world.</p>
+            <p class="news-subheading">Programs built, public features, and AI workforce work in the world.</p>
         </div>
         <div class="news-grid">
             <article class="news-card news-card-compact">
@@ -4173,8 +4215,8 @@
                             <span class="news-badge">Program build</span>
                             <span class="news-source">Verizon Digital Ready</span>
                         </div>
-                        <h3><a href="https://digitalready.verizonwireless.com/results/ai" target="_blank" rel="noopener noreferrer">Artificial intelligence for small businesses</a></h3>
-                        <p>A Verizon Digital Ready AI learning program I built to help small business owners understand and apply AI in practical ways.</p>
+                        <h3><a href="https://digitalready.verizonwireless.com/results/ai" target="_blank" rel="noopener noreferrer">Verizon AI for Small Business</a></h3>
+                        <p>A Verizon Digital Ready learning program I built to help small business owners understand and apply AI in practical ways.</p>
                     </div>
                     <a class="news-link" href="https://digitalready.verizonwireless.com/results/ai" target="_blank" rel="noopener noreferrer">Explore program &rarr;</a>
                 </div>
@@ -4189,7 +4231,7 @@
                             <span class="news-badge">Featured publication</span>
                             <span class="news-source">Google / The Keyword</span>
                         </div>
-                        <h3><a href="https://blog.google/company-news/outreach-and-initiatives/grow-with-google/google-ai-training-massachusetts-residents/" target="_blank" rel="noopener noreferrer">Google AI training for Massachusetts residents</a></h3>
+                        <h3><a href="https://blog.google/company-news/outreach-and-initiatives/grow-with-google/google-ai-training-massachusetts-residents/" target="_blank" rel="noopener noreferrer">Google AI Training for Massachusetts</a></h3>
                         <p>A statewide AI training initiative expanding practical AI and career skills access for Massachusetts residents.</p>
                     </div>
                     <div class="news-actions">
@@ -4208,7 +4250,7 @@
                             <span class="news-badge">Report</span>
                             <span class="news-source">Google Economic Impact</span>
                         </div>
-                        <h3><a href="https://economicimpact.google/state/ma/" target="_blank" rel="noopener noreferrer">Google Economic Impact: Massachusetts</a></h3>
+                        <h3><a href="https://economicimpact.google/state/ma/" target="_blank" rel="noopener noreferrer">Google Economic Impact Report</a></h3>
                         <p>Google's state report on economic activity, digital tools, and business impact across Massachusetts.</p>
                     </div>
                     <div class="news-actions">
@@ -4227,7 +4269,7 @@
                             <span class="news-badge">Program build</span>
                             <span class="news-source">YouTube</span>
                         </div>
-                        <h3><a href="https://youtu.be/nABaoC4qI00?si=37G-A2C2DK8YeNpU" target="_blank" rel="noopener noreferrer">AI x The Future of Work Conference</a></h3>
+                        <h3><a href="https://youtu.be/nABaoC4qI00?si=37G-A2C2DK8YeNpU" target="_blank" rel="noopener noreferrer">AI x The Future of Work</a></h3>
                         <p>A practical conversation on moving from AI interest to usable workflows, clearer decisions, and real operational value.</p>
                     </div>
                     <a class="news-link" href="https://youtu.be/nABaoC4qI00?si=37G-A2C2DK8YeNpU" target="_blank" rel="noopener noreferrer">Watch video &rarr;</a>
@@ -4518,7 +4560,7 @@
                                 <img src="Google_2015_logo.svg" alt="Google">
                             </span>
                         </div>
-                        <h3>Google AI learning</h3>
+                        <h3>Google AI Learning</h3>
                         <p>Google’s official AI learning pages, including AI Essentials, prompt training, and broader AI skills content through Grow with Google and Google AI.</p>
                         <div class="learning-library-links">
                             <a class="learning-library-link" href="https://grow.google/ai" target="_blank" rel="noopener noreferrer">Explore AI training</a>
