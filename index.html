@@ -2080,6 +2080,11 @@
             height: 42%;
         }
 
+        .detection-person .detection-label {
+            top: auto;
+            bottom: 0.65rem;
+        }
+
         .detection-whiteboard {
             left: 27%;
             top: 21%;
@@ -2271,6 +2276,121 @@
                 opacity: 1;
                 transform: none;
                 clip-path: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .profile-inspector {
+                align-items: center;
+                padding: 0.7rem;
+            }
+
+            .profile-inspector-dialog {
+                width: min(96vw, 560px);
+                max-height: 94vh;
+                gap: 0.58rem;
+            }
+
+            .profile-inspector-frame {
+                border-radius: 24px;
+            }
+
+            .profile-inspector-image {
+                max-height: 72vh;
+            }
+
+            .profile-inspector-close {
+                top: 0.62rem;
+                right: 0.62rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1.35rem;
+            }
+
+            .detection-box {
+                border-radius: 12px;
+                border-width: 1px;
+            }
+
+            .detection-box::before,
+            .detection-box::after {
+                width: 12px;
+                height: 12px;
+            }
+
+            .detection-box::before {
+                border-top-left-radius: 10px;
+            }
+
+            .detection-box::after {
+                border-bottom-right-radius: 10px;
+            }
+
+            .detection-label {
+                top: 0.42rem;
+                left: 0.42rem;
+                max-width: 12.5ch;
+                padding: 0.26rem 0.36rem;
+                font-size: 0.48rem;
+                line-height: 1.05;
+                letter-spacing: 0.045em;
+                white-space: normal;
+                border-color: rgba(255, 255, 255, 0.8);
+                background: rgba(7, 20, 38, 0.9);
+            }
+
+            .detection-person .detection-label {
+                top: auto;
+                bottom: 0.42rem;
+                left: 0.42rem;
+                max-width: 9.5ch;
+            }
+
+            .detection-whiteboard {
+                top: 10%;
+                height: 22%;
+            }
+
+            .detection-laptop .detection-label,
+            .detection-plant .detection-label {
+                right: 0.42rem;
+            }
+
+            .detection-materials .detection-label {
+                left: 0.42rem;
+                max-width: 13.5ch;
+            }
+
+            .profile-inspector-caption {
+                align-items: flex-start;
+                border-radius: 18px;
+                padding: 0.6rem 0.72rem;
+                font-size: 0.72rem;
+                line-height: 1.35;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .profile-inspector {
+                padding: 0.5rem;
+            }
+
+            .profile-inspector-dialog {
+                width: 98vw;
+            }
+
+            .detection-label {
+                max-width: 10.5ch;
+                padding: 0.22rem 0.32rem;
+                font-size: 0.43rem;
+            }
+
+            .detection-person .detection-label {
+                max-width: 8.5ch;
+            }
+
+            .detection-materials .detection-label {
+                max-width: 12ch;
             }
         }
 
