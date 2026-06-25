@@ -1479,13 +1479,14 @@
 
         .future-report-panel-dark {
             display: grid;
+            grid-template-rows: auto auto minmax(0, 1fr);
             align-content: start;
-            gap: 1.7rem;
+            gap: 1.2rem;
             min-height: 0;
-            padding: 2.15rem;
+            padding: 1.8rem;
             color: #0f1c32;
             background:
-                radial-gradient(circle at 70% 16%, rgba(74, 168, 255, 0.16), rgba(74, 168, 255, 0) 34%),
+                radial-gradient(circle at 72% 14%, rgba(74, 168, 255, 0.16), rgba(74, 168, 255, 0) 32%),
                 linear-gradient(145deg, rgba(255, 255, 255, 0.7), rgba(242, 249, 255, 0.42));
         }
 
@@ -1524,10 +1525,10 @@
         }
 
         .future-report-panel-dark h3 {
-            max-width: 15ch;
+            max-width: 13ch;
             margin: 0;
             color: #0f1c32;
-            font-size: clamp(1.75rem, 2.6vw, 2.55rem);
+            font-size: clamp(1.52rem, 2.25vw, 2.12rem);
             font-weight: 500;
             line-height: 1.02;
             letter-spacing: 0;
@@ -1614,15 +1615,17 @@
         .future-dot-chart {
             display: grid;
             grid-template-columns: repeat(10, minmax(0, 1fr));
-            gap: 0.42rem;
+            gap: 0.32rem;
             align-self: center;
             justify-self: center;
             width: 100%;
-            max-width: 168px;
-            padding: 0.7rem;
-            border-radius: 22px;
-            background: rgba(255, 255, 255, 0.34);
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.68);
+            max-width: 150px;
+            padding: 0.62rem;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.68),
+                0 14px 28px rgba(15, 42, 82, 0.06);
         }
 
         .future-dot-chart span {
@@ -1648,14 +1651,21 @@
         .future-insight-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 0.75rem;
-            margin-top: 0.4rem;
+            gap: 0.62rem;
+            margin-top: 0.15rem;
+        }
+
+        .future-insight-block {
+            display: grid;
+            align-content: end;
+            gap: 0.8rem;
+            min-height: 0;
         }
 
         .future-insight-card {
             min-height: 0;
-            padding: 1rem;
-            border-radius: 18px;
+            padding: 0.88rem;
+            border-radius: 16px;
             background: rgba(255, 255, 255, 0.48);
             box-shadow:
                 inset 0 1px 0 rgba(255, 255, 255, 0.72),
@@ -1668,23 +1678,31 @@
 
         .future-insight-card strong {
             display: block;
-            margin-bottom: 0.45rem;
+            margin-bottom: 0.38rem;
             color: #0f1c32;
-            font-size: clamp(1.65rem, 2.5vw, 2.15rem);
+            font-size: clamp(1.45rem, 2.2vw, 1.9rem);
             font-weight: 600;
             line-height: 0.95;
         }
 
         .future-insight-card span {
             color: #5b677a;
-            font-size: 0.78rem;
-            line-height: 1.28;
+            font-size: 0.72rem;
+            line-height: 1.34;
         }
 
         .future-report-source {
-            margin-top: 1.8rem;
+            margin-top: 0.8rem;
             color: #7c8796;
             font-size: 0.58rem;
+            font-weight: 600;
+            line-height: 1.35;
+        }
+
+        .future-report-panel-dark .future-report-source {
+            color: #7c8796;
+            font-size: 0.58rem;
+            line-height: 1.35;
             font-weight: 600;
         }
 
@@ -3317,7 +3335,8 @@
             }
 
             .future-report-panel-dark h3 {
-                font-size: clamp(1.7rem, 8vw, 2.25rem);
+                font-size: clamp(1.5rem, 7vw, 1.95rem);
+                max-width: 12ch;
             }
 
             .future-metric-row {
@@ -3343,9 +3362,10 @@
             }
 
             .future-dot-chart {
-                gap: 0.24rem;
-                max-width: 132px;
-                margin: 0.35rem auto;
+                gap: 0.22rem;
+                max-width: 122px;
+                margin: 0.15rem auto;
+                padding: 0.5rem;
             }
 
             .future-insight-grid {
@@ -3356,21 +3376,30 @@
             .future-insight-card {
                 display: block;
                 min-height: 0;
-                padding: 0.85rem;
+                padding: 0.78rem;
             }
 
             .future-insight-card + .future-insight-card {
-                padding-left: 0.85rem;
+                padding-left: 0.78rem;
             }
 
             .future-insight-card strong {
-                margin-bottom: 0;
-                font-size: clamp(1.45rem, 8vw, 1.85rem);
+                margin-bottom: 0.22rem;
+                font-size: clamp(1.34rem, 7vw, 1.7rem);
             }
 
             .future-insight-card span {
-                font-size: 0.72rem;
-                line-height: 1.22;
+                font-size: 0.68rem;
+                line-height: 1.26;
+            }
+
+            .future-insight-block {
+                gap: 0.62rem;
+            }
+
+            .future-report-panel-dark .future-report-source {
+                margin-top: 0.62rem;
+                font-size: 0.55rem;
             }
 
             .future-report-summary {
@@ -4277,7 +4306,7 @@
             </article>
             <article class="future-report-panel future-report-panel-dark">
                 <div>
-                    <p class="future-stat-eyebrow">If the global workforce were 100 people</p>
+                    <p class="future-stat-eyebrow">Workforce readiness</p>
                     <h3>59 would need training by 2030.</h3>
                 </div>
                 <div class="future-dot-chart" aria-label="100-person workforce chart showing upskilling need by 2030">
@@ -4292,7 +4321,7 @@
                     <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
                     <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
                 </div>
-                <div>
+                <div class="future-insight-block">
                     <div class="future-insight-grid">
                         <div class="future-insight-card">
                             <strong>22%</strong>
@@ -4303,7 +4332,7 @@
                             <span>workers would not need major upskilling by 2030.</span>
                         </div>
                     </div>
-                    <p class="future-report-source">Source: World Economic Forum, Future of Jobs Report 2025.</p>
+                    <p class="future-report-source">Source: World Economic Forum, Future of Jobs Report 2025</p>
                 </div>
             </article>
         </div>
