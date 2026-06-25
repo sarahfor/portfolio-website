@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Manager Onboarding | Sarah Forrest</title>
+  <link rel="icon" type="image/png" href="favicon-profile.png">
+  <link rel="apple-touch-icon" href="favicon-profile.png">
+  <link rel="preload" as="image" href="hero-background.jpg">
+  <style>
+    :root {
+      --site-bg: #f5f7fb;
+      --surface: #ffffff;
+      --surface-soft: #f7fbff;
+      --text-primary: #1a1a1a;
+      --text-muted: #4d5764;
+      --blue: #4facfe;
+      --blue-deep: #3778c2;
+      --blue-soft: rgba(79, 172, 254, 0.12);
+      --border-soft: rgba(79, 172, 254, 0.16);
+      --shadow-soft: 0 18px 44px rgba(15, 23, 42, 0.09);
+      --green: #0f8b49;
+      --amber: #b7791f;
+      --red: #b42318;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      color: var(--text-primary);
+      background:
+        radial-gradient(circle at top left, rgba(79, 172, 254, 0.1) 0%, rgba(79, 172, 254, 0) 28%),
+        linear-gradient(180deg, #f7f9fc 0%, var(--site-bg) 100%);
+      line-height: 1.55;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 52vh;
+      display: grid;
+      align-items: end;
+      padding: 2rem 5% 3.5rem;
+      color: #ffffff;
+      background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.48), rgba(0, 20, 40, 0.28)), url("hero-background.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-inner {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0.42rem 0.82rem;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      background: rgba(6, 19, 35, 0.34);
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      backdrop-filter: blur(12px);
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      max-width: 860px;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: clamp(2.25rem, 5.4vw, 5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: 0;
+      text-shadow: 0 4px 22px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-copy {
+      max-width: 680px;
+      margin-top: 1rem;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+
+    .shell {
+      width: min(1180px, 100%);
+      margin: -2rem auto 0;
+      padding: 0 5% 4rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .top-panel {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 1rem;
+      align-items: stretch;
+      margin-bottom: 1rem;
+    }
+
+    .panel,
+    .task-card,
+    .resource-card,
+    .note-panel {
+      border: 1px solid var(--border-soft);
+      background: linear-gradient(145deg, #ffffff 0%, #f7fbff 100%);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .panel {
+      border-radius: 28px;
+      padding: 1.25rem;
+    }
+
+    .join-form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr)) auto;
+      gap: 0.75rem;
+      align-items: end;
+    }
+
+    label {
+      display: grid;
+      gap: 0.35rem;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(79, 172, 254, 0.2);
+      border-radius: 14px;
+      background: #ffffff;
+      color: var(--text-primary);
+      padding: 0.82rem 0.9rem;
+      outline: none;
+      transition: border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: rgba(79, 172, 254, 0.52);
+      box-shadow: 0 0 0 4px rgba(79, 172, 254, 0.12);
+    }
+
+    .primary-btn,
+    .secondary-btn,
+    .tab-button {
+      min-height: 44px;
+      border: 0;
+      border-radius: 999px;
+      padding: 0.72rem 1rem;
+      font-weight: 800;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .primary-btn {
+      color: #ffffff;
+      background: linear-gradient(180deg, var(--blue) 0%, #3f89db 100%);
+      box-shadow: 0 14px 26px rgba(79, 172, 254, 0.24);
+    }
+
+    .secondary-btn,
+    .tab-button {
+      color: var(--blue-deep);
+      background: rgba(79, 172, 254, 0.1);
+      border: 1px solid rgba(79, 172, 254, 0.16);
+    }
+
+    .primary-btn:hover,
+    .secondary-btn:hover,
+    .tab-button:hover {
+      transform: translateY(-1px);
+    }
+
+    .score-panel {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.1rem;
+      align-items: center;
+    }
+
+    .meter {
+      width: 126px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: conic-gradient(var(--blue) calc(var(--progress) * 1%), rgba(79, 172, 254, 0.14) 0);
+      box-shadow: inset 0 0 0 1px rgba(79, 172, 254, 0.18);
+    }
+
+    .meter span {
+      width: 92px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #ffffff;
+      color: var(--text-primary);
+      font-size: 1.45rem;
+      font-weight: 900;
+    }
+
+    .score-copy h2 {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: clamp(1.6rem, 3vw, 2.3rem);
+      font-weight: 400;
+      line-height: 1.1;
+    }
+
+    .score-copy p {
+      margin-top: 0.45rem;
+      color: var(--text-muted);
+    }
+
+    .tabs {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.75rem 0;
+      margin-bottom: 1rem;
+      background: linear-gradient(180deg, rgba(245, 247, 251, 0.95), rgba(245, 247, 251, 0.82));
+      backdrop-filter: blur(14px);
+    }
+
+    .tab-button {
+      flex: 0 0 auto;
+      color: #617082;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .tab-button.active {
+      color: #ffffff;
+      background: linear-gradient(180deg, var(--blue) 0%, #3f89db 100%);
+      border-color: transparent;
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: end;
+      margin: 1.1rem 0;
+    }
+
+    .section-head h2 {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-weight: 400;
+      font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+      line-height: 1.08;
+    }
+
+    .section-head p {
+      max-width: 620px;
+      color: var(--text-muted);
+    }
+
+    .task-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .task-card,
+    .resource-card,
+    .note-panel {
+      border-radius: 24px;
+      padding: 1rem;
+    }
+
+    .task-card {
+      min-height: 100%;
+    }
+
+    .task-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: start;
+      padding-bottom: 0.9rem;
+      border-bottom: 1px solid rgba(79, 172, 254, 0.12);
+    }
+
+    .task-card h3,
+    .resource-card h3 {
+      font-size: 1rem;
+      line-height: 1.25;
+      color: #162132;
+    }
+
+    .task-goal {
+      margin-top: 0.75rem;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    .tag {
+      flex: 0 0 auto;
+      min-height: 28px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0.24rem 0.56rem;
+      border-radius: 999px;
+      background: rgba(79, 172, 254, 0.11);
+      color: var(--blue-deep);
+      font-size: 0.72rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 0.72rem;
+      margin-top: 0.9rem;
+    }
+
+    .check-row {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 0.68rem;
+      align-items: start;
+      color: #293443;
+      font-size: 0.95rem;
+    }
+
+    .check-row input {
+      width: 22px;
+      height: 22px;
+      margin-top: 0.08rem;
+      accent-color: var(--blue-deep);
+    }
+
+    .check-row span {
+      min-width: 0;
+    }
+
+    .check-row.done span {
+      color: #7c8796;
+      text-decoration: line-through;
+      text-decoration-thickness: 1px;
+    }
+
+    .rhythm {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .day-block {
+      min-height: 170px;
+      border-radius: 22px;
+      border: 1px solid rgba(79, 172, 254, 0.14);
+      background: #ffffff;
+      padding: 1rem;
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.06);
+    }
+
+    .day-block strong {
+      display: block;
+      color: var(--blue-deep);
+      margin-bottom: 0.6rem;
+    }
+
+    .day-block p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .resource-card p {
+      margin: 0.55rem 0 0.9rem;
+      color: var(--text-muted);
+      font-size: 0.94rem;
+    }
+
+    .resource-card a {
+      color: var(--blue-deep);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    textarea {
+      min-height: 260px;
+      resize: vertical;
+    }
+
+    .summary-output {
+      min-height: 260px;
+      white-space: pre-wrap;
+      color: #293443;
+      border: 1px solid rgba(79, 172, 254, 0.16);
+      border-radius: 18px;
+      background: #ffffff;
+      padding: 1rem;
+      overflow: auto;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 0.85rem;
+    }
+
+    .status-line {
+      margin-top: 0.75rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .success {
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    .warning {
+      color: var(--amber);
+      font-weight: 800;
+    }
+
+    footer {
+      padding: 2rem 5% 3rem;
+      color: #7b8795;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 980px) {
+      .top-panel,
+      .task-grid,
+      .notes-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .rhythm,
+      .resource-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 680px) {
+      .hero {
+        min-height: 46vh;
+        padding: 1.25rem 5% 2.6rem;
+      }
+
+      .shell {
+        margin-top: -1.5rem;
+      }
+
+      .join-form,
+      .score-panel,
+      .rhythm,
+      .resource-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .meter {
+        width: 112px;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 0.5rem;
+      }
+
+      .panel,
+      .task-card,
+      .resource-card,
+      .note-panel {
+        border-radius: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Business Manager Onboarding</div>
+      <h1>Day 1-10 operating checklist.</h1>
+      <p class="hero-copy">A practical two-week ramp for access, business context, AI fluency, partnerships, content operations, SOPs, and weekly reporting.</p>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="top-panel" aria-label="Onboarding entry and progress">
+      <div class="panel">
+        <form class="join-form" id="joinForm">
+          <label>
+            Name
+            <input id="personName" type="text" autocomplete="name" placeholder="Business Manager">
+          </label>
+          <label>
+            Start Week
+            <input id="startWeek" type="text" placeholder="June 24">
+          </label>
+          <button class="primary-btn" type="submit">Enter Checklist</button>
+        </form>
+        <p class="status-line" id="welcomeLine">Progress saves in this browser.</p>
+      </div>
+
+      <div class="panel score-panel">
+        <div class="meter" id="meter" style="--progress: 0"><span id="percentText">0%</span></div>
+        <div class="score-copy">
+          <h2 id="progressTitle">0 of 40 steps</h2>
+          <p id="progressCopy">Start with Day 1: secure access, business context, and a clear first summary.</p>
+        </div>
+      </div>
+    </section>
+
+    <nav class="tabs" aria-label="Onboarding sections">
+      <button class="tab-button active" type="button" data-tab="checklist">Day 1-10</button>
+      <button class="tab-button" type="button" data-tab="rhythm">Weekly Rhythm</button>
+      <button class="tab-button" type="button" data-tab="resources">Resources</button>
+      <button class="tab-button" type="button" data-tab="notes">Notes</button>
+    </nav>
+
+    <section class="tab-panel active" id="checklist">
+      <div class="section-head">
+        <div>
+          <h2>Day 1-10 onboarding checklist</h2>
+          <p>Each day has a clear outcome. The checklist only tracks work that proves readiness: access, context, follow-through, AI judgment, trackers, SOPs, and Sarah-ready updates.</p>
+        </div>
+      </div>
+
+      <div class="task-grid" id="taskGrid"></div>
+    </section>
+
+    <section class="tab-panel" id="rhythm">
+      <div class="section-head">
+        <div>
+          <h2>Weekly operating rhythm</h2>
+          <p>The role should create calm follow-through across partnerships, content, admin systems, and repeatable AI workflows.</p>
+        </div>
+      </div>
+
+      <div class="rhythm">
+        <div class="day-block">
+          <strong>Monday</strong>
+          <p>Review calendar, inbox, partnership tracker, content deadlines, and open decisions. Send Sarah a priority list.</p>
+        </div>
+        <div class="day-block">
+          <strong>Tuesday</strong>
+          <p>Handle partnership follow-ups, research, pipeline cleanup, and sponsor or media kit support.</p>
+        </div>
+        <div class="day-block">
+          <strong>Wednesday</strong>
+          <p>Coordinate content operations, drafts, approvals, asset checks, posting schedule, and platform updates.</p>
+        </div>
+        <div class="day-block">
+          <strong>Thursday</strong>
+          <p>Clean systems, improve SOPs, organize folders, and turn repeated admin into reusable AI workflows.</p>
+        </div>
+        <div class="day-block">
+          <strong>Friday</strong>
+          <p>Send a status report with completed work, open loops, revenue opportunities, blockers, and next-week priorities.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="tab-panel" id="resources">
+      <div class="section-head">
+        <div>
+          <h2>Resources</h2>
+          <p>Keep the training tool-agnostic and practical. The output should improve real business work, not become separate homework.</p>
+        </div>
+      </div>
+
+      <div class="resource-grid">
+        <article class="resource-card">
+          <h3>OpenAI Academy</h3>
+          <p>Foundations, ChatGPT fundamentals, prompting, and Codex learning materials.</p>
+          <a href="https://academy.openai.com/" target="_blank" rel="noreferrer">Open Academy</a>
+        </article>
+        <article class="resource-card">
+          <h3>Codex Best Practices</h3>
+          <p>Use Codex for files, docs, trackers, SOPs, workflow cleanup, and verification steps.</p>
+          <a href="https://developers.openai.com/codex/learn/best-practices" target="_blank" rel="noreferrer">Open Codex Guide</a>
+        </article>
+        <article class="resource-card">
+          <h3>Anthropic Academy</h3>
+          <p>Claude basics, AI fluency, and practical comparison for business writing and judgment.</p>
+          <a href="https://anthropic.skilljar.com/" target="_blank" rel="noreferrer">Open Academy</a>
+        </article>
+        <article class="resource-card">
+          <h3>Sarah's Website</h3>
+          <p>Use the public site to understand positioning, audience, partnerships, and proof points.</p>
+          <a href="https://sarahforrestai.com/" target="_blank" rel="noreferrer">Open Website</a>
+        </article>
+        <article class="resource-card">
+          <h3>LinkedIn</h3>
+          <p>Review current positioning, partner-facing language, and public professional context.</p>
+          <a href="https://www.linkedin.com/in/sarforre" target="_blank" rel="noreferrer">Open LinkedIn</a>
+        </article>
+        <article class="resource-card">
+          <h3>Reusable Workflow Rule</h3>
+          <p>If a task gets asked of AI more than twice, turn it into a checklist, SOP, prompt, or skill.</p>
+          <a href="#notes" data-open-tab="notes">Draft a Workflow</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="tab-panel" id="notes">
+      <div class="section-head">
+        <div>
+          <h2>Notes and progress update</h2>
+          <p>Use this area to capture open loops, risks, wins, and the next update for Sarah. Notes save in this browser.</p>
+        </div>
+      </div>
+
+      <div class="notes-grid">
+        <div class="note-panel">
+          <label>
+            Working Notes
+            <textarea id="workingNotes" placeholder="Wins, blockers, open loops, partnership items, content deadlines, decisions needed from Sarah..."></textarea>
+          </label>
+          <div class="actions">
+            <button class="primary-btn" type="button" id="saveNotes">Save Notes</button>
+            <button class="secondary-btn" type="button" id="clearNotes">Clear Notes</button>
+          </div>
+          <p class="status-line" id="notesStatus">No notes saved yet.</p>
+        </div>
+
+        <div class="note-panel">
+          <div class="summary-output" id="summaryOutput"></div>
+          <div class="actions">
+            <button class="primary-btn" type="button" id="generateSummary">Generate Progress Update</button>
+            <button class="secondary-btn" type="button" id="copySummary">Copy Update</button>
+            <button class="secondary-btn" type="button" id="resetProgress">Reset Progress</button>
+          </div>
+          <p class="status-line" id="copyStatus">Ready when you are.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Sarah Forrest AI | Business Manager onboarding checklist
+  </footer>
+
+  <script>
+    const storageKey = "sarah-bm-onboarding-v2";
+    const tasks = [
+      {
+        title: "Day 1: Context and secure access",
+        tag: "Start",
+        goal: "Leave with the right access, a clear picture of the business, and no passwords or sensitive details stored in the wrong place.",
+        items: [
+          "Confirm secure access to Gmail, Drive, calendar, Canva, ChatGPT Business, Claude, Codex, and key folders.",
+          "Document where important folders, trackers, and recurring docs live without saving passwords in shared materials.",
+          "Review Sarah's business value proposition, public channels, current offers, and active priorities.",
+          "Write a one-paragraph summary of the business in plain language for Sarah to review."
+        ]
+      },
+      {
+        title: "Day 2: Channels, calendar, and priorities",
+        tag: "Map",
+        goal: "Understand what is already moving so the role can reduce open loops instead of creating new ones.",
+        items: [
+          "Review calendar, inbox labels or summaries, content channels, partnership folders, and current trackers.",
+          "Create a first priority list grouped by urgent follow-ups, deadlines, decisions needed, and can-wait items.",
+          "Complete the first AI foundations block and capture three takeaways plus one business workflow application.",
+          "Send Sarah a short end-of-day note with what is clear, what is missing, and what needs a decision."
+        ]
+      },
+      {
+        title: "Day 3: Partnership pipeline",
+        tag: "Pipeline",
+        goal: "Turn partnership noise into a clean view of opportunities, next actions, and Sarah review items.",
+        items: [
+          "Review partnership inbox or summary and identify active opportunities.",
+          "Categorize items as ready to follow up, needs Sarah input, waiting, archive, or unclear.",
+          "Add qualified opportunities to the tracker with owner, next action, value, deadline, and last-touch date.",
+          "Draft two follow-up messages for Sarah review using a warm, concise voice."
+        ]
+      },
+      {
+        title: "Day 4: Content operations",
+        tag: "Content",
+        goal: "Make the content system easier to scan, maintain, and move forward.",
+        items: [
+          "Review content channels, posting cadence, active drafts, and asset folders.",
+          "Create or update the content tracker with idea, draft, approval, asset, publish date, and cross-posting status.",
+          "Flag missing assets, approvals, or deadlines before they become urgent.",
+          "Use AI to turn one rough content idea into a draft, caption, or outline, then check it for Sarah's tone."
+        ]
+      },
+      {
+        title: "Day 5: First weekly pulse",
+        tag: "Cadence",
+        goal: "Prove that Sarah can get a useful Friday update without reconstructing the week herself.",
+        items: [
+          "Draft the Friday status update with completed work, open loops, revenue opportunities, blockers, and next-week priorities.",
+          "Identify what Sarah should review, approve, delegate, or ignore.",
+          "Complete the business systems AI block by using the partnership or content tracker as the practice task.",
+          "Send Sarah one clean summary of week-one wins, gaps, and recommended priorities for next week."
+        ]
+      },
+      {
+        title: "Day 6: SOP inventory",
+        tag: "Systems",
+        goal: "Identify which repeated tasks should become documented operating systems.",
+        items: [
+          "List recurring tasks from week one: inbox triage, partnership intake, media kit follow-up, content posting, weekly reporting, and doc cleanup.",
+          "Choose the top three workflows that would save time if standardized.",
+          "Draft one SOP with trigger, inputs, steps, owner, quality check, and Sarah review point.",
+          "Ask Codex to improve the SOP for clarity, missing steps, and unclear ownership."
+        ]
+      },
+      {
+        title: "Day 7: AI workflow fluency",
+        tag: "AI",
+        goal: "Use AI as an operating layer while keeping human judgment and privacy rules clear.",
+        items: [
+          "Compare ChatGPT and Claude on the same business writing task and note which is stronger for strategy, summary, tone, and follow-up planning.",
+          "Write a simple AI usage rule set for the role: what is allowed, what needs Sarah approval, and what should never be pasted into AI tools.",
+          "Create a prompt template for partner emails, research briefs, event recaps, LinkedIn posts, and weekly updates.",
+          "Confirm that all external-facing AI-assisted work gets human review before sending."
+        ]
+      },
+      {
+        title: "Day 8: Tracker cleanup and ownership",
+        tag: "Own",
+        items: [
+          "Clean the partnership tracker so every active item has status, owner, next action, deadline, and last-touch date.",
+          "Clean the content tracker so every active item has stage, asset status, approval need, publish date, and cross-posting status.",
+          "Archive or flag unclear items instead of leaving them mixed into active work.",
+          "Send Sarah a tracker health note with what changed and what still needs her input."
+        ],
+        goal: "Make active work visible, current, and easy for Sarah to trust."
+      },
+      {
+        title: "Day 9: Applied projects",
+        tag: "Build",
+        goal: "Produce reusable assets that make the business easier to run next week.",
+        items: [
+          "Create or improve one content operations tracker, partnership tracker, SOP, or prompt library artifact.",
+          "Use Codex to review the artifact for clarity, missing ownership, duplicate steps, and quality checks.",
+          "Add a short usage note so the artifact is easy for Sarah or a future team member to use.",
+          "Send Sarah the artifact with a clear ask: approve, edit, use next week, or archive."
+        ]
+      },
+      {
+        title: "Day 10: Readiness review",
+        tag: "Review",
+        goal: "Decide what the BM can own independently and what still needs Sarah's direction.",
+        items: [
+          "Prepare a Day 10 readiness recap: what is organized, what moved forward, what remains blocked, and what needs Sarah.",
+          "Confirm the weekly operating rhythm for Monday through Friday.",
+          "Identify three workflows to maintain over the next 30 days.",
+          "Set 30-day success criteria for partnerships, content operations, weekly reporting, SOPs, and responsible AI use."
+        ]
+      }
+    ];
+
+    const state = JSON.parse(localStorage.getItem(storageKey) || "{}");
+    state.checked ||= {};
+    state.notes ||= "";
+    state.personName ||= "";
+    state.startWeek ||= "";
+
+    const taskGrid = document.getElementById("taskGrid");
+    const meter = document.getElementById("meter");
+    const percentText = document.getElementById("percentText");
+    const progressTitle = document.getElementById("progressTitle");
+    const progressCopy = document.getElementById("progressCopy");
+    const workingNotes = document.getElementById("workingNotes");
+    const personName = document.getElementById("personName");
+    const startWeek = document.getElementById("startWeek");
+    const welcomeLine = document.getElementById("welcomeLine");
+    const summaryOutput = document.getElementById("summaryOutput");
+
+    function saveState() {
+      localStorage.setItem(storageKey, JSON.stringify(state));
+    }
+
+    function taskId(section, groupIndex, itemIndex) {
+      return `${section}-${groupIndex}-${itemIndex}`;
+    }
+
+    function renderGroup(container, data, section) {
+      container.innerHTML = data.map((group, groupIndex) => {
+        const items = group.items.map((item, itemIndex) => {
+          const id = taskId(section, groupIndex, itemIndex);
+          const checked = state.checked[id] ? "checked" : "";
+          const done = state.checked[id] ? " done" : "";
+          return `
+            <label class="check-row${done}" for="${id}">
+              <input id="${id}" type="checkbox" data-task-id="${id}" ${checked}>
+              <span>${item}</span>
+            </label>
+          `;
+        }).join("");
+
+        return `
+          <article class="task-card">
+            <div class="task-top">
+              <h3>${group.title}</h3>
+              <span class="tag">${group.tag}</span>
+            </div>
+            <p class="task-goal">${group.goal}</p>
+            <div class="checklist">${items}</div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function updateProgress() {
+      const all = document.querySelectorAll("[data-task-id]");
+      const checked = Array.from(all).filter((input) => input.checked).length;
+      const total = all.length;
+      const percent = total ? Math.round((checked / total) * 100) : 0;
+      meter.style.setProperty("--progress", percent);
+      percentText.textContent = `${percent}%`;
+      progressTitle.textContent = `${checked} of ${total} steps`;
+
+      if (percent >= 80) {
+        progressCopy.innerHTML = '<span class="success">Ready for deeper ownership.</span> Keep tightening trackers, SOPs, AI workflows, and weekly reporting.';
+      } else if (percent >= 45) {
+        progressCopy.innerHTML = '<span class="warning">Operating foundation is forming.</span> Focus next on day-by-day proof, AI rules, and repeatable workflows.';
+      } else {
+        progressCopy.textContent = "Start with Day 1: secure access, business context, and a clear first summary.";
+      }
+    }
+
+    function updateWelcome() {
+      const name = state.personName || "Business Manager";
+      const week = state.startWeek ? ` | Start week: ${state.startWeek}` : "";
+      welcomeLine.textContent = `${name}${week}`;
+    }
+
+    function checkedItems() {
+      return Array.from(document.querySelectorAll("[data-task-id]:checked")).map((input) => {
+        return input.closest(".check-row").innerText.trim();
+      });
+    }
+
+    function uncheckedItems() {
+      return Array.from(document.querySelectorAll("[data-task-id]:not(:checked)")).slice(0, 8).map((input) => {
+        return input.closest(".check-row").innerText.trim();
+      });
+    }
+
+    function generateSummary() {
+      const done = checkedItems();
+      const remaining = uncheckedItems();
+      const notes = workingNotes.value.trim();
+      const name = state.personName || "Business Manager";
+      const percent = percentText.textContent;
+
+      summaryOutput.textContent = `Onboarding Progress Update - ${name}
+
+Progress: ${percent}
+
+Completed / Moving:
+${done.length ? done.slice(0, 8).map((item) => `- ${item}`).join("\n") : "- No completed items marked yet."}
+
+Open Loops:
+${remaining.length ? remaining.map((item) => `- ${item}`).join("\n") : "- No open onboarding items surfaced."}
+
+Notes:
+${notes || "- Add wins, blockers, revenue opportunities, content deadlines, and decisions needed from Sarah."}
+
+Decisions Needed From Sarah:
+- Review external-facing drafts before sending.
+- Confirm any unclear partnership, pricing, financial, or sensitive information decisions.
+- Approve which repeated process should become the next SOP or reusable AI workflow.`;
+    }
+
+    renderGroup(taskGrid, tasks, "core");
+    workingNotes.value = state.notes;
+    personName.value = state.personName;
+    startWeek.value = state.startWeek;
+    updateWelcome();
+    updateProgress();
+    generateSummary();
+
+    document.addEventListener("change", (event) => {
+      const input = event.target.closest("[data-task-id]");
+      if (!input) return;
+      state.checked[input.dataset.taskId] = input.checked;
+      input.closest(".check-row").classList.toggle("done", input.checked);
+      saveState();
+      updateProgress();
+    });
+
+    document.querySelectorAll(".tab-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        const tab = button.dataset.tab;
+        document.querySelectorAll(".tab-button").forEach((item) => item.classList.toggle("active", item === button));
+        document.querySelectorAll(".tab-panel").forEach((panel) => panel.classList.toggle("active", panel.id === tab));
+      });
+    });
+
+    document.querySelectorAll("[data-open-tab]").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        const tab = link.dataset.openTab;
+        document.querySelector(`.tab-button[data-tab="${tab}"]`).click();
+      });
+    });
+
+    document.getElementById("joinForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+      state.personName = personName.value.trim();
+      state.startWeek = startWeek.value.trim();
+      saveState();
+      updateWelcome();
+    });
+
+    document.getElementById("saveNotes").addEventListener("click", () => {
+      state.notes = workingNotes.value;
+      saveState();
+      document.getElementById("notesStatus").textContent = "Notes saved.";
+    });
+
+    document.getElementById("clearNotes").addEventListener("click", () => {
+      workingNotes.value = "";
+      state.notes = "";
+      saveState();
+      document.getElementById("notesStatus").textContent = "Notes cleared.";
+      generateSummary();
+    });
+
+    document.getElementById("generateSummary").addEventListener("click", generateSummary);
+
+    document.getElementById("copySummary").addEventListener("click", async () => {
+      generateSummary();
+      try {
+        await navigator.clipboard.writeText(summaryOutput.textContent);
+        document.getElementById("copyStatus").textContent = "Friday update copied.";
+      } catch {
+        document.getElementById("copyStatus").textContent = "Copy blocked by browser. Select the update text instead.";
+      }
+    });
+
+    document.getElementById("resetProgress").addEventListener("click", () => {
+      state.checked = {};
+      saveState();
+      document.querySelectorAll("[data-task-id]").forEach((input) => {
+        input.checked = false;
+        input.closest(".check-row").classList.remove("done");
+      });
+      updateProgress();
+      generateSummary();
+    });
+  </script>
+</body>
+</html>
