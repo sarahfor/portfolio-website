@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sarah Forrest - Portfolio</title>
-    <link rel="icon" type="image/png" href="favicon-profile.png">
-    <link rel="apple-touch-icon" href="favicon-profile.png">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-generative-32.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="favicon-generative-512.png">
+    <link rel="apple-touch-icon" href="favicon-generative-180.png">
     <link rel="preload" as="image" href="hero-background.jpg">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M6HL8FDHJ1"></script>
     <script>
@@ -1420,6 +1422,15 @@
             margin-bottom: 0;
         }
 
+        .future-work-subtitle {
+            margin: 0;
+            color: #111111;
+            font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+            font-weight: 650;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+        }
+
         .future-work-lead {
             max-width: 48rem;
             margin: 0;
@@ -1802,7 +1813,7 @@
         }
 
         .news-section {
-            padding: 0.9rem 5% 0.45rem;
+            padding: 0.25rem 5% 0.45rem;
             max-width: 1280px;
             margin: 0 auto;
             background: transparent;
@@ -2379,10 +2390,10 @@
         }
 
         .partnerships-section {
-            padding: 1.7rem 5% 2.4rem;
-            max-width: 1240px;
+            padding: clamp(2rem, 4vw, 3rem) 5% clamp(1rem, 2vw, 1.4rem);
+            max-width: 1280px;
             margin: 0 auto;
-            text-align: center;
+            text-align: left;
             background: transparent;
         }
 
@@ -2405,14 +2416,14 @@
         }
 
         .partnerships-kicker {
-            margin: 0 auto 1.2rem;
+            margin: 0 0 1.2rem;
             color: #1a1a1a;
             font-family: Georgia, 'Times New Roman', Times, serif;
             font-size: clamp(0.98rem, 1.85vw, 1.32rem);
             font-weight: 500;
             letter-spacing: -0.35px;
             line-height: 1.08;
-            text-align: center;
+            text-align: left;
             text-wrap: balance;
         }
 
@@ -2671,11 +2682,11 @@
             }
 
             .news-section {
-                padding: 1.35rem 6% 0.2rem;
+                padding: 0.45rem 6% 0.2rem;
             }
 
             .partnerships-section {
-                padding: 2.45rem 6% 3.2rem;
+                padding: 2.25rem 6% 1.65rem;
             }
 
             .partnerships-intro {
@@ -3168,6 +3179,11 @@
                 line-height: 1.58;
             }
 
+            .future-work-subtitle {
+                font-size: clamp(1.18rem, 5.2vw, 1.5rem);
+                line-height: 1.16;
+            }
+
             .future-report-grid {
                 display: grid;
                 grid-template-columns: 1fr;
@@ -3232,8 +3248,8 @@
             }
 
             .news-section {
-                padding: 0.8rem 5% 0.45rem;
-                margin: 0.4rem 0 0;
+                padding: 0.35rem 5% 0.45rem;
+                margin: 0;
                 background: transparent;
             }
 
@@ -3529,7 +3545,7 @@
             }
 
             .partnerships-section {
-                padding: 1rem 4% 1.45rem;
+                padding: 1.35rem 4% 0.9rem;
                 margin: 0 auto;
             }
 
@@ -3548,6 +3564,7 @@
                 font-weight: 500;
                 letter-spacing: -0.3px;
                 line-height: 1.08;
+                text-align: left;
                 text-wrap: balance;
             }
 
@@ -4077,7 +4094,8 @@
     <section class="image-grid-section future-work-section">
         <div class="future-work-header">
             <h2>AI x The Future of Work</h2>
-            <p class="future-work-lead">Work is changing at the workflow level. The most valuable future skills will be knowing how to map a process, spot where AI changes the handoff, and decide what should stay human.</p>
+            <p class="future-work-subtitle">Work is changing at the workflow level.</p>
+            <p class="future-work-lead">The most valuable future skills will be knowing how to map a process, spot where AI changes the handoff, and decide what should stay human.</p>
         </div>
         <div class="future-report-grid">
             <article class="future-report-panel future-report-panel-primary">
