@@ -175,6 +175,53 @@
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
+        .hero-scroll-cue {
+            position: absolute;
+            left: 50%;
+            bottom: clamp(1.1rem, 3vw, 2rem);
+            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.5rem 0.75rem 0.5rem 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 999px;
+            background: rgba(3, 12, 24, 0.32);
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.72rem;
+            font-weight: 750;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transform: translateX(-50%);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.24);
+            backdrop-filter: blur(16px) saturate(1.18);
+            -webkit-backdrop-filter: blur(16px) saturate(1.18);
+        }
+
+        .hero-scroll-cue::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-right: 1.5px solid currentColor;
+            border-bottom: 1.5px solid currentColor;
+            transform: rotate(45deg) translateY(-1px);
+            animation: scrollCueDrift 1.8s ease-in-out infinite;
+        }
+
+        @keyframes scrollCueDrift {
+            0%,
+            100% {
+                transform: rotate(45deg) translateY(-1px);
+                opacity: 0.62;
+            }
+
+            50% {
+                transform: rotate(45deg) translate(3px, 2px);
+                opacity: 1;
+            }
+        }
+
         .hero-eyebrow {
             display: inline-flex;
             align-items: center;
@@ -193,11 +240,24 @@
         }
 
         .about-section {
-            padding: 5.6rem 5% 1.2rem;
+            position: relative;
+            padding: 4.6rem 5% 1.2rem;
             max-width: 1240px;
             margin: 0 auto;
             background: transparent;
             border-radius: 0;
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0.7rem;
+            width: min(22rem, 52vw);
+            height: 1px;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, transparent, rgba(79, 172, 254, 0.32), transparent);
+            pointer-events: none;
         }
 
         .about-card {
@@ -1431,11 +1491,26 @@
         }
 
         .image-grid-section {
+            position: relative;
             padding: 2.5rem clamp(1.5rem, 5vw, 4rem) 4.5rem;
             max-width: 1280px;
             margin: 0 auto;
             background:
                 linear-gradient(180deg, rgba(79, 172, 254, 0) 0%, rgba(79, 172, 254, 0.045) 16%, rgba(255, 255, 255, 0.62) 54%, rgba(79, 172, 254, 0) 100%);
+        }
+
+        .image-grid-section::before,
+        .news-section::before,
+        .partnerships-section::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: min(18rem, 46vw);
+            height: 1px;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, transparent, rgba(79, 172, 254, 0.24), transparent);
+            pointer-events: none;
         }
 
         .news-section + .image-grid-section {
@@ -2391,6 +2466,7 @@
         }
 
         .news-section {
+            position: relative;
             padding: 0.25rem 5% 0.45rem;
             max-width: 1280px;
             margin: 0 auto;
@@ -2968,7 +3044,8 @@
         }
 
         .partnerships-section {
-            padding: clamp(2rem, 4vw, 3rem) 5% clamp(1rem, 2vw, 1.4rem);
+            position: relative;
+            padding: clamp(1.55rem, 3.3vw, 2.35rem) 5% clamp(1.05rem, 2vw, 1.45rem);
             max-width: 1280px;
             margin: 0 auto;
             text-align: center;
@@ -2997,7 +3074,7 @@
             margin: 0 auto 1.2rem;
             color: #1a1a1a;
             font-family: Georgia, 'Times New Roman', Times, serif;
-            font-size: clamp(0.98rem, 1.85vw, 1.32rem);
+            font-size: clamp(0.49rem, 0.925vw, 0.66rem);
             font-weight: 500;
             letter-spacing: -0.35px;
             line-height: 1.08;
@@ -3152,7 +3229,8 @@
             }
 
             .hero-title-emphasis,
-            .hero-title-emphasis::after {
+            .hero-title-emphasis::after,
+            .hero-scroll-cue::after {
                 animation: none;
             }
         }
@@ -3374,6 +3452,15 @@
             .hero::before {
                 background:
                     linear-gradient(180deg, rgba(2, 8, 16, 0.04) 0%, rgba(2, 8, 16, 0.02) 54%, rgba(2, 8, 16, 0.18) 100%);
+            }
+
+            .hero-scroll-cue {
+                bottom: 0.9rem;
+                padding: 0.42rem 0.62rem 0.42rem 0.72rem;
+                font-size: 0.58rem;
+                letter-spacing: 0.1em;
+                background: rgba(3, 12, 24, 0.42);
+                box-shadow: 0 14px 28px rgba(0, 0, 0, 0.24);
             }
 
             .hero-content {
@@ -4156,7 +4243,7 @@
             .partnerships-kicker {
                 max-width: none;
                 margin-bottom: 0.7rem;
-                font-size: clamp(0.98rem, 3.5vw, 1.16rem);
+                font-size: clamp(0.49rem, 1.75vw, 0.58rem);
                 font-weight: 500;
                 letter-spacing: -0.3px;
                 line-height: 1.08;
@@ -4312,7 +4399,7 @@
 
             .partnerships-kicker {
                 max-width: none;
-                font-size: clamp(0.9rem, 4.5vw, 1.02rem);
+                font-size: clamp(0.45rem, 2.25vw, 0.51rem);
                 line-height: 1.08;
             }
 
@@ -4534,9 +4621,10 @@
                 <span class="hero-title-line">It's a <span class="hero-title-emphasis">generative</span> world</span>
             </h1>
         </div>
+        <a class="hero-scroll-cue" href="#about">Start here</a>
     </section>
 
-    <section class="about-section">
+    <section class="about-section" id="about">
         <div class="about-card">
             <div class="about-content">
                 <div class="about-image">
