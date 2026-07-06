@@ -55,7 +55,7 @@
         }
 
         .hero {
-            min-height: 65vh;
+            min-height: 50vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -166,7 +166,7 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.35rem, 5.2vw, 4.8rem);
+            font-size: clamp(2.05rem, 4.35vw, 4.05rem);
             font-weight: 300;
             line-height: 1.12;
             color: #ffffff;
@@ -1517,6 +1517,12 @@
 
         .future-work-section {
             padding-bottom: 1.75rem;
+            background:
+                linear-gradient(180deg, rgba(17, 24, 39, 0) 0%, rgba(17, 24, 39, 0.018) 18%, rgba(255, 255, 255, 0.62) 54%, rgba(17, 24, 39, 0) 100%);
+        }
+
+        .future-work-section::before {
+            background: linear-gradient(90deg, transparent, rgba(17, 24, 39, 0.12), transparent);
         }
 
         .field-images-section {
@@ -1560,148 +1566,350 @@
             color: #5b677a;
         }
 
-        .future-report-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr);
-            gap: 1rem;
-            margin: 2.7rem 0 2.4rem;
-            align-items: stretch;
-            padding: 1rem;
-            border-radius: 30px;
-            background:
-                radial-gradient(circle at 14% 18%, rgba(79, 172, 254, 0.18), rgba(79, 172, 254, 0) 38%),
-                radial-gradient(circle at 88% 10%, rgba(47, 112, 220, 0.14), rgba(47, 112, 220, 0) 34%),
-                linear-gradient(135deg, rgba(255, 255, 255, 0.76), rgba(239, 247, 255, 0.52));
-            box-shadow:
-                inset 0 1px 0 rgba(255, 255, 255, 0.78),
-                0 26px 70px rgba(15, 42, 82, 0.12);
-            backdrop-filter: blur(18px) saturate(150%);
-            -webkit-backdrop-filter: blur(18px) saturate(150%);
+        .genai-timeline-shell {
+            position: relative;
+            margin: 1.45rem 0 2.15rem;
+            padding: 0;
+            overflow: visible;
+            border-radius: 0;
+            border: 0;
+            background: transparent;
+            box-shadow: none;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
         }
 
-        .future-report-panel {
-            position: relative;
-            overflow: hidden;
-            border-radius: 24px;
+        .genai-timeline-shell::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 2.1rem;
+            width: min(58rem, 92vw);
+            height: 16rem;
+            transform: translateX(-50%);
+            border-radius: 999px;
             background:
-                linear-gradient(145deg, rgba(255, 255, 255, 0.72), rgba(247, 252, 255, 0.38));
+                radial-gradient(circle at 18% 48%, rgba(17, 24, 39, 0.055), rgba(17, 24, 39, 0) 38%),
+                radial-gradient(circle at 72% 42%, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0) 42%);
+            filter: blur(18px);
+            pointer-events: none;
+        }
+
+        .genai-timeline-track {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: clamp(0.12rem, 0.2vw, 0.22rem);
+            overflow-x: auto;
+            min-height: 13.5rem;
+            padding: 0.9rem 0.15rem 1.35rem;
+            scroll-snap-type: x proximity;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(17, 24, 39, 0.18) transparent;
+        }
+
+        .genai-timeline-track::before {
+            content: '';
+            position: absolute;
+            left: 0.35rem;
+            right: 0.35rem;
+            top: 50%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(17, 24, 39, 0.16), transparent);
+            pointer-events: none;
+        }
+
+        .genai-timeline-node {
+            position: relative;
+            z-index: 1;
+            width: clamp(8.5rem, 9.55vw, 9.15rem);
+            min-width: clamp(8.5rem, 9.55vw, 9.15rem);
+            min-height: 4.25rem;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+            gap: 0.46rem;
+            margin: 0;
+            padding: 0.7rem 0.68rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.74);
+            background:
+                radial-gradient(circle at 86% 18%, rgba(17, 24, 39, 0.045), rgba(17, 24, 39, 0) 48%),
+                linear-gradient(145deg, rgba(255, 255, 255, 0.76), rgba(249, 250, 251, 0.48));
+            color: #111111;
             box-shadow:
-                inset 0 1px 0 rgba(255, 255, 255, 0.84),
-                0 14px 34px rgba(15, 42, 82, 0.06);
+                inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                inset 0 -18px 32px rgba(17, 24, 39, 0.035),
+                0 14px 30px rgba(15, 23, 42, 0.075);
+            scroll-snap-align: start;
+            cursor: pointer;
+            appearance: none;
+            text-align: left;
+            transition:
+                transform 180ms ease,
+                border-color 180ms ease,
+                box-shadow 180ms ease,
+                background 180ms ease;
             backdrop-filter: blur(14px) saturate(140%);
             -webkit-backdrop-filter: blur(14px) saturate(140%);
         }
 
-        .future-report-panel-primary {
-            display: grid;
-            grid-template-columns: minmax(260px, 0.82fr) minmax(360px, 1.18fr);
-            align-items: center;
-            gap: clamp(2rem, 4vw, 4rem);
-            min-height: 0;
-            padding: clamp(2rem, 4vw, 3.2rem);
+        .genai-timeline-node:nth-child(odd) {
+            align-self: flex-start;
         }
 
-        .future-stat-eyebrow {
-            margin: 0 0 0.6rem;
-            color: #5f6b7a;
-            font-size: 0.7rem;
+        .genai-timeline-node:nth-child(even) {
+            align-self: flex-end;
+        }
+
+        .genai-timeline-node:hover,
+        .genai-timeline-node:focus-visible,
+        .genai-timeline-node.is-active {
+            transform: translateY(-5px);
+            border-color: rgba(17, 24, 39, 0.16);
+            background:
+                radial-gradient(circle at 86% 18%, rgba(17, 24, 39, 0.065), rgba(17, 24, 39, 0) 48%),
+                linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(249, 250, 251, 0.62));
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.92),
+                inset 0 -18px 34px rgba(17, 24, 39, 0.045),
+                0 22px 44px rgba(15, 23, 42, 0.12);
+            outline: none;
+        }
+
+        .genai-timeline-node::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 0.72rem;
+            height: 0.72rem;
+            border-radius: 50%;
+            background: #9aa3ad;
+            box-shadow: 0 0 0 0.38rem rgba(17, 24, 39, 0.07);
+        }
+
+        .genai-timeline-node:nth-child(odd)::before {
+            bottom: -1.57rem;
+        }
+
+        .genai-timeline-node:nth-child(even)::before {
+            top: -1.57rem;
+        }
+
+        .genai-timeline-node:hover::before,
+        .genai-timeline-node:focus-visible::before,
+        .genai-timeline-node.is-active::before {
+            box-shadow:
+                0 0 0 0.38rem rgba(17, 24, 39, 0.1),
+                0 0 24px rgba(17, 24, 39, 0.18);
+        }
+
+        .genai-year {
+            display: block;
+            color: #111111;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 0.86rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .genai-logo {
+            width: 2.32rem;
+            height: 2.32rem;
+            min-width: 2.32rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.38rem;
+            border-radius: 50%;
+            border: 1px solid rgba(17, 24, 39, 0.09);
+            background: rgba(255, 255, 255, 0.74);
+            color: #5b6470;
+            font-size: 0.52rem;
+            font-weight: 800;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        .genai-logo img {
+            display: block;
+            max-width: 1.78rem;
+            max-height: 1.35rem;
+            object-fit: contain;
+        }
+
+        .genai-logo-openai img {
+            max-width: 1.82rem;
+            max-height: 1.45rem;
+        }
+
+        .genai-logo-anthropic img {
+            max-width: 1.9rem;
+            max-height: 0.75rem;
+        }
+
+        .genai-logo-stability {
+            width: 2.8rem;
+            min-width: 2.8rem;
+            height: 2.36rem;
+            padding: 0.28rem 0.36rem;
+            border-radius: 999px;
+        }
+
+        .genai-logo-stability img {
+            max-width: 2.26rem;
+            max-height: 0.82rem;
+        }
+
+        .genai-detail-logo img[src*="stability-ai-logo"] {
+            max-width: 2.72rem;
+            max-height: 0.9rem;
+        }
+
+        .genai-node-copy {
+            display: grid;
+            gap: 0.24rem;
+        }
+
+        .genai-timeline-node h3 {
+            margin: 0;
+            color: #111111;
+            font-size: clamp(0.72rem, 0.82vw, 0.8rem);
+            font-weight: 750;
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+            overflow-wrap: normal;
+            word-break: normal;
+            hyphens: none;
+        }
+
+        .genai-detail-card {
+            position: relative;
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 1rem;
+            max-width: 52rem;
+            margin: 0.35rem 0 0;
+            padding: 1.1rem 1.2rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.78);
+            background:
+                radial-gradient(circle at 8% 10%, rgba(17, 24, 39, 0.055), rgba(17, 24, 39, 0) 34%),
+                linear-gradient(145deg, rgba(255, 255, 255, 0.76), rgba(249, 250, 251, 0.54));
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                inset 0 -22px 46px rgba(17, 24, 39, 0.04),
+                0 18px 40px rgba(15, 23, 42, 0.08);
+            backdrop-filter: blur(14px) saturate(140%);
+            -webkit-backdrop-filter: blur(14px) saturate(140%);
+        }
+
+        .genai-detail-logo {
+            width: 3.35rem;
+            height: 3.35rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px;
+            border: 1px solid rgba(17, 24, 39, 0.1);
+            background: rgba(255, 255, 255, 0.72);
+        }
+
+        .genai-detail-logo img {
+            max-width: 2.55rem;
+            max-height: 1.5rem;
+            object-fit: contain;
+        }
+
+        .genai-detail-logo-text {
+            color: #5b6470;
+            font-size: 0.58rem;
+            font-weight: 850;
+            letter-spacing: 0.04em;
+            line-height: 1.05;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .genai-detail-copy {
+            display: grid;
+            gap: 0.35rem;
+        }
+
+        .genai-detail-meta {
+            color: #3f4752;
+            font-size: 0.72rem;
             font-weight: 800;
             letter-spacing: 0.12em;
             text-transform: uppercase;
         }
 
-        .future-stat-copy {
-            display: grid;
-            align-content: start;
-            gap: 0.9rem;
-        }
-
-        .future-stat-copy h3 {
-            max-width: 15ch;
+        .genai-detail-card h3 {
             margin: 0;
             color: #111111;
-            font-family: inherit;
-            font-size: clamp(1.75rem, 2.6vw, 2.55rem);
-            font-weight: 500;
-            line-height: 1.02;
-            letter-spacing: 0;
+            font-size: clamp(1.2rem, 2vw, 1.52rem);
+            font-weight: 760;
+            line-height: 1.04;
+            letter-spacing: -0.03em;
         }
 
-        .future-stat-copy h3 span {
-            white-space: nowrap;
-        }
-
-        .future-stat-copy p {
+        .genai-detail-card p {
             margin: 0;
-            color: #5b677a;
-            font-size: 0.92rem;
-            line-height: 1.45;
+            color: #566273;
+            font-size: 0.96rem;
+            line-height: 1.55;
         }
 
-        .future-stat-copy > p {
-            max-width: 30rem;
-        }
-
-        .future-metric-stack {
-            display: grid;
-            gap: 0.95rem;
-            height: auto;
-            align-content: start;
-        }
-
-        .future-metric-row {
-            display: grid;
-            gap: 0.42rem;
-        }
-
-        .future-metric-bar {
-            position: relative;
-            height: 3.15rem;
-            overflow: hidden;
-            border-radius: 18px;
-            background: rgba(226, 237, 249, 0.72);
-            box-shadow:
-                inset 0 1px 0 rgba(255, 255, 255, 0.7),
-                inset 0 -12px 24px rgba(15, 42, 82, 0.04);
-        }
-
-        .future-metric-fill {
-            position: absolute;
-            inset: 0 auto 0 0;
-            display: flex;
+        .genai-detail-link {
+            min-height: 2.7rem;
+            display: inline-flex;
             align-items: center;
-            width: var(--metric-width);
-            min-width: 42%;
-            padding: 0 0.85rem;
-            color: #ffffff;
-            background: var(--metric-color);
-            font-size: clamp(1.25rem, 2.4vw, 1.85rem);
+            justify-content: center;
+            gap: 0.36rem;
+            align-self: center;
+            padding: 0.72rem 0.92rem;
+            border-radius: 999px;
+            border: 1px solid rgba(17, 24, 39, 0.12);
+            background: rgba(255, 255, 255, 0.68);
+            color: #0d1420;
+            font-size: 0.82rem;
             font-weight: 800;
             line-height: 1;
-            border-radius: inherit;
+            text-decoration: none;
+            white-space: nowrap;
             box-shadow:
-                inset 0 1px 0 rgba(255, 255, 255, 0.32),
-                0 10px 24px rgba(47, 112, 220, 0.18);
+                inset 0 1px 0 rgba(255, 255, 255, 0.88),
+                0 12px 28px rgba(15, 23, 42, 0.08);
+            transition:
+                transform 180ms ease,
+                border-color 180ms ease,
+                box-shadow 180ms ease;
         }
 
-        .future-metric-label {
-            display: flex;
-            gap: 0.45rem;
-            align-items: baseline;
-            justify-content: space-between;
+        .genai-detail-link:hover,
+        .genai-detail-link:focus-visible {
+            transform: translateY(-2px);
+            border-color: rgba(17, 24, 39, 0.22);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.92),
+                0 16px 34px rgba(15, 23, 42, 0.12);
+            outline: none;
         }
 
-        .future-metric-label strong {
-            color: #111111;
-            font-size: 0.88rem;
-            line-height: 1.1;
-        }
-
-        .future-metric-label span {
-            color: #6a7483;
-            font-size: 0.72rem;
-            font-weight: 700;
-            text-align: right;
+        .genai-shift {
+            width: fit-content;
+            min-height: 1.8rem;
+            display: inline-flex;
+            align-items: center;
+            padding: 0.26rem 0.58rem;
+            border-radius: 999px;
+            background: rgba(17, 24, 39, 0.07);
+            color: #4b5563;
+            font-size: 0.66rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
 
         .future-image-carousel-shell {
@@ -1711,14 +1919,6 @@
 
         .field-images-section .future-image-carousel-shell {
             padding-top: 0;
-        }
-
-        .future-report-summary {
-            max-width: 54rem;
-            margin: 0 0 2.2rem;
-            font-size: 1rem;
-            line-height: 1.7;
-            color: #5b677a;
         }
 
         .future-image-ticker {
@@ -3267,11 +3467,11 @@
 
             .hero {
                 background-attachment: scroll;
-                min-height: 55vh;
+                min-height: 44vh;
             }
 
             .hero h1 {
-                font-size: clamp(2.35rem, 7vw, 4rem);
+                font-size: clamp(2.05rem, 5.8vw, 3.35rem);
             }
 
             .about-section {
@@ -3325,13 +3525,8 @@
                 padding: 3rem 6%;
             }
 
-            .future-report-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .future-report-panel-primary {
-                grid-template-columns: 1fr;
-                min-height: 0;
+            .genai-timeline-track {
+                grid-auto-columns: minmax(320px, 58vw);
             }
 
             .future-image-carousel {
@@ -3440,7 +3635,7 @@
             .hero {
                 align-items: stretch;
                 justify-content: center;
-                min-height: min(74vh, 680px);
+                min-height: min(48vh, 460px);
                 padding: 0;
                 overflow: hidden;
                 border-radius: 0 0 30px 30px;
@@ -3483,7 +3678,7 @@
             }
 
             .hero h1 {
-                font-size: clamp(2.3rem, 10.4vw, 3.05rem);
+                font-size: clamp(1.95rem, 8.9vw, 2.55rem);
                 line-height: 0.98;
                 letter-spacing: 0;
                 text-wrap: pretty;
@@ -3841,6 +4036,12 @@
 
             .future-work-section {
                 padding-bottom: 1rem;
+                background:
+                    linear-gradient(180deg, rgba(17, 24, 39, 0) 0%, rgba(17, 24, 39, 0.018) 18%, rgba(255, 255, 255, 0.62) 54%, rgba(17, 24, 39, 0) 100%);
+            }
+
+            .future-work-section::before {
+                background: linear-gradient(90deg, transparent, rgba(17, 24, 39, 0.12), transparent);
             }
 
             .field-images-section {
@@ -3850,12 +4051,16 @@
 
             .future-work-header {
                 gap: 0.7rem;
-                margin-bottom: 1.45rem;
+                margin-bottom: 1.05rem;
             }
 
             .future-work-header h2 {
-                font-size: clamp(1.85rem, 8vw, 2.2rem);
+                font-size: clamp(1.58rem, 7vw, 1.95rem);
                 line-height: 0.98;
+            }
+
+            .future-work-header h2 .genai-title-tail {
+                display: block;
             }
 
             .future-work-lead {
@@ -3868,59 +4073,106 @@
                 line-height: 1.16;
             }
 
-            .future-report-grid {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 0.85rem;
-                overflow: visible;
-                padding: 0.7rem;
-                margin: 2rem 0 1.7rem;
+            .genai-timeline-shell {
+                margin: 0.95rem 0 1.15rem;
+                padding: 0;
+                border-radius: 0;
             }
 
-            .future-report-panel {
-                scroll-snap-align: none;
+            .genai-timeline-shell::before {
+                top: 1rem;
+                height: 10.5rem;
+                width: 120vw;
+                filter: blur(16px);
             }
 
-            .future-report-panel-primary {
-                padding: 1.25rem;
+            .genai-timeline-track {
+                min-height: 9.65rem;
+                gap: 0.62rem;
+                padding: 0.6rem 0.05rem 0.92rem;
+                scroll-padding-inline: 0.7rem;
+            }
+
+            .genai-timeline-track::before {
+                left: 0.2rem;
+                right: 0.2rem;
+                top: 50%;
+            }
+
+            .genai-timeline-node {
+                width: min(48vw, 11.3rem);
+                min-width: min(48vw, 11.3rem);
+                min-height: 3.58rem;
+                padding: 0.54rem 0.64rem;
+                gap: 0.48rem;
+            }
+
+            .genai-timeline-node:nth-child(odd)::before {
+                bottom: -1.28rem;
+            }
+
+            .genai-timeline-node:nth-child(even)::before {
+                top: -1.28rem;
+            }
+
+            .genai-year {
+                font-size: 0.72rem;
+            }
+
+            .genai-logo {
+                width: 2.08rem;
+                height: 2.08rem;
+                min-width: 2.08rem;
+                padding: 0.28rem;
+            }
+
+            .genai-logo img {
+                max-width: 1.62rem;
+                max-height: 1.05rem;
+            }
+
+            .genai-logo-stability {
+                width: 2.72rem;
+                min-width: 2.72rem;
+                height: 2.08rem;
+            }
+
+            .genai-logo-stability img {
+                max-width: 2.18rem;
+                max-height: 0.68rem;
+            }
+
+            .genai-timeline-node h3 {
+                font-size: 0.78rem;
+                line-height: 1.08;
+                overflow-wrap: normal;
+            }
+
+            .genai-detail-card {
+                grid-template-columns: auto minmax(0, 1fr);
+                align-items: start;
+                gap: 0.75rem 0.85rem;
+                padding: 0.95rem;
                 border-radius: 22px;
             }
 
-            .future-stat-copy {
-                gap: 1rem;
+            .genai-detail-logo {
+                width: 2.95rem;
+                height: 2.95rem;
+                border-radius: 16px;
             }
 
-            .future-stat-copy h3 {
-                max-width: 16ch;
-                font-size: clamp(1.65rem, 7.4vw, 2.1rem);
+            .genai-detail-card p {
+                font-size: 0.86rem;
+                line-height: 1.48;
             }
 
-            .future-metric-row {
-                grid-template-columns: 1fr;
-                gap: 0.34rem;
-            }
-
-            .future-metric-label {
-                display: grid;
-                gap: 0.1rem;
-            }
-
-            .future-metric-label span {
-                text-align: left;
-            }
-
-            .future-metric-fill {
-                font-size: clamp(1.15rem, 7vw, 1.55rem);
-            }
-
-            .future-metric-bar {
-                height: 2.7rem;
-            }
-
-            .future-report-summary {
-                margin-bottom: 1.5rem;
-                font-size: 0.94rem;
-                line-height: 1.58;
+            .genai-detail-link {
+                grid-column: 1 / -1;
+                width: 100%;
+                min-height: 2.5rem;
+                padding: 0.68rem 0.86rem;
+                font-size: 0.78rem;
             }
 
             .future-image-track .image-tile {
@@ -4359,13 +4611,13 @@
 
         @media (max-width: 420px) {
             .hero {
-                min-height: min(72vh, 640px);
+                min-height: min(46vh, 430px);
                 padding: 0;
                 border-radius: 0 0 26px 26px;
             }
 
             .hero h1 {
-                font-size: clamp(2.05rem, 10vw, 2.55rem);
+                font-size: clamp(1.8rem, 8.8vw, 2.2rem);
                 letter-spacing: 0;
                 max-width: 10.3ch;
             }
@@ -4573,7 +4825,7 @@
             }
 
             .hero h1 {
-                font-size: clamp(1.92rem, 9.5vw, 2.22rem);
+                font-size: clamp(1.68rem, 8.2vw, 1.95rem);
             }
 
             .python-lab-copy h2 {
@@ -4793,48 +5045,75 @@
 
     <section class="image-grid-section future-work-section">
         <div class="future-work-header">
-            <h2>AI x The Future of Work</h2>
-            <p class="future-work-subtitle">Work is changing at the workflow level.</p>
-            <p class="future-work-lead">The most valuable future skills will be knowing how to map a process,<br>spot where AI changes the handoff, and decide what should stay human.</p>
+            <h2>A Brief History of <span class="genai-title-tail">Generative AI</span></h2>
         </div>
-        <div class="future-report-grid">
-            <article class="future-report-panel future-report-panel-primary">
-                <div class="future-stat-copy">
-                    <div>
-                        <p class="future-stat-eyebrow">Jobs by 2030</p>
-                        <h3>AI is changing,<br><span>the shape of work.</span></h3>
+        <div class="genai-timeline-shell" aria-label="Brief history of generative AI milestones">
+            <div class="genai-timeline-track">
+                <button class="genai-timeline-node is-active" type="button" data-year="2017" data-title="Transformers" data-company="Google" data-logo="Google_2015_logo.svg" data-logo-alt="Google" data-shift="Architecture" data-url="https://research.google/pubs/attention-is-all-you-need/" data-link-label="Open Google Research" data-detail="The transformer architecture gave modern language models a better way to learn relationships across long sequences of text.">
+                    <span class="genai-logo genai-logo-google"><img src="Google_2015_logo.svg" alt="Google"></span>
+                    <div class="genai-node-copy">
+                        <span class="genai-year">2017</span>
+                        <h3>Transformers</h3>
                     </div>
-                    <p>New roles, redesigned work, and automation pressure are happening at the same time. The net result is growth, but the transition is uneven.</p>
+                </button>
+                <button class="genai-timeline-node" type="button" data-year="2020" data-title="GPT-3" data-company="OpenAI" data-logo="openai-logo-ticker.png" data-logo-alt="OpenAI" data-shift="Language" data-url="https://openai.com/index/language-models-are-few-shot-learners/" data-link-label="Open GPT-3 paper" data-detail="GPT-3 showed how a large model could adapt to new tasks from examples, shifting attention toward prompting and general-purpose language systems.">
+                    <span class="genai-logo genai-logo-openai"><img src="openai-logo-ticker.png" alt="OpenAI"></span>
+                    <div class="genai-node-copy">
+                        <span class="genai-year">2020</span>
+                        <h3>GPT-3</h3>
+                    </div>
+                </button>
+                <button class="genai-timeline-node" type="button" data-year="2022" data-title="Stable Diffusion" data-company="Stability AI" data-logo="stability-ai-logo.png" data-logo-alt="Stability AI" data-shift="Open release" data-url="https://stability.ai/news/stable-diffusion-public-release" data-link-label="Open release note" data-detail="Open model weights pushed image generation into a broader creator and developer ecosystem.">
+                    <span class="genai-logo genai-logo-stability"><img src="stability-ai-logo.png" alt="Stability AI"></span>
+                    <div class="genai-node-copy">
+                        <span class="genai-year">2022</span>
+                        <h3>Stable Diffusion</h3>
+                    </div>
+                </button>
+                <button class="genai-timeline-node" type="button" data-year="Nov 2022" data-title="ChatGPT" data-company="OpenAI" data-logo="openai-logo-ticker.png" data-logo-alt="OpenAI" data-shift="Interface" data-url="https://openai.com/index/chatgpt/" data-link-label="Open ChatGPT page" data-detail="ChatGPT made generative AI feel usable because it wrapped model behavior in a familiar chat interface.">
+                    <span class="genai-logo genai-logo-openai"><img src="openai-logo-ticker.png" alt="OpenAI"></span>
+                    <div class="genai-node-copy">
+                        <span class="genai-year">Nov 2022</span>
+                        <h3>ChatGPT</h3>
+                    </div>
+                </button>
+                <button class="genai-timeline-node" type="button" data-year="2023" data-title="Claude" data-company="Anthropic" data-logo="anthropic-logo-ticker.png" data-logo-alt="Anthropic" data-shift="Assistant" data-url="https://www.anthropic.com/news/introducing-claude" data-link-label="Open Claude launch" data-detail="Claude helped normalize long-form AI assistance for writing, analysis, coding, and knowledge-work support.">
+                    <span class="genai-logo genai-logo-anthropic"><img src="anthropic-logo-ticker.png" alt="Anthropic"></span>
+                    <div class="genai-node-copy">
+                        <span class="genai-year">2023</span>
+                        <h3>Claude</h3>
+                    </div>
+                </button>
+                <button class="genai-timeline-node" type="button" data-year="2023" data-title="Gemini" data-company="Google" data-logo="Google_2015_logo.svg" data-logo-alt="Google" data-shift="Multimodal" data-url="https://blog.google/technology/ai/google-gemini-ai/" data-link-label="Open Gemini launch" data-detail="Gemini made multimodal AI a mainstream product direction, connecting text, image, code, audio, and video.">
+                    <span class="genai-logo genai-logo-google"><img src="Google_2015_logo.svg" alt="Google"></span>
+                    <div class="genai-node-copy">
+                        <span class="genai-year">2023</span>
+                        <h3>Gemini</h3>
+                    </div>
+                </button>
+                <button class="genai-timeline-node" type="button" data-year="2025" data-title="Claude Code" data-company="Anthropic" data-logo="anthropic-logo-ticker.png" data-logo-alt="Anthropic" data-shift="Agentic coding" data-url="https://www.anthropic.com/product/claude-code" data-link-label="Open Claude Code" data-detail="Claude Code moved AI assistance deeper into the developer workflow, where models can inspect files, make edits, and help reason across a codebase.">
+                    <span class="genai-logo genai-logo-anthropic"><img src="anthropic-logo-ticker.png" alt="Anthropic"></span>
+                    <div class="genai-node-copy">
+                        <span class="genai-year">2025</span>
+                        <h3>Claude Code</h3>
+                    </div>
+                </button>
+                <button class="genai-timeline-node" type="button" data-year="2025" data-title="Codex" data-company="OpenAI" data-logo="openai-logo-ticker.png" data-logo-alt="OpenAI" data-shift="Software agent" data-url="https://openai.com/codex/" data-link-label="Open Codex" data-detail="Codex reframed AI coding tools as task-oriented software agents that can help build, edit, test, and ship from natural-language direction.">
+                    <span class="genai-logo genai-logo-openai"><img src="openai-logo-ticker.png" alt="OpenAI"></span>
+                    <div class="genai-node-copy">
+                        <span class="genai-year">2025</span>
+                        <h3>Codex</h3>
+                    </div>
+                </button>
+            </div>
+            <article class="genai-detail-card" aria-live="polite">
+                <span class="genai-detail-logo"><img src="Google_2015_logo.svg" alt="Google"></span>
+                <div class="genai-detail-copy">
+                    <span class="genai-detail-meta">2017 / Google / Architecture</span>
+                    <h3>Transformers</h3>
+                    <p>The transformer architecture gave modern language models a better way to learn relationships across long sequences of text.</p>
                 </div>
-                <div class="future-metric-stack" aria-label="Projected global employment change by 2030">
-                    <div class="future-metric-row">
-                        <div class="future-metric-label">
-                            <strong>Jobs created</strong>
-                            <span>+14% of today's formal jobs</span>
-                        </div>
-                        <div class="future-metric-bar">
-                            <div class="future-metric-fill" style="--metric-width: 100%; --metric-color: #4aa8ff;">170M</div>
-                        </div>
-                    </div>
-                    <div class="future-metric-row">
-                        <div class="future-metric-label">
-                            <strong>Jobs displaced</strong>
-                            <span>-8% of today's formal jobs</span>
-                        </div>
-                        <div class="future-metric-bar">
-                            <div class="future-metric-fill" style="--metric-width: 54%; --metric-color: #061321;">92M</div>
-                        </div>
-                    </div>
-                    <div class="future-metric-row">
-                        <div class="future-metric-label">
-                            <strong>Net growth</strong>
-                            <span>+7% total employment</span>
-                        </div>
-                        <div class="future-metric-bar">
-                            <div class="future-metric-fill" style="--metric-width: 46%; --metric-color: #2f70dc;">+78M</div>
-                        </div>
-                    </div>
-                </div>
+                <a class="genai-detail-link" href="https://research.google/pubs/attention-is-all-you-need/" target="_blank" rel="noopener noreferrer">Open Google Research &rarr;</a>
             </article>
         </div>
     </section>
@@ -5170,6 +5449,69 @@
                 if (event.key === 'Escape') {
                     closeInspector();
                 }
+            });
+        })();
+
+        (() => {
+            const nodes = document.querySelectorAll('.genai-timeline-node');
+            const detailCard = document.querySelector('.genai-detail-card');
+            const detailLogo = detailCard?.querySelector('.genai-detail-logo');
+            const detailMeta = detailCard?.querySelector('.genai-detail-meta');
+            const detailTitle = detailCard?.querySelector('h3');
+            const detailText = detailCard?.querySelector('p');
+            const detailLink = detailCard?.querySelector('.genai-detail-link');
+
+            if (!nodes.length || !detailCard || !detailLogo || !detailMeta || !detailTitle || !detailText || !detailLink) {
+                return;
+            }
+
+            function setLogo(node) {
+                const logo = node.dataset.logo;
+                const alt = node.dataset.logoAlt || node.dataset.company || '';
+
+                detailLogo.replaceChildren();
+
+                if (logo) {
+                    const image = document.createElement('img');
+                    image.src = logo;
+                    image.alt = alt;
+                    detailLogo.appendChild(image);
+                    return;
+                }
+
+                const text = document.createElement('span');
+                text.className = 'genai-detail-logo-text';
+                text.textContent = node.dataset.company || '';
+                detailLogo.appendChild(text);
+            }
+
+            function activateNode(selectedNode) {
+                nodes.forEach((node) => {
+                    const isActive = node === selectedNode;
+                    node.classList.toggle('is-active', isActive);
+                    node.setAttribute('aria-pressed', String(isActive));
+                });
+
+                setLogo(selectedNode);
+                detailMeta.textContent = `${selectedNode.dataset.year} / ${selectedNode.dataset.company} / ${selectedNode.dataset.shift}`;
+                detailTitle.textContent = selectedNode.dataset.title;
+                detailText.textContent = selectedNode.dataset.detail;
+                detailLink.href = selectedNode.dataset.url;
+                detailLink.textContent = `${selectedNode.dataset.linkLabel || 'Open milestone'} \u2192`;
+
+                if (window.matchMedia('(max-width: 767px)').matches) {
+                    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    const track = selectedNode.closest('.genai-timeline-track');
+                    track?.scrollTo({
+                        left: selectedNode.offsetLeft - ((track.clientWidth - selectedNode.offsetWidth) / 2),
+                        behavior: prefersReducedMotion ? 'auto' : 'smooth',
+                    });
+                }
+            }
+
+            nodes.forEach((node, index) => {
+                node.setAttribute('aria-pressed', index === 0 ? 'true' : 'false');
+                node.addEventListener('click', () => activateNode(node));
             });
         })();
 
