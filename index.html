@@ -1746,11 +1746,11 @@
         }
 
         .genai-timeline-shell:not(.has-active-detail) .genai-timeline-node:first-child {
-            animation: genaiTapCue 3.4s ease-in-out 1s infinite;
+            animation: genaiTapCue 3.4s ease-in-out infinite;
         }
 
         .genai-timeline-shell:not(.has-active-detail) .genai-timeline-node:first-child::before {
-            animation: genaiDotCue 3.4s ease-in-out 1s infinite;
+            animation: genaiDotCue 3.4s ease-in-out infinite;
         }
 
         .genai-year {
@@ -2377,15 +2377,7 @@
         }
 
         .profile-inspector-frame::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            z-index: 2;
-            pointer-events: none;
-            background:
-                linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent 28%),
-                linear-gradient(180deg, rgba(4, 14, 30, 0.02), rgba(4, 14, 30, 0.06));
-            mix-blend-mode: screen;
+            content: none;
         }
 
         .profile-inspector-image {
@@ -2547,47 +2539,57 @@
         }
 
         .detection-person {
-            left: 37%;
-            top: 36%;
-            width: 25%;
-            height: 52%;
-        }
-
-        .detection-whiteboard {
-            left: 35%;
-            top: 4%;
-            width: 48%;
-            height: 48%;
-        }
-
-        .detection-books {
-            left: 13%;
-            top: 28%;
-            width: 18%;
+            left: 43%;
+            top: 32%;
+            width: 27%;
             height: 66%;
         }
 
+        .detection-whiteboard {
+            left: 29%;
+            top: 2%;
+            width: 67%;
+            height: 68%;
+        }
+
+        .detection-books {
+            left: 0.5%;
+            top: 17%;
+            width: 25%;
+            height: 82%;
+        }
+
         .detection-laptop {
-            left: 72%;
-            top: 72%;
-            width: 18%;
+            left: 77%;
+            top: 76%;
+            width: 23%;
             height: 23%;
             z-index: 4;
         }
 
         .detection-plant {
-            left: 78%;
-            top: 8%;
-            width: 15%;
-            height: 58%;
+            left: 89%;
+            top: 4%;
+            width: 11%;
+            height: 74%;
         }
 
         .detection-materials {
-            left: 55%;
-            top: 57%;
+            left: 58%;
+            top: 71%;
             width: 24%;
-            height: 24%;
+            height: 21%;
             z-index: 3;
+        }
+
+        .detection-person .detection-label {
+            top: 36%;
+        }
+
+        .detection-plant .detection-label {
+            left: auto;
+            right: 0.7rem;
+            top: 2.15rem;
         }
 
         .profile-inspector-caption {
@@ -2771,61 +2773,61 @@
             .detection-label {
                 left: 0.42rem;
                 top: 0.42rem;
-                max-width: 13.5ch;
-                padding: 0.24rem 0.34rem;
-                font-size: 0.42rem;
+                max-width: none;
+                padding: 0.22rem 0.32rem;
+                font-size: 0.36rem;
                 line-height: 1;
                 letter-spacing: 0.045em;
-                white-space: normal;
+                white-space: nowrap;
                 border-color: rgba(255, 255, 255, 0.8);
                 background: rgba(7, 20, 38, 0.9);
             }
 
             .detection-person {
-                left: 36%;
-                top: 34%;
+                left: 43%;
+                top: 32%;
                 width: 27%;
-                height: 53%;
+                height: 66%;
             }
 
             .detection-whiteboard {
-                left: 32%;
-                top: 4%;
-                width: 51%;
-                height: 49%;
+                left: 29%;
+                top: 2%;
+                width: 67%;
+                height: 68%;
             }
 
             .detection-books {
-                left: 3%;
-                top: 29%;
-                width: 29%;
-                height: 64%;
+                left: 0.5%;
+                top: 17%;
+                width: 25%;
+                height: 82%;
             }
 
             .detection-laptop {
-                left: 72%;
-                top: 72%;
-                width: 24%;
-                height: 22%;
+                left: 77%;
+                top: 76%;
+                width: 23%;
+                height: 23%;
             }
 
             .detection-plant {
-                left: 75%;
-                top: 14%;
-                width: 22%;
-                height: 52%;
+                left: 89%;
+                top: 4%;
+                width: 11%;
+                height: 74%;
             }
 
             .detection-plant .detection-label {
-                top: 1.85rem;
-                left: 0.32rem;
+                top: 1.65rem;
+                right: 0.32rem;
             }
 
             .detection-materials {
-                left: 55%;
-                top: 58%;
-                width: 25%;
-                height: 22%;
+                left: 58%;
+                top: 71%;
+                width: 24%;
+                height: 21%;
             }
 
             .profile-inspector-caption {
@@ -2848,17 +2850,17 @@
             }
 
             .detection-label {
-                max-width: 13ch;
-                padding: 0.2rem 0.3rem;
-                font-size: 0.38rem;
+                max-width: none;
+                padding: 0.18rem 0.28rem;
+                font-size: 0.34rem;
             }
 
             .detection-person {
-                top: 35%;
+                top: 32%;
             }
 
             .detection-materials .detection-label {
-                max-width: 12ch;
+                max-width: none;
             }
         }
 
