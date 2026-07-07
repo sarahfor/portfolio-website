@@ -9,7 +9,6 @@
     <link rel="icon" type="image/png" sizes="512x512" href="favicon-generative-512.png">
     <link rel="apple-touch-icon" href="favicon-generative-180.png">
     <link rel="preload" as="image" href="hero-background.jpg">
-    <link rel="preload" as="image" href="mobile-hero-generative.png" media="(max-width: 640px)">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M6HL8FDHJ1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -3831,13 +3830,13 @@
             }
 
             .hero {
-                align-items: stretch;
+                align-items: center;
                 justify-content: center;
-                min-height: min(48vh, 460px);
-                padding: 0;
+                min-height: min(48vh, 430px);
+                padding: 4.75rem 6% 4.35rem;
                 overflow: hidden;
                 border-radius: 0 0 30px 30px;
-                background-image: url('mobile-hero-generative.png');
+                background-image: url('hero-background.jpg');
                 background-position: center;
                 background-size: cover;
                 box-shadow: 0 24px 58px rgba(15, 23, 42, 0.18);
@@ -3845,7 +3844,7 @@
 
             .hero::before {
                 background:
-                    linear-gradient(180deg, rgba(2, 8, 16, 0.04) 0%, rgba(2, 8, 16, 0.02) 54%, rgba(2, 8, 16, 0.18) 100%);
+                    linear-gradient(135deg, rgba(0, 0, 0, 0.42) 0%, rgba(0, 20, 40, 0.26) 100%);
             }
 
             .hero-scroll-cue {
@@ -3858,16 +3857,16 @@
             }
 
             .hero-content {
-                position: absolute;
-                width: 1px;
-                max-width: 1px;
-                height: 1px;
+                position: relative;
+                width: min(100%, 23rem);
+                max-width: 23rem;
+                height: auto;
                 padding: 0;
-                margin: -1px;
-                overflow: hidden;
-                clip: rect(0 0 0 0);
-                clip-path: inset(50%);
-                white-space: nowrap;
+                margin: 0 auto;
+                overflow: visible;
+                clip: auto;
+                clip-path: none;
+                white-space: normal;
                 border: 0;
                 background: transparent;
                 box-shadow: none;
@@ -3876,12 +3875,12 @@
             }
 
             .hero h1 {
-                font-size: clamp(1.95rem, 8.9vw, 2.55rem);
+                font-size: clamp(1.85rem, 7.6vw, 2rem);
                 line-height: 0.98;
                 letter-spacing: 0;
                 text-wrap: pretty;
                 text-shadow: 0 4px 18px rgba(0, 0, 0, 0.42);
-                max-width: 10.8ch;
+                max-width: 100%;
                 margin: 0;
             }
 
@@ -4288,19 +4287,28 @@
             }
 
             .genai-timeline-shell::before {
-                top: 1rem;
-                height: 10.5rem;
-                width: 120vw;
+                top: 0.45rem;
+                height: 9rem;
+                width: 112vw;
                 filter: blur(16px);
             }
 
+            .genai-timeline-frame {
+                overflow-x: auto;
+                overflow-y: visible;
+                scroll-snap-type: x proximity;
+                -webkit-overflow-scrolling: touch;
+            }
+
             .genai-timeline-track {
-                width: max(1120px, 100vw);
-                min-height: 13.5rem;
-                gap: clamp(0.12rem, 0.2vw, 0.22rem);
-                padding: 0.9rem clamp(0.9rem, 2.2vw, 2.4rem) 1.35rem;
+                width: max-content;
+                min-width: 760px;
+                min-height: 10.65rem;
+                justify-content: flex-start;
+                gap: 1.05rem;
+                padding: 0.68rem 1.15rem 0.95rem;
                 overflow: visible;
-                scroll-padding-inline: 0;
+                scroll-padding-inline: 1.15rem;
             }
 
             .genai-timeline-track::before {
@@ -4308,50 +4316,51 @@
             }
 
             .genai-timeline-node {
-                width: clamp(8.5rem, 9.55vw, 9.15rem);
-                min-width: clamp(8.5rem, 9.55vw, 9.15rem);
-                min-height: 4.25rem;
-                padding: 0.7rem 0.68rem;
-                gap: 0.46rem;
+                width: 7.25rem;
+                min-width: 7.25rem;
+                min-height: 3.85rem;
+                padding: 0.58rem 0.56rem;
+                gap: 0.36rem;
+                scroll-snap-align: center;
             }
 
             .genai-timeline-node:nth-child(odd)::before {
-                bottom: -1.57rem;
+                bottom: -1.27rem;
             }
 
             .genai-timeline-node:nth-child(even)::before {
-                top: -1.57rem;
+                top: -1.27rem;
             }
 
             .genai-year {
-                font-size: 0.86rem;
+                font-size: 0.78rem;
             }
 
             .genai-logo {
-                width: 2.32rem;
-                height: 2.32rem;
-                min-width: 2.32rem;
-                padding: 0.38rem;
+                width: 2rem;
+                height: 2rem;
+                min-width: 2rem;
+                padding: 0.32rem;
             }
 
             .genai-logo img {
-                max-width: 1.78rem;
-                max-height: 1.35rem;
+                max-width: 1.54rem;
+                max-height: 1.16rem;
             }
 
             .genai-logo-stability {
-                width: 2.8rem;
-                min-width: 2.8rem;
-                height: 2.36rem;
+                width: 2.45rem;
+                min-width: 2.45rem;
+                height: 2.08rem;
             }
 
             .genai-logo-stability img {
-                max-width: 2.26rem;
-                max-height: 0.82rem;
+                max-width: 1.95rem;
+                max-height: 0.72rem;
             }
 
             .genai-timeline-node h3 {
-                font-size: clamp(0.72rem, 0.82vw, 0.8rem);
+                font-size: 0.68rem;
                 line-height: 1.08;
                 overflow-wrap: normal;
             }
@@ -4830,20 +4839,20 @@
 
         @media (max-width: 420px) {
             .hero {
-                min-height: min(46vh, 430px);
-                padding: 0;
+                min-height: min(46vh, 410px);
+                padding: 4.3rem 6% 4.1rem;
                 border-radius: 0 0 26px 26px;
             }
 
             .hero h1 {
-                font-size: clamp(1.8rem, 8.8vw, 2.2rem);
+                font-size: clamp(1.78rem, 7.4vw, 1.95rem);
                 letter-spacing: 0;
-                max-width: 10.3ch;
+                max-width: 100%;
             }
 
             .hero-content {
-                width: 1px;
-                max-width: 1px;
+                width: min(100%, 20.5rem);
+                max-width: 20.5rem;
                 padding: 0;
                 border-radius: 0;
             }
@@ -5038,8 +5047,8 @@
 
         @media (max-width: 360px) {
             .hero-content {
-                width: 1px;
-                max-width: 1px;
+                width: min(100%, 19rem);
+                max-width: 19rem;
                 padding: 0;
             }
 
@@ -5699,7 +5708,8 @@
                 const baseWidth = track.offsetWidth;
                 const baseHeight = track.offsetHeight;
                 const availableWidth = frame.clientWidth;
-                const scale = Math.min(1, availableWidth / baseWidth);
+                const isMobile = window.matchMedia('(max-width: 640px)').matches;
+                const scale = isMobile ? 1 : Math.min(1, availableWidth / baseWidth);
 
                 frame.style.setProperty('--genai-scale', scale.toFixed(4));
                 frame.style.setProperty('--genai-frame-height', `${Math.ceil(baseHeight * scale)}px`);
@@ -5747,8 +5757,21 @@
                 shell.style.setProperty('--genai-shell-height', `${Math.ceil(frame.getBoundingClientRect().height)}px`);
             }
 
+            function closeDetailCard() {
+                activeNode = null;
+                nodes.forEach((node) => {
+                    node.classList.remove('is-active');
+                    node.setAttribute('aria-pressed', 'false');
+                });
+                shell.classList.remove('has-active-detail');
+                detailCard.classList.remove('is-opening');
+                connector.classList.remove('is-opening');
+                setCompactTimelineHeight();
+            }
+
             function positionDetailCard(selectedNode, shouldAnimate = true) {
                 if (!selectedNode) {
+                    closeDetailCard();
                     setCompactTimelineHeight();
                     return;
                 }
@@ -5821,6 +5844,11 @@
             }
 
             function activateNode(selectedNode, shouldAnimate = true) {
+                if (activeNode === selectedNode) {
+                    closeDetailCard();
+                    return;
+                }
+
                 activeNode = selectedNode;
                 nodes.forEach((node) => {
                     const isActive = node === selectedNode;
@@ -5844,8 +5872,22 @@
             });
 
             setCompactTimelineHeight();
-            window.addEventListener('resize', () => positionDetailCard(activeNode, false), { passive: true });
-            window.addEventListener('load', () => positionDetailCard(activeNode, false));
+            window.addEventListener('resize', () => {
+                if (activeNode) {
+                    positionDetailCard(activeNode, false);
+                    return;
+                }
+
+                setCompactTimelineHeight();
+            }, { passive: true });
+            window.addEventListener('load', () => {
+                if (activeNode) {
+                    positionDetailCard(activeNode, false);
+                    return;
+                }
+
+                setCompactTimelineHeight();
+            });
         })();
 
         (() => {
