@@ -1831,45 +1831,6 @@
             hyphens: none;
         }
 
-        .genai-detail-connector {
-            position: absolute;
-            left: var(--genai-connector-x, 50%);
-            top: var(--genai-connector-y, var(--genai-frame-height));
-            z-index: 2;
-            width: var(--genai-connector-length, 0);
-            height: 1px;
-            transform: rotate(var(--genai-connector-angle, 90deg));
-            transform-origin: 0 50%;
-            border-radius: 999px;
-            background: linear-gradient(90deg, rgba(79, 172, 254, 0.62), rgba(79, 172, 254, 0.08));
-            box-shadow: 0 0 16px rgba(79, 172, 254, 0.18);
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-
-        .genai-detail-connector::after {
-            content: '';
-            position: absolute;
-            right: -0.22rem;
-            top: 50%;
-            width: 0.42rem;
-            height: 0.42rem;
-            transform: translateY(-50%);
-            border-radius: 50%;
-            background: rgba(79, 172, 254, 0.82);
-            box-shadow: 0 0 0 0.24rem rgba(79, 172, 254, 0.12);
-        }
-
-        .genai-detail-connector.is-opening {
-            animation: genaiConnectorOpen 360ms cubic-bezier(0.2, 0.78, 0.24, 1) both;
-        }
-
-        .genai-timeline-shell.has-active-detail .genai-detail-connector {
-            opacity: 0.7;
-            visibility: visible;
-        }
-
         .genai-detail-card {
             position: absolute;
             left: var(--genai-card-left, max(clamp(1.5rem, 5vw, 4rem), calc((100vw - 1280px) / 2 + clamp(1.5rem, 5vw, 4rem))));
@@ -2047,18 +2008,6 @@
             }
         }
 
-        @keyframes genaiConnectorOpen {
-            0% {
-                opacity: 0;
-                transform: rotate(var(--genai-connector-angle, 90deg)) scaleX(0.15);
-            }
-
-            100% {
-                opacity: 0.7;
-                transform: rotate(var(--genai-connector-angle, 90deg)) scaleX(1);
-            }
-        }
-
         @keyframes genaiTapCue {
             0%,
             72%,
@@ -2101,8 +2050,7 @@
         @media (prefers-reduced-motion: reduce) {
             .genai-timeline-shell:not(.has-active-detail) .genai-timeline-node:first-child,
             .genai-timeline-shell:not(.has-active-detail) .genai-timeline-node:first-child::before,
-            .genai-detail-card.is-opening,
-            .genai-detail-connector.is-opening {
+            .genai-detail-card.is-opening {
                 animation: none;
             }
         }
@@ -5339,7 +5287,6 @@
                 </button>
                 </div>
             </div>
-            <span class="genai-detail-connector" aria-hidden="true"></span>
             <article class="genai-detail-card" aria-live="polite">
                 <span class="genai-detail-logo"><img src="Google_2015_logo.svg" alt="Google"></span>
                 <div class="genai-detail-copy">
@@ -5727,7 +5674,6 @@
             const nodes = document.querySelectorAll('.genai-timeline-node');
             const shell = document.querySelector('.genai-timeline-shell');
             const frame = document.querySelector('.genai-timeline-frame');
-            const connector = document.querySelector('.genai-detail-connector');
             const detailCard = document.querySelector('.genai-detail-card');
             const detailLogo = detailCard?.querySelector('.genai-detail-logo');
             const detailMeta = detailCard?.querySelector('.genai-detail-meta');
@@ -5736,7 +5682,7 @@
             const detailLink = detailCard?.querySelector('.genai-detail-link');
             let activeNode = null;
 
-            if (!nodes.length || !shell || !frame || !connector || !detailCard || !detailLogo || !detailMeta || !detailTitle || !detailText || !detailLink) {
+            if (!nodes.length || !shell || !frame || !detailCard || !detailLogo || !detailMeta || !detailTitle || !detailText || !detailLink) {
                 return;
             }
 
@@ -5768,7 +5714,6 @@
                 });
                 shell.classList.remove('has-active-detail');
                 detailCard.classList.remove('is-opening');
-                connector.classList.remove('is-opening');
                 setCompactTimelineHeight();
             }
 
@@ -5800,12 +5745,6 @@
 
                 const originX = nodeCenterX - cardLeft;
                 const originY = nodeCenterY - cardTop;
-                const connectorEndX = clamp(nodeCenterX, cardLeft + 44, cardLeft + cardWidth - 44);
-                const connectorEndY = cardTop + 8;
-                const connectorDx = connectorEndX - nodeCenterX;
-                const connectorDy = connectorEndY - nodeCenterY;
-                const connectorLength = Math.hypot(connectorDx, connectorDy);
-                const connectorAngle = Math.atan2(connectorDy, connectorDx) * (180 / Math.PI);
                 const shellHeight = cardTop + cardHeight + (isMobile ? 24 : 34);
 
                 shell.classList.add('has-active-detail');
@@ -5815,14 +5754,8 @@
                 detailCard.style.setProperty('--genai-origin-x', `${Math.round(originX * 10) / 10}px`);
                 detailCard.style.setProperty('--genai-origin-y', `${Math.round(originY * 10) / 10}px`);
 
-                connector.style.setProperty('--genai-connector-x', `${Math.round(nodeCenterX * 10) / 10}px`);
-                connector.style.setProperty('--genai-connector-y', `${Math.round(nodeCenterY * 10) / 10}px`);
-                connector.style.setProperty('--genai-connector-length', `${Math.round(connectorLength * 10) / 10}px`);
-                connector.style.setProperty('--genai-connector-angle', `${Math.round(connectorAngle * 10) / 10}deg`);
-
                 if (shouldAnimate) {
                     restartAnimation(detailCard);
-                    restartAnimation(connector);
                 }
             }
 
