@@ -3063,6 +3063,174 @@
             align-items: center;
         }
 
+        .ai-projects-section {
+            position: relative;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0.85rem 5% 1.1rem;
+            background: transparent;
+        }
+
+        .ai-projects-shell {
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: minmax(270px, 0.82fr) minmax(0, 1.35fr);
+            gap: 1.1rem;
+            border-radius: 34px;
+            border: 1px solid rgba(79, 172, 254, 0.16);
+            background:
+                radial-gradient(circle at 6% 12%, rgba(79, 172, 254, 0.12), rgba(79, 172, 254, 0) 34%),
+                linear-gradient(145deg, rgba(255, 255, 255, 0.78) 0%, rgba(246, 251, 255, 0.58) 100%);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.86),
+                0 26px 68px rgba(15, 42, 82, 0.08);
+            backdrop-filter: blur(18px) saturate(150%);
+            -webkit-backdrop-filter: blur(18px) saturate(150%);
+            padding: clamp(1.15rem, 2.8vw, 2.1rem);
+        }
+
+        .ai-projects-shell::after {
+            content: '';
+            position: absolute;
+            inset: auto -80px -100px auto;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(79, 172, 254, 0.12) 0%, rgba(79, 172, 254, 0) 72%);
+            pointer-events: none;
+        }
+
+        .ai-projects-intro,
+        .ai-projects-catalogue {
+            position: relative;
+            z-index: 1;
+        }
+
+        .ai-projects-intro {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .ai-projects-kicker {
+            width: fit-content;
+            padding: 0.34rem 0.72rem;
+            border-radius: 999px;
+            border: 1px solid rgba(79, 172, 254, 0.16);
+            background: rgba(255, 255, 255, 0.86);
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+            color: #3778c2;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .ai-projects-heading {
+            max-width: 11ch;
+            color: #162132;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 500;
+            letter-spacing: -0.04em;
+            line-height: 1;
+        }
+
+        .ai-projects-lead {
+            max-width: 30rem;
+            color: #5b6877;
+            font-size: 0.98rem;
+            line-height: 1.66;
+        }
+
+        .ai-project-card a {
+            color: #1a1a1a;
+            font-size: 0.82rem;
+            font-weight: 800;
+            text-decoration: none;
+            width: fit-content;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.14);
+            transition: color 0.22s ease, border-color 0.22s ease;
+        }
+
+        .ai-project-card a:hover {
+            color: #3778c2;
+            border-color: rgba(55, 120, 194, 0.35);
+        }
+
+        .ai-projects-catalogue {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.85rem;
+        }
+
+        .ai-project-card {
+            display: grid;
+            align-content: start;
+            gap: 0.7rem;
+            min-height: 180px;
+            padding: 1rem;
+            border-radius: 24px;
+            border: 1px solid rgba(79, 172, 254, 0.12);
+            background:
+                linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(246, 251, 255, 0.48));
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.84),
+                0 16px 34px rgba(15, 42, 82, 0.055);
+            transition: transform 0.26s ease, opacity 0.22s ease, box-shadow 0.26s ease, border-color 0.26s ease;
+        }
+
+        .ai-project-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(66, 133, 244, 0.2);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                0 22px 46px rgba(15, 42, 82, 0.09);
+        }
+
+        .ai-project-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.7rem;
+        }
+
+        .ai-project-pill {
+            display: inline-flex;
+            align-items: center;
+            min-height: 26px;
+            padding: 0.22rem 0.58rem;
+            border-radius: 999px;
+            background: rgba(79, 172, 254, 0.1);
+            color: #3778c2;
+            font-size: 0.62rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .ai-project-stack {
+            color: #738093;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-align: right;
+        }
+
+        .ai-project-card h3 {
+            color: #162132;
+            font-size: clamp(1.05rem, 1.45vw, 1.28rem);
+            line-height: 1.06;
+            letter-spacing: -0.035em;
+        }
+
+        .ai-project-card p {
+            color: #566273;
+            font-size: 0.86rem;
+            line-height: 1.5;
+        }
+
         .learning-library-section {
             padding: 1.2rem 5% 0.8rem;
             max-width: 1240px;
@@ -3664,6 +3832,14 @@
 
             .python-lab-workspace {
                 grid-template-columns: 1fr;
+            }
+
+            .ai-projects-shell {
+                grid-template-columns: 1fr;
+            }
+
+            .ai-projects-heading {
+                max-width: 14ch;
             }
 
             .image-grid-section {
@@ -4368,6 +4544,40 @@
                 background: transparent;
             }
 
+            .ai-projects-section {
+                padding: 0.45rem 5% 0.95rem;
+            }
+
+            .ai-projects-shell {
+                border-radius: 26px;
+                padding: 1rem;
+            }
+
+            .ai-projects-heading {
+                font-size: clamp(1.62rem, 7vw, 2rem);
+                max-width: 13ch;
+            }
+
+            .ai-projects-lead {
+                font-size: 0.9rem;
+                line-height: 1.55;
+            }
+
+            .ai-projects-catalogue {
+                grid-template-columns: 1fr;
+                gap: 0.72rem;
+            }
+
+            .ai-project-card {
+                min-height: auto;
+                border-radius: 20px;
+                padding: 0.9rem;
+            }
+
+            .ai-project-card h3 {
+                font-size: 1rem;
+            }
+
             .news-section-header {
                 margin-bottom: 1.25rem;
                 padding-top: 0;
@@ -5015,6 +5225,7 @@
 
             .about-section,
             .collaboration-section,
+            .ai-projects-section,
             .news-section,
             .image-grid-section,
             .python-lab-section,
@@ -5141,6 +5352,54 @@
         </div>
     </section>
 
+    <section class="ai-projects-section" id="ai-projects" aria-labelledby="ai-projects-heading">
+        <div class="ai-projects-shell">
+            <div class="ai-projects-intro">
+                <p class="ai-projects-kicker">AI Projects</p>
+                <h2 class="ai-projects-heading" id="ai-projects-heading">AI Project Catalogue</h2>
+                <p class="ai-projects-lead">A working catalogue of my AI skills, prototypes, and build-along projects.</p>
+            </div>
+            <div class="ai-projects-catalogue" aria-live="polite">
+                <article class="ai-project-card" data-project-type="skill">
+                    <div class="ai-project-card-top">
+                        <span class="ai-project-pill">Skill</span>
+                        <span class="ai-project-stack">Codex / GitHub Pages</span>
+                    </div>
+                    <h3>Portfolio Site Skill</h3>
+                    <p>Start with your story, add links and proof, then let Codex shape a live personal site.</p>
+                    <a href="skills.html#portfolio-site-skill">Open skill page &rarr;</a>
+                </article>
+                <article class="ai-project-card" data-project-type="prototype workflow">
+                    <div class="ai-project-card-top">
+                        <span class="ai-project-pill">Prototype</span>
+                        <span class="ai-project-stack">Prompt / UI / Code</span>
+                    </div>
+                    <h3>Whiteboard to Prototype</h3>
+                    <p>Turn a rough sketch, diagram, or workshop board into a clickable app direction.</p>
+                    <a href="skills.html#whiteboard-to-prototype">Open skill page &rarr;</a>
+                </article>
+                <article class="ai-project-card" data-project-type="skill prototype">
+                    <div class="ai-project-card-top">
+                        <span class="ai-project-pill">Skill</span>
+                        <span class="ai-project-stack">YOLO / Vision / UI</span>
+                    </div>
+                    <h3>Object Detection Skill</h3>
+                    <p>Run a vision model, label objects, and turn confidence scores into a readable interactive overlay.</p>
+                    <a href="skills.html#object-detection-skill">Open skill page &rarr;</a>
+                </article>
+                <article class="ai-project-card" data-project-type="skill prototype">
+                    <div class="ai-project-card-top">
+                        <span class="ai-project-pill">Skill</span>
+                        <span class="ai-project-stack">Codex / Game Logic</span>
+                    </div>
+                    <h3>Tennis Skill</h3>
+                    <p>A hands-on project for turning tennis rules, scoring, and interaction patterns into a playable build.</p>
+                    <a href="skills.html#tennis-skill">Open skill page &rarr;</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <section class="news-section" aria-label="News features">
         <div class="news-section-header">
             <h2 class="news-heading">Selected Work &amp; Features</h2>
@@ -5218,83 +5477,6 @@
                         <a class="news-link" href="https://youtu.be/nABaoC4qI00?si=37G-A2C2DK8YeNpU" target="_blank" rel="noopener noreferrer">Watch video &rarr;</a>
                     </div>
                 </div>
-            </article>
-        </div>
-    </section>
-
-    <section class="image-grid-section future-work-section">
-        <div class="future-work-header">
-            <h2><span class="genai-title-main">A Brief History</span> <span class="genai-title-tail">of Generative AI</span></h2>
-        </div>
-        <div class="genai-timeline-shell" aria-label="Brief history of generative AI milestones">
-            <div class="genai-timeline-frame">
-                <div class="genai-timeline-track">
-                <button class="genai-timeline-node" type="button" data-year="2017" data-title="Transformers" data-company="Google" data-logo="Google_2015_logo.svg" data-logo-alt="Google" data-shift="Architecture" data-url="https://research.google/pubs/attention-is-all-you-need/" data-link-label="Open Google Research" data-detail="The transformer architecture gave modern language models a better way to learn relationships across long sequences of text.">
-                    <span class="genai-logo genai-logo-google"><img src="Google_2015_logo.svg" alt="Google"></span>
-                    <div class="genai-node-copy">
-                        <span class="genai-year">2017</span>
-                        <h3>Transformers</h3>
-                    </div>
-                </button>
-                <button class="genai-timeline-node" type="button" data-year="2020" data-title="GPT-3" data-company="OpenAI" data-logo="openai-logo-ticker.png" data-logo-alt="OpenAI" data-shift="Language" data-url="https://openai.com/index/language-models-are-few-shot-learners/" data-link-label="Open GPT-3 paper" data-detail="GPT-3 showed how a large model could adapt to new tasks from examples, shifting attention toward prompting and general-purpose language systems.">
-                    <span class="genai-logo genai-logo-openai"><img src="openai-logo-ticker.png" alt="OpenAI"></span>
-                    <div class="genai-node-copy">
-                        <span class="genai-year">2020</span>
-                        <h3>GPT-3</h3>
-                    </div>
-                </button>
-                <button class="genai-timeline-node" type="button" data-year="2022" data-title="Stable Diffusion" data-company="Stability AI" data-logo="stability-ai-logo.png" data-logo-alt="Stability AI" data-shift="Open release" data-url="https://stability.ai/news/stable-diffusion-public-release" data-link-label="Open release note" data-detail="Open model weights pushed image generation into a broader creator and developer ecosystem.">
-                    <span class="genai-logo genai-logo-stability"><img src="stability-ai-logo.png" alt="Stability AI"></span>
-                    <div class="genai-node-copy">
-                        <span class="genai-year">2022</span>
-                        <h3>Stable Diffusion</h3>
-                    </div>
-                </button>
-                <button class="genai-timeline-node" type="button" data-year="Nov 2022" data-title="ChatGPT" data-company="OpenAI" data-logo="openai-logo-ticker.png" data-logo-alt="OpenAI" data-shift="Interface" data-url="https://openai.com/index/chatgpt/" data-link-label="Open ChatGPT page" data-detail="ChatGPT made generative AI feel usable because it wrapped model behavior in a familiar chat interface.">
-                    <span class="genai-logo genai-logo-openai"><img src="openai-logo-ticker.png" alt="OpenAI"></span>
-                    <div class="genai-node-copy">
-                        <span class="genai-year">Nov 2022</span>
-                        <h3>ChatGPT</h3>
-                    </div>
-                </button>
-                <button class="genai-timeline-node" type="button" data-year="2023" data-title="Claude" data-company="Anthropic" data-logo="anthropic-logo-ticker.png" data-logo-alt="Anthropic" data-shift="Assistant" data-url="https://www.anthropic.com/news/introducing-claude" data-link-label="Open Claude launch" data-detail="Claude helped normalize long-form AI assistance for writing, analysis, coding, and knowledge-work support.">
-                    <span class="genai-logo genai-logo-anthropic"><img src="anthropic-logo-ticker.png" alt="Anthropic"></span>
-                    <div class="genai-node-copy">
-                        <span class="genai-year">2023</span>
-                        <h3>Claude</h3>
-                    </div>
-                </button>
-                <button class="genai-timeline-node" type="button" data-year="2023" data-title="Gemini" data-company="Google" data-logo="Google_2015_logo.svg" data-logo-alt="Google" data-shift="Multimodal" data-url="https://blog.google/technology/ai/google-gemini-ai/" data-link-label="Open Gemini launch" data-detail="Gemini made multimodal AI a mainstream product direction, connecting text, image, code, audio, and video.">
-                    <span class="genai-logo genai-logo-google"><img src="Google_2015_logo.svg" alt="Google"></span>
-                    <div class="genai-node-copy">
-                        <span class="genai-year">2023</span>
-                        <h3>Gemini</h3>
-                    </div>
-                </button>
-                <button class="genai-timeline-node" type="button" data-year="2025" data-title="Claude Code" data-company="Anthropic" data-logo="anthropic-logo-ticker.png" data-logo-alt="Anthropic" data-shift="Agentic coding" data-url="https://www.anthropic.com/product/claude-code" data-link-label="Open Claude Code" data-detail="Claude Code moved AI assistance deeper into the developer workflow, where models can inspect files, make edits, and help reason across a codebase.">
-                    <span class="genai-logo genai-logo-anthropic"><img src="anthropic-logo-ticker.png" alt="Anthropic"></span>
-                    <div class="genai-node-copy">
-                        <span class="genai-year">2025</span>
-                        <h3>Claude Code</h3>
-                    </div>
-                </button>
-                <button class="genai-timeline-node" type="button" data-year="2025" data-title="Codex" data-company="OpenAI" data-logo="openai-logo-ticker.png" data-logo-alt="OpenAI" data-shift="Software agent" data-url="https://openai.com/codex/" data-link-label="Open Codex" data-detail="Codex reframed AI coding tools as task-oriented software agents that can help build, edit, test, and ship from natural-language direction.">
-                    <span class="genai-logo genai-logo-openai"><img src="openai-logo-ticker.png" alt="OpenAI"></span>
-                    <div class="genai-node-copy">
-                        <span class="genai-year">2025</span>
-                        <h3>Codex</h3>
-                    </div>
-                </button>
-                </div>
-            </div>
-            <article class="genai-detail-card" aria-live="polite">
-                <span class="genai-detail-logo"><img src="Google_2015_logo.svg" alt="Google"></span>
-                <div class="genai-detail-copy">
-                    <span class="genai-detail-meta">2017 / Google / Architecture</span>
-                    <h3>Transformers</h3>
-                    <p>The transformer architecture gave modern language models a better way to learn relationships across long sequences of text.</p>
-                </div>
-                <a class="genai-detail-link" href="https://research.google/pubs/attention-is-all-you-need/" target="_blank" rel="noopener noreferrer">Open Google Research &rarr;</a>
             </article>
         </div>
     </section>
@@ -5435,6 +5617,83 @@
         </div>
     </section>
 
+    <section class="image-grid-section future-work-section" id="ai-history">
+        <div class="future-work-header">
+            <h2><span class="genai-title-main">A Brief History</span> <span class="genai-title-tail">of Generative AI</span></h2>
+        </div>
+        <div class="genai-timeline-shell" aria-label="Brief history of generative AI milestones">
+            <div class="genai-timeline-frame">
+                <div class="genai-timeline-track">
+                <button class="genai-timeline-node" type="button" data-year="2017" data-title="Transformers" data-company="Google" data-logo="Google_2015_logo.svg" data-logo-alt="Google" data-shift="Architecture" data-url="https://research.google/pubs/attention-is-all-you-need/" data-link-label="Open Google Research" data-detail="The transformer architecture gave modern language models a better way to learn relationships across long sequences of text.">
+                    <span class="genai-logo genai-logo-google"><img src="Google_2015_logo.svg" alt="Google"></span>
+                    <div class="genai-node-copy">
+                        <span class="genai-year">2017</span>
+                        <h3>Transformers</h3>
+                    </div>
+                </button>
+                <button class="genai-timeline-node" type="button" data-year="2020" data-title="GPT-3" data-company="OpenAI" data-logo="openai-logo-ticker.png" data-logo-alt="OpenAI" data-shift="Language" data-url="https://openai.com/index/language-models-are-few-shot-learners/" data-link-label="Open GPT-3 paper" data-detail="GPT-3 showed how a large model could adapt to new tasks from examples, shifting attention toward prompting and general-purpose language systems.">
+                    <span class="genai-logo genai-logo-openai"><img src="openai-logo-ticker.png" alt="OpenAI"></span>
+                    <div class="genai-node-copy">
+                        <span class="genai-year">2020</span>
+                        <h3>GPT-3</h3>
+                    </div>
+                </button>
+                <button class="genai-timeline-node" type="button" data-year="2022" data-title="Stable Diffusion" data-company="Stability AI" data-logo="stability-ai-logo.png" data-logo-alt="Stability AI" data-shift="Open release" data-url="https://stability.ai/news/stable-diffusion-public-release" data-link-label="Open release note" data-detail="Open model weights pushed image generation into a broader creator and developer ecosystem.">
+                    <span class="genai-logo genai-logo-stability"><img src="stability-ai-logo.png" alt="Stability AI"></span>
+                    <div class="genai-node-copy">
+                        <span class="genai-year">2022</span>
+                        <h3>Stable Diffusion</h3>
+                    </div>
+                </button>
+                <button class="genai-timeline-node" type="button" data-year="Nov 2022" data-title="ChatGPT" data-company="OpenAI" data-logo="openai-logo-ticker.png" data-logo-alt="OpenAI" data-shift="Interface" data-url="https://openai.com/index/chatgpt/" data-link-label="Open ChatGPT page" data-detail="ChatGPT made generative AI feel usable because it wrapped model behavior in a familiar chat interface.">
+                    <span class="genai-logo genai-logo-openai"><img src="openai-logo-ticker.png" alt="OpenAI"></span>
+                    <div class="genai-node-copy">
+                        <span class="genai-year">Nov 2022</span>
+                        <h3>ChatGPT</h3>
+                    </div>
+                </button>
+                <button class="genai-timeline-node" type="button" data-year="2023" data-title="Claude" data-company="Anthropic" data-logo="anthropic-logo-ticker.png" data-logo-alt="Anthropic" data-shift="Assistant" data-url="https://www.anthropic.com/news/introducing-claude" data-link-label="Open Claude launch" data-detail="Claude helped normalize long-form AI assistance for writing, analysis, coding, and knowledge-work support.">
+                    <span class="genai-logo genai-logo-anthropic"><img src="anthropic-logo-ticker.png" alt="Anthropic"></span>
+                    <div class="genai-node-copy">
+                        <span class="genai-year">2023</span>
+                        <h3>Claude</h3>
+                    </div>
+                </button>
+                <button class="genai-timeline-node" type="button" data-year="2023" data-title="Gemini" data-company="Google" data-logo="Google_2015_logo.svg" data-logo-alt="Google" data-shift="Multimodal" data-url="https://blog.google/technology/ai/google-gemini-ai/" data-link-label="Open Gemini launch" data-detail="Gemini made multimodal AI a mainstream product direction, connecting text, image, code, audio, and video.">
+                    <span class="genai-logo genai-logo-google"><img src="Google_2015_logo.svg" alt="Google"></span>
+                    <div class="genai-node-copy">
+                        <span class="genai-year">2023</span>
+                        <h3>Gemini</h3>
+                    </div>
+                </button>
+                <button class="genai-timeline-node" type="button" data-year="2025" data-title="Claude Code" data-company="Anthropic" data-logo="anthropic-logo-ticker.png" data-logo-alt="Anthropic" data-shift="Agentic coding" data-url="https://www.anthropic.com/product/claude-code" data-link-label="Open Claude Code" data-detail="Claude Code moved AI assistance deeper into the developer workflow, where models can inspect files, make edits, and help reason across a codebase.">
+                    <span class="genai-logo genai-logo-anthropic"><img src="anthropic-logo-ticker.png" alt="Anthropic"></span>
+                    <div class="genai-node-copy">
+                        <span class="genai-year">2025</span>
+                        <h3>Claude Code</h3>
+                    </div>
+                </button>
+                <button class="genai-timeline-node" type="button" data-year="2025" data-title="Codex" data-company="OpenAI" data-logo="openai-logo-ticker.png" data-logo-alt="OpenAI" data-shift="Software agent" data-url="https://openai.com/codex/" data-link-label="Open Codex" data-detail="Codex reframed AI coding tools as task-oriented software agents that can help build, edit, test, and ship from natural-language direction.">
+                    <span class="genai-logo genai-logo-openai"><img src="openai-logo-ticker.png" alt="OpenAI"></span>
+                    <div class="genai-node-copy">
+                        <span class="genai-year">2025</span>
+                        <h3>Codex</h3>
+                    </div>
+                </button>
+                </div>
+            </div>
+            <article class="genai-detail-card" aria-live="polite">
+                <span class="genai-detail-logo"><img src="Google_2015_logo.svg" alt="Google"></span>
+                <div class="genai-detail-copy">
+                    <span class="genai-detail-meta">2017 / Google / Architecture</span>
+                    <h3>Transformers</h3>
+                    <p>The transformer architecture gave modern language models a better way to learn relationships across long sequences of text.</p>
+                </div>
+                <a class="genai-detail-link" href="https://research.google/pubs/attention-is-all-you-need/" target="_blank" rel="noopener noreferrer">Open Google Research &rarr;</a>
+            </article>
+        </div>
+    </section>
+
     <div class="profile-inspector" id="profileInspector" aria-hidden="true" tabindex="-1">
         <div class="profile-inspector-dialog" role="dialog" aria-modal="true" aria-label="Profile photo object detection view">
             <div class="profile-inspector-frame">
@@ -5474,7 +5733,7 @@
         </div>
     </div>
 
-    <section class="learning-library-section" aria-label="Official AI learning resources">
+    <section class="learning-library-section" id="learning-lab" aria-label="Official AI learning resources">
         <div class="learning-library-card">
             <div class="learning-library-inner">
                 <div class="learning-library-label">
@@ -5636,14 +5895,6 @@
             });
         })();
 
-        (() => {
-            const newsSection = document.querySelector('.news-section');
-            const fieldImagesSection = document.querySelector('.field-images-section');
-
-            if (newsSection && fieldImagesSection && newsSection.nextElementSibling !== fieldImagesSection) {
-                newsSection.insertAdjacentElement('afterend', fieldImagesSection);
-            }
-        })();
 
         (() => {
             const frame = document.querySelector('.genai-timeline-frame');

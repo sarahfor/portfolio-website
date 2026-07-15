@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Skills Catalogue - Sarah Forrest</title>
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-generative-32.png">
+    <link rel="apple-touch-icon" href="favicon-generative-180.png">
+    <style>
+        :root {
+            --site-bg: #f5f7fb;
+            --surface: rgba(255, 255, 255, 0.78);
+            --text-primary: #1a1a1a;
+            --text-muted: #566273;
+            --blue: #3778c2;
+            --blue-soft: rgba(79, 172, 254, 0.14);
+            --border: rgba(79, 172, 254, 0.16);
+            --shadow: 0 26px 68px rgba(15, 42, 82, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+            background:
+                radial-gradient(circle at top left, rgba(79, 172, 254, 0.09) 0%, rgba(79, 172, 254, 0) 30%),
+                linear-gradient(180deg, #f7f9fc 0%, var(--site-bg) 100%);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+        }
+
+        .page {
+            width: min(100%, 1280px);
+            margin: 0 auto;
+            padding: clamp(1.1rem, 4vw, 3rem) 5% 3rem;
+        }
+
+        .top-link {
+            display: inline-flex;
+            align-items: center;
+            width: fit-content;
+            margin-bottom: 1.2rem;
+            color: #263343;
+            font-size: 0.84rem;
+            font-weight: 800;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.14);
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            border-radius: 38px;
+            border: 1px solid var(--border);
+            background:
+                radial-gradient(circle at 8% 16%, rgba(79, 172, 254, 0.14), rgba(79, 172, 254, 0) 36%),
+                linear-gradient(145deg, rgba(255, 255, 255, 0.84) 0%, rgba(246, 251, 255, 0.6) 100%);
+            box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.86);
+            backdrop-filter: blur(18px) saturate(150%);
+            -webkit-backdrop-filter: blur(18px) saturate(150%);
+            padding: clamp(1.3rem, 4.4vw, 3rem);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: auto -90px -120px auto;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(79, 172, 254, 0.12) 0%, rgba(79, 172, 254, 0) 72%);
+            pointer-events: none;
+        }
+
+        .kicker {
+            display: inline-flex;
+            align-items: center;
+            width: fit-content;
+            margin-bottom: 1rem;
+            padding: 0.34rem 0.72rem;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.86);
+            color: var(--blue);
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        h1,
+        h2 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: 500;
+            letter-spacing: -0.04em;
+            line-height: 1;
+        }
+
+        h1 {
+            max-width: 11ch;
+            font-size: clamp(2.3rem, 6vw, 4.4rem);
+        }
+
+        .hero p {
+            max-width: 43rem;
+            margin-top: 1rem;
+            color: var(--text-muted);
+            font-size: clamp(0.98rem, 1.5vw, 1.1rem);
+            line-height: 1.68;
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 1.2rem;
+        }
+
+        .skill-card {
+            position: relative;
+            display: grid;
+            gap: 0.9rem;
+            min-height: 100%;
+            padding: clamp(1rem, 2.5vw, 1.45rem);
+            border: 1px solid rgba(79, 172, 254, 0.12);
+            border-radius: 28px;
+            background:
+                linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(246, 251, 255, 0.48));
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.84), 0 16px 34px rgba(15, 42, 82, 0.055);
+            scroll-margin-top: 1.4rem;
+        }
+
+        .skill-card-top {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.65rem;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            min-height: 26px;
+            padding: 0.22rem 0.58rem;
+            border-radius: 999px;
+            background: rgba(79, 172, 254, 0.1);
+            color: var(--blue);
+            font-size: 0.62rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .stack {
+            color: #738093;
+            font-size: 0.72rem;
+            font-weight: 750;
+            letter-spacing: 0.02em;
+            text-align: right;
+        }
+
+        .skill-card h2 {
+            color: #162132;
+            font-size: clamp(1.42rem, 2.6vw, 2.15rem);
+        }
+
+        .skill-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .steps {
+            display: grid;
+            gap: 0.55rem;
+            list-style: none;
+        }
+
+        .steps li {
+            display: grid;
+            grid-template-columns: 1.65rem 1fr;
+            gap: 0.65rem;
+            color: #445161;
+            font-size: 0.92rem;
+            line-height: 1.48;
+        }
+
+        .steps span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.65rem;
+            height: 1.65rem;
+            border-radius: 50%;
+            background: var(--blue-soft);
+            color: var(--blue);
+            font-size: 0.72rem;
+            font-weight: 800;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40px;
+            padding: 0.68rem 0.92rem;
+            border: 1px solid rgba(15, 23, 42, 0.1);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.86);
+            color: #1a1a1a;
+            font-size: 0.82rem;
+            font-weight: 800;
+            text-decoration: none;
+            transition: transform 0.22s ease, color 0.22s ease, border-color 0.22s ease;
+        }
+
+        .action:hover {
+            transform: translateY(-2px);
+            color: var(--blue);
+            border-color: rgba(79, 172, 254, 0.24);
+        }
+
+        @media (max-width: 760px) {
+            .page {
+                padding-left: 4%;
+                padding-right: 4%;
+            }
+
+            .hero {
+                border-radius: 28px;
+            }
+
+            .skill-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <a class="top-link" href="index.html#ai-projects">&larr; Back to AI Project Catalogue</a>
+        <section class="hero" aria-labelledby="skills-title">
+            <p class="kicker">AI Skills</p>
+            <h1 id="skills-title">AI Skills Catalogue</h1>
+            <p>Reusable Codex workflows for building portfolio sites, turning rough ideas into prototypes, labeling visual media, and analyzing tennis clips.</p>
+        </section>
+
+        <section class="skill-grid" aria-label="AI skill pages">
+            <article class="skill-card" id="portfolio-site-skill">
+                <div class="skill-card-top">
+                    <span class="pill">Skill</span>
+                    <span class="stack">Codex / GitHub Pages</span>
+                </div>
+                <h2>Portfolio Site Skill</h2>
+                <p>A form-driven Codex skill that helps someone turn their story, links, images, and proof of work into a polished personal website.</p>
+                <ol class="steps">
+                    <li><span>1</span><div>Open the intake form and add your content.</div></li>
+                    <li><span>2</span><div>Paste the generated link into Codex.</div></li>
+                    <li><span>3</span><div>Preview, edit, and publish with GitHub Pages.</div></li>
+                </ol>
+                <div class="actions">
+                    <a class="action" href="https://sarahfor.github.io/portfolio-site-skill/" target="_blank" rel="noopener noreferrer">Open live skill</a>
+                    <a class="action" href="https://github.com/sarahfor/portfolio-site-skill" target="_blank" rel="noopener noreferrer">View source</a>
+                </div>
+            </article>
+
+            <article class="skill-card" id="whiteboard-to-prototype">
+                <div class="skill-card-top">
+                    <span class="pill">Prototype</span>
+                    <span class="stack">Prompt / UI / Code</span>
+                </div>
+                <h2>Whiteboard to Prototype</h2>
+                <p>A workflow for turning a sketch, workshop board, or messy early idea into a clickable direction that people can react to.</p>
+                <ol class="steps">
+                    <li><span>1</span><div>Capture the whiteboard, sketch, or rough workflow.</div></li>
+                    <li><span>2</span><div>Translate the idea into screens, states, and core actions.</div></li>
+                    <li><span>3</span><div>Use Codex to build a first working prototype.</div></li>
+                </ol>
+                <div class="actions">
+                    <a class="action" href="index.html#portfolio">See field work</a>
+                </div>
+            </article>
+
+            <article class="skill-card" id="object-detection-skill">
+                <div class="skill-card-top">
+                    <span class="pill">Skill</span>
+                    <span class="stack">YOLO / Vision / UI</span>
+                </div>
+                <h2>Object Detection Skill</h2>
+                <p>A local Codex skill that runs object detection on images or videos, draws clean labels, and preserves confidence scores in the finished media.</p>
+                <ol class="steps">
+                    <li><span>1</span><div>Add an image, video, or folder of media.</div></li>
+                    <li><span>2</span><div>Run YOLO-based detection with useful labels only.</div></li>
+                    <li><span>3</span><div>Save annotated outputs with readable boxes and confidence scores.</div></li>
+                </ol>
+                <div class="actions">
+                    <a class="action" href="index.html#about">Try the site demo</a>
+                </div>
+            </article>
+
+            <article class="skill-card" id="tennis-skill">
+                <div class="skill-card-top">
+                    <span class="pill">Skill</span>
+                    <span class="stack">Tennis / Tracking / Video</span>
+                </div>
+                <h2>Tennis Skill</h2>
+                <p>A video-analysis skill for tennis clips that tracks the ball and racket, keeps labels steady, and creates a match-style summary card.</p>
+                <ol class="steps">
+                    <li><span>1</span><div>Add a tennis rally or practice clip.</div></li>
+                    <li><span>2</span><div>Track ball and racket movement with confidence labels.</div></li>
+                    <li><span>3</span><div>Export a labeled video with a compact match summary.</div></li>
+                </ol>
+                <div class="actions">
+                    <a class="action" href="index.html#ai-projects">Back to catalogue</a>
+                </div>
+            </article>
+        </section>
+    </main>
+</body>
+</html>
