@@ -29,6 +29,11 @@
             --text-muted: #4d5764;
             --border-soft: rgba(15, 23, 42, 0.08);
             --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
+            --section-x: clamp(1.5rem, 5vw, 4rem);
+            --section-gap: clamp(1.7rem, 3.6vw, 2.9rem);
+            --section-gap-tight: clamp(1.15rem, 2.7vw, 2rem);
+            --section-break: clamp(1.45rem, 3.4vw, 3rem);
+            --section-break-tight: clamp(0.9rem, 2.2vw, 1.7rem);
         }
 
         * {
@@ -241,7 +246,7 @@
 
         .about-section {
             position: relative;
-            padding: 4.6rem 5% 1.2rem;
+            padding: clamp(3.8rem, 7vw, 5rem) 5% clamp(1.2rem, 2.5vw, 1.9rem);
             max-width: 1240px;
             margin: 0 auto;
             background: transparent;
@@ -1492,7 +1497,7 @@
 
         .image-grid-section {
             position: relative;
-            padding: 2.5rem clamp(1.5rem, 5vw, 4rem) 4.5rem;
+            padding: clamp(1.5rem, 3vw, 2.35rem) var(--section-x) clamp(1.8rem, 3.4vw, 2.7rem);
             max-width: 1280px;
             margin: 0 auto;
             background:
@@ -1512,11 +1517,13 @@
         }
 
         .news-section + .image-grid-section {
-            margin-top: 0.15rem;
+            margin-top: 0;
         }
 
         .future-work-section {
-            padding-bottom: 0.75rem;
+            margin-top: var(--section-break-tight);
+            padding-top: clamp(1.55rem, 3vw, 2.3rem);
+            padding-bottom: clamp(1.15rem, 2.4vw, 1.75rem);
             background:
                 linear-gradient(180deg, rgba(17, 24, 39, 0) 0%, rgba(17, 24, 39, 0.018) 18%, rgba(255, 255, 255, 0.62) 54%, rgba(17, 24, 39, 0) 100%);
         }
@@ -1530,8 +1537,9 @@
         }
 
         .field-images-section {
-            padding-top: 1.35rem;
-            padding-bottom: 2.65rem;
+            margin-top: var(--section-break-tight);
+            padding-top: clamp(1.25rem, 2.6vw, 1.95rem);
+            padding-bottom: clamp(1.65rem, 3.4vw, 2.7rem);
         }
 
         .field-images-section::before {
@@ -1565,7 +1573,7 @@
         .future-work-header {
             display: grid;
             gap: 0.9rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.55rem;
         }
 
         .future-work-header h2 {
@@ -1593,7 +1601,7 @@
             --genai-card-size: clamp(18rem, 25vw, 20.5rem);
             --genai-shell-height: var(--genai-frame-height);
             position: relative;
-            margin: 1.35rem calc(50% - 50vw) 0.9rem;
+            margin: 1.1rem calc(50% - 50vw) 0.45rem;
             padding: 0;
             min-height: var(--genai-shell-height);
             overflow: visible;
@@ -1623,7 +1631,7 @@
 
         .genai-timeline-frame {
             --genai-scale: 1;
-            --genai-frame-height: 13.5rem;
+            --genai-frame-height: 12.4rem;
             position: relative;
             width: 100vw;
             height: var(--genai-frame-height);
@@ -1640,8 +1648,8 @@
             max-width: none;
             box-sizing: border-box;
             overflow: visible;
-            min-height: 13.5rem;
-            padding: 0.9rem clamp(0.9rem, 2.2vw, 2.4rem) 1.35rem;
+            min-height: 12.4rem;
+            padding: 0.75rem clamp(0.9rem, 2.2vw, 2.4rem) 1rem;
             transform: scale(var(--genai-scale));
             transform-origin: left top;
             scrollbar-width: none;
@@ -2813,9 +2821,9 @@
 
         .news-section {
             position: relative;
-            padding: 0.25rem 5% 0.45rem;
+            padding: clamp(1.35rem, 2.8vw, 2.05rem) 5% clamp(1.2rem, 2.5vw, 1.85rem);
             max-width: 1280px;
-            margin: 0 auto;
+            margin: var(--section-break) auto 0;
             background: transparent;
         }
 
@@ -3066,8 +3074,8 @@
         .ai-projects-section {
             position: relative;
             max-width: 1280px;
-            margin: 0 auto;
-            padding: 0.85rem 5% 1.1rem;
+            margin: var(--section-break-tight) auto 0;
+            padding: clamp(1.25rem, 2.6vw, 2rem) 5% clamp(1.4rem, 2.9vw, 2.2rem);
             background: transparent;
         }
 
@@ -3159,6 +3167,13 @@
             border-color: rgba(55, 120, 194, 0.35);
         }
 
+        .ai-project-card-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 0.85rem;
+            align-items: center;
+        }
+
         .ai-projects-catalogue {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3232,9 +3247,9 @@
         }
 
         .learning-library-section {
-            padding: 1.2rem 5% 0.8rem;
+            padding: clamp(1.2rem, 2.7vw, 2rem) 5% clamp(1.3rem, 2.7vw, 2.05rem);
             max-width: 1240px;
-            margin: 0 auto;
+            margin: var(--section-break-tight) auto 0;
             background: transparent;
         }
 
@@ -3457,9 +3472,9 @@
         }
 
         .contact-section {
-            padding: 5.6rem 5% 3.4rem;
+            padding: clamp(3.2rem, 5vw, 5.2rem) 5% clamp(2.8rem, 4vw, 3.6rem);
             max-width: 1240px;
-            margin: 0 auto;
+            margin: var(--section-break-tight) auto 0;
             background: transparent;
         }
 
@@ -3559,9 +3574,9 @@
 
         .partnerships-section {
             position: relative;
-            padding: clamp(0.7rem, 1.65vw, 1.15rem) 5% clamp(1.25rem, 2.2vw, 1.9rem);
+            padding: clamp(1.05rem, 2.2vw, 1.7rem) 5% clamp(1.1rem, 2.5vw, 1.95rem);
             max-width: 1280px;
-            margin: 0 auto;
+            margin: var(--section-break-tight) auto 0;
             text-align: center;
             background: transparent;
         }
@@ -3788,7 +3803,7 @@
             }
 
             .about-section {
-                padding: 4.2rem 5% 1.1rem;
+                padding: clamp(3.2rem, 8vw, 4.2rem) 5% 1.35rem;
             }
 
             .about-card {
@@ -3838,12 +3853,17 @@
                 grid-template-columns: 1fr;
             }
 
+            .ai-projects-section {
+                margin-top: 1.1rem;
+                padding: 1.35rem 6% 1.55rem;
+            }
+
             .ai-projects-heading {
                 max-width: 14ch;
             }
 
             .image-grid-section {
-                padding: 3rem 6%;
+                padding: 1.85rem 6% 2.25rem;
             }
 
             .genai-timeline-track {
@@ -3855,11 +3875,13 @@
             }
 
             .news-section {
-                padding: 0.45rem 6% 0.2rem;
+                margin-top: 1.55rem;
+                padding: 1.2rem 6% 1.25rem;
             }
 
             .partnerships-section {
-                padding: 1.35rem 6% 1.65rem;
+                margin-top: 1rem;
+                padding: 1.2rem 6% 1.65rem;
             }
 
             .partnerships-intro {
@@ -4024,7 +4046,7 @@
             }
 
             .about-section {
-                padding: 2.8rem 0 0.9rem;
+                padding: 2.7rem 0 1rem;
                 margin: 1.25rem 5% 0;
             }
 
@@ -4350,14 +4372,14 @@
             }
 
             .image-grid-section {
-                padding: 1.9rem 5% 3rem;
-                margin: 1.5rem 0 0;
+                padding: 1.25rem 5% 1.65rem;
+                margin: 0.85rem 0 0;
                 background: linear-gradient(180deg, rgba(79, 172, 254, 0) 0%, rgba(79, 172, 254, 0.045) 16%, rgba(255, 255, 255, 0.62) 54%, rgba(79, 172, 254, 0) 100%);
             }
 
             .future-work-section {
-                margin-top: 0.65rem;
-                padding-top: 1rem;
+                margin-top: 0.8rem;
+                padding-top: 1.05rem;
                 padding-bottom: 0.35rem;
                 background:
                     linear-gradient(180deg, rgba(17, 24, 39, 0) 0%, rgba(17, 24, 39, 0.018) 18%, rgba(255, 255, 255, 0.62) 54%, rgba(17, 24, 39, 0) 100%);
@@ -4368,7 +4390,7 @@
             }
 
             .field-images-section {
-                margin-top: 0;
+                margin-top: 0.8rem;
                 padding-top: 1rem;
                 padding-bottom: 1.35rem;
             }
@@ -4408,7 +4430,7 @@
 
             .genai-timeline-shell {
                 --genai-card-size: min(20.75rem, calc(100vw - 3rem));
-                margin: 0.85rem calc(50% - 50vw) 0.55rem;
+                margin: 0.8rem calc(50% - 50vw) 0.12rem;
                 padding: 0;
                 border-radius: 0;
             }
@@ -4421,6 +4443,7 @@
             }
 
             .genai-timeline-frame {
+                --genai-frame-height: 10.85rem;
                 overflow-x: auto;
                 overflow-y: visible;
                 scroll-snap-type: x proximity;
@@ -4535,17 +4558,18 @@
             }
 
             .news-section + .image-grid-section {
-                margin-top: 0.15rem;
+                margin-top: 0;
             }
 
             .news-section {
-                padding: 0.35rem 5% 0.45rem;
-                margin: 0;
+                padding: 1rem 5% 1rem;
+                margin: 1rem 0 0;
                 background: transparent;
             }
 
             .ai-projects-section {
-                padding: 0.45rem 5% 0.95rem;
+                margin-top: 0.95rem;
+                padding: 1rem 5% 1.15rem;
             }
 
             .ai-projects-shell {
@@ -4748,12 +4772,13 @@
             }
 
             .contact-section {
-                padding: 3.2rem 6% 2rem;
-                margin: 1.1rem 4% 0;
+                padding: 2.25rem 6% 2.15rem;
+                margin: 0.95rem 4% 0;
             }
 
             .learning-library-section {
-                padding: 0.95rem 4% 0.25rem;
+                padding: 1.1rem 4% 0.8rem;
+                margin-top: 0.95rem;
             }
 
             .learning-library-card {
@@ -4870,8 +4895,8 @@
             }
 
             .partnerships-section {
-                padding: 0.95rem 4% 1.1rem;
-                margin: 0 auto;
+                padding: 1rem 4% 1.25rem;
+                margin: 0.85rem auto 0;
             }
 
             .partnerships-copy {
@@ -5367,7 +5392,10 @@
                     </div>
                     <h3>Portfolio Site Skill</h3>
                     <p>Start with your story, add links and proof, then let Codex shape a live personal site.</p>
-                    <a href="skills.html#portfolio-site-skill">Open skill page &rarr;</a>
+                    <div class="ai-project-card-actions">
+                        <a href="https://sarahfor.github.io/portfolio-site-skill/" target="_blank" rel="noopener noreferrer">Open live skill &rarr;</a>
+                        <a href="https://sarahforrestai.com/" target="_blank" rel="noopener noreferrer">See site demo &rarr;</a>
+                    </div>
                 </article>
                 <article class="ai-project-card" data-project-type="prototype workflow">
                     <div class="ai-project-card-top">
@@ -5376,7 +5404,10 @@
                     </div>
                     <h3>Whiteboard to Prototype</h3>
                     <p>Turn a rough sketch, diagram, or workshop board into a clickable app direction.</p>
-                    <a href="skills.html#whiteboard-to-prototype">Open skill page &rarr;</a>
+                    <div class="ai-project-card-actions">
+                        <a href="file:///Users/sarahforrest/whiteboard-to-prototype/index.html" target="_blank" rel="noopener noreferrer">Open local build &rarr;</a>
+                        <a href="https://sarahfor.github.io/whiteboard-app-demo/" target="_blank" rel="noopener noreferrer">Open live demo &rarr;</a>
+                    </div>
                 </article>
                 <article class="ai-project-card" data-project-type="skill prototype">
                     <div class="ai-project-card-top">
@@ -5385,16 +5416,20 @@
                     </div>
                     <h3>Object Detection Skill</h3>
                     <p>Run a vision model, label objects, and turn confidence scores into a readable interactive overlay.</p>
-                    <a href="skills.html#object-detection-skill">Open skill page &rarr;</a>
+                    <div class="ai-project-card-actions">
+                        <a href="https://github.com/sarahfor/github-skill-pages/tree/main/skills/object-detection-helper" target="_blank" rel="noopener noreferrer">Open GitHub skill &rarr;</a>
+                    </div>
                 </article>
                 <article class="ai-project-card" data-project-type="skill prototype">
                     <div class="ai-project-card-top">
                         <span class="ai-project-pill">Skill</span>
                         <span class="ai-project-stack">Codex / Game Logic</span>
                     </div>
-                    <h3>Tennis Skill</h3>
+                    <h3>Tennis Analysis Skill</h3>
                     <p>A hands-on project for turning tennis rules, scoring, and interaction patterns into a playable build.</p>
-                    <a href="skills.html#tennis-skill">Open skill page &rarr;</a>
+                    <div class="ai-project-card-actions">
+                        <a href="https://github.com/sarahfor/github-skill-pages/tree/main/skills/tennis-video-analysis" target="_blank" rel="noopener noreferrer">Open GitHub skill &rarr;</a>
+                    </div>
                 </article>
             </div>
         </div>
