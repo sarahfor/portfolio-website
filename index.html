@@ -2939,6 +2939,14 @@
             display: none;
         }
 
+        .news-card-media-flyer {
+            background: #b72d3b;
+        }
+
+        .news-card-media-flyer::after {
+            display: none;
+        }
+
         .news-card-featured .news-card-media {
             background: transparent;
         }
@@ -2984,6 +2992,12 @@
             aspect-ratio: 5 / 4;
             object-fit: contain;
             background: #ffffff;
+        }
+
+        .news-card-media-flyer img {
+            aspect-ratio: 1 / 1;
+            background: #b72d3b;
+            object-fit: contain;
         }
 
         .news-card:hover img {
@@ -5388,8 +5402,8 @@
         </div>
         <div class="news-grid">
             <article class="news-card news-card-compact">
-                <a class="news-card-media news-card-media-logo news-card-media-verizon" href="https://digitalready.verizonwireless.com/static/aiaccelerator" target="_blank" rel="noopener noreferrer">
-                    <img src="verizon_2024.svg" alt="Verizon Digital Ready" loading="lazy" decoding="async">
+                <a class="news-card-media news-card-media-flyer" href="https://digitalready.verizonwireless.com/static/aiaccelerator" target="_blank" rel="noopener noreferrer">
+                    <img src="image%20assets/verizon-ai-accelerator-invitation-square.png" alt="Invitation to apply to the Verizon Small Business Digital Ready AI Accelerator" loading="lazy" decoding="async">
                 </a>
                 <div class="news-card-body">
                     <div>
