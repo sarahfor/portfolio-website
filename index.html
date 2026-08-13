@@ -96,14 +96,15 @@
             display: block;
             justify-items: center;
             max-width: 100%;
-            white-space: normal;
+            white-space: nowrap;
             overflow: visible;
         }
 
         .hero-title-line {
             display: block;
             max-width: 100%;
-            text-wrap: balance;
+            white-space: nowrap;
+            text-wrap: nowrap;
         }
 
         .hero-title-emphasis {
@@ -5400,6 +5401,21 @@
             .partnerships-copy {
                 font-size: 0.82rem;
             }
+        }
+
+        /* Keep the signature headline intact at every viewport width. */
+        .hero h1 {
+            font-size: clamp(1.7rem, 8.2vw, 5.8rem);
+        }
+
+        .hero-title,
+        .hero-title-line {
+            white-space: nowrap;
+            text-wrap: nowrap;
+        }
+
+        .hero-title-emphasis {
+            display: inline-block;
         }
     </style>
 </head>
