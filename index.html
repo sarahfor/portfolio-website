@@ -5430,26 +5430,27 @@
             box-shadow: none;
         }
 
-        .about-actions {
+        .hero-actions-compact {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
+            justify-content: center;
             gap: 0.45rem;
-            margin: 1rem 0 0.8rem;
+            margin-top: 0.85rem;
         }
 
-        .about-action {
+        .hero-action-compact {
             min-height: 34px;
             padding: 0 0.72rem;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 0.38rem;
-            border: 1px solid rgba(79, 172, 254, 0.28);
+            border: 1px solid rgba(255, 255, 255, 0.46);
             border-radius: 999px;
-            color: #17243a;
-            background: rgba(255, 255, 255, 0.72);
-            box-shadow: 0 8px 22px rgba(40, 72, 112, 0.08);
+            color: #ffffff;
+            background: rgba(4, 16, 29, 0.42);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
             font-size: 0.7rem;
             font-weight: 760;
             line-height: 1;
@@ -5459,23 +5460,23 @@
             transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
         }
 
-        .about-action::after {
+        .hero-action-compact::after {
             content: '\2192';
             font-size: 0.82rem;
             line-height: 1;
         }
 
-        .about-action:hover,
-        .about-action:focus-visible {
+        .hero-action-compact:hover,
+        .hero-action-compact:focus-visible {
             transform: translateY(-1px);
-            border-color: rgba(79, 172, 254, 0.58);
-            box-shadow: 0 10px 26px rgba(40, 72, 112, 0.13);
+            border-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.22);
         }
 
-        .about-action-primary {
-            border-color: #17243a;
-            color: #ffffff;
-            background: #17243a;
+        .hero-action-compact-primary {
+            border-color: #ffffff;
+            color: #17243a;
+            background: #ffffff;
         }
 
         .about-section {
@@ -5495,8 +5496,8 @@
                 background-position: center 58%;
             }
 
-            .about-actions {
-                justify-content: center;
+            .hero-actions-compact {
+                margin-top: 0.75rem;
             }
 
             .about-section {
@@ -5520,6 +5521,10 @@
             <h1 class="hero-title">
                 <span class="hero-title-line">It's a <span class="hero-title-emphasis">generative</span> world.</span>
             </h1>
+            <div class="hero-actions-compact" aria-label="Featured actions">
+                <a class="hero-action-compact hero-action-compact-primary" href="#work">Explore selected work</a>
+                <a class="hero-action-compact" href="#contact">Start a conversation</a>
+            </div>
         </div>
     </section>
 
@@ -5542,10 +5547,6 @@
                 <div class="about-text">
                     <h2>SARAH FORREST</h2>
                     <p>I am a computer scientist, AI workforce strategist, and tech communicator. I build AI learning experiences, translate technical systems into practical workflows, and help people and teams develop the skills to use AI with intention.</p>
-                    <div class="about-actions" aria-label="Portfolio actions">
-                        <a class="about-action about-action-primary" href="#work">Explore selected work</a>
-                        <a class="about-action" href="#contact">Start a conversation</a>
-                    </div>
                     <div class="social-links" aria-label="Social links">
                         <a href="https://www.linkedin.com/in/sarforre" target="_blank" rel="noopener noreferrer">
                             <img src="linkedin-logo.svg" alt="LinkedIn">
