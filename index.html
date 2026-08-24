@@ -5409,7 +5409,7 @@
 
         /* Keep the signature headline intact at every viewport width. */
         .hero h1 {
-            font-size: clamp(1.7rem, 8.2vw, 5.8rem);
+            font-size: clamp(0.625rem, 3.45vw, 2.9rem);
         }
 
         .hero-title,
@@ -5424,10 +5424,58 @@
 
         /* Keep the network artwork as a compact banner that leads directly into the page. */
         .hero {
-            min-height: clamp(280px, 28vw, 360px);
+            min-height: clamp(220px, 22vw, 300px);
             padding: clamp(2rem, 4vw, 3rem) 5%;
             border-radius: 0;
             box-shadow: none;
+        }
+
+        .about-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.45rem;
+            margin: 1rem 0 0.8rem;
+        }
+
+        .about-action {
+            min-height: 34px;
+            padding: 0 0.72rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.38rem;
+            border: 1px solid rgba(79, 172, 254, 0.28);
+            border-radius: 999px;
+            color: #17243a;
+            background: rgba(255, 255, 255, 0.72);
+            box-shadow: 0 8px 22px rgba(40, 72, 112, 0.08);
+            font-size: 0.7rem;
+            font-weight: 760;
+            line-height: 1;
+            text-decoration: none;
+            white-space: nowrap;
+            backdrop-filter: blur(12px) saturate(1.08);
+            transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+        }
+
+        .about-action::after {
+            content: '\2192';
+            font-size: 0.82rem;
+            line-height: 1;
+        }
+
+        .about-action:hover,
+        .about-action:focus-visible {
+            transform: translateY(-1px);
+            border-color: rgba(79, 172, 254, 0.58);
+            box-shadow: 0 10px 26px rgba(40, 72, 112, 0.13);
+        }
+
+        .about-action-primary {
+            border-color: #17243a;
+            color: #ffffff;
+            background: #17243a;
         }
 
         .about-section {
@@ -5440,15 +5488,15 @@
 
         @media (max-width: 640px) {
             .hero {
-                min-height: 300px;
-                padding: 2.3rem 6%;
+                min-height: 220px;
+                padding: 1.8rem 6%;
                 border-radius: 0;
                 box-shadow: none;
                 background-position: center 58%;
             }
 
-            .hero-actions {
-                margin-top: 1.1rem;
+            .about-actions {
+                justify-content: center;
             }
 
             .about-section {
@@ -5459,9 +5507,9 @@
 
         @media (max-width: 420px) {
             .hero {
-                min-height: 292px;
-                padding-top: 2rem;
-                padding-bottom: 2rem;
+                min-height: 210px;
+                padding-top: 1.7rem;
+                padding-bottom: 1.7rem;
             }
         }
     </style>
@@ -5472,10 +5520,6 @@
             <h1 class="hero-title">
                 <span class="hero-title-line">It's a <span class="hero-title-emphasis">generative</span> world.</span>
             </h1>
-            <div class="hero-actions" aria-label="Featured actions">
-                <a class="hero-action hero-action-primary" href="#work">Explore selected work</a>
-                <a class="hero-action" href="#contact">Start a conversation</a>
-            </div>
         </div>
     </section>
 
@@ -5498,6 +5542,10 @@
                 <div class="about-text">
                     <h2>SARAH FORREST</h2>
                     <p>I am a computer scientist, AI workforce strategist, and tech communicator. I build AI learning experiences, translate technical systems into practical workflows, and help people and teams develop the skills to use AI with intention.</p>
+                    <div class="about-actions" aria-label="Portfolio actions">
+                        <a class="about-action about-action-primary" href="#work">Explore selected work</a>
+                        <a class="about-action" href="#contact">Start a conversation</a>
+                    </div>
                     <div class="social-links" aria-label="Social links">
                         <a href="https://www.linkedin.com/in/sarforre" target="_blank" rel="noopener noreferrer">
                             <img src="linkedin-logo.svg" alt="LinkedIn">
