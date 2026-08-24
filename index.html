@@ -5524,13 +5524,21 @@
             }
 
             .hero-actions-compact {
-                margin-top: 0.75rem;
+                flex-wrap: nowrap;
+                gap: 0.35rem;
+                margin-top: 0.65rem;
             }
 
             .hero-action-compact {
-                min-height: 44px;
-                padding-right: 0.9rem;
-                padding-left: 0.9rem;
+                min-height: 30px;
+                padding-right: 0.55rem;
+                padding-left: 0.55rem;
+                gap: 0.25rem;
+                font-size: 0.55rem;
+            }
+
+            .hero-action-compact::after {
+                font-size: 0.68rem;
             }
 
             .about-section {
