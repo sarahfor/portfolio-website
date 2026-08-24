@@ -5487,6 +5487,33 @@
             display: none;
         }
 
+        /* Keep the Learning Lab visually connected to the timeline above it. */
+        .future-work-section {
+            padding-bottom: 0.75rem;
+        }
+
+        .learning-library-section {
+            margin-top: 0;
+            padding-top: 0.5rem;
+        }
+
+        .learning-library-card {
+            overflow: visible;
+            padding-left: 0;
+            padding-right: 0;
+            border: 0;
+            border-radius: 0;
+            background: transparent;
+            box-shadow: none;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+        }
+
+        .learning-library-card::before,
+        .learning-library-card::after {
+            display: none;
+        }
+
         @media (max-width: 640px) {
             .hero {
                 min-height: 220px;
@@ -5503,6 +5530,22 @@
             .about-section {
                 margin-top: 0;
                 padding-top: 1.8rem;
+            }
+
+            .future-work-section {
+                padding-bottom: 0.5rem;
+            }
+
+            .learning-library-section {
+                margin-top: 0;
+                padding-top: 0.4rem;
+            }
+
+            .learning-library-card {
+                padding-left: 0;
+                padding-right: 0;
+                border-radius: 0;
+                box-shadow: none;
             }
         }
 
