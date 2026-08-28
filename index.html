@@ -3008,6 +3008,18 @@
             display: none;
         }
 
+        .news-card-media-google-quote::before {
+            content: '';
+            position: absolute;
+            right: 0.75rem;
+            bottom: 0.75rem;
+            z-index: 2;
+            width: clamp(40px, 18%, 62px);
+            aspect-ratio: 272 / 92;
+            background: url('Google_2015_logo.svg') center / contain no-repeat;
+            pointer-events: none;
+        }
+
         .news-card-media::after {
             content: '';
             position: absolute;
@@ -5743,7 +5755,7 @@
                 </div>
             </article>
             <article class="news-card news-card-compact news-card-featured">
-                <a class="news-card-media" href="https://economicimpact.google/state/ma/" target="_blank" rel="noopener noreferrer">
+                <a class="news-card-media news-card-media-google-quote" href="https://economicimpact.google/state/ma/" target="_blank" rel="noopener noreferrer">
                     <img src="image%20assets/google-economic-impact-quote.png" alt="Sarah Forrest quote from the Google AI Essentials Massachusetts economic impact report" width="1506" height="656" loading="lazy" decoding="async">
                 </a>
                 <div class="news-card-body">
