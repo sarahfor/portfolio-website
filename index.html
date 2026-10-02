@@ -2909,6 +2909,103 @@
             line-height: 1.55;
         }
 
+        .fluent-feature {
+            display: grid;
+            grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.45fr);
+            align-items: center;
+            gap: clamp(1.25rem, 3vw, 2.5rem);
+            margin-bottom: 1.2rem;
+            padding: clamp(1.2rem, 2.6vw, 2rem);
+            border: 1px solid rgba(79, 172, 254, 0.18);
+            border-radius: 24px;
+            background: linear-gradient(145deg, #ffffff, #f1f7ff);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .fluent-feature-copy {
+            display: grid;
+            justify-items: start;
+            gap: 0.8rem;
+        }
+
+        .fluent-feature h3 {
+            color: #162132;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: clamp(1.5rem, 3.5vw, 2.65rem);
+            font-weight: 500;
+            letter-spacing: -0.04em;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .fluent-feature-tagline {
+            color: #162132;
+            font-size: clamp(1rem, 1.4vw, 1.15rem);
+            font-weight: 600;
+            line-height: 1.35;
+        }
+
+        .fluent-feature-description {
+            max-width: 38ch;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .fluent-feature-play {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.65rem;
+            min-height: 44px;
+            margin-top: 0.25rem;
+            padding: 0.65rem 1.15rem;
+            border-radius: 12px;
+            background: #255fcb;
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .fluent-feature-play:hover {
+            background: #1d4fae;
+        }
+
+        .fluent-feature-preview {
+            display: block;
+            overflow: hidden;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-radius: 16px;
+            background: #ffffff;
+        }
+
+        .fluent-feature-preview img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .fluent-feature a:focus-visible {
+            outline: 3px solid #255fcb;
+            outline-offset: 5px;
+        }
+
+        @media (max-width: 760px) {
+            .fluent-feature {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 1.2rem;
+            }
+
+            .fluent-feature-description {
+                max-width: none;
+            }
+
+            .fluent-feature h3 {
+                font-size: clamp(1.35rem, 5vw, 2rem);
+            }
+        }
+
         .news-grid {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -5714,7 +5811,7 @@
         </div>
     </section>
 
-    <section class="news-section" id="work" aria-label="News features">
+    <section class="news-section" id="work" aria-label="Selected work and features">
         <div class="news-section-header">
             <h2 class="news-heading">Selected Work &amp; Features</h2>
         </div>
@@ -5793,6 +5890,24 @@
                 </div>
             </article>
         </div>
+    </section>
+
+    <section class="news-section" aria-label="Featured learning game">
+        <article class="fluent-feature" id="fluent" aria-labelledby="fluent-title">
+            <div class="fluent-feature-copy">
+                <div class="news-meta">
+                    <span class="news-badge">I built this game</span>
+                    <span class="news-source">AI fluency</span>
+                </div>
+                <h3 id="fluent-title">Are you AI Fluent?</h3>
+                <p class="fluent-feature-tagline">Know the logo. Know the model.</p>
+                <p class="fluent-feature-description">Match AI logos and model names to the companies behind them. Start with the logos, then try the advanced model challenge.</p>
+                <a class="fluent-feature-play" href="https://sarah-forrest-ai-fluency.sarforre.chatgpt.site/" target="_blank" rel="noopener noreferrer" aria-label="Play Fluent (opens in a new tab)">Play Fluent <span aria-hidden="true">&#8599;</span></a>
+            </div>
+            <a class="fluent-feature-preview" href="https://sarah-forrest-ai-fluency.sarforre.chatgpt.site/" target="_blank" rel="noopener noreferrer" aria-label="Explore Fluent's two matching challenges (opens in a new tab)">
+                <img src="image%20assets/fluent-game-preview.png" alt="Fluent's Know the logo and Know the model matching challenges" width="2604" height="1136" loading="lazy" decoding="async">
+            </a>
+        </article>
     </section>
 
     <section class="image-grid-section field-images-section" id="portfolio" aria-labelledby="field-images-heading">
