@@ -147,61 +147,6 @@
             text-shadow: 0 2px 14px rgba(0, 0, 0, 0.42);
         }
 
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            margin-top: 1.6rem;
-        }
-
-        .hero-action {
-            min-height: 48px;
-            padding: 0 1.2rem;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(255, 255, 255, 0.42);
-            border-radius: 999px;
-            color: #ffffff;
-            background: rgba(4, 16, 29, 0.3);
-            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
-            font-size: 0.84rem;
-            font-weight: 760;
-            line-height: 1;
-            text-decoration: none;
-            white-space: nowrap;
-            backdrop-filter: blur(14px) saturate(1.15);
-            -webkit-backdrop-filter: blur(14px) saturate(1.15);
-            transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
-        }
-
-        .hero-action-primary {
-            border-color: #ffffff;
-            color: #122039;
-            background: #ffffff;
-        }
-
-        .hero-action::after {
-            content: '\2197';
-            margin-left: 0.55rem;
-            font-size: 0.88rem;
-        }
-
-        .hero-action:hover,
-        .hero-action:focus-visible {
-            transform: translateY(-2px);
-            border-color: #ffffff;
-            background: rgba(255, 255, 255, 0.16);
-        }
-
-        .hero-action-primary:hover,
-        .hero-action-primary:focus-visible {
-            color: #122039;
-            background: #eaf6ff;
-        }
-
         .hero-scroll-cue {
             position: absolute;
             left: 50%;
@@ -4233,17 +4178,6 @@
                 overflow-wrap: anywhere;
             }
 
-            .hero-actions {
-                gap: 0.55rem;
-                margin-top: 1.35rem;
-            }
-
-            .hero-action {
-                min-height: 44px;
-                padding: 0 0.95rem;
-                font-size: 0.75rem;
-            }
-
             .hero-eyebrow {
                 min-height: 32px;
                 padding: 0.35rem 0.72rem;
@@ -5266,18 +5200,6 @@
                 border-radius: 0;
             }
 
-            .hero-actions {
-                display: grid;
-                grid-template-columns: 1fr;
-                width: min(100%, 15.5rem);
-                margin-right: auto;
-                margin-left: auto;
-            }
-
-            .hero-action {
-                width: 100%;
-            }
-
             .about-text h2 {
                 font-size: clamp(1.9rem, 7.4vw, 2.3rem);
             }
@@ -5539,55 +5461,6 @@
             box-shadow: none;
         }
 
-        .hero-actions-compact {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 0.45rem;
-            margin-top: 0.85rem;
-        }
-
-        .hero-action-compact {
-            min-height: 34px;
-            padding: 0 0.72rem;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.38rem;
-            border: 1px solid rgba(255, 255, 255, 0.46);
-            border-radius: 999px;
-            color: #ffffff;
-            background: rgba(4, 16, 29, 0.42);
-            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
-            font-size: 0.7rem;
-            font-weight: 760;
-            line-height: 1;
-            text-decoration: none;
-            white-space: nowrap;
-            backdrop-filter: blur(12px) saturate(1.08);
-            transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
-        }
-
-        .hero-action-compact::after {
-            content: '\2192';
-            font-size: 0.82rem;
-            line-height: 1;
-        }
-
-        .hero-action-compact:hover,
-        .hero-action-compact:focus-visible {
-            transform: translateY(-1px);
-            border-color: rgba(255, 255, 255, 0.8);
-            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.22);
-        }
-
-        .hero-action-compact-primary {
-            border-color: #ffffff;
-            color: #17243a;
-            background: #ffffff;
-        }
-
         .about-section {
             padding-top: clamp(2.25rem, 4.5vw, 3.25rem);
         }
@@ -5635,24 +5508,6 @@
             .hero h1 {
                 font-size: clamp(1.42rem, 7.1vw, 1.75rem);
                 line-height: 0.95;
-            }
-
-            .hero-actions-compact {
-                flex-wrap: nowrap;
-                gap: 0.35rem;
-                margin-top: 0.75rem;
-            }
-
-            .hero-action-compact {
-                min-height: clamp(29px, 8.2vw, 32px);
-                padding-right: clamp(0.58rem, 3vw, 0.75rem);
-                padding-left: clamp(0.58rem, 3vw, 0.75rem);
-                gap: 0.28rem;
-                font-size: clamp(0.54rem, 2.55vw, 0.625rem);
-            }
-
-            .hero-action-compact::after {
-                font-size: clamp(0.64rem, 2.9vw, 0.75rem);
             }
 
             .about-section {
@@ -5718,10 +5573,6 @@
             <h1 class="hero-title">
                 <span class="hero-title-line">It's a <span class="hero-title-emphasis">generative</span> world.</span>
             </h1>
-            <div class="hero-actions-compact" aria-label="Featured actions">
-                <a class="hero-action-compact hero-action-compact-primary" href="#work">Explore selected work</a>
-                <a class="hero-action-compact" href="#contact">Start a conversation</a>
-            </div>
         </div>
     </section>
 
