@@ -1,0 +1,150 @@
+/* Matched to the existing portfolio components in index.html. */
+:root {
+            --site-bg: #f5f7fb;
+            --surface: #ffffff;
+            --surface-soft: #f7fbff;
+            --text-primary: #1a1a1a;
+            --text-muted: #4d5764;
+            --border-soft: rgba(15, 23, 42, 0.08);
+            --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
+            --section-x: clamp(1.5rem, 5vw, 4rem);
+            --section-gap: clamp(1.7rem, 3.6vw, 2.9rem);
+            --section-gap-tight: clamp(1.15rem, 2.7vw, 2rem);
+            --section-break: clamp(1.45rem, 3.4vw, 3rem);
+            --section-break-tight: clamp(0.9rem, 2.2vw, 1.7rem);
+        
+}
+body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(79, 172, 254, 0.09) 0%, rgba(79, 172, 254, 0) 26%),
+                linear-gradient(180deg, #f7f9fc 0%, var(--site-bg) 100%);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        
+}
+.library-hero h1, .article h1, .section-title h2, .newsletter h2 {
+            margin-top: 0.85rem;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 500;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            color: #162132;
+            max-width: none;
+            white-space: nowrap;
+        
+}
+.card, .newsletter, .takeaway, .next {
+            position: relative;
+            border-radius: 28px;
+            border: 1px solid rgba(79, 172, 254, 0.12);
+            background:
+                linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(246, 251, 255, 0.5));
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.84),
+                0 18px 36px rgba(15, 42, 82, 0.06);
+            transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+            padding: 1.3rem;
+        
+}
+.card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(66, 133, 244, 0.2);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                0 24px 48px rgba(15, 42, 82, 0.1);
+        
+}
+.card-top span:first-child {
+            display: inline-flex;
+            align-items: center;
+            min-height: 28px;
+            padding: 0.24rem 0.62rem;
+            border-radius: 999px;
+            background: rgba(79, 172, 254, 0.1);
+            color: #3778c2;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        
+}
+.card h3 {
+            margin-top: 0.9rem;
+            font-size: 1.24rem;
+            line-height: 1.08;
+            letter-spacing: -0.03em;
+            color: #162132;
+        
+}
+.card p {
+            margin-top: 0.7rem;
+            font-size: 0.94rem;
+            line-height: 1.62;
+            color: #5b6877;
+        
+}
+.button, .card-bottom, .categories a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            padding: 0.7rem 0.95rem;
+            border-radius: 999px;
+            border: 1px solid rgba(15, 23, 42, 0.1);
+            background: #ffffff;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 0.83rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, color 0.22s ease;
+        
+}
+.button:hover, .categories a:hover {
+            transform: translateY(-2px);
+            color: #3778c2;
+            border-color: rgba(79, 172, 254, 0.22);
+        
+}
+.eyebrow {
+            display: inline-flex;
+            align-items: center;
+            min-height: 30px;
+            padding: 0.28rem 0.72rem;
+            border-radius: 999px;
+            border: 1px solid rgba(79, 172, 254, 0.16);
+            background: rgba(255, 255, 255, 0.86);
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #3778c2;
+        
+}
+
+:root{--ink:#162132;--muted:#5b6877;--line:rgba(15,23,42,.1);--paper:#f5f7fb}
+.library-hero h1,.article h1,.section-title h2,.newsletter h2{white-space:normal}
+.library-hero h1 em{background:none;font-style:normal;padding:0}
+.library-hero{padding-top:48px}
+.library-hero h1 br{display:none}
+.intro{font-size:1rem;line-height:1.74;color:#5b6877;max-width:46rem}
+.card h3{font-family:inherit;font-weight:700;margin-bottom:0}
+.card-top{align-items:center;gap:10px}
+.card-top span:last-child{font-family:inherit;color:#5b6877;font-size:.78rem}
+.card-bottom{align-self:flex-start;gap:8px;margin-top:auto}
+.card p{margin-bottom:1.35rem}
+.cards{gap:1rem}
+.eyebrow{margin-bottom:1rem}
+.article-body h2,.next a{font-family:inherit;font-weight:700;letter-spacing:-.03em;color:#162132}
+.article-body h2{font-size:1.4rem;line-height:1.25}
+.article-body p,.article-body li{color:#5b6877;line-height:1.74}
+.takeaway{margin:38px 0}.takeaway strong{color:#3778c2}
+.newsletter{padding:2rem}.newsletter h2{margin-bottom:1rem}
+.prompt{border:1px solid rgba(79,172,254,.12);border-radius:20px;background:#f7fbff}
+.copy{font-family:inherit;border-radius:999px;font-weight:700}
+.top{border-color:rgba(15,23,42,.08)}
+@media(max-width:550px){.library-hero h1,.article h1{font-size:2rem}.section-title h2,.newsletter h2{font-size:1.8rem}.card h3{font-size:1.24rem}.card{min-height:270px}.newsletter{padding:1.3rem}}
