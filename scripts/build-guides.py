@@ -7,9 +7,27 @@ from reportlab.lib.colors import HexColor
 ROOT=Path(__file__).resolve().parents[1]; OUT=ROOT/'guides'
 data=json.loads((OUT/'content.json').read_text()); e=html.escape
 DATE='November 22, 2026'
+def assistant_layout(body):
+ """Add reading navigation to the assistant guide without changing its text."""
+ headings = re.findall(r'<section><h2>(.*?)</h2>', body)
+ links = []
+ for i, heading in enumerate(headings, 1):
+  anchor = f'guide-step-{i}'
+  body = body.replace(f'<section><h2>{heading}</h2>', f'<section id="{anchor}"><h2>{heading}</h2>', 1)
+  label = re.sub(r'^\d+ / ', '', heading)
+  links.append(f'<a href="#{anchor}">{label}</a>')
+ navigation = '<nav class="guide-contents" aria-label="In this guide"><p class="eyebrow">In this guide</p>' + ''.join(links) + '</nav>'
+ body = body.replace('<aside class="takeaway">', '<div class="guide-sidebar"><aside class="takeaway">', 1)
+ body = body.replace('</aside><div class="article-body">', '</aside>' + navigation + '</div><div class="article-body">', 1)
+ return body
+
 def shell(title,desc,body,slug=''):
  url='https://sarahforrestai.com/guides/'+slug
- return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{e(title)} | Sarah Forrest</title><meta name="description" content="{e(desc)}"><link rel="canonical" href="{url}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:type" content="website"><link rel="stylesheet" href="/guides/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="top"><a class="brand" href="/">Sarah Forrest<span>AI · work · things worth building</span></a><nav aria-label="Main"><a href="/guides/">Free guides</a><a href="https://sarforre.substack.com/">Newsletter ↗</a></nav></header>{body}<footer><span>© 2026 Sarah Forrest</span><a href="/">Back to my website ↗</a></footer><script src="/guides/script.js" defer></script></body></html>'''
+ if slug == 'custom-assistant.html':
+  body = assistant_layout(body)
+ extra_style = '<link rel="stylesheet" href="/guides/assistant-glass.css">' if slug == 'custom-assistant.html' else ''
+ body_class = ' class="assistant-guide"' if slug == 'custom-assistant.html' else ''
+ return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{e(title)} | Sarah Forrest</title><meta name="description" content="{e(desc)}"><link rel="canonical" href="{url}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:type" content="website"><link rel="stylesheet" href="/guides/style.css">{extra_style}</head><body{body_class}><a class="skip" href="#main">Skip to content</a><header class="top"><a class="brand" href="/">Sarah Forrest<span>AI · work · things worth building</span></a><nav aria-label="Main"><a href="/guides/">Free guides</a><a href="https://sarforre.substack.com/">Newsletter ↗</a></nav></header>{body}<footer><span>© 2026 Sarah Forrest</span><a href="/">Back to my website ↗</a></footer><script src="/guides/script.js" defer></script></body></html>'''
 def card(g,i):
  return f'''<a class="card" href="{g['slug']}.html"><div class="card-top"><span>{e(g['format'])}</span><span>{i:02}</span></div><h3>{e(g['title'])}</h3><p>{e(g['outcome'])}</p><span class="card-bottom">Read the guide <span aria-hidden="true">↗</span></span></a>'''
 body='''<main id="main"><section class="library-hero"><p class="eyebrow">THE FREE GUIDE LIBRARY</p><h1>Learn, work<br>and <em>build with AI.</em></h1><p class="intro">Practical guides for a changing working life. Start with a question, try something small, and make it your own.</p><div class="hero-bottom"><span>By Sarah Forrest · Computer scientist & educator</span><a href="#start-here">Find your starting point ↓</a></div></section><div class="library-content"><nav class="categories" aria-label="Guide categories"><a href="#start-here">01 / Start here</a><a href="#build-something">02 / Build something</a><a href="#understand">03 / Understand what’s changing</a></nav>'''
