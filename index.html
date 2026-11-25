@@ -2941,8 +2941,8 @@
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
-            gap: 0.55rem;
-            margin-top: 1rem;
+            gap: 0.75rem;
+            margin: 0 0 1.5rem;
             scroll-margin-top: 5rem;
         }
 
@@ -2950,25 +2950,26 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-height: 40px;
-            padding: 0.45rem 1rem;
-            border: 1px solid rgba(79, 172, 254, 0.15);
+            min-height: 48px;
+            padding: 0.65rem 1.35rem;
+            border: 1px solid rgba(103, 178, 242, 0.72);
             border-radius: 999px;
-            background: rgba(255, 255, 255, 0.72);
-            box-shadow: 0 5px 16px rgba(15, 42, 82, 0.045), inset 0 1px 0 rgba(255, 255, 255, 0.94);
+            background: rgba(255, 255, 255, 0.84);
+            box-shadow: 0 0 0 3px rgba(139, 207, 255, 0.12), 0 0 22px rgba(91, 172, 241, 0.22), 0 7px 18px rgba(15, 42, 82, 0.05), inset 0 1px 0 #fff;
             -webkit-backdrop-filter: blur(14px);
             backdrop-filter: blur(14px);
             color: #3e5973;
-            font-size: 0.875rem;
-            font-weight: 550;
+            font-size: 0.95rem;
+            font-weight: 600;
             line-height: 1.4;
             text-decoration: none;
-            transition: background 180ms ease, border-color 180ms ease;
+            transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
         }
 
         .fluent-resource-pills a:hover {
             background: #fff;
-            border-color: rgba(79, 172, 254, 0.36);
+            border-color: rgba(79, 172, 254, 0.94);
+            box-shadow: 0 0 0 3px rgba(139, 207, 255, 0.18), 0 0 26px rgba(91, 172, 241, 0.32), 0 7px 18px rgba(15, 42, 82, 0.06), inset 0 1px 0 #fff;
             color: #244f7d;
         }
 
@@ -5789,6 +5790,11 @@
     </section>
 
     <section class="news-section" aria-label="Featured learning game">
+        <nav class="fluent-resource-pills" id="free-guides" aria-label="More from Sarah">
+            <a href="https://sarforre.substack.com/" target="_blank" rel="noopener noreferrer">Check out the newsletter</a>
+            <a href="/guides/">Check out my articles</a>
+            <a href="/guides/#build-something">Build something</a>
+        </nav>
         <article class="fluent-feature" id="fluent" aria-labelledby="fluent-title">
             <div class="fluent-feature-copy">
                 <div class="news-meta">
@@ -5804,11 +5810,6 @@
                 <img src="image%20assets/fluent-game-preview.png" alt="Fluent's Know the logo and Know the model matching challenges" width="2604" height="1136" loading="lazy" decoding="async">
             </a>
         </article>
-        <nav class="fluent-resource-pills" id="free-guides" aria-label="More from Sarah">
-            <a href="https://sarforre.substack.com/" target="_blank" rel="noopener noreferrer">Check out the newsletter</a>
-            <a href="/guides/">Check out my articles</a>
-            <a href="/guides/#build-something">Build something</a>
-        </nav>
     </section>
 
     <section class="image-grid-section field-images-section" id="portfolio" aria-labelledby="field-images-heading">
