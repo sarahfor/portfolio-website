@@ -7,8 +7,8 @@ from reportlab.lib.colors import HexColor
 ROOT=Path(__file__).resolve().parents[1]; OUT=ROOT/'guides'
 data=json.loads((OUT/'content.json').read_text()); e=html.escape
 DATE='November 22, 2026'
-def assistant_layout(body):
- """Add reading navigation to the assistant guide without changing its text."""
+def guide_layout(body):
+ """Add reading navigation to each guide without changing its text."""
  headings = re.findall(r'<section><h2>(.*?)</h2>', body)
  links = []
  for i, heading in enumerate(headings, 1):
@@ -23,10 +23,10 @@ def assistant_layout(body):
 
 def shell(title,desc,body,slug=''):
  url='https://sarahforrestai.com/guides/'+slug
- if slug == 'custom-assistant.html':
-  body = assistant_layout(body)
- extra_style = '<link rel="stylesheet" href="/guides/assistant-glass.css">' if slug == 'custom-assistant.html' else ''
- body_class = ' class="assistant-guide"' if slug == 'custom-assistant.html' else ''
+ if slug:
+  body = guide_layout(body)
+ extra_style = '<link rel="stylesheet" href="/guides/glass.css">'
+ body_class = ' class="glass-guide"'
  return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{e(title)} | Sarah Forrest</title><meta name="description" content="{e(desc)}"><link rel="canonical" href="{url}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:type" content="website"><link rel="stylesheet" href="/guides/style.css">{extra_style}</head><body{body_class}><a class="skip" href="#main">Skip to content</a><header class="top"><a class="brand" href="/">Sarah Forrest<span>AI · work · things worth building</span></a><nav aria-label="Main"><a href="/guides/">Free guides</a><a href="https://sarforre.substack.com/">Newsletter ↗</a></nav></header>{body}<footer><span>© 2026 Sarah Forrest</span><a href="/">Back to my website ↗</a></footer><script src="/guides/script.js" defer></script></body></html>'''
 def card(g,i):
  return f'''<a class="card" href="{g['slug']}.html"><div class="card-top"><span>{e(g['format'])}</span><span>{i:02}</span></div><h3>{e(g['title'])}</h3><p>{e(g['outcome'])}</p><span class="card-bottom">Read the guide <span aria-hidden="true">↗</span></span></a>'''
